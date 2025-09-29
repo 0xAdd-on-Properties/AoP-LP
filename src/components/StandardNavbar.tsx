@@ -115,7 +115,7 @@ const StandardNavbar = () => {
                     <Link
                       key={index}
                       to={item.link}
-                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
+                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
                       onClick={closeDropdowns}
                     >
                       {item.icon}
@@ -141,7 +141,7 @@ const StandardNavbar = () => {
                     <Link
                       key={index}
                       to={item.link}
-                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
+                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
                       onClick={closeDropdowns}
                     >
                       {item.icon}
@@ -167,7 +167,7 @@ const StandardNavbar = () => {
                     <Link
                       key={index}
                       to={item.link}
-                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
+                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
                       onClick={closeDropdowns}
                     >
                       {item.icon}
@@ -183,14 +183,14 @@ const StandardNavbar = () => {
           <Link to="/" className="flex items-center space-x-1 sm:space-x-2">
             {location.pathname === '/ecoprops' ? (
               <>
-                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-emerald-500 to-green-500 rounded-lg flex items-center justify-center">
+                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-700 to-emerald-800 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xs sm:text-sm">A</span>
                 </div>
-                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                  AoPEco
+                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-green-800 to-emerald-700 bg-clip-text text-transparent">
+                  AEco
                 </span>
               </>
-            ) : location.pathname === '/eco' ? (
+            ) : location.pathname === '/eco' || location.pathname === '/addonprop.xyz' ? (
               <>
                 <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-700 to-emerald-800 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xs sm:text-sm">A</span>
@@ -220,17 +220,40 @@ const StandardNavbar = () => {
             )}
           </Link>
 
-          {/* Right Side - Buy, Sell, Rent */}
-          <div className="hidden sm:flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
-            <Link to="/buy" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-xs sm:text-sm font-medium">
-              Buy
-            </Link>
-            <Link to="/sell" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-xs sm:text-sm font-medium">
-              Sell
-            </Link>
-            <Link to="/rent" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-xs sm:text-sm font-medium">
-              Rent
-            </Link>
+          {/* Right Side - Buy Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => handleDropdownToggle('buy')}
+              className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
+            >
+              <span className="text-xs sm:text-sm font-medium">Buy</span>
+              <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
+            </button>
+            {activeDropdown === 'buy' && (
+              <div className="absolute top-full right-0 mt-2 w-32 sm:w-40 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
+                <Link
+                  to="/buy"
+                  className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200 text-xs sm:text-sm"
+                  onClick={closeDropdowns}
+                >
+                  <span>Buy Properties</span>
+                </Link>
+                <Link
+                  to="/sell"
+                  className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200 text-xs sm:text-sm"
+                  onClick={closeDropdowns}
+                >
+                  <span>Sell Properties</span>
+                </Link>
+                <Link
+                  to="/rent"
+                  className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200 text-xs sm:text-sm"
+                  onClick={closeDropdowns}
+                >
+                  <span>Rent Properties</span>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </nav>

@@ -226,8 +226,8 @@ const PropertyMarketplace = () => {
                   <Search className="w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2" />
                   Search
                 </button>
-                </div>
               </div>
+            </div>
               
             {/* Popular Localities */}
             <div className="mt-4 sm:mt-6">
