@@ -80,12 +80,12 @@ const Hero = () => {
           <div className="absolute bottom-1/4 left-1/2 w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-400 transform rotate-12 animate-bounce"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 lg:pt-28">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen">
+        <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 pt-16 sm:pt-20 lg:pt-28">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center min-h-screen">
             {/* Left Content */}
-            <div className="space-y-8">
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8">
               <div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tight mb-4 sm:mb-6">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-3 sm:mb-4 lg:mb-6">
                   <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent">
                     Sustainable
                   </span>
@@ -98,75 +98,75 @@ const Hero = () => {
                     Revolution
                   </span>
                 </h1>
-                <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6 sm:mb-8">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mb-4 sm:mb-6 lg:mb-8">
                   Transform your living space into a sustainable ecosystem. From smart homes to eco-villages, 
                   discover the future of sustainable living in India.
                 </p>
               </div>
 
               {/* Search Bar */}
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6">
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4">
                   <div className="flex-1 relative">
-                    <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 sm:w-5 h-4 sm:h-5" />
+                    <Search className="absolute left-2 sm:left-3 lg:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5" />
                     <input
                       type="text"
                       placeholder="Search for sustainable properties..."
-                      className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 transition-all duration-300 text-sm sm:text-base"
+                      className="w-full pl-8 sm:pl-10 lg:pl-12 pr-3 sm:pr-4 py-2 sm:py-3 lg:py-4 bg-white/10 border border-white/20 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 transition-all duration-300 text-xs sm:text-sm lg:text-base"
                     />
                   </div>
                   <div className="relative group">
-                    <select className="appearance-none bg-white/10 border border-white/20 rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white focus:outline-none focus:border-emerald-400 transition-all duration-300 pr-8 sm:pr-10 w-full sm:w-48 text-sm sm:text-base">
+                    <select className="appearance-none bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-white focus:outline-none focus:border-emerald-400 transition-all duration-300 pr-6 sm:pr-8 lg:pr-10 w-full sm:w-40 lg:w-48 text-xs sm:text-sm lg:text-base">
                       <option value="" className="bg-slate-800 text-white">All Types</option>
                       <option value="earthships" className="bg-slate-800 text-white">Earthships</option>
                       <option value="mandala" className="bg-slate-800 text-white">Mandala Homes</option>
                       <option value="eco-communes" className="bg-slate-800 text-white">Eco Communes</option>
                       <option value="smart-apartments" className="bg-slate-800 text-white">Smart Apartments</option>
                     </select>
-                    <ChevronDown className="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 sm:w-5 h-4 sm:h-5 pointer-events-none group-hover:text-emerald-400 transition-colors" />
+                    <ChevronDown className="absolute right-1 sm:right-2 lg:right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 pointer-events-none group-hover:text-emerald-400 transition-colors" />
                   </div>
-                  <button className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25 text-sm sm:text-base">
+                  <button className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25 text-xs sm:text-sm lg:text-base">
                     Search
                   </button>
                 </div>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <button className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-teal-500/25 flex items-center justify-center text-sm sm:text-base">
-                  <Play className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4">
+                <button className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-teal-500/25 flex items-center justify-center text-xs sm:text-sm lg:text-base">
+                  <Play className="w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 mr-1 sm:mr-2" />
                   Watch Demo
                 </button>
-                <button className="bg-white/10 hover:bg-white/20 border border-white/20 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-white transition-all duration-300 text-sm sm:text-base">
+                <button className="bg-white/10 hover:bg-white/20 border border-white/20 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl font-semibold text-white transition-all duration-300 text-xs sm:text-sm lg:text-base">
                   Learn More
                 </button>
               </div>
             </div>
 
             {/* Right Content - Rotating Cards */}
-            <div className="space-y-6 lg:space-y-8">
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8">
               <div className="text-center">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent mb-2">
+                <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent mb-1 sm:mb-2">
                   Complete Property Ecosystem
                 </h2>
-                <p className="text-gray-300 text-base sm:text-lg">
+                <p className="text-gray-300 text-sm sm:text-base lg:text-lg">
                   Everything you need for sustainable living
                 </p>
               </div>
               
-              <div className="relative h-64 sm:h-72 lg:h-80 overflow-hidden">
+              <div className="relative h-48 sm:h-56 lg:h-64 xl:h-72 overflow-hidden">
                 <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${currentCardIndex * 33.333}%)` }}>
                   {ecosystemCards.map((card, index) => {
                     const IconComponent = card.icon;
                     return (
-                      <div key={index} className="w-1/3 flex-shrink-0 px-2 sm:px-3">
-                        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-3xl p-3 sm:p-4 lg:p-6 h-full cursor-pointer hover:scale-105 transition-all duration-300" onClick={() => setSelectedCard(card)}>
-                          <div className={`bg-gradient-to-br ${card.color} rounded-xl sm:rounded-2xl h-20 sm:h-24 lg:h-32 mb-2 sm:mb-3 lg:mb-4 flex items-center justify-center overflow-hidden relative`}>
-                            <div className={`w-full h-full bg-gradient-to-br ${card.color} rounded-xl sm:rounded-2xl flex items-center justify-center`}>
-                              <IconComponent className="w-6 sm:w-8 lg:w-10 h-6 sm:h-8 lg:h-10 text-white/80" />
+                      <div key={index} className="w-1/3 flex-shrink-0 px-1 sm:px-2 lg:px-3">
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl lg:rounded-3xl p-2 sm:p-3 lg:p-4 xl:p-6 h-full cursor-pointer hover:scale-105 transition-all duration-300" onClick={() => setSelectedCard(card)}>
+                          <div className={`bg-gradient-to-br ${card.color} rounded-lg sm:rounded-xl lg:rounded-2xl h-16 sm:h-20 lg:h-24 xl:h-32 mb-1 sm:mb-2 lg:mb-3 xl:mb-4 flex items-center justify-center overflow-hidden relative`}>
+                            <div className={`w-full h-full bg-gradient-to-br ${card.color} rounded-lg sm:rounded-xl lg:rounded-2xl flex items-center justify-center`}>
+                              <IconComponent className="w-4 sm:w-6 lg:w-8 xl:w-10 h-4 sm:h-6 lg:h-8 xl:h-10 text-white/80" />
                             </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl sm:rounded-2xl"></div>
-                            <div className="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 text-left">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-lg sm:rounded-xl lg:rounded-2xl"></div>
+                            <div className="absolute bottom-1 left-1 text-left">
                               <h3 className="text-white text-xs sm:text-sm lg:text-base font-semibold">{card.title}</h3>
                               <p className="text-gray-200 text-xs">{card.subtitle}</p>
                             </div>
