@@ -96,8 +96,8 @@ const StandardNavbar = () => {
       </div>
 
       {/* Half-Width Glassmorphic Navbar */}
-      <nav className="w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 max-w-4xl bg-white/90 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-3 sm:py-4 shadow-lg">
-        <div className="flex items-center justify-between h-10 sm:h-12">
+      <nav className="w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 max-w-4xl bg-white/90 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl px-3 sm:px-6 lg:px-8 py-2 sm:py-4 shadow-lg">
+        <div className="flex items-center justify-between h-8 sm:h-12">
           {/* Left Side - EcoProps, Markets, 3DProps */}
           <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
             <div className="relative">
@@ -106,7 +106,7 @@ const StandardNavbar = () => {
                 className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
               >
                 <Leaf className="w-3 sm:w-4 h-3 sm:h-4" />
-                <span className="text-xs sm:text-sm font-medium">EcoProps</span>
+                <span className="text-xs sm:text-sm font-medium hidden sm:block">EcoProps</span>
                 <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
               </button>
                       {activeDropdown === 'ecoprops' && (
@@ -132,7 +132,7 @@ const StandardNavbar = () => {
                 className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
               >
                 <Package className="w-3 sm:w-4 h-3 sm:h-4" />
-                <span className="text-xs sm:text-sm font-medium">Markets</span>
+                <span className="text-xs sm:text-sm font-medium hidden sm:block">Markets</span>
                 <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
               </button>
                       {activeDropdown === 'markets' && (
@@ -158,7 +158,7 @@ const StandardNavbar = () => {
                 className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
               >
                 <Box className="w-3 sm:w-4 h-3 sm:h-4" />
-                <span className="text-xs sm:text-sm font-medium">3DProps</span>
+                <span className="text-xs sm:text-sm font-medium hidden sm:block">3DProps</span>
                 <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
               </button>
                       {activeDropdown === '3dprops' && (
@@ -221,7 +221,7 @@ const StandardNavbar = () => {
           </Link>
 
           {/* Right Side - Buy, Sell, Rent */}
-          <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
+          <div className="hidden sm:flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
             <Link to="/buy" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-xs sm:text-sm font-medium">
               Buy
             </Link>

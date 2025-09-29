@@ -80,7 +80,7 @@ const Hero = () => {
           <div className="absolute bottom-1/4 left-1/2 w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-400 transform rotate-12 animate-bounce"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 lg:pt-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 lg:pt-28">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen">
             {/* Left Content */}
             <div className="space-y-8">

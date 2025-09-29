@@ -41,6 +41,7 @@ function App() {
                 <Route path="/" element={<><StandardNavbar /><Home /><Footer /></>} />
                 <Route path="/aop" element={<PropertyMarketplace />} />
                 <Route path="/eco" element={<><StandardNavbar /><Home /><Footer /></>} />
+                <Route path="/addonprop.xyz" element={<><StandardNavbar /><Home /><Footer /></>} />
         
         {/* EcoProps Routes */}
         <Route path="/earthships" element={<><Navbar /><Earthships /><Footer /></>} />

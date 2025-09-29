@@ -44,6 +44,10 @@ const ThemeToggle = () => {
     setShowMenu(false);
   };
 
+  const handleClick = () => {
+    setShowMenu(!showMenu);
+  };
+
   const menuItems = [
     {
       icon: <Home className="w-5 h-5" />,
@@ -72,6 +76,14 @@ const ThemeToggle = () => {
       description: "All Marketplaces",
       link: "/aopmarkets",
       color: "from-blue-500 to-indigo-600"
+    },
+    {
+      icon: isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />,
+      label: isDark ? "Light Mode" : "Dark Mode",
+      description: "Toggle theme",
+      link: "#",
+      color: "from-purple-500 to-pink-600",
+      onClick: toggleTheme
     }
   ];
 
@@ -79,36 +91,53 @@ const ThemeToggle = () => {
     <div 
       className="fixed bottom-6 left-6 z-50" 
       ref={menuRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {/* Menu Items */}
       {showMenu && (
         <div className="absolute bottom-16 left-0 space-y-3 animate-in slide-in-from-bottom-2 duration-300">
           {menuItems.map((item, index) => (
-            <Link
-              key={index}
-              to={item.link}
-              className="group flex items-center space-x-3 bg-white/90 backdrop-blur-md border border-white/20 rounded-2xl p-4 hover:bg-white/95 hover:scale-105 transition-all duration-300 min-w-[200px] shadow-lg"
-              onClick={() => setShowMenu(false)}
-            >
-              <div className={`w-10 h-10 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-md`}>
-                {item.icon}
-              </div>
-              <div>
-                <div className="font-semibold text-slate-800 group-hover:text-slate-900">{item.label}</div>
-                <div className="text-sm text-slate-600">{item.description}</div>
-              </div>
-            </Link>
+            item.onClick ? (
+              <button
+                key={index}
+                onClick={() => {
+                  item.onClick();
+                  setShowMenu(false);
+                }}
+                className="group flex items-center space-x-3 bg-white/90 backdrop-blur-md border border-white/20 rounded-2xl p-4 hover:bg-white/95 hover:scale-105 transition-all duration-300 min-w-[200px] shadow-lg w-full text-left"
+              >
+                <div className={`w-10 h-10 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-md`}>
+                  {item.icon}
+                </div>
+                <div>
+                  <div className="font-semibold text-slate-800 group-hover:text-slate-900">{item.label}</div>
+                  <div className="text-sm text-slate-600">{item.description}</div>
+                </div>
+              </button>
+            ) : (
+              <Link
+                key={index}
+                to={item.link}
+                className="group flex items-center space-x-3 bg-white/90 backdrop-blur-md border border-white/20 rounded-2xl p-4 hover:bg-white/95 hover:scale-105 transition-all duration-300 min-w-[200px] shadow-lg"
+                onClick={() => setShowMenu(false)}
+              >
+                <div className={`w-10 h-10 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-md`}>
+                  {item.icon}
+                </div>
+                <div>
+                  <div className="font-semibold text-slate-800 group-hover:text-slate-900">{item.label}</div>
+                  <div className="text-sm text-slate-600">{item.description}</div>
+                </div>
+              </Link>
+            )
           ))}
         </div>
       )}
 
       {/* Main Toggle Button */}
       <button
-        onClick={toggleTheme}
+        onClick={handleClick}
         className="w-14 h-14 bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 rounded-full shadow-lg shadow-blue-500/25 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-        aria-label="Toggle theme"
+        aria-label="Toggle menu"
       >
         {isDark ? (
           <Sun className="w-6 h-6 text-white group-hover:rotate-180 transition-transform duration-500" />
