@@ -434,8 +434,11 @@ const EcoProps = () => {
                     
                     <div className="flex items-center justify-between">
                       <div className="text-2xl font-bold text-slate-800">{property.price}</div>
-                      <button className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-4 py-2 rounded-lg font-semibold text-white transition-all duration-300 text-sm">
-                        View Details
+                      <button 
+                        onClick={() => window.location.href = `/property/${property.id}`}
+                        className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-4 py-2 rounded-lg font-semibold text-white transition-all duration-300 text-sm"
+                      >
+                        View Property
                       </button>
                     </div>
                   </div>

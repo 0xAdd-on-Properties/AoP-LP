@@ -344,8 +344,11 @@ const PropertyMarketplace = () => {
                         <span>{property.area}</span>
                       </div>
                     </div>
-                    <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 shadow-lg shadow-blue-500/25">
-                      View Details
+                    <button 
+                      onClick={() => window.location.href = `/property/${property.id}`}
+                      className="w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 shadow-lg shadow-blue-500/25"
+                    >
+                      View Property
                     </button>
                   </div>
                 </div>
@@ -565,8 +568,11 @@ const PropertyMarketplace = () => {
                       <div className="text-sm text-slate-500">
                         <span className="font-medium">75% Sold</span>
                       </div>
-                      <button className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300">
-                        View Details
+                      <button 
+                        onClick={() => window.location.href = `/property/${project.id}`}
+                        className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300"
+                      >
+                        View Property
                       </button>
                     </div>
                   </div>
@@ -948,9 +954,12 @@ const PropertyMarketplace = () => {
                     </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                  <button className="flex-1 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25">
-                        Schedule Site Visit
-                      </button>
+                  <button 
+                    onClick={() => window.location.href = `/property/${selectedProperty?.id}`}
+                    className="flex-1 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25"
+                  >
+                    View Property
+                  </button>
                   <button className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-cyan-500/25">
                         Virtual Tour
                       </button>
