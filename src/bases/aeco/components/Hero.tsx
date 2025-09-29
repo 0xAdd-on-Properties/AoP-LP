@@ -160,22 +160,22 @@ const Hero = () => {
                     const IconComponent = card.icon;
                     return (
                       <div key={index} className="w-1/3 flex-shrink-0 px-2 sm:px-3">
-                        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 h-full cursor-pointer hover:scale-105 transition-all duration-300" onClick={() => setSelectedCard(card)}>
-                          <div className={`bg-gradient-to-br ${card.color} rounded-xl sm:rounded-2xl h-24 sm:h-32 lg:h-36 mb-3 sm:mb-4 flex items-center justify-center overflow-hidden relative`}>
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-3xl p-3 sm:p-4 lg:p-6 h-full cursor-pointer hover:scale-105 transition-all duration-300" onClick={() => setSelectedCard(card)}>
+                          <div className={`bg-gradient-to-br ${card.color} rounded-xl sm:rounded-2xl h-20 sm:h-24 lg:h-32 mb-2 sm:mb-3 lg:mb-4 flex items-center justify-center overflow-hidden relative`}>
                             <div className={`w-full h-full bg-gradient-to-br ${card.color} rounded-xl sm:rounded-2xl flex items-center justify-center`}>
-                              <IconComponent className="w-8 sm:w-10 lg:w-14 h-8 sm:h-10 lg:h-14 text-white/80" />
+                              <IconComponent className="w-6 sm:w-8 lg:w-10 h-6 sm:h-8 lg:h-10 text-white/80" />
                             </div>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl sm:rounded-2xl"></div>
-                            <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-left">
-                              <h3 className="text-white text-sm sm:text-base font-semibold">{card.title}</h3>
+                            <div className="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 text-left">
+                              <h3 className="text-white text-xs sm:text-sm lg:text-base font-semibold">{card.title}</h3>
                               <p className="text-gray-200 text-xs">{card.subtitle}</p>
                             </div>
                           </div>
-                          <div className="space-y-1 sm:space-y-2">
+                          <div className="space-y-1">
                             {card.features.slice(0, 2).map((feature, featureIndex) => (
-                              <div key={featureIndex} className="flex justify-between text-white text-xs sm:text-sm">
+                              <div key={featureIndex} className="flex justify-between text-white text-xs">
                                 <span className="truncate">{feature}</span>
-                                <span className="text-green-400 ml-2">✓</span>
+                                <span className="text-green-400 ml-1">✓</span>
                               </div>
                             ))}
                           </div>

@@ -183,6 +183,15 @@ const StandardNavbar = () => {
           <Link to="/" className="flex items-center space-x-1 sm:space-x-2">
             {location.pathname === '/ecoprops' ? (
               <>
+                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-emerald-400 to-green-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
+                </div>
+                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-emerald-500 to-green-600 bg-clip-text text-transparent">
+                  AoPEco
+                </span>
+              </>
+            ) : location.pathname === '/eco' ? (
+              <>
                 <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-700 to-emerald-800 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xs sm:text-sm">A</span>
                 </div>
@@ -190,13 +199,13 @@ const StandardNavbar = () => {
                   AEco
                 </span>
               </>
-            ) : location.pathname === '/eco' || location.pathname === '/addonprop.xyz' ? (
+            ) : location.pathname === '/addonprop.xyz' ? (
               <>
-                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-700 to-emerald-800 rounded-lg flex items-center justify-center">
+                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xs sm:text-sm">A</span>
                 </div>
-                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-green-800 to-emerald-700 bg-clip-text text-transparent">
-                  AEco
+                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                  AoP
                 </span>
               </>
             ) : location.pathname === '/aopmarkets' ? (
