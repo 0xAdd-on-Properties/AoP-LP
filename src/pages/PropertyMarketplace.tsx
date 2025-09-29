@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Facebook, Instagram, Linkedin, Youtube, Twitter, Building } from 'lucide-react';
-import StandardNavbar from '../../../components/StandardNavbar';
-import useClickOutside from '../../../hooks/useClickOutside';
+import StandardNavbar from '../components/StandardNavbar';
+import useClickOutside from '../hooks/useClickOutside';
 
 const PropertyMarketplace = () => {
   const [activeTab, setActiveTab] = useState('BUY');
@@ -176,26 +176,26 @@ const PropertyMarketplace = () => {
       <StandardNavbar />
       
       {/* Header with Search */}
-      <header className="bg-gradient-to-br from-slate-900 via-emerald-900 to-blue-900 text-white py-8 sm:py-12 sm:py-16 relative overflow-hidden pt-24 sm:pt-32">
+      <header className="bg-gradient-to-br from-slate-900 via-emerald-900 to-blue-900 text-white py-16 relative overflow-hidden pt-32">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-20 left-4 sm:left-20 w-48 sm:w-64 h-48 sm:h-64 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-          <div className="absolute top-40 right-4 sm:right-20 w-56 sm:w-72 h-56 sm:h-72 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
-          <div className="absolute bottom-20 left-1/3 w-64 sm:w-80 h-64 sm:h-80 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-4000"></div>
+          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-72 h-72 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
+          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-4000"></div>
         </div>
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           {/* Main Search Section */}
-          <div className="text-center mb-6 sm:mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Properties to buy in Vizag</h2>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Properties to buy in Vizag</h2>
             
             {/* Search Tabs */}
-            <div className="flex justify-center mb-4 sm:mb-6">
-              <div className="bg-white/20 rounded-lg p-1 flex flex-wrap justify-center gap-1">
+            <div className="flex justify-center mb-6">
+              <div className="bg-white/20 rounded-lg p-1 flex">
                 {['BUY', 'RENT', 'COMMERCIAL', 'PROJECTS', 'PLOTS', 'PG/CO-LIVING'].map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                       activeTab === tab ? 'bg-white text-blue-600' : 'text-white hover:bg-white/20'
                     }`}
                   >
@@ -207,36 +207,36 @@ const PropertyMarketplace = () => {
 
             {/* Search Bar */}
             <div className="max-w-4xl mx-auto">
-              <div className="glass-card rounded-2xl p-4 sm:p-6 flex flex-col md:flex-row gap-3 sm:gap-4">
+              <div className="glass-card rounded-2xl p-6 flex flex-col md:flex-row gap-4">
                 <div className="flex-1">
                   <input
                     type="text"
                     placeholder="Vizag"
-                    className="w-full p-2 sm:p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white placeholder-white/70 text-sm sm:text-base"
+                    className="w-full p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white placeholder-white/70"
                   />
                 </div>
                 <div className="flex-1">
                   <input
                     type="text"
                     placeholder="Search by locality, property, project or developer"
-                    className="w-full p-2 sm:p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white placeholder-white/70 text-sm sm:text-base"
+                    className="w-full p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white placeholder-white/70"
                   />
                 </div>
-                <button className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center shadow-lg shadow-emerald-500/25 text-sm sm:text-base">
-                  <Search className="w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2" />
+                <button className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                  <Search className="w-5 h-5 mr-2" />
                   Search
                 </button>
                 </div>
               </div>
               
             {/* Popular Localities */}
-            <div className="mt-4 sm:mt-6">
-              <p className="text-blue-100 mb-2 sm:mb-3 text-xs sm:text-sm">Popular Localities:</p>
-              <div className="flex flex-wrap justify-center gap-1 sm:gap-2">
+            <div className="mt-6">
+              <p className="text-blue-100 mb-3">Popular Localities:</p>
+              <div className="flex flex-wrap justify-center gap-2">
                 {popularLocalities.map((locality) => (
                   <button
                     key={locality}
-                    className="glass-card hover:bg-white/30 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm transition-all duration-300 hover:scale-105"
+                    className="glass-card hover:bg-white/30 px-4 py-2 rounded-full text-sm transition-all duration-300 hover:scale-105"
                   >
                     {locality}
                   </button>
@@ -245,17 +245,17 @@ const PropertyMarketplace = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="mt-6 sm:mt-8 flex flex-col lg:flex-row gap-3 sm:gap-4 justify-center items-center">
-              <button className="glass-card text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105 text-sm sm:text-base">
+            <div className="mt-8 flex flex-col lg:flex-row gap-4 justify-center items-center">
+              <button className="glass-card text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105">
                 Are you a Property Owner?
               </button>
               <div className="max-w-2xl w-full text-center">
-                <h3 className="font-semibold mb-2 text-white text-base sm:text-lg">Property Digitization & Tokenization</h3>
-                <p className="text-xs sm:text-sm text-blue-100 mb-3 leading-relaxed">
+                <h3 className="font-semibold mb-2 text-white text-lg">Property Digitization & Tokenization</h3>
+                <p className="text-xs text-blue-100 mb-3 leading-relaxed">
                   Digitize or tokenize your properties with ease. Experience AR/VR virtual tours, blockchain tokenization, and metaverse integration. 
                   Transform properties into digital assets with fractional ownership and NFT-based deeds.
                 </p>
-                <button className="text-white underline hover:text-cyan-200 transition-colors text-xs sm:text-sm">
+                <button className="text-white underline hover:text-cyan-200 transition-colors text-sm">
                   Learn More
                 </button>
               </div>
@@ -268,13 +268,13 @@ const PropertyMarketplace = () => {
       <main className="bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
         {/* Property Categories */}
         <div className="border-b border-white/20">
-        <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex overflow-x-auto py-3 sm:py-4 space-x-3 sm:space-x-6">
+        <div className="container mx-auto px-6">
+            <div className="flex overflow-x-auto py-4 space-x-6">
               {propertyCategories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`whitespace-nowrap py-2 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base ${
+                  className={`whitespace-nowrap py-2 px-4 rounded-lg font-medium transition-all duration-300 ${
                     selectedCategory === category
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg'
                       : 'bg-white/80 text-slate-700 hover:text-cyan-600 hover:bg-white/90 border border-slate-200'
@@ -288,24 +288,24 @@ const PropertyMarketplace = () => {
         </div>
 
         {/* Featured Properties */}
-        <section className="py-8 sm:py-8 sm:py-12 bg-gradient-to-br from-slate-50 to-emerald-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-6 sm:mb-8 gap-4">
+        <section className="py-12 bg-gradient-to-br from-slate-50 to-emerald-50">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-center mb-8">
               <div>
-                <h2 className="text-2xl sm:text-2xl sm:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Featured Properties</h2>
-                <p className="text-slate-600 text-sm sm:text-base">Discover our hand-picked properties with premium amenities</p>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Featured Properties</h2>
+                <p className="text-slate-600">Discover our hand-picked properties with premium amenities</p>
               </div>
               <div className="flex space-x-2">
                 <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5" />
+                  <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5" />
+                  <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
                   </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProperties.map((property) => (
               <div key={property.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer" onClick={() => handlePropertyClick(property)}>
                   <div className="relative h-56">
@@ -356,10 +356,10 @@ const PropertyMarketplace = () => {
 
         {/* In Spotlight */}
         <section className="py-16 bg-gradient-to-br from-slate-50 to-emerald-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-center mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">In Spotlight</h2>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">In Spotlight</h2>
                 <p className="text-slate-600">Find exclusive projects in your area</p>
               </div>
               <div className="flex space-x-2">
@@ -393,7 +393,7 @@ const PropertyMarketplace = () => {
                     <MapPin className="w-4 h-4 mr-1" />
                     <span>{spotlightProject.location}</span>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-2">{spotlightProject.price}</div>
+                  <div className="text-3xl font-bold text-emerald-600 mb-2">{spotlightProject.price}</div>
                   <p className="text-slate-600 mb-6">{spotlightProject.type}</p>
                   
                   <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
@@ -412,10 +412,10 @@ const PropertyMarketplace = () => {
 
         {/* Projects in Focus */}
         <section className="py-16">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-center mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Projects in Focus</h2>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Projects in Focus</h2>
                 <p className="text-slate-600">View our top projects in your city</p>
               </div>
               <div className="flex space-x-2">
@@ -428,7 +428,7 @@ const PropertyMarketplace = () => {
               </div>
                     </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projectsInFocus.map((project) => (
                 <div key={project.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
@@ -451,11 +451,11 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* Recently Added */}
-        <section className="py-8 sm:py-12 bg-gradient-to-br from-emerald-50 to-teal-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+        <section className="py-12 bg-gradient-to-br from-emerald-50 to-teal-50">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-center mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Recently Added</h2>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Recently Added</h2>
                 <p className="text-slate-600">Discover new properties added to our portal</p>
               </div>
               <div className="flex space-x-2">
@@ -488,10 +488,10 @@ const PropertyMarketplace = () => {
 
         {/* Featured Collections */}
         <section className="py-16">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-center mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Featured Collections</h2>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Featured Collections</h2>
                 <p className="text-slate-600">Hand-picked projects for you</p>
               </div>
               <div className="flex space-x-2">
@@ -520,10 +520,10 @@ const PropertyMarketplace = () => {
 
         {/* Trending Projects */}
         <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-center mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Trending Projects</h2>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Trending Projects</h2>
                 <p className="text-slate-600">Explore what's popular in the market</p>
               </div>
               <div className="flex space-x-2">
@@ -578,16 +578,16 @@ const PropertyMarketplace = () => {
 
         {/* Everything you need in real estate */}
         <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto px-4 sm:px-6">
+          <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-4">Everything you need in real estate</h2>
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-4">Everything you need in real estate</h2>
               <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
                 From property search to construction, we provide end-to-end solutions for all your real estate needs.
               </p>
             </div>
 
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 text-left">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-slate-800 mb-3">Property Listings</h3>
                   <p className="text-slate-600">Browse through our curated collection of properties with detailed information and high-quality images.</p>
@@ -624,10 +624,10 @@ const PropertyMarketplace = () => {
 
         {/* Recommended Sellers */}
         <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-center mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Recommended Sellers</h2>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Recommended Sellers</h2>
                 <p className="text-slate-600">Trusted, verified sellers with excellent track records</p>
               </div>
               <div className="flex space-x-2">
@@ -657,10 +657,10 @@ const PropertyMarketplace = () => {
 
         {/* News & Articles */}
         <section className="py-16 bg-gradient-to-br from-slate-50 to-emerald-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-center mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">News & Articles</h2>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">News & Articles</h2>
                 <p className="text-slate-600">Stay updated with the latest real estate trends and news</p>
               </div>
               <div className="flex space-x-2">
@@ -690,10 +690,10 @@ const PropertyMarketplace = () => {
 
         {/* Normalizing Earthships Section */}
         <section className="py-16 bg-gradient-to-br from-cyan-50 to-blue-50">
-          <div className="container mx-auto px-4 sm:px-6">
+          <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">Normalizing Earthships and Sustainable Constructions</h2>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">Normalizing Earthships and Sustainable Constructions</h2>
                 <p className="text-slate-600 mb-6">
                   We are committed to promoting sustainable living and eco-friendly construction practices in Vizag. 
                   Our platform connects you with properties that prioritize environmental responsibility and modern comfort.
@@ -732,8 +732,8 @@ const PropertyMarketplace = () => {
 
         {/* Popular Localities Section */}
         <section className="py-16 bg-gradient-to-br from-blue-50 to-cyan-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent text-center mb-6 sm:mb-8">Popular Localities</h2>
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent text-center mb-8">Popular Localities</h2>
             <div className="flex flex-wrap justify-center gap-4">
               {popularLocalities.map((locality, index) => (
                 <button key={index} className="bg-white hover:bg-blue-50 text-blue-600 hover:text-blue-700 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg">
@@ -745,9 +745,9 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* Browse Top Links */}
-        <section className="py-8 sm:py-12 bg-gradient-to-r from-blue-100 to-cyan-100">
-          <div className="container mx-auto px-4 sm:px-6">
-            <h2 className="text-2xl font-bold text-gray-800 text-center mb-6 sm:mb-8">Browse top links to search your home</h2>
+        <section className="py-12 bg-gradient-to-r from-blue-100 to-cyan-100">
+          <div className="container mx-auto px-6">
+            <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">Browse top links to search your home</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
@@ -789,9 +789,9 @@ const PropertyMarketplace = () => {
 
       {/* Footer */}
       <footer className="bg-gradient-to-br from-cyan-600 via-blue-600 to-blue-700 text-white">
-        <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="container mx-auto px-6 py-12">
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">AoP - AddonProp</h2>
+            <h2 className="text-3xl font-bold mb-4">AoP - AddonProp</h2>
             <p className="text-cyan-100 mb-6">
               Your trusted partner in real estate. From property search to sustainable living, we've got you covered.
             </p>
@@ -800,7 +800,7 @@ const PropertyMarketplace = () => {
 
         {/* Bottom Footer */}
         <div className="bg-black/30">
-          <div className="container mx-auto px-4 sm:px-6 py-8">
+          <div className="container mx-auto px-6 py-8">
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
               <div>
@@ -902,7 +902,7 @@ const PropertyMarketplace = () => {
                     className="w-24 h-24 object-cover rounded-xl"
                   />
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white">{selectedProperty?.title || ''}</h3>
+                    <h3 className="text-3xl font-bold text-white">{selectedProperty?.title || ''}</h3>
                     <p className="text-gray-300 text-lg">{selectedProperty?.type || ''}</p>
                     <p className="text-cyan-300 text-xl font-semibold">{selectedProperty?.price || ''}</p>
                 </div>

@@ -59,34 +59,34 @@ const StandardNavbar = () => {
   ];
 
   return (
-    <div className="fixed top-0 w-full z-50 flex justify-center pt-4" ref={dropdownRef}>
+    <div className="fixed top-0 w-full z-50 flex justify-center pt-2 sm:pt-4" ref={dropdownRef}>
       {/* Search Icon - Left of Navbar */}
-      <div className="absolute left-8 top-6">
-        <button className="p-3 glass-card rounded-full text-white hover:text-emerald-400 transition-colors duration-300">
-          <Search className="w-5 h-5" />
+      <div className="absolute left-2 sm:left-4 lg:left-8 top-4 sm:top-6">
+        <button className="p-2 sm:p-3 glass-card rounded-full text-white hover:text-emerald-400 transition-colors duration-300">
+          <Search className="w-4 sm:w-5 h-4 sm:h-5" />
         </button>
       </div>
 
       {/* User Icon - Right of Navbar */}
-      <div className="absolute right-8 top-6" ref={userMenuRef}>
+      <div className="absolute right-2 sm:right-4 lg:right-8 top-4 sm:top-6" ref={userMenuRef}>
         <button
           onClick={() => setShowUserMenu(!showUserMenu)}
-          className="p-3 glass-card rounded-full text-white hover:text-emerald-400 transition-colors duration-300"
+          className="p-2 sm:p-3 glass-card rounded-full text-white hover:text-emerald-400 transition-colors duration-300"
         >
-          <User className="w-5 h-5" />
+          <User className="w-4 sm:w-5 h-4 sm:h-5" />
         </button>
         {showUserMenu && (
-          <div className="absolute top-full right-0 mt-2 w-48 glass-card rounded-xl shadow-xl py-2">
+          <div className="absolute top-full right-0 mt-2 w-40 sm:w-48 glass-card rounded-xl shadow-xl py-2">
             <Link
               to="/login"
-              className="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
+              className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base"
               onClick={closeDropdowns}
             >
               Login
             </Link>
             <Link
               to="/signup"
-              className="block px-4 py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
+              className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base"
               onClick={closeDropdowns}
             >
               Sign Up
@@ -96,30 +96,30 @@ const StandardNavbar = () => {
       </div>
 
       {/* Half-Width Glassmorphic Navbar */}
-      <nav className="w-1/2 max-w-4xl bg-white/90 backdrop-blur-md border border-white/20 rounded-2xl px-8 py-4 shadow-lg">
-        <div className="flex items-center justify-between h-12">
+      <nav className="w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 max-w-4xl bg-white/90 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-3 sm:py-4 shadow-lg">
+        <div className="flex items-center justify-between h-10 sm:h-12">
           {/* Left Side - EcoProps, Markets, 3DProps */}
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
             <div className="relative">
               <button
                 onClick={() => handleDropdownToggle('ecoprops')}
-                className="flex items-center space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
+                className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
               >
-                <Leaf className="w-4 h-4" />
-                <span className="text-sm font-medium">EcoProps</span>
-                <ChevronDown className="w-3 h-3" />
+                <Leaf className="w-3 sm:w-4 h-3 sm:h-4" />
+                <span className="text-xs sm:text-sm font-medium">EcoProps</span>
+                <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
               </button>
                       {activeDropdown === 'ecoprops' && (
-                        <div className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
+                        <div className="absolute top-full left-0 mt-2 w-48 sm:w-56 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
                   {ecoPropsItems.map((item, index) => (
                     <Link
                       key={index}
                       to={item.link}
-                      className="flex items-center space-x-3 px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
+                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
                       onClick={closeDropdowns}
                     >
                       {item.icon}
-                      <span className="text-sm">{item.name}</span>
+                      <span className="text-xs sm:text-sm">{item.name}</span>
                     </Link>
                   ))}
                 </div>
@@ -129,23 +129,23 @@ const StandardNavbar = () => {
             <div className="relative">
               <button
                 onClick={() => handleDropdownToggle('markets')}
-                className="flex items-center space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
+                className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
               >
-                <Package className="w-4 h-4" />
-                <span className="text-sm font-medium">Markets</span>
-                <ChevronDown className="w-3 h-3" />
+                <Package className="w-3 sm:w-4 h-3 sm:h-4" />
+                <span className="text-xs sm:text-sm font-medium">Markets</span>
+                <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
               </button>
                       {activeDropdown === 'markets' && (
-                        <div className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
+                        <div className="absolute top-full left-0 mt-2 w-48 sm:w-56 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
                   {marketplacesItems.map((item, index) => (
                     <Link
                       key={index}
                       to={item.link}
-                      className="flex items-center space-x-3 px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
+                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
                       onClick={closeDropdowns}
                     >
                       {item.icon}
-                      <span className="text-sm">{item.name}</span>
+                      <span className="text-xs sm:text-sm">{item.name}</span>
                     </Link>
                   ))}
                 </div>
@@ -155,23 +155,23 @@ const StandardNavbar = () => {
             <div className="relative">
               <button
                 onClick={() => handleDropdownToggle('3dprops')}
-                className="flex items-center space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
+                className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
               >
-                <Box className="w-4 h-4" />
-                <span className="text-sm font-medium">3DProps</span>
-                <ChevronDown className="w-3 h-3" />
+                <Box className="w-3 sm:w-4 h-3 sm:h-4" />
+                <span className="text-xs sm:text-sm font-medium">3DProps</span>
+                <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
               </button>
                       {activeDropdown === '3dprops' && (
-                        <div className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
+                        <div className="absolute top-full left-0 mt-2 w-48 sm:w-56 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
                   {threeDPropsItems.map((item, index) => (
                     <Link
                       key={index}
                       to={item.link}
-                      className="flex items-center space-x-3 px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
+                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200"
                       onClick={closeDropdowns}
                     >
                       {item.icon}
-                      <span className="text-sm">{item.name}</span>
+                      <span className="text-xs sm:text-sm">{item.name}</span>
                     </Link>
                   ))}
                 </div>
@@ -180,40 +180,40 @@ const StandardNavbar = () => {
           </div>
 
           {/* Center - Dynamic Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-1 sm:space-x-2">
             {location.pathname === '/ecoprops' ? (
               <>
-                <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-green-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">A</span>
+                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-emerald-500 to-green-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
                 </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
                   AoPEco
                 </span>
               </>
             ) : location.pathname === '/eco' ? (
               <>
-                <div className="w-8 h-8 bg-gradient-to-r from-green-700 to-emerald-800 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">A</span>
+                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-700 to-emerald-800 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
                 </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-green-800 to-emerald-700 bg-clip-text text-transparent">
+                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-green-800 to-emerald-700 bg-clip-text text-transparent">
                   AEco
                 </span>
               </>
             ) : location.pathname === '/aopmarkets' ? (
               <>
-                <div className="w-8 h-8 bg-gradient-to-r from-slate-700 to-gray-800 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">A</span>
+                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-slate-700 to-gray-800 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
                 </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-slate-800 to-gray-700 bg-clip-text text-transparent">
+                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-slate-800 to-gray-700 bg-clip-text text-transparent">
                   AoPM
                 </span>
               </>
             ) : (
               <>
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">A</span>
+                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
                 </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   AoP
                 </span>
               </>
@@ -221,14 +221,14 @@ const StandardNavbar = () => {
           </Link>
 
           {/* Right Side - Buy, Sell, Rent */}
-          <div className="flex items-center space-x-6">
-            <Link to="/buy" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-sm font-medium">
+          <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
+            <Link to="/buy" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-xs sm:text-sm font-medium">
               Buy
             </Link>
-            <Link to="/sell" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-sm font-medium">
+            <Link to="/sell" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-xs sm:text-sm font-medium">
               Sell
             </Link>
-            <Link to="/rent" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-sm font-medium">
+            <Link to="/rent" className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 text-xs sm:text-sm font-medium">
               Rent
             </Link>
           </div>
