@@ -1,9 +1,8 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import StandardNavbar from './components/StandardNavbar';
 import Footer from './components/Footer';
 import ThemeToggle from './components/ThemeToggle';
+import PublicOnlyRoute from './components/auth/PublicOnlyRoute';
 
 // Pages
 import Home from './bases/aeco/pages/Home';
@@ -32,6 +31,8 @@ import Metaverse from './pages/Metaverse';
 
 // Property Detail Page
 import PropertyDetail from './pages/PropertyDetail';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 // New Pages
 import EcoProps from './bases/aopeco/pages/EcoProps';
@@ -77,6 +78,22 @@ function App() {
         <Route path="/about-us" element={<><StandardNavbar /><AboutUs /><Footer /></>} />
         <Route path="/vision" element={<><StandardNavbar /><Vision /><Footer /></>} />
         <Route path="/careers" element={<><StandardNavbar /><Careers /><Footer /></>} />
+        <Route
+          path="/login"
+          element={
+            <PublicOnlyRoute>
+              <Login />
+            </PublicOnlyRoute>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <PublicOnlyRoute>
+              <Signup />
+            </PublicOnlyRoute>
+          }
+        />
       </Routes>
     </Router>
   );
