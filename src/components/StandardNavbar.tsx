@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Search, User, ChevronDown, Home, Leaf, Package, Box, Building, Wrench, Paintbrush, Calculator, FileText, Shield } from 'lucide-react';
+import { useUser } from '@stackframe/stack';
 
 const StandardNavbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<any>(null);
@@ -11,6 +12,7 @@ const StandardNavbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const user = useUser({ or: 'return-null' });
 
   const handleDropdownToggle = (dropdown) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
@@ -80,20 +82,28 @@ const StandardNavbar = () => {
         </button>
         {showUserMenu && (
           <div className="absolute top-full right-0 mt-2 w-40 sm:w-48 glass-card rounded-xl shadow-xl py-2">
-            <Link
-              href="/login"
-              className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base"
-              onClick={closeDropdowns}
-            >
-              Login
-            </Link>
-            <Link
-              href="/signup"
-              className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base"
-              onClick={closeDropdowns}
-            >
-              Sign Up
-            </Link>
+            {user ? (
+              <>
+                <div className="px-3 sm:px-4 py-2 text-white text-sm font-medium border-b border-white/10 truncate">
+                  {user.displayName || user.primaryEmail}
+                </div>
+                <button
+                  onClick={() => { user.signOut(); closeDropdowns(); }}
+                  className="block w-full text-left px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base"
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/login" className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base" onClick={closeDropdowns}>
+                  Login
+                </Link>
+                <Link href="/signup" className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base" onClick={closeDropdowns}>
+                  Sign Up
+                </Link>
+              </>
+            )}
           </div>
         )}
       </div>

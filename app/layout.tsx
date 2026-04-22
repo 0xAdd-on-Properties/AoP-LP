@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import { StackProvider, StackTheme } from '@stackframe/stack';
-import { stackApp } from '@/lib/stack';
-import AuthStateSync from '@/src/components/auth/AuthStateSync';
-import ThemeToggle from '@/src/components/ThemeToggle';
+import Providers from './providers';
 import '@/src/index.css';
 
 export const metadata: Metadata = {
@@ -16,15 +13,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <StackProvider app={stackApp}>
-          <StackTheme>
-            <Suspense>
-              <AuthStateSync />
-              <ThemeToggle />
-              {children}
-            </Suspense>
-          </StackTheme>
-        </StackProvider>
+        <Suspense>
+          <Providers>{children}</Providers>
+        </Suspense>
       </body>
     </html>
   );
