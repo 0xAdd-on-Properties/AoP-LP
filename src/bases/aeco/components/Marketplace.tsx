@@ -1,10 +1,12 @@
+'use client';
+
 import React from 'react';
 import { useState } from 'react';
 import { Package, Truck, Shield, Leaf, Zap, Droplets, TreePine, Recycle, Search } from 'lucide-react';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const Marketplace = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState<any>(null);
 
   const categoryModalRef = useClickOutside(() => {
     setSelectedCategory(null);

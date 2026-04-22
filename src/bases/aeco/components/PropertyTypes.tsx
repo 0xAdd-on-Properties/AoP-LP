@@ -1,9 +1,11 @@
+'use client';
+
 import React, { useState } from 'react';
 import { ArrowRight, Star, Eye, MapPin } from 'lucide-react';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const PropertyTypes = () => {
-  const [selectedPropertyType, setSelectedPropertyType] = useState(null);
+  const [selectedPropertyType, setSelectedPropertyType] = useState<any>(null);
 
   const propertyModalRef = useClickOutside(() => {
     setSelectedPropertyType(null);

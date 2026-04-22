@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { StackProvider, StackTheme } from '@stackframe/stack';
 import { stackApp } from '@/lib/stack';
 import AuthStateSync from '@/src/components/auth/AuthStateSync';
@@ -17,9 +18,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <StackProvider app={stackApp}>
           <StackTheme>
-            <AuthStateSync />
-            <ThemeToggle />
-            {children}
+            <Suspense>
+              <AuthStateSync />
+              <ThemeToggle />
+              {children}
+            </Suspense>
           </StackTheme>
         </StackProvider>
       </body>

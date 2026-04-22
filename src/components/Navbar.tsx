@@ -6,8 +6,8 @@ import { Menu, X, Search, User, Globe, Leaf, ChevronDown, Home } from 'lucide-re
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const dropdownRef = useRef(null);
+  const [activeDropdown, setActiveDropdown] = useState<any>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleDropdownToggle = (dropdown) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3" onClick={closeDropdowns}>
+          <Link href="/" className="flex items-center space-x-3" onClick={closeDropdowns}>
             <div className="relative">
               <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center">
                 <Leaf className="w-6 h-6 text-white" />
@@ -57,17 +57,17 @@ const Navbar = () => {
             <div className="flex items-center space-x-6">
               {/* AOP Button */}
               <Link 
-                to="/property-marketplace" 
+                href="/property-marketplace" 
                 className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 shadow-lg shadow-cyan-500/25"
               >
                 <Home className="w-4 h-4" />
                 <span>AOP</span>
               </Link>
               
-              <Link to="/property-marketplace" className="text-white hover:text-emerald-400 transition-colors font-medium">
+              <Link href="/property-marketplace" className="text-white hover:text-emerald-400 transition-colors font-medium">
                 Buy
               </Link>
-              <Link to="/property-marketplace" className="text-white hover:text-emerald-400 transition-colors font-medium">
+              <Link href="/property-marketplace" className="text-white hover:text-emerald-400 transition-colors font-medium">
                 Rent
               </Link>
               
@@ -82,16 +82,16 @@ const Navbar = () => {
                 </button>
                 {activeDropdown === 'ecoprops' && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-slate-800 border border-white/20 rounded-xl shadow-lg backdrop-blur-md">
-                    <Link to="/earthships" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/earthships" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Earthships
                     </Link>
-                    <Link to="/mandala-homes" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/mandala-homes" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Mandala Houses
                     </Link>
-                    <Link to="/eco-communes" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/eco-communes" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Eco Communes
                     </Link>
-                    <Link to="/property-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors rounded-b-xl">
+                    <Link href="/property-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors rounded-b-xl">
                       Smart Apartments
                     </Link>
                   </div>
@@ -109,19 +109,19 @@ const Navbar = () => {
                 </button>
                 {activeDropdown === 'marketplace' && (
                   <div className="absolute top-full left-0 mt-2 w-56 bg-slate-800 border border-white/20 rounded-xl shadow-lg backdrop-blur-md">
-                    <Link to="/sustainify-market" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/sustainify-market" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Sustainify Market
                     </Link>
-                    <Link to="/materials-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/materials-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Materials Marketplace
                     </Link>
-                    <Link to="/furnishings-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/furnishings-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Furnishings Marketplace
                     </Link>
-                    <Link to="/sustainable-systems-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/sustainable-systems-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Sustainable Systems
                     </Link>
-                    <Link to="/sustainable-technologies-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors rounded-b-xl">
+                    <Link href="/sustainable-technologies-marketplace" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors rounded-b-xl">
                       Sustainable Technologies
                     </Link>
                   </div>
@@ -139,19 +139,19 @@ const Navbar = () => {
                 </button>
                 {activeDropdown === '3dproperty' && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-slate-800 border border-white/20 rounded-xl shadow-lg backdrop-blur-md">
-                    <Link to="/simple-3d-modelling" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/simple-3d-modelling" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Simple 3D Modelling
                     </Link>
-                    <Link to="/virtual-tours" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/virtual-tours" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Virtual Tours
                     </Link>
-                    <Link to="/asset-tokenization" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/asset-tokenization" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Asset Tokenization
                     </Link>
-                    <Link to="/web3" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
+                    <Link href="/web3" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors">
                       Web3
                     </Link>
-                    <Link to="/metaverse" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors rounded-b-xl">
+                    <Link href="/metaverse" className="block px-4 py-3 text-white hover:text-emerald-400 hover:bg-white/10 transition-colors rounded-b-xl">
                       Metaverse
                     </Link>
                   </div>
@@ -186,22 +186,22 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="lg:hidden py-6 border-t border-white/10">
             <div className="flex flex-col space-y-4">
-              <Link to="/property-marketplace" className="text-white hover:text-emerald-400 transition-colors font-medium">
+              <Link href="/property-marketplace" className="text-white hover:text-emerald-400 transition-colors font-medium">
                 Buy
               </Link>
-              <Link to="/property-marketplace" className="text-white hover:text-emerald-400 transition-colors font-medium">
+              <Link href="/property-marketplace" className="text-white hover:text-emerald-400 transition-colors font-medium">
                 Rent
               </Link>
-              <Link to="/earthships" className="text-white hover:text-emerald-400 transition-colors font-medium">
+              <Link href="/earthships" className="text-white hover:text-emerald-400 transition-colors font-medium">
                 Earthships
               </Link>
-              <Link to="/mandala-homes" className="text-white hover:text-emerald-400 transition-colors font-medium">
+              <Link href="/mandala-homes" className="text-white hover:text-emerald-400 transition-colors font-medium">
                 Mandala Houses
               </Link>
-              <Link to="/sustainify-market" className="text-white hover:text-emerald-400 transition-colors font-medium">
+              <Link href="/sustainify-market" className="text-white hover:text-emerald-400 transition-colors font-medium">
                 Marketplace
               </Link>
-              <Link to="/virtual-tours" className="text-white hover:text-emerald-400 transition-colors font-medium">
+              <Link href="/virtual-tours" className="text-white hover:text-emerald-400 transition-colors font-medium">
                 3D Property
               </Link>
               <button className="bg-gradient-to-r from-emerald-500 to-green-600 px-6 py-2 rounded-lg font-semibold w-fit shadow-lg shadow-emerald-500/25">

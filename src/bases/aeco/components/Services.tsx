@@ -1,10 +1,12 @@
+'use client';
+
 import React from 'react';
 import { useState } from 'react';
 import { Home, Building, Users, TreePine, Wrench, Coins, FileText, Shield } from 'lucide-react';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const Services = () => {
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService, setSelectedService] = useState<any>(null);
 
   const serviceModalRef = useClickOutside(() => {
     setSelectedService(null);

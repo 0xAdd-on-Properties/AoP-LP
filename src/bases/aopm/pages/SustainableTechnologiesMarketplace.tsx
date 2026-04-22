@@ -1,10 +1,12 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Search, Filter, Heart, Share2, Star, Leaf, Zap, Droplets, Wind, Sun, Cpu, Wifi, Battery, Shield } from 'lucide-react';
 
 const SustainableTechnologiesMarketplace = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedTech, setSelectedTech] = useState(null);
+  const [selectedTech, setSelectedTech] = useState<any>(null);
 
   const categories = [
     { id: 'all', name: 'All Technologies', icon: Cpu },
@@ -348,7 +350,7 @@ const SustainableTechnologiesMarketplace = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Specifications</h3>
                   <div className="space-y-3">
-                    {Object.entries(selectedTech.specifications).map(([key, value]) => (
+                    {Object.entries(selectedTech.specifications as Record<string, string>).map(([key, value]) => (
                       <div key={key} className="flex justify-between">
                         <span className="text-slate-400 capitalize">{key}:</span>
                         <span className="text-slate-300">{value}</span>

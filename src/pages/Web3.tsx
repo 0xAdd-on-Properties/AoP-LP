@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Wallet, Link2, Shield, Zap, Globe, Code, Coins, Users, Lock, ArrowUpRight } from 'lucide-react';
 

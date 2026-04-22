@@ -6,10 +6,10 @@ import { usePathname } from 'next/navigation';
 import { Search, User, ChevronDown, Home, Leaf, Package, Box, Building, Wrench, Paintbrush, Calculator, FileText, Shield } from 'lucide-react';
 
 const StandardNavbar = () => {
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<any>(null);
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const dropdownRef = useRef(null);
-  const userMenuRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   const handleDropdownToggle = (dropdown) => {
@@ -81,14 +81,14 @@ const StandardNavbar = () => {
         {showUserMenu && (
           <div className="absolute top-full right-0 mt-2 w-40 sm:w-48 glass-card rounded-xl shadow-xl py-2">
             <Link
-              to="/login"
+              href="/login"
               className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base"
               onClick={closeDropdowns}
             >
               Login
             </Link>
             <Link
-              to="/signup"
+              href="/signup"
               className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base"
               onClick={closeDropdowns}
             >
@@ -117,7 +117,7 @@ const StandardNavbar = () => {
                   {ecoPropsItems.map((item, index) => (
                     <Link
                       key={index}
-                      to={item.link}
+                      href={item.link}
                       className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
                       onClick={closeDropdowns}
                     >
@@ -143,7 +143,7 @@ const StandardNavbar = () => {
                   {marketplacesItems.map((item, index) => (
                     <Link
                       key={index}
-                      to={item.link}
+                      href={item.link}
                       className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
                       onClick={closeDropdowns}
                     >
@@ -169,7 +169,7 @@ const StandardNavbar = () => {
                   {threeDPropsItems.map((item, index) => (
                     <Link
                       key={index}
-                      to={item.link}
+                      href={item.link}
                       className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
                       onClick={closeDropdowns}
                     >
@@ -183,7 +183,7 @@ const StandardNavbar = () => {
           </div>
 
           {/* Center - Dynamic Logo */}
-          <Link to="/" className="flex items-center space-x-1 sm:space-x-2">
+          <Link href="/" className="flex items-center space-x-1 sm:space-x-2">
             {pathname === '/ecoprops' ? (
               <>
                 <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-emerald-400 to-green-500 rounded-lg flex items-center justify-center">
@@ -244,21 +244,21 @@ const StandardNavbar = () => {
             {activeDropdown === 'buy' && (
               <div className="absolute top-full right-0 mt-2 w-32 sm:w-40 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
                 <Link
-                  to="/buy"
+                  href="/buy"
                   className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200 text-xs sm:text-sm"
                   onClick={closeDropdowns}
                 >
                   <span>Buy Properties</span>
                 </Link>
                 <Link
-                  to="/sell"
+                  href="/sell"
                   className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200 text-xs sm:text-sm"
                   onClick={closeDropdowns}
                 >
                   <span>Sell Properties</span>
                 </Link>
                 <Link
-                  to="/rent"
+                  href="/rent"
                   className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200 text-xs sm:text-sm"
                   onClick={closeDropdowns}
                 >

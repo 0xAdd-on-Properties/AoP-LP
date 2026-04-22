@@ -1,8 +1,10 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Search, Filter, MapPin, Star, Eye, Heart, Share2, Bed, Bath, Square, Zap, Droplets, TreePine, Recycle } from 'lucide-react';
 
 const Earthships = () => {
-  const [selectedProperty, setSelectedProperty] = useState(null);
+  const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [filters, setFilters] = useState({
     priceRange: '',
     location: '',

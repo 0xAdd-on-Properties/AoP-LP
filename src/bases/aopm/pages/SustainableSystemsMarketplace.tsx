@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Search, Filter, Zap, Droplets, Recycle, Star, ShoppingCart, Heart, Share2 } from 'lucide-react';
 

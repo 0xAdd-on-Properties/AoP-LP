@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Box, Upload, Download, Rotate3D, ZoomIn, Grid, Move, Eye, Share2, Save } from 'lucide-react';
 

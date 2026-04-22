@@ -1,8 +1,10 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Gamepad2, Headphones, Users, Globe, Zap, Eye, Building, Map, Settings, Play } from 'lucide-react';
 
 const Metaverse = () => {
-  const [selectedWorld, setSelectedWorld] = useState(null);
+  const [selectedWorld, setSelectedWorld] = useState<any>(null);
   const [vrMode, setVrMode] = useState(false);
 
   const virtualWorlds = [

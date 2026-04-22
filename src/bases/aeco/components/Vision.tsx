@@ -1,10 +1,12 @@
+'use client';
+
 import React from 'react';
 import { useState } from 'react';
 import { Target, Users, Globe, Zap, TreePine, Home } from 'lucide-react';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const Vision = () => {
-  const [selectedSpecialization, setSelectedSpecialization] = useState(null);
+  const [selectedSpecialization, setSelectedSpecialization] = useState<any>(null);
 
   const specializationModalRef = useClickOutside(() => {
     setSelectedSpecialization(null);

@@ -1,8 +1,10 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Coins, Shield, TrendingUp, Users, Lock, Zap, Globe, BarChart3, Wallet } from 'lucide-react';
 
 const AssetTokenization = () => {
-  const [selectedProperty, setSelectedProperty] = useState(null);
+  const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [investmentAmount, setInvestmentAmount] = useState(10000);
 
   const tokenizedProperties = [

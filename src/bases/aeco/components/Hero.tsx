@@ -1,10 +1,12 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { Search, Play, ChevronDown, Home, Leaf, Zap, Shield, Globe, Building, TreePine, Droplets, Sun, Wind, Recycle, Sprout, Mountain } from 'lucide-react';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const Hero = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCard, setSelectedCard] = useState<any>(null);
   
   const cardModalRef = useClickOutside(() => {
     setSelectedCard(null);

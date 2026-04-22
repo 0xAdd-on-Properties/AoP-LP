@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { 
   Building2, 
@@ -16,7 +18,7 @@ import {
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const SustainableArchitecture = () => {
-  const [selectedPrinciple, setSelectedPrinciple] = useState(null);
+  const [selectedPrinciple, setSelectedPrinciple] = useState<any>(null);
 
   const principleModalRef = useClickOutside(() => {
     setSelectedPrinciple(null);

@@ -1,10 +1,12 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Search, Package, Truck, Shield, Leaf, Zap, Droplets, TreePine, Recycle, ArrowRight, Star, Users, Globe, Building, Home, Facebook, Instagram, Linkedin, Youtube, Twitter } from 'lucide-react';
 import StandardNavbar from '../../../components/StandardNavbar';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const AoPmarkets = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState<any>(null);
 
   const categoryModalRef = useClickOutside(() => {
     setSelectedCategory(null);

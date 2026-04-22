@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Facebook, Instagram, Linkedin, Youtube, Twitter, Building } from 'lucide-react';
 import StandardNavbar from '../../../components/StandardNavbar';
@@ -89,34 +91,10 @@ const PropertyMarketplace = () => {
   ];
 
   const recentlyAdded = [
-    {
-      id: 1,
-      title: "Green Valley Affordable...",
-      type: "2 BHK",
-      price: "₹28L",
-      image: "https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=300"
-    },
-    {
-      id: 2,
-      title: "Sunrise Apartments",
-      type: "3 BHK",
-      price: "₹45L",
-      image: "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&cs=tinysrgb&w=300"
-    },
-    {
-      id: 3,
-      title: "Ocean View Residency",
-      type: "2 BHK",
-      price: "₹35L",
-      image: "https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=300"
-    },
-    {
-      id: 4,
-      title: "Mountain Heights",
-      type: "4 BHK",
-      price: "₹65L",
-      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=300"
-    }
+    { id: 1, title: "Green Valley Affordable...", type: "2 BHK", location: "Visakhapatnam", price: "₹28L", image: "https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=300" },
+    { id: 2, title: "Sunrise Apartments", type: "3 BHK", location: "Visakhapatnam", price: "₹45L", image: "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&cs=tinysrgb&w=300" },
+    { id: 3, title: "Ocean View Residency", type: "2 BHK", location: "Visakhapatnam", price: "₹35L", image: "https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=300" },
+    { id: 4, title: "Mountain Heights", type: "4 BHK", location: "Visakhapatnam", price: "₹65L", image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=300" }
   ];
 
   const featuredCollections = [
@@ -126,9 +104,9 @@ const PropertyMarketplace = () => {
   ];
 
   const trendingProjects = [
-    { id: 1, title: "Eco Smart Villas", type: "3 BHK", price: "₹55L", image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=300" },
-    { id: 2, title: "Green Heights", type: "2 BHK", price: "₹32L", image: "https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=300" },
-    { id: 3, title: "Sustainable Living", type: "4 BHK", price: "₹75L", image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=300" }
+    { id: 1, title: "Eco Smart Villas", type: "3 BHK", location: "Visakhapatnam", price: "₹55L", image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=300" },
+    { id: 2, title: "Green Heights", type: "2 BHK", location: "Visakhapatnam", price: "₹32L", image: "https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=300" },
+    { id: 3, title: "Sustainable Living", type: "4 BHK", location: "Visakhapatnam", price: "₹75L", image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=300" }
   ];
 
   const recommendedSellers = [

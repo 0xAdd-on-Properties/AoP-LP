@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { 
   Leaf, 
@@ -25,7 +27,7 @@ import {
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const Features = () => {
-  const [selectedFeature, setSelectedFeature] = useState(null);
+  const [selectedFeature, setSelectedFeature] = useState<any>(null);
 
   const featureModalRef = useClickOutside(() => {
     setSelectedFeature(null);

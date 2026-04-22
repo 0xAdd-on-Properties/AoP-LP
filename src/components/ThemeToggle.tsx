@@ -118,7 +118,7 @@ const ThemeToggle = () => {
             ) : (
               <Link
                 key={index}
-                to={item.link}
+                href={item.link}
                 className="group flex items-center space-x-3 bg-white/90 backdrop-blur-md border border-white/20 rounded-2xl p-4 hover:bg-white/95 hover:scale-105 transition-all duration-300 min-w-[200px] shadow-lg"
                 onClick={() => setShowMenu(false)}
               >

@@ -1,10 +1,12 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Camera, Play, Pause, VolumeX, Volume2, Maximize, RotateCcw, MapPin, Clock, Users, Star } from 'lucide-react';
 
 const VirtualTours = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const [selectedTour, setSelectedTour] = useState(null);
+  const [selectedTour, setSelectedTour] = useState<any>(null);
 
   const featuredTours = [
     {
