@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Search, User, ChevronDown, Home, Leaf, Package, Box, Building, Wrench, Paintbrush, Calculator, FileText, Shield } from 'lucide-react';
 
 const StandardNavbar = () => {
@@ -7,7 +10,7 @@ const StandardNavbar = () => {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const dropdownRef = useRef(null);
   const userMenuRef = useRef(null);
-  const location = useLocation();
+  const pathname = usePathname();
 
   const handleDropdownToggle = (dropdown) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
@@ -181,7 +184,7 @@ const StandardNavbar = () => {
 
           {/* Center - Dynamic Logo */}
           <Link to="/" className="flex items-center space-x-1 sm:space-x-2">
-            {location.pathname === '/ecoprops' ? (
+            {pathname === '/ecoprops' ? (
               <>
                 <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-emerald-400 to-green-500 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xs sm:text-sm">A</span>
@@ -190,7 +193,7 @@ const StandardNavbar = () => {
                   AoPEco
                 </span>
               </>
-            ) : location.pathname === '/eco' ? (
+            ) : pathname === '/eco' ? (
               <>
                 <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-700 to-emerald-800 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xs sm:text-sm">A</span>
@@ -199,7 +202,7 @@ const StandardNavbar = () => {
                   AEco
                 </span>
               </>
-            ) : location.pathname === '/addonprop.xyz' ? (
+            ) : pathname === '/addonprop.xyz' ? (
               <>
                 <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xs sm:text-sm">A</span>
@@ -208,7 +211,7 @@ const StandardNavbar = () => {
                   AoP
                 </span>
               </>
-            ) : location.pathname === '/aopmarkets' ? (
+            ) : pathname === '/aopmarkets' ? (
               <>
                 <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-slate-700 to-gray-800 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xs sm:text-sm">A</span>

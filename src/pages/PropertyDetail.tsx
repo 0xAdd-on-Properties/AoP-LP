@@ -1,12 +1,15 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useRouter } from 'next/navigation';
 import { ArrowLeft, Heart, Share2, MapPin, Bed, Bath, Square, Star, Phone, Mail, Calendar, Camera, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import StandardNavbar from '../components/StandardNavbar';
 import Footer from '../components/Footer';
 
 const PropertyDetail = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const params = useParams();
+  const id = params?.id as string;
+  const router = useRouter();
   const [property, setProperty] = useState<any>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFavorited, setIsFavorited] = useState(false);
@@ -75,7 +78,7 @@ const PropertyDetail = () => {
       {/* Back Button */}
       <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28">
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => router.back()}
           className="flex items-center space-x-2 text-gray-600 hover:text-emerald-600 transition-colors mb-6"
         >
           <ArrowLeft className="w-5 h-5" />

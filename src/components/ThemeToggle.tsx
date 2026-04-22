@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Sun, Moon, Home, Leaf, Package, Building } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import useClickOutside from '../hooks/useClickOutside';
 
 const ThemeToggle = () => {

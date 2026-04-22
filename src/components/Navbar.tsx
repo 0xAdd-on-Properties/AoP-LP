@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Menu, X, Search, User, Globe, Leaf, ChevronDown, Home } from 'lucide-react';
 
 const Navbar = () => {

@@ -1,9 +1,11 @@
+'use client';
+
 import { useEffect } from 'react';
 import { useStackApp, useUser } from '@stackframe/stack';
 
 export default function AuthStateSync() {
   const app = useStackApp();
-  const user = useUser();
+  const user = useUser({ or: 'return-null' });
 
   useEffect(() => {
     const syncUser = async () => {
