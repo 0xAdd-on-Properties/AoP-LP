@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useStackApp, useUser } from '@stackframe/stack';
+import { useStackApp, useUser } from '@hexclave/next';
 
 export default function AuthStateSync() {
   const app = useStackApp();

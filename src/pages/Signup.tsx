@@ -1,4 +1,4 @@
-import { SignUp } from '@stackframe/stack';
+import { SignUp } from '@hexclave/next';
 
 export default function Signup() {
   return (

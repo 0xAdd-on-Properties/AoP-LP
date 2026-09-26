@@ -69,3 +69,5 @@ jspm_packages/
 # Next.js
 .next/
 next-env.d.ts
+.vercel
+.env*.local

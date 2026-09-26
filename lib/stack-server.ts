@@ -1,4 +1,4 @@
-import { StackServerApp } from '@stackframe/stack';
+import { StackServerApp } from '@hexclave/next';
 
 export const stackServerApp = new StackServerApp({
   projectId: process.env.STACK_PROJECT_ID!,

@@ -1,4 +1,4 @@
-import { StackServerApp } from '@stackframe/stack';
+import { StackServerApp } from '@hexclave/next';
 import { neon } from '@neondatabase/serverless';
 
 const stackServer = new StackServerApp({

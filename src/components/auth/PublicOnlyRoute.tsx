@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useUser } from '@stackframe/stack';
+import { useUser } from '@hexclave/next';
 import { useEffect, type ReactNode } from 'react';
 
 export default function PublicOnlyRoute({ children }: { children: ReactNode }) {

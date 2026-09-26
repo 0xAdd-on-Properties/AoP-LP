@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Search, User, ChevronDown, Home, Leaf, Package, Box, Building, Wrench, Paintbrush, Calculator, FileText, Shield } from 'lucide-react';
-import { useUser } from '@stackframe/stack';
+import { useUser } from '@hexclave/next';
 
 const StandardNavbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<any>(null);

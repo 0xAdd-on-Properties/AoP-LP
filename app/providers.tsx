@@ -1,6 +1,6 @@
 'use client';
 
-import { StackProvider, StackTheme } from '@stackframe/stack';
+import { StackProvider, StackTheme } from '@hexclave/next';
 import { stackApp } from '@/lib/stack';
 import AuthStateSync from '@/src/components/auth/AuthStateSync';
 import ThemeToggle from '@/src/components/ThemeToggle';
