@@ -35,9 +35,9 @@ const PropertyDetail = () => {
       sustainability: "Carbon Negative",
       rating: 4.9,
       agent: {
-        name: "Priya Sharma",
-        phone: "+91 98765 43210",
-        email: "priya@addonprop.com",
+        name: "Naresh Kumar",
+        phone: "+91 77023 03223",
+        email: "hello@addonprop.com",
         image: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400"
       },
       amenities: ["Swimming Pool", "Garden", "Parking", "Security", "Gym", "Rooftop"],
