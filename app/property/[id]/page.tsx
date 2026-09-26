@@ -1,4 +1,4 @@
-import PropertyDetail from '@/src/pages/PropertyDetail';
+import PropertyDetail from '@/src/screens/PropertyDetail';
 
 export default function Page() {
   return <PropertyDetail />;

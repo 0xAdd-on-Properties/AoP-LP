@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['@hexclave/next'],
   modularizeImports: {
     'lucide-react': {
       transform: 'lucide-react/dist/esm/icons/{{ kebabCase member }}.js',

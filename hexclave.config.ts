@@ -7,7 +7,9 @@ export const config: HexclaveConfig = {
       emails: { enabled: true },
     },
   },
-  auth: { allowSignUp: true },
-  "auth.password": { allowSignIn: true },
-  "auth.otp": { allowSignIn: true },
+  auth: {
+    allowSignUp: true,
+    password: { allowSignIn: true },
+    otp: { allowSignIn: true },
+  },
 };

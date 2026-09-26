@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import { Search, Filter, MapPin, Star, Eye, Heart, Share2, Bed, Bath, Square, Zap, Droplets, TreePine, Recycle } from 'lucide-react';
+import LocationFilter from '../../../components/LocationFilter';
 
 const Earthships = () => {
+  const [selectedCity, setSelectedCity] = useState('Visakhapatnam');
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [filters, setFilters] = useState({
     priceRange: '',
@@ -140,7 +142,9 @@ const Earthships = () => {
 
           {/* Search and Filters */}
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+              <LocationFilter selectedCity={selectedCity} onCityChange={setSelectedCity} />
+
               <div className="lg:col-span-2">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -151,8 +155,8 @@ const Earthships = () => {
                   />
                 </div>
               </div>
-              
-              <select 
+
+              <select
                 className="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-400"
                 value={filters.priceRange}
                 onChange={(e) => handleFilterChange('priceRange', e.target.value)}

@@ -3,10 +3,12 @@
 import React, { useState } from 'react';
 import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Leaf, Home, Building, TreePine, Zap, Recycle, Facebook, Instagram, Linkedin, Youtube, Twitter } from 'lucide-react';
 import StandardNavbar from '../../../components/StandardNavbar';
+import LocationFilter from '../../../components/LocationFilter';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const SmartApartments = () => {
   const [activeTab, setActiveTab] = useState('BUY');
+  const [selectedCity, setSelectedCity] = useState('Visakhapatnam');
   const [selectedCategory, setSelectedCategory] = useState('All Smart Apartments');
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,7 +36,7 @@ const SmartApartments = () => {
       id: 1,
       title: "TechVista Smart Residency",
       type: "Smart Apartment",
-      location: "Whitefield, Bangalore",
+      location: "Madhurawada, Visakhapatnam",
       price: "₹65 Lakhs",
       image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
       bedrooms: 2,
@@ -49,7 +51,7 @@ const SmartApartments = () => {
       id: 2,
       title: "EcoSmart Towers",
       type: "Smart Apartment",
-      location: "Hitec City, Hyderabad",
+      location: "MVP Colony, Visakhapatnam",
       price: "₹55 Lakhs",
       image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=800",
       bedrooms: 3,
@@ -64,7 +66,7 @@ const SmartApartments = () => {
       id: 3,
       title: "IntelliHome Complex",
       type: "Smart Apartment",
-      location: "Koramangala, Bangalore",
+      location: "Rushikonda, Visakhapatnam",
       price: "₹75 Lakhs",
       image: "https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=800",
       bedrooms: 3,
@@ -95,6 +97,8 @@ const SmartApartments = () => {
               <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent">
                 Smart Apartments
               </span>
+              <br />
+              <span className="text-white">in {selectedCity}</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
               Experience the future of urban living with AI-powered, IoT-integrated smart apartments designed for sustainable and intelligent living.
@@ -105,6 +109,9 @@ const SmartApartments = () => {
           <div className="max-w-4xl mx-auto">
             <div className="glass-card rounded-2xl p-4 sm:p-6 mb-6">
               <div className="flex flex-col md:flex-row gap-3 sm:gap-4">
+                <div className="flex-1">
+                  <LocationFilter selectedCity={selectedCity} onCityChange={setSelectedCity} />
+                </div>
                 <div className="flex-1">
                   <input
                     type="text"

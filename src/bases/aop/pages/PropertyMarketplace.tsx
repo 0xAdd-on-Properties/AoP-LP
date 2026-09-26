@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Facebook, Instagram, Linkedin, Youtube, Twitter, Building } from 'lucide-react';
 import StandardNavbar from '../../../components/StandardNavbar';
+import LocationFilter from '../../../components/LocationFilter';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const PropertyMarketplace = () => {
   const [activeTab, setActiveTab] = useState('BUY');
+  const [selectedCity, setSelectedCity] = useState('Visakhapatnam');
   const [selectedCategory, setSelectedCategory] = useState('All Properties');
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,7 +35,7 @@ const PropertyMarketplace = () => {
     {
       id: 1,
       title: "Modern Villa with Pool",
-      location: "Warlely, Bengaluru",
+      location: "Yendada, Visakhapatnam",
       price: "₹2.5 Cr",
       beds: 4,
       baths: 4,
@@ -43,7 +45,7 @@ const PropertyMarketplace = () => {
     {
       id: 2,
       title: "Luxury Apartment",
-      location: "Vizag, Bengaluru",
+      location: "MVP Colony, Visakhapatnam",
       price: "₹1.8 Cr",
       beds: 3,
       baths: 3,
@@ -53,7 +55,7 @@ const PropertyMarketplace = () => {
     {
       id: 3,
       title: "Smart Home Villa",
-      location: "Vizag, Bengaluru",
+      location: "Rushikonda, Visakhapatnam",
       price: "₹1.2 Cr",
       beds: 3,
       baths: 3,
@@ -63,9 +65,9 @@ const PropertyMarketplace = () => {
   ];
 
   const spotlightProject = {
-    title: "Marina Bay Towers",
+    title: "Ocean Crest Residences",
     developer: "Seaside Developers",
-    location: "Sector 15, Gurgaon",
+    location: "Beach Road, Visakhapatnam",
     price: "₹5.5 Cr - 8.8 Cr",
     type: "4, 5 BHK Residences",
     image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -164,7 +166,7 @@ const PropertyMarketplace = () => {
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           {/* Main Search Section */}
           <div className="text-center mb-6 sm:mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Properties to buy in Vizag</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Properties to buy in {selectedCity}</h2>
             
             {/* Search Tabs */}
             <div className="flex justify-center mb-4 sm:mb-6">
@@ -187,11 +189,7 @@ const PropertyMarketplace = () => {
             <div className="max-w-4xl mx-auto">
               <div className="glass-card rounded-2xl p-4 sm:p-6 flex flex-col md:flex-row gap-3 sm:gap-4">
                 <div className="flex-1">
-                  <input
-                    type="text"
-                    placeholder="Vizag"
-                    className="w-full p-2 sm:p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white placeholder-white/70 text-sm sm:text-base"
-                  />
+                  <LocationFilter selectedCity={selectedCity} onCityChange={setSelectedCity} />
                 </div>
                 <div className="flex-1">
                   <input

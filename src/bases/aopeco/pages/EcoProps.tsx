@@ -3,10 +3,12 @@
 import React, { useState } from 'react';
 import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Leaf, Home, Building, TreePine, Zap, Recycle, Facebook, Instagram, Linkedin, Youtube, Twitter } from 'lucide-react';
 import StandardNavbar from '../../../components/StandardNavbar';
+import LocationFilter from '../../../components/LocationFilter';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const EcoProps = () => {
   const [activeTab, setActiveTab] = useState('BUY');
+  const [selectedCity, setSelectedCity] = useState('Visakhapatnam');
   const [selectedCategory, setSelectedCategory] = useState('All EcoProps');
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,9 +34,9 @@ const EcoProps = () => {
   const ecoProperties = [
     {
       id: 1,
-      title: "Auroville Earthship",
+      title: "Lambasingi Earthship",
       type: "Earthship",
-      location: "Auroville, Tamil Nadu",
+      location: "Lambasingi, Visakhapatnam",
       price: "₹45 Lakhs",
       image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
       bedrooms: 3,
@@ -47,9 +49,9 @@ const EcoProps = () => {
     },
     {
       id: 2,
-      title: "Goa Mandala Villa",
+      title: "Madhurawada Mandala Villa",
       type: "Mandala Home",
-      location: "Anjuna, Goa",
+      location: "Madhurawada, Visakhapatnam",
       price: "₹65 Lakhs",
       image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
       bedrooms: 4,
@@ -62,9 +64,9 @@ const EcoProps = () => {
     },
     {
       id: 3,
-      title: "Kerala Eco Commune",
+      title: "Araku Valley Eco Commune",
       type: "Eco Commune",
-      location: "Wayanad, Kerala",
+      location: "Araku Valley, Visakhapatnam",
       price: "₹85 Lakhs",
       image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=800",
       bedrooms: 5,
@@ -77,9 +79,9 @@ const EcoProps = () => {
     },
     {
       id: 4,
-      title: "Himachal Smart Home",
+      title: "MVP Colony Smart Home",
       type: "Smart Apartment",
-      location: "Shimla, Himachal Pradesh",
+      location: "MVP Colony, Visakhapatnam",
       price: "₹55 Lakhs",
       image: "https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=800",
       bedrooms: 3,
@@ -91,9 +93,9 @@ const EcoProps = () => {
     },
     {
       id: 5,
-      title: "Pondicherry Tiny Home",
+      title: "Bheemili Tiny Home",
       type: "Tiny Home",
-      location: "Pondicherry, Tamil Nadu",
+      location: "Bheemili, Visakhapatnam",
       price: "₹25 Lakhs",
       image: "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&cs=tinysrgb&w=800",
       bedrooms: 1,
@@ -105,9 +107,9 @@ const EcoProps = () => {
     },
     {
       id: 6,
-      title: "Rajasthan Off-Grid Villa",
+      title: "Anakapalle Off-Grid Villa",
       type: "Off-Grid Home",
-      location: "Jodhpur, Rajasthan",
+      location: "Anakapalle, Visakhapatnam",
       price: "₹75 Lakhs",
       image: "https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=800",
       bedrooms: 4,
@@ -179,7 +181,7 @@ const EcoProps = () => {
             </h1>
             
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto mb-8">
-              Find sustainable properties across India that align with your environmental values and lifestyle
+              Find sustainable properties in {selectedCity} that align with your environmental values and lifestyle
             </p>
           </div>
 
@@ -187,6 +189,9 @@ const EcoProps = () => {
           <div className="max-w-4xl mx-auto mb-8">
             <div className="glass-card rounded-2xl p-6">
               <div className="flex flex-col lg:flex-row gap-4">
+                <div className="lg:w-56">
+                  <LocationFilter selectedCity={selectedCity} onCityChange={setSelectedCity} className="h-full" />
+                </div>
                 <div className="flex-1">
                   <div className="relative">
                     <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />

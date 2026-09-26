@@ -20,7 +20,7 @@ const PropertyDetail = () => {
       id: '1',
       title: "Luxury Eco Villa",
       type: "Villa",
-      location: "Auroville, Tamil Nadu",
+      location: "Yendada, Visakhapatnam",
       price: "₹2.5 Crores",
       images: [
         "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
