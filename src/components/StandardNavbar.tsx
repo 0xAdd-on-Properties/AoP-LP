@@ -87,6 +87,9 @@ const StandardNavbar = () => {
                 <div className="px-3 sm:px-4 py-2 text-white text-sm font-medium border-b border-white/10 truncate">
                   {user.displayName || user.primaryEmail}
                 </div>
+                <Link href="/dashboard/properties" className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base" onClick={closeDropdowns}>
+                  My Listings
+                </Link>
                 <button
                   onClick={() => { user.signOut(); closeDropdowns(); }}
                   className="block w-full text-left px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base"
