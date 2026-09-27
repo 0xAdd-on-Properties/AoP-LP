@@ -124,50 +124,50 @@ const Metaverse = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-base-100 pt-20">
-      {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-base-200 to-base-300">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              <span className="gradient-text">Metaverse</span>
-              <br />
-              <span className="text-white">Property Experience</span>
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="relative bg-[#f5f5f7] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20">
+          <div className="max-w-3xl min-w-0 space-y-6">
+            <p className="text-sm font-medium text-emerald-600">Virtual property experience</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05]">
+              Step into the <span className="text-emerald-600">metaverse</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Step into immersive virtual worlds where you can explore, tour, and interact with 
+            <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed max-w-xl">
+              Explore immersive virtual worlds where you can tour and interact with
               sustainable properties in photorealistic 3D environments.
             </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn btn-primary btn-lg">
-              <Gamepad2 className="w-5 h-5 mr-2" />
-              Enter Metaverse
-            </button>
-            <button 
-              onClick={() => setVrMode(!vrMode)}
-              className={`btn btn-lg ${vrMode ? 'btn-success' : 'btn-outline'}`}
-            >
-              <Headphones className="w-5 h-5 mr-2" />
-              {vrMode ? 'VR Mode Active' : 'Enable VR Mode'}
-            </button>
+            <div className="flex flex-wrap gap-3">
+              <button className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center gap-2">
+                <Gamepad2 className="w-4 h-4" />
+                Enter metaverse
+              </button>
+              <button
+                onClick={() => setVrMode(!vrMode)}
+                className={`px-6 py-3 rounded-full font-medium transition-colors text-sm inline-flex items-center gap-2 ${
+                  vrMode ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'border border-black/10 hover:bg-black/5 text-[#1d1d1f]'
+                }`}
+              >
+                <Headphones className="w-4 h-4" />
+                {vrMode ? 'VR mode active' : 'Enable VR mode'}
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* VR Status Bar */}
       {vrMode && (
-        <section className="py-4 bg-success/10 border-b border-success/20">
-          <div className="container mx-auto px-6">
-            <div className="flex items-center justify-center space-x-4">
-              <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-              <span className="text-success font-medium">
-                VR Mode Active - Put on your headset for full immersion
+        <section className="py-3 bg-emerald-50 border-b border-emerald-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="w-2 h-2 bg-emerald-600 rounded-full animate-pulse"></div>
+              <span className="text-emerald-700 font-medium text-sm">
+                VR mode active — put on your headset for full immersion
               </span>
-              <button 
+              <button
                 onClick={() => setVrMode(false)}
-                className="btn btn-xs btn-outline btn-success"
+                className="text-emerald-700 text-xs font-medium border border-emerald-200 hover:bg-emerald-100 rounded-full px-3 py-1 transition-colors"
               >
                 Disable VR
               </button>
@@ -177,81 +177,78 @@ const Metaverse = () => {
       )}
 
       {/* Virtual Worlds */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Virtual Worlds</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Explore different virtual environments, each designed for unique property experiences
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Explore</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Virtual worlds
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Explore different virtual environments, each designed for unique property experiences.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {virtualWorlds.map((world) => (
-              <div key={world.id} className="card bg-base-200 shadow-xl card-hover">
-                <figure className="relative h-64">
-                  <img 
-                    src={world.thumbnail} 
+              <div key={world.id} className="bg-white rounded-2xl overflow-hidden border border-black/5 min-w-0">
+                <div className="relative h-56 sm:h-64">
+                  <img
+                    src={world.thumbnail}
                     alt={world.name}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  
-                  {/* Status Badge */}
-                  <div className={`absolute top-4 left-4 badge ${
-                    world.status === 'Live' ? 'badge-success' :
-                    world.status === 'Beta' ? 'badge-warning' : 'badge-info'
-                  }`}>
-                    {world.status}
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    <span className={`text-xs font-medium px-3 py-1 rounded-full ${
+                      world.status === 'Live' ? 'bg-emerald-600 text-white' :
+                      world.status === 'Beta' ? 'bg-white/90 text-[#1d1d1f]' : 'bg-white/90 text-[#1d1d1f]'
+                    }`}>
+                      {world.status}
+                    </span>
                   </div>
-
-                  {/* Theme Badge */}
-                  <div className="absolute top-4 right-4 badge badge-primary">
-                    {world.theme}
+                  <div className="absolute top-4 right-4">
+                    <span className="bg-white/90 backdrop-blur-sm text-xs font-medium text-[#1d1d1f] px-3 py-1 rounded-full">
+                      {world.theme}
+                    </span>
                   </div>
-
-                  {/* Stats */}
-                  <div className="absolute bottom-4 left-4 flex space-x-3">
-                    <div className="flex items-center space-x-1 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-full">
-                      <Users className="w-4 h-4 text-white" />
-                      <span className="text-white text-sm">{world.users}</span>
+                  <div className="absolute bottom-4 left-4 flex gap-2">
+                    <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                      <Users className="w-3.5 h-3.5 text-white" />
+                      <span className="text-white text-xs">{world.users}</span>
                     </div>
-                    <div className="flex items-center space-x-1 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-full">
-                      <Building className="w-4 h-4 text-white" />
-                      <span className="text-white text-sm">{world.properties}</span>
+                    <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                      <Building className="w-3.5 h-3.5 text-white" />
+                      <span className="text-white text-xs">{world.properties}</span>
                     </div>
                   </div>
-
-                  {/* Land Size */}
-                  <div className="absolute bottom-4 right-4 bg-primary px-3 py-1 rounded-xl">
-                    <span className="text-white font-bold text-sm">{world.landSize}</span>
+                  <div className="absolute bottom-4 right-4 bg-white px-3 py-1 rounded-full">
+                    <span className="text-[#1d1d1f] font-semibold text-xs">{world.landSize}</span>
                   </div>
-                </figure>
+                </div>
 
-                <div className="card-body">
-                  <h3 className="card-title text-white">{world.name}</h3>
-                  <p className="text-gray-300 text-sm mb-4">{world.description}</p>
+                <div className="p-5 sm:p-6 min-w-0">
+                  <h3 className="text-lg font-semibold text-[#1d1d1f] mb-1.5">{world.name}</h3>
+                  <p className="text-[#6e6e73] text-sm mb-4 leading-relaxed">{world.description}</p>
 
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-1 mb-4">
+                  <div className="flex flex-wrap gap-1.5 mb-5">
                     {world.features.map((feature, idx) => (
-                      <span key={idx} className="badge badge-outline badge-sm">
+                      <span key={idx} className="text-xs text-[#6e6e73] border border-black/10 rounded-full px-2.5 py-1">
                         {feature}
                       </span>
                     ))}
                   </div>
 
-                  <div className="card-actions justify-between">
-                    <button 
+                  <div className="flex items-center justify-between gap-3">
+                    <button
                       onClick={() => setSelectedWorld(world)}
-                      className="btn btn-primary"
+                      className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-4 py-2.5 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center justify-center gap-2"
                     >
-                      <Play className="w-4 h-4 mr-2" />
-                      Enter World
+                      <Play className="w-4 h-4" />
+                      Enter world
                     </button>
-                    <button className="btn btn-ghost btn-sm">
-                      <Map className="w-4 h-4 mr-2" />
-                      View Map
+                    <button className="text-[#1d1d1f] hover:text-emerald-600 text-sm font-medium transition-colors inline-flex items-center gap-1.5 whitespace-nowrap">
+                      <Map className="w-4 h-4" />
+                      Map
                     </button>
                   </div>
                 </div>
@@ -262,27 +259,28 @@ const Metaverse = () => {
       </section>
 
       {/* Metaverse Features */}
-      <section className="py-16 bg-base-200">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Metaverse Features</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Revolutionary features that transform how you experience and interact with properties
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Capabilities</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Metaverse features
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Revolutionary features that transform how you experience and interact with properties.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
             {metaverseFeatures.map((feature, idx) => {
               const IconComponent = feature.icon;
               return (
-                <div key={idx} className="card bg-base-100 shadow-lg">
-                  <div className="card-body text-center">
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="card-title text-white text-lg justify-center">{feature.title}</h3>
-                    <p className="text-gray-300 text-sm">{feature.description}</p>
+                <div key={idx} className="bg-white hover:bg-[#f5f5f7] transition-colors p-6 min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                    <IconComponent className="w-5 h-5" />
                   </div>
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">{feature.title}</h3>
+                  <p className="text-sm text-[#6e6e73] leading-relaxed">{feature.description}</p>
                 </div>
               );
             })}
@@ -291,51 +289,53 @@ const Metaverse = () => {
       </section>
 
       {/* Avatar Customization */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-6">Customize Your Avatar</h2>
-              <p className="text-gray-300 mb-6">
-                Create your unique virtual identity to represent yourself in the metaverse. 
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-emerald-600 mb-3">Your identity</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] mb-4 tracking-tight">Customize your avatar</h2>
+              <p className="text-[#6e6e73] mb-6 leading-relaxed">
+                Create your unique virtual identity to represent yourself in the metaverse.
                 Choose from various styles that reflect your personality and culture.
               </p>
-              
-              <div className="space-y-3">
+
+              <div className="space-y-2.5">
                 {avatarOptions.map((option) => (
-                  <div key={option.id} className="flex items-center justify-between p-3 bg-base-200 rounded-lg">
-                    <div>
-                      <h4 className="text-white font-medium">{option.name}</h4>
-                      <p className="text-gray-400 text-sm">Professional avatar style</p>
+                  <div key={option.id} className="flex items-center justify-between p-3.5 bg-[#f5f5f7] rounded-xl min-w-0">
+                    <div className="min-w-0">
+                      <h4 className="text-[#1d1d1f] font-medium text-sm truncate">{option.name}</h4>
+                      <p className="text-[#86868b] text-xs">Avatar style</p>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <span className="text-success font-bold">{option.price}</span>
-                      <button className="btn btn-primary btn-sm">Select</button>
+                    <div className="flex items-center gap-3 flex-shrink-0">
+                      <span className="text-emerald-600 font-semibold text-sm">{option.price}</span>
+                      <button className="border border-black/10 hover:bg-black/5 text-[#1d1d1f] text-xs font-medium rounded-full px-3.5 py-1.5 transition-colors">
+                        Select
+                      </button>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            
-            <div className="card bg-base-200 shadow-xl">
-              <div className="card-body text-center">
-                <h3 className="card-title text-white justify-center mb-4">Avatar Preview</h3>
-                
-                {/* Avatar Preview Area */}
-                <div className="h-64 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center mb-6">
-                  <div className="text-center">
-                    <Users className="w-16 h-16 text-primary mx-auto mb-2" />
-                    <p className="text-gray-400">Select an avatar style to preview</p>
-                  </div>
+
+            <div className="min-w-0 bg-[#f5f5f7] rounded-3xl border border-black/5 p-6 sm:p-8">
+              <h3 className="text-lg font-semibold text-[#1d1d1f] mb-4">Avatar preview</h3>
+
+              <div className="h-56 sm:h-64 bg-white rounded-2xl border border-black/5 flex items-center justify-center mb-6">
+                <div className="text-center px-4">
+                  <Users className="w-12 h-12 text-emerald-600 mx-auto mb-2" />
+                  <p className="text-[#86868b] text-sm">Select an avatar style to preview</p>
                 </div>
-                
-                <div className="flex space-x-2">
-                  <button className="btn btn-primary flex-1">
-                    <Settings className="w-4 h-4 mr-2" />
-                    Customize
-                  </button>
-                  <button className="btn btn-outline flex-1">Save Avatar</button>
-                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-4 py-2.5 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center justify-center gap-2">
+                  <Settings className="w-4 h-4" />
+                  Customize
+                </button>
+                <button className="flex-1 border border-black/10 hover:bg-black/5 px-4 py-2.5 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm">
+                  Save avatar
+                </button>
               </div>
             </div>
           </div>
@@ -343,45 +343,46 @@ const Metaverse = () => {
       </section>
 
       {/* Virtual Events */}
-      <section className="py-16 bg-base-200">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Upcoming Virtual Events</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Join property exhibitions, auctions, and educational events in immersive virtual environments
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">What's on</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Upcoming virtual events
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Join property exhibitions, auctions, and educational events in immersive virtual environments.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {virtualEvents.map((event, idx) => (
-              <div key={idx} className="card bg-base-100 shadow-lg">
-                <div className="card-body">
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="card-title text-white text-sm">{event.name}</h3>
-                    <div className="badge badge-primary">{event.type}</div>
-                  </div>
-                  
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Date:</span>
-                      <span className="text-white">{event.date}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Time:</span>
-                      <span className="text-white">{event.time}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Attendees:</span>
-                      <span className="text-success">{event.attendees}</span>
-                    </div>
-                  </div>
+              <div key={idx} className="bg-white rounded-2xl border border-black/5 p-5 sm:p-6 min-w-0">
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <h3 className="text-[#1d1d1f] font-semibold text-sm leading-snug">{event.name}</h3>
+                  <span className="text-xs font-medium text-emerald-600 bg-emerald-50 rounded-full px-2.5 py-1 flex-shrink-0">
+                    {event.type}
+                  </span>
+                </div>
 
-                  <div className="card-actions justify-center mt-4">
-                    <button className="btn btn-primary btn-sm btn-block">
-                      Join Event
-                    </button>
+                <div className="space-y-2 text-sm mb-5">
+                  <div className="flex justify-between">
+                    <span className="text-[#86868b]">Date</span>
+                    <span className="text-[#1d1d1f]">{event.date}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#86868b]">Time</span>
+                    <span className="text-[#1d1d1f]">{event.time}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#86868b]">Attendees</span>
+                    <span className="text-[#1d1d1f]">{event.attendees}</span>
                   </div>
                 </div>
+
+                <button className="w-full bg-[#1d1d1f] hover:bg-black px-4 py-2.5 rounded-full font-medium text-white transition-colors text-sm">
+                  Join event
+                </button>
               </div>
             ))}
           </div>
@@ -390,105 +391,85 @@ const Metaverse = () => {
 
       {/* Virtual World Modal */}
       {selectedWorld && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-base-200 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-white">{selectedWorld.name}</h3>
-                  <p className="text-gray-400">{selectedWorld.description}</p>
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white border border-black/10 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="p-6 sm:p-8">
+              <div className="flex items-start justify-between mb-6 gap-4">
+                <div className="min-w-0">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1d1d1f]">{selectedWorld.name}</h3>
+                  <p className="text-[#6e6e73] text-sm">{selectedWorld.description}</p>
                 </div>
-                <button 
+                <button
                   onClick={() => setSelectedWorld(null)}
-                  className="btn btn-circle btn-ghost"
+                  className="w-9 h-9 bg-black/5 hover:bg-black/10 rounded-full flex items-center justify-center text-[#1d1d1f] transition-colors flex-shrink-0"
                 >
                   ✕
                 </button>
               </div>
 
-              {/* Virtual World Interface */}
-              <div className="card bg-base-100 mb-6">
-                <div className="card-body p-0">
-                  {/* World View */}
-                  <div className="h-96 bg-gradient-to-br from-slate-700 to-slate-800 relative overflow-hidden rounded-t-2xl">
-                    <img 
-                      src={selectedWorld.thumbnail} 
-                      alt={selectedWorld.name}
-                      className="w-full h-full object-cover opacity-60"
-                    />
-                    
-                    {/* Virtual Controls Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <h4 className="text-2xl font-bold text-white mb-4">Entering {selectedWorld.name}</h4>
-                        <div className="loading loading-spinner loading-lg text-primary mb-4"></div>
-                        <p className="text-gray-300">Initializing virtual environment...</p>
-                      </div>
-                    </div>
-
-                    {/* HUD Elements */}
-                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg p-3">
-                      <div className="text-white text-sm">
-                        <p>Users Online: <span className="text-success">{selectedWorld.users}</span></p>
-                        <p>Properties: <span className="text-primary">{selectedWorld.properties}</span></p>
-                      </div>
-                    </div>
-
-                    <div className="absolute top-4 right-4 flex space-x-2">
-                      <button className="btn btn-circle btn-sm bg-black/60 border-white/20 text-white">
-                        <Map className="w-4 h-4" />
-                      </button>
-                      <button className="btn btn-circle btn-sm bg-black/60 border-white/20 text-white">
-                        <Settings className="w-4 h-4" />
-                      </button>
+              <div className="rounded-2xl overflow-hidden border border-black/5 mb-6">
+                <div className="h-72 sm:h-96 relative overflow-hidden">
+                  <img
+                    src={selectedWorld.thumbnail}
+                    alt={selectedWorld.name}
+                    className="w-full h-full object-cover opacity-70"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                    <div className="text-center px-4">
+                      <h4 className="text-xl sm:text-2xl font-bold text-white mb-3">Entering {selectedWorld.name}</h4>
+                      <p className="text-white/80 text-sm">Initializing virtual environment…</p>
                     </div>
                   </div>
+                  <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm rounded-lg p-3">
+                    <div className="text-white text-xs space-y-1">
+                      <p>Users online: <span className="text-emerald-400">{selectedWorld.users}</span></p>
+                      <p>Properties: <span className="text-emerald-400">{selectedWorld.properties}</span></p>
+                    </div>
+                  </div>
+                </div>
 
-                  {/* Controls Panel */}
-                  <div className="p-6">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <div>
-                        <h4 className="text-lg font-semibold text-white mb-3">World Features</h4>
-                        <div className="space-y-2">
-                          {selectedWorld.features.map((feature, idx) => (
-                            <div key={idx} className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-success rounded-full"></div>
-                              <span className="text-gray-300 text-sm">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h4 className="text-lg font-semibold text-white mb-3">Quick Actions</h4>
-                        <div className="space-y-2">
-                          <button className="btn btn-primary btn-sm btn-block">
-                            <Building className="w-4 h-4 mr-2" />
-                            Browse Properties
-                          </button>
-                          <button className="btn btn-secondary btn-sm btn-block">
-                            <Users className="w-4 h-4 mr-2" />
-                            Find Friends
-                          </button>
-                          <button className="btn btn-accent btn-sm btn-block">
-                            <Eye className="w-4 h-4 mr-2" />
-                            Take Tour
-                          </button>
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h4 className="text-lg font-semibold text-white mb-3">World Stats</h4>
-                        <div className="stats stats-vertical w-full">
-                          <div className="stat p-2">
-                            <div className="stat-title text-gray-400 text-xs">Land Size</div>
-                            <div className="stat-value text-white text-sm">{selectedWorld.landSize}</div>
+                <div className="p-6 bg-[#f5f5f7]">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="min-w-0">
+                      <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">World features</h4>
+                      <div className="space-y-2">
+                        {selectedWorld.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full flex-shrink-0"></div>
+                            <span className="text-[#1d1d1f] text-sm">{feature}</span>
                           </div>
-                          <div className="stat p-2">
-                            <div className="stat-title text-gray-400 text-xs">Theme</div>
-                            <div className="stat-value text-primary text-sm">{selectedWorld.theme}</div>
-                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="min-w-0">
+                      <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Quick actions</h4>
+                      <div className="space-y-2">
+                        <button className="w-full bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center justify-center gap-2">
+                          <Building className="w-4 h-4" />
+                          Browse properties
+                        </button>
+                        <button className="w-full border border-black/10 hover:bg-black/5 px-4 py-2 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm inline-flex items-center justify-center gap-2">
+                          <Users className="w-4 h-4" />
+                          Find friends
+                        </button>
+                        <button className="w-full border border-black/10 hover:bg-black/5 px-4 py-2 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm inline-flex items-center justify-center gap-2">
+                          <Eye className="w-4 h-4" />
+                          Take tour
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="min-w-0">
+                      <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">World stats</h4>
+                      <div className="space-y-3">
+                        <div>
+                          <p className="text-xs text-[#86868b]">Land size</p>
+                          <p className="text-[#1d1d1f] text-sm font-medium">{selectedWorld.landSize}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-[#86868b]">Theme</p>
+                          <p className="text-emerald-600 text-sm font-medium">{selectedWorld.theme}</p>
                         </div>
                       </div>
                     </div>
@@ -496,11 +477,10 @@ const Metaverse = () => {
                 </div>
               </div>
 
-              {/* Enter Button */}
               <div className="text-center">
-                <button className="btn btn-primary btn-lg">
-                  <Gamepad2 className="w-5 h-5 mr-2" />
-                  Enter Virtual World
+                <button className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center gap-2">
+                  <Gamepad2 className="w-4 h-4" />
+                  Enter virtual world
                 </button>
               </div>
             </div>
@@ -508,21 +488,26 @@ const Metaverse = () => {
         </div>
       )}
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-secondary">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Explore the Metaverse?</h2>
-          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Step into the future of property exploration with immersive virtual experiences
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn btn-white btn-lg">
-              <Gamepad2 className="w-5 h-5 mr-2" />
-              Start Your Journey
+      {/* Closing CTA — the one deliberate dark section */}
+      <section className="bg-[#1d1d1f] py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-8 sm:mb-10">
+            <p className="text-sm font-medium text-emerald-400 mb-3">Get started</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+              Ready to explore the metaverse?
+            </h2>
+            <p className="text-white/60 leading-relaxed">
+              Step into the future of property exploration with immersive virtual experiences.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-[#1d1d1f] bg-white hover:bg-white/90 transition-colors text-sm">
+              <Gamepad2 className="w-4 h-4" />
+              Start your journey
             </button>
-            <button className="btn btn-outline border-white text-white hover:bg-white hover:text-primary btn-lg">
-              <Headphones className="w-5 h-5 mr-2" />
-              Get VR Headset
+            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
+              <Headphones className="w-4 h-4" />
+              Get VR headset
             </button>
           </div>
         </div>

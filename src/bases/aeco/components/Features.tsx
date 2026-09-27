@@ -249,110 +249,78 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-900 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-green-400/10 to-emerald-400/10 rounded-full filter blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500/20 to-green-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-emerald-500/30 mb-6">
-            <Leaf className="w-5 h-5 text-emerald-400" />
-            <span className="text-emerald-300 font-medium">Sustainable Innovations</span>
-          </div>
-          
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent">
-              Technologies That
-            </span>
-            <br />
-            <span className="text-white">Transform Living</span>
+    <section className="py-16 sm:py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <p className="text-sm font-medium text-emerald-600 mb-3">Sustainable Innovations</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+            Technologies that transform living
           </h2>
-          
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Experience the convergence of ancient wisdom and cutting-edge technology 
-            in sustainable real estate solutions for modern Bharat.
+          <p className="text-lg text-[#6e6e73] leading-relaxed">
+            Ancient wisdom meets cutting-edge technology in sustainable real estate
+            solutions for modern Bharat.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
-              className="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 cursor-pointer"
+              className="group bg-white hover:bg-[#f5f5f7] transition-colors p-6 cursor-pointer min-w-0"
               onClick={() => handleFeatureClick(feature)}
             >
-              {/* Gradient Border Effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl"
-                   style={{
-                     background: `linear-gradient(45deg, var(--tw-gradient-from), var(--tw-gradient-to))`,
-                     '--tw-gradient-from': feature.gradient.split(' ')[1],
-                     '--tw-gradient-to': feature.gradient.split(' ')[3]
-                   } as React.CSSProperties}>
-              </div>
-              
-              {/* Icon */}
-              <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-xl flex items-center justify-center mb-4 text-white`}>
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600 [&>svg]:w-5 [&>svg]:h-5">
                 {feature.icon}
               </div>
-              
-              {/* Content */}
-              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-emerald-300 transition-colors">
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">
                 {feature.title}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+              <p className="text-sm text-[#6e6e73] leading-relaxed">
                 {feature.description}
               </p>
-              
-              {/* Hover Effect */}
-              <div className="absolute bottom-4 right-4 w-6 h-6 bg-white/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-full h-full bg-gradient-to-r from-emerald-400 to-green-400 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-              </div>
             </div>
           ))}
         </div>
 
         {/* Feature Details Modal */}
         {selectedFeature && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-slate-800 border border-white/20 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" ref={featureModalRef}>
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="bg-white border border-black/10 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" ref={featureModalRef}>
               <div className="relative">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-slate-700 to-slate-800 p-8 rounded-t-3xl relative">
-                  <button 
+                <div className="p-6 sm:p-8 border-b border-black/5 relative">
+                  <button
                     onClick={closeFeatureModal}
-                    className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all"
+                    className="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 bg-black/5 hover:bg-black/10 rounded-full flex items-center justify-center text-[#1d1d1f] transition-colors"
                   >
                     ✕
                   </button>
-                  
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${selectedFeature.gradient} rounded-xl flex items-center justify-center text-white`}>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 [&>svg]:w-6 [&>svg]:h-6 flex-shrink-0">
                       {selectedFeature.icon}
                     </div>
-                    <div>
-                      <h3 className="text-3xl font-bold text-white">{selectedFeature.title}</h3>
-                      <p className="text-gray-300 text-lg">{selectedFeature.description}</p>
+                    <div className="min-w-0">
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#1d1d1f]">{selectedFeature.title}</h3>
+                      <p className="text-[#6e6e73] text-sm sm:text-base">{selectedFeature.description}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
+                <div className="p-6 sm:p-8">
                   <div className="mb-8">
-                    <h4 className="text-xl font-semibold text-white mb-4">Overview</h4>
-                    <p className="text-gray-300 text-lg leading-relaxed">{selectedFeature.details.overview}</p>
+                    <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Overview</h4>
+                    <p className="text-[#1d1d1f] text-base leading-relaxed">{selectedFeature.details.overview}</p>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                     <div>
-                      <h4 className="text-xl font-semibold text-white mb-4">Key Features</h4>
-                      <ul className="space-y-3">
+                      <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Key Features</h4>
+                      <ul className="space-y-2.5">
                         {selectedFeature.details.features.map((feature, idx) => (
-                          <li key={idx} className="text-gray-300 flex items-start space-x-3">
-                            <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <li key={idx} className="text-[#1d1d1f] text-sm flex items-start gap-3">
+                            <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></div>
                             <span>{feature}</span>
                           </li>
                         ))}
@@ -360,23 +328,20 @@ const Features = () => {
                     </div>
 
                     <div>
-                      <h4 className="text-xl font-semibold text-white mb-4">Process Flow</h4>
-                      <p className="text-gray-300 leading-relaxed mb-6">{selectedFeature.details.process}</p>
-                      
-                      <h4 className="text-xl font-semibold text-white mb-4">Benefits</h4>
-                      <p className="text-gray-300 leading-relaxed">{selectedFeature.details.benefits}</p>
+                      <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Process Flow</h4>
+                      <p className="text-[#6e6e73] text-sm leading-relaxed mb-6">{selectedFeature.details.process}</p>
+
+                      <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Benefits</h4>
+                      <p className="text-[#6e6e73] text-sm leading-relaxed">{selectedFeature.details.benefits}</p>
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                       Get Started
                     </button>
-                    <button className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                    <button className="flex-1 border border-black/10 hover:bg-black/5 px-6 py-3 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm">
                       Schedule Consultation
-                    </button>
-                    <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
-                      Learn More
                     </button>
                   </div>
                 </div>
@@ -386,9 +351,9 @@ const Features = () => {
         )}
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25">
-            Explore All Technologies
+        <div className="mt-12 sm:mt-16">
+          <button className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
+            Explore all technologies
           </button>
         </div>
       </div>

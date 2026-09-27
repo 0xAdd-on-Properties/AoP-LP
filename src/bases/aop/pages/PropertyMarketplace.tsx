@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Facebook, Instagram, Linkedin, Youtube, Twitter, Building } from 'lucide-react';
 import StandardNavbar from '../../../components/StandardNavbar';
 import LocationFilter from '../../../components/LocationFilter';
@@ -12,7 +13,7 @@ const PropertyMarketplace = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Properties');
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const propertyModalRef = useClickOutside(() => {
     setSelectedProperty(null);
     setIsModalOpen(false);
@@ -141,53 +142,40 @@ const PropertyMarketplace = () => {
     }
   ];
 
-  const services = [
-    { icon: "🏠", title: "Property Listings", description: "Browse thousands of verified properties" },
-    { icon: "🤖", title: "AI Powered Search", description: "Find your perfect home with smart recommendations" },
-    { icon: "👁️", title: "3D Virtual Tours", description: "Experience properties from anywhere" },
-    { icon: "🔨", title: "Construction Services", description: "End-to-end construction solutions" },
-    { icon: "🎨", title: "Interior Design", description: "Transform your space with expert design" },
-    { icon: "🪙", title: "Property Tokenization", description: "Invest in real estate with blockchain technology" }
-  ];
-
   return (
     <div className="min-h-screen bg-white" style={{ minHeight: '100vh' }}>
       {/* Standard Navbar */}
       <StandardNavbar />
-      
+
       {/* Header with Search */}
-      <header className="bg-gradient-to-br from-slate-900 via-emerald-900 to-blue-900 text-white py-8 sm:py-12 sm:py-16 relative overflow-hidden pt-24 sm:pt-32">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-20 left-4 sm:left-20 w-48 sm:w-64 h-48 sm:h-64 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-          <div className="absolute top-40 right-4 sm:right-20 w-56 sm:w-72 h-56 sm:h-72 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
-          <div className="absolute bottom-20 left-1/3 w-64 sm:w-80 h-64 sm:h-80 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-4000"></div>
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <header className="bg-[#f5f5f7] pt-24 sm:pt-32 pb-10 sm:pb-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           {/* Main Search Section */}
-          <div className="text-center mb-6 sm:mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Properties to buy in {selectedCity}</h2>
-            
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] mb-6">
+              Properties to buy in {selectedCity}
+            </h1>
+
             {/* Search Tabs */}
-            <div className="flex justify-center mb-4 sm:mb-6">
-              <div className="bg-white/20 rounded-lg p-1 flex flex-wrap justify-center gap-1">
+            <div className="flex justify-center mb-6">
+              <div className="bg-white border border-black/5 rounded-full p-1 flex flex-wrap justify-center gap-1 shadow-sm">
                 {['BUY', 'RENT', 'COMMERCIAL', 'PROJECTS', 'PLOTS', 'PG/CO-LIVING'].map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
-                      activeTab === tab ? 'bg-white text-blue-600' : 'text-white hover:bg-white/20'
+                    className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                      activeTab === tab ? 'bg-emerald-600 text-white' : 'text-[#6e6e73] hover:bg-black/5'
                     }`}
                   >
                     {tab}
                   </button>
                 ))}
               </div>
-          </div>
+            </div>
 
             {/* Search Bar */}
             <div className="max-w-4xl mx-auto">
-              <div className="glass-card rounded-2xl p-4 sm:p-6 flex flex-col md:flex-row gap-3 sm:gap-4">
+              <div className="bg-white border border-black/5 shadow-lg rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row gap-3">
                 <div className="flex-1">
                   <LocationFilter selectedCity={selectedCity} onCityChange={setSelectedCity} />
                 </div>
@@ -195,24 +183,24 @@ const PropertyMarketplace = () => {
                   <input
                     type="text"
                     placeholder="Search by locality, property, project or developer"
-                    className="w-full p-2 sm:p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white placeholder-white/70 text-sm sm:text-base"
+                    className="w-full p-2.5 sm:p-3 bg-[#f5f5f7] border border-black/5 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-[#1d1d1f] placeholder-[#6e6e73] text-sm sm:text-base"
                   />
                 </div>
-                <button className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center shadow-lg shadow-emerald-500/25 text-sm sm:text-base">
+                <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold transition-colors flex items-center justify-center text-sm sm:text-base">
                   <Search className="w-4 sm:w-5 h-4 sm:h-5 mr-1 sm:mr-2" />
                   Search
                 </button>
               </div>
             </div>
-              
+
             {/* Popular Localities */}
-            <div className="mt-4 sm:mt-6">
-              <p className="text-blue-100 mb-2 sm:mb-3 text-xs sm:text-sm">Popular Localities:</p>
-              <div className="flex flex-wrap justify-center gap-1 sm:gap-2">
+            <div className="mt-6">
+              <p className="text-[#6e6e73] mb-3 text-xs sm:text-sm">Popular Localities:</p>
+              <div className="flex flex-wrap justify-center gap-2">
                 {popularLocalities.map((locality) => (
                   <button
                     key={locality}
-                    className="glass-card hover:bg-white/30 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm transition-all duration-300 hover:scale-105"
+                    className="bg-white border border-black/5 hover:border-emerald-600/30 hover:text-emerald-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm text-[#1d1d1f] transition-colors"
                   >
                     {locality}
                   </button>
@@ -221,17 +209,17 @@ const PropertyMarketplace = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="mt-6 sm:mt-8 flex flex-col lg:flex-row gap-3 sm:gap-4 justify-center items-center">
-              <button className="glass-card text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105 text-sm sm:text-base">
+            <div className="mt-8 flex flex-col lg:flex-row gap-4 justify-center items-center">
+              <button className="bg-white border border-black/5 shadow-sm text-[#1d1d1f] px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:border-emerald-600/30 transition-colors text-sm sm:text-base">
                 Are you a Property Owner?
               </button>
-              <div className="max-w-2xl w-full text-center">
-                <h3 className="font-semibold mb-2 text-white text-base sm:text-lg">Property Digitization & Tokenization</h3>
-                <p className="text-xs sm:text-sm text-blue-100 mb-3 leading-relaxed">
-                  Digitize or tokenize your properties with ease. Experience AR/VR virtual tours, blockchain tokenization, and metaverse integration. 
+              <div className="max-w-2xl w-full text-center bg-white border border-black/5 rounded-2xl p-5 sm:p-6">
+                <h3 className="font-semibold mb-2 text-[#1d1d1f] text-base sm:text-lg">Property Digitization &amp; Tokenization</h3>
+                <p className="text-xs sm:text-sm text-[#6e6e73] mb-3 leading-relaxed">
+                  Digitize or tokenize your properties with ease. Experience AR/VR virtual tours, blockchain tokenization, and metaverse integration.
                   Transform properties into digital assets with fractional ownership and NFT-based deeds.
                 </p>
-                <button className="text-white underline hover:text-cyan-200 transition-colors text-xs sm:text-sm">
+                <button className="text-emerald-600 font-medium hover:text-emerald-700 transition-colors text-xs sm:text-sm">
                   Learn More
                 </button>
               </div>
@@ -241,58 +229,59 @@ const PropertyMarketplace = () => {
       </header>
 
       {/* Main Content */}
-      <main className="bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
+      <main className="bg-white">
         {/* Property Categories */}
-        <div className="border-b border-white/20">
-        <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex overflow-x-auto py-3 sm:py-4 space-x-3 sm:space-x-6">
+        <div className="border-b border-black/5 sticky top-0 z-10 bg-white/90 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex overflow-x-auto py-3 sm:py-4 gap-2 sm:gap-3">
               {propertyCategories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`whitespace-nowrap py-2 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base ${
+                  className={`whitespace-nowrap py-2 px-3 sm:px-4 rounded-full font-medium transition-colors text-sm sm:text-base ${
                     selectedCategory === category
-                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg'
-                      : 'bg-white/80 text-slate-700 hover:text-cyan-600 hover:bg-white/90 border border-slate-200'
+                      ? 'bg-emerald-600 text-white'
+                      : 'bg-[#f5f5f7] text-[#6e6e73] hover:text-[#1d1d1f]'
                   }`}
                 >
                   {category}
-              </button>
+                </button>
               ))}
             </div>
           </div>
         </div>
 
         {/* Featured Properties */}
-        <section className="py-8 sm:py-8 sm:py-12 bg-gradient-to-br from-slate-50 to-emerald-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-6 sm:mb-8 gap-4">
+        <section className="py-12 sm:py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-8 gap-4">
               <div>
-                <h2 className="text-2xl sm:text-2xl sm:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Featured Properties</h2>
-                <p className="text-slate-600 text-sm sm:text-base">Discover our hand-picked properties with premium amenities</p>
+                <p className="text-sm font-medium text-emerald-600 mb-2">Handpicked</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Featured Properties</h2>
+                <p className="text-[#6e6e73] text-sm sm:text-base mt-1">Discover our hand-picked properties with premium amenities</p>
               </div>
               <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full hover:bg-black/5">
                   <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5" />
                 </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full hover:bg-black/5">
                   <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5" />
                 </button>
               </div>
-                  </div>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {featuredProperties.map((property) => (
-              <div key={property.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer" onClick={() => handlePropertyClick(property)}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {featuredProperties.map((property) => (
+                <div key={property.id} className="bg-white border border-black/5 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer" onClick={() => handlePropertyClick(property)}>
                   <div className="relative h-56">
                     <img src={property.image} alt={property.title} className="w-full h-full object-cover" />
-                    <button className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-all duration-300">
-                      <Heart className="w-5 h-5 text-slate-600" />
+                    <button className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                      <Heart className="w-5 h-5 text-[#6e6e73]" />
                     </button>
-                    <div className="absolute top-4 left-4 bg-emerald-500/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                      <span className="text-white text-sm font-medium">Premium</span>
+                    <div className="absolute top-4 left-4 bg-emerald-600 px-3 py-1 rounded-full">
+                      <span className="text-white text-xs font-medium">Premium</span>
                     </div>
-                    <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full">
                       <div className="flex items-center space-x-1">
                         <span className="text-yellow-400">★</span>
                         <span className="text-white text-sm font-medium">4.8</span>
@@ -300,13 +289,13 @@ const PropertyMarketplace = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">{property.title}</h3>
-                    <div className="flex items-center text-slate-600 mb-4">
+                    <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2">{property.title}</h3>
+                    <div className="flex items-center text-[#6e6e73] mb-4">
                       <MapPin className="w-4 h-4 mr-1" />
                       <span className="text-sm">{property.location}</span>
                     </div>
-                    <div className="text-2xl font-bold text-slate-800 mb-4">{property.price}</div>
-                    <div className="flex items-center space-x-4 text-sm text-slate-600 mb-4">
+                    <div className="text-xl font-bold text-[#1d1d1f] mb-4">{property.price}</div>
+                    <div className="flex items-center space-x-4 text-sm text-[#6e6e73] mb-4">
                       <div className="flex items-center">
                         <Bed className="w-4 h-4 mr-1" />
                         <span>{property.beds} Bed</span>
@@ -320,9 +309,9 @@ const PropertyMarketplace = () => {
                         <span>{property.area}</span>
                       </div>
                     </div>
-                    <button 
+                    <button
                       onClick={() => window.location.href = `/property/${property.id}`}
-                      className="w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 shadow-lg shadow-blue-500/25"
+                      className="w-full bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-semibold text-white transition-colors text-sm"
                     >
                       View Property
                     </button>
@@ -334,53 +323,54 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* In Spotlight */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-emerald-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+        <section className="py-12 sm:py-16 bg-[#f5f5f7]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">In Spotlight</h2>
-                <p className="text-slate-600">Find exclusive projects in your area</p>
+                <p className="text-sm font-medium text-emerald-600 mb-2">Highlight</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">In Spotlight</h2>
+                <p className="text-[#6e6e73] mt-1">Find exclusive projects in your area</p>
               </div>
               <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full bg-white hover:bg-black/5">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full bg-white hover:bg-black/5">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
-                  </div>
+            </div>
 
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5">
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/2">
                   <img src={spotlightProject.image} alt={spotlightProject.title} className="w-full h-64 md:h-full object-cover" />
-                    </div>
+                </div>
                 <div className="md:w-1/2 p-8">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-500 rounded-lg flex items-center justify-center mr-4">
-                      <Building className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center mr-4 text-emerald-600">
+                      <Building className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-slate-800">{spotlightProject.developer}</h3>
-                      <p className="text-slate-600">Premium Developer</p>
+                      <h3 className="text-lg font-semibold text-[#1d1d1f]">{spotlightProject.developer}</h3>
+                      <p className="text-[#6e6e73] text-sm">Premium Developer</p>
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-slate-800 mb-2">{spotlightProject.title}</h3>
-                  <div className="flex items-center text-slate-600 mb-4">
+                  <h3 className="text-2xl font-bold text-[#1d1d1f] mb-2">{spotlightProject.title}</h3>
+                  <div className="flex items-center text-[#6e6e73] mb-4">
                     <MapPin className="w-4 h-4 mr-1" />
                     <span>{spotlightProject.location}</span>
                   </div>
                   <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-2">{spotlightProject.price}</div>
-                  <p className="text-slate-600 mb-6">{spotlightProject.type}</p>
-                  
-                  <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
-                    <div className="bg-gradient-to-r from-emerald-500 to-green-500 h-2 rounded-full" style={{width: '75%'}}></div>
+                  <p className="text-[#6e6e73] mb-6">{spotlightProject.type}</p>
+
+                  <div className="w-full bg-black/5 rounded-full h-2 mb-4">
+                    <div className="bg-emerald-600 h-2 rounded-full" style={{ width: '75%' }}></div>
                   </div>
-                  <p className="text-sm text-slate-600 mb-6">75% Sold</p>
-                  
-                  <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg shadow-blue-500/25">
+                  <p className="text-sm text-[#6e6e73] mb-6">75% Sold</p>
+
+                  <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-full font-semibold transition-colors">
                     Contact Developer
                   </button>
                 </div>
@@ -390,72 +380,74 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* Projects in Focus */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+        <section className="py-12 sm:py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Projects in Focus</h2>
-                <p className="text-slate-600">View our top projects in your city</p>
+                <p className="text-sm font-medium text-emerald-600 mb-2">Curated</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Projects in Focus</h2>
+                <p className="text-[#6e6e73] mt-1">View our top projects in your city</p>
               </div>
               <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full hover:bg-black/5">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full hover:bg-black/5">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
-                    </div>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {projectsInFocus.map((project) => (
-                <div key={project.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div key={project.id} className="bg-white border border-black/5 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
                   <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-slate-800 mb-2">{project.title}</h3>
-                    <div className="flex items-center text-slate-600 mb-3">
+                    <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2">{project.title}</h3>
+                    <div className="flex items-center text-[#6e6e73] mb-3">
                       <MapPin className="w-4 h-4 mr-1" />
                       <span className="text-sm">{project.location}</span>
                     </div>
-                    <div className="text-xl font-bold text-emerald-600 mb-3">{project.price}</div>
-                    <p className="text-slate-600 text-sm mb-4">{project.type}</p>
-                    <button className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white py-2 rounded-lg font-semibold transition-all duration-300 shadow-lg shadow-teal-500/25">
+                    <div className="text-lg font-bold text-emerald-600 mb-3">{project.price}</div>
+                    <p className="text-[#6e6e73] text-sm mb-4">{project.type}</p>
+                    <button className="w-full bg-[#1d1d1f] hover:bg-black text-white py-2.5 rounded-full font-semibold transition-colors">
                       View Project
                     </button>
                   </div>
-                      </div>
-                    ))}
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Recently Added */}
-        <section className="py-8 sm:py-12 bg-gradient-to-br from-emerald-50 to-teal-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+        <section className="py-12 sm:py-16 bg-[#f5f5f7]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Recently Added</h2>
-                <p className="text-slate-600">Discover new properties added to our portal</p>
+                <p className="text-sm font-medium text-emerald-600 mb-2">Fresh</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Recently Added</h2>
+                <p className="text-[#6e6e73] mt-1">Discover new properties added to our portal</p>
               </div>
               <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full bg-white hover:bg-black/5">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full bg-white hover:bg-black/5">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recentlyAdded.map((property) => (
-              <div key={property.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer" onClick={() => handlePropertyClick(property)}>
+              {recentlyAdded.map((property) => (
+                <div key={property.id} className="bg-white border border-black/5 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer" onClick={() => handlePropertyClick(property)}>
                   <img src={property.image} alt={property.title} className="w-full h-40 object-cover" />
                   <div className="p-4">
-                    <h3 className="font-semibold text-slate-800 mb-1 text-sm">{property.title}</h3>
-                    <p className="text-slate-600 text-sm mb-2">{property.type}</p>
-                    <div className="text-lg font-bold text-slate-800 mb-3">{property.price}</div>
-                    <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg shadow-cyan-500/25">
+                    <h3 className="font-semibold text-[#1d1d1f] mb-1 text-sm">{property.title}</h3>
+                    <p className="text-[#6e6e73] text-sm mb-2">{property.type}</p>
+                    <div className="text-base font-bold text-[#1d1d1f] mb-3">{property.price}</div>
+                    <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-full text-sm font-semibold transition-colors">
                       Contact
                     </button>
                   </div>
@@ -466,87 +458,89 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* Featured Collections */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+        <section className="py-12 sm:py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Featured Collections</h2>
-                <p className="text-slate-600">Hand-picked projects for you</p>
+                <p className="text-sm font-medium text-emerald-600 mb-2">Browse By Type</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Featured Collections</h2>
+                <p className="text-[#6e6e73] mt-1">Hand-picked projects for you</p>
               </div>
               <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full hover:bg-black/5">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full hover:bg-black/5">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {featuredCollections.map((collection) => (
-                <div key={collection.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div key={collection.id} className="bg-white border border-black/5 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
                   <img src={collection.image} alt={collection.title} className="w-full h-48 object-cover" />
                   <div className="p-6 text-center">
-                    <h3 className="text-lg font-bold text-slate-800 mb-2">{collection.title}</h3>
-                    <p className="text-slate-600 text-sm">{collection.subtitle}</p>
+                    <h3 className="text-lg font-semibold text-[#1d1d1f] mb-1">{collection.title}</h3>
+                    <p className="text-[#6e6e73] text-sm">{collection.subtitle}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
         {/* Trending Projects */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+        <section className="py-12 sm:py-16 bg-[#f5f5f7]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Trending Projects</h2>
-                <p className="text-slate-600">Explore what's popular in the market</p>
+                <p className="text-sm font-medium text-emerald-600 mb-2">Popular Now</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Trending Projects</h2>
+                <p className="text-[#6e6e73] mt-1">Explore what's popular in the market</p>
               </div>
               <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full bg-white hover:bg-black/5">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full bg-white hover:bg-black/5">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {trendingProjects.map((project) => (
-                <div key={project.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div key={project.id} className="bg-white border border-black/5 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
                   <div className="relative">
                     <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-                    <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-medium">
                       Trending
                     </div>
                     <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
                       <div className="flex items-center space-x-1">
                         <span className="text-yellow-400">★</span>
-                        <span className="text-slate-800 text-sm font-medium">4.8</span>
+                        <span className="text-[#1d1d1f] text-sm font-medium">4.8</span>
                       </div>
                     </div>
                   </div>
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-lg font-bold text-slate-800">{project.title}</h3>
-                      <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-xs font-medium">{project.type}</span>
+                      <h3 className="text-lg font-semibold text-[#1d1d1f]">{project.title}</h3>
+                      <span className="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium">{project.type}</span>
                     </div>
-                    <div className="flex items-center text-slate-600 mb-4">
+                    <div className="flex items-center text-[#6e6e73] mb-4">
                       <MapPin className="w-4 h-4 mr-1" />
                       <span className="text-sm">{project.location}</span>
                     </div>
-                    <div className="text-2xl font-bold text-blue-600 mb-4">{project.price}</div>
+                    <div className="text-xl font-bold text-[#1d1d1f] mb-4">{project.price}</div>
                     <div className="flex items-center justify-between">
-                      <div className="text-sm text-slate-500">
+                      <div className="text-sm text-[#6e6e73]">
                         <span className="font-medium">75% Sold</span>
                       </div>
-                      <button 
+                      <button
                         onClick={() => window.location.href = `/property/${project.id}`}
-                        className="bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300"
+                        className="bg-[#1d1d1f] hover:bg-black text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"
                       >
                         View Property
                       </button>
@@ -559,78 +553,78 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* Everything you need in real estate */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-4">Everything you need in real estate</h2>
-              <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
+        <section className="py-16 sm:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="max-w-2xl mb-12 sm:mb-16">
+              <p className="text-sm font-medium text-emerald-600 mb-3">Full Service</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] mb-4 tracking-tight">Everything you need in real estate</h2>
+              <p className="text-lg text-[#6e6e73] leading-relaxed">
                 From property search to construction, we provide end-to-end solutions for all your real estate needs.
               </p>
             </div>
 
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 text-left">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3">Property Listings</h3>
-                  <p className="text-slate-600">Browse through our curated collection of properties with detailed information and high-quality images.</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3">AI-Powered Search</h3>
-                  <p className="text-slate-600">Let our advanced AI help you find the perfect property based on your preferences and requirements.</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3">3D Virtual Tours</h3>
-                  <p className="text-slate-600">Experience properties in immersive 3D with our cutting-edge virtual tour technology.</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3">Construction Services</h3>
-                  <p className="text-slate-600">Sustainable construction solutions using local materials and innovative 3D printing technology.</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3">Interior Design</h3>
-                  <p className="text-slate-600">Professional interior design services to transform your space into your dream home.</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-800 mb-3">Property Tokenization</h3>
-                  <p className="text-slate-600">Invest in fractional real estate ownership through our RWA tokenization platform.</p>
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+              <div className="bg-white p-6 sm:p-8 min-w-0">
+                <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2">Property Listings</h3>
+                <p className="text-[#6e6e73] text-sm leading-relaxed">Browse through our curated collection of properties with detailed information and high-quality images.</p>
+              </div>
+
+              <div className="bg-white p-6 sm:p-8 min-w-0">
+                <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2">AI-Powered Search</h3>
+                <p className="text-[#6e6e73] text-sm leading-relaxed">Let our advanced AI help you find the perfect property based on your preferences and requirements.</p>
+              </div>
+
+              <div className="bg-white p-6 sm:p-8 min-w-0">
+                <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2">3D Virtual Tours</h3>
+                <p className="text-[#6e6e73] text-sm leading-relaxed">Experience properties in immersive 3D with our cutting-edge virtual tour technology.</p>
+              </div>
+
+              <Link href="/get-a-quote" className="bg-white p-6 sm:p-8 min-w-0 block group hover:bg-emerald-50/50 transition-colors">
+                <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2 group-hover:text-emerald-600 transition-colors">Construction Services</h3>
+                <p className="text-[#6e6e73] text-sm leading-relaxed">Sustainable construction solutions using local materials and innovative 3D printing technology. <span className="text-emerald-600 font-medium">Get a quote →</span></p>
+              </Link>
+
+              <Link href="/get-a-quote" className="bg-white p-6 sm:p-8 min-w-0 block group hover:bg-emerald-50/50 transition-colors">
+                <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2 group-hover:text-emerald-600 transition-colors">Interior Design</h3>
+                <p className="text-[#6e6e73] text-sm leading-relaxed">Professional interior design services to transform your space into your dream home. <span className="text-emerald-600 font-medium">Get a quote →</span></p>
+              </Link>
+
+              <div className="bg-white p-6 sm:p-8 min-w-0">
+                <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2">Property Tokenization</h3>
+                <p className="text-[#6e6e73] text-sm leading-relaxed">Invest in fractional real estate ownership through our RWA tokenization platform.</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Recommended Sellers */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+        <section className="py-12 sm:py-16 bg-[#f5f5f7]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Recommended Sellers</h2>
-                <p className="text-slate-600">Trusted, verified sellers with excellent track records</p>
+                <p className="text-sm font-medium text-emerald-600 mb-2">Trusted Partners</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Recommended Sellers</h2>
+                <p className="text-[#6e6e73] mt-1">Trusted, verified sellers with excellent track records</p>
               </div>
               <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full bg-white hover:bg-black/5">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full bg-white hover:bg-black/5">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
               {recommendedSellers.map((seller, index) => (
-                <div key={index} className="text-center bg-white rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-3 ring-2 ring-blue-200">
+                <div key={index} className="text-center bg-white border border-black/5 rounded-2xl p-5 sm:p-6 hover:shadow-lg transition-shadow duration-300">
+                  <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-3 ring-2 ring-emerald-100">
                     <img src={seller.image} alt={seller.name} className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="font-semibold text-slate-800 text-sm mb-1">{seller.name}</h3>
-                  <p className="text-slate-600 text-xs mb-1">{seller.properties} properties</p>
-                  <p className="text-slate-500 text-xs">{seller.experience}</p>
+                  <h3 className="font-semibold text-[#1d1d1f] text-sm mb-1">{seller.name}</h3>
+                  <p className="text-[#6e6e73] text-xs mb-1">{seller.properties} properties</p>
+                  <p className="text-[#6e6e73]/80 text-xs">{seller.experience}</p>
                 </div>
               ))}
             </div>
@@ -638,31 +632,32 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* News & Articles */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-emerald-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center mb-6 sm:mb-8">
+        <section className="py-12 sm:py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex justify-between items-end mb-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">News & Articles</h2>
-                <p className="text-slate-600">Stay updated with the latest real estate trends and news</p>
+                <p className="text-sm font-medium text-emerald-600 mb-2">Insights</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">News &amp; Articles</h2>
+                <p className="text-[#6e6e73] mt-1">Stay updated with the latest real estate trends and news</p>
               </div>
               <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full hover:bg-black/5">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                <button className="p-2 border border-black/10 rounded-full hover:bg-black/5">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {newsArticles.map((article, index) => (
-                <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div key={index} className="bg-white border border-black/5 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
                   <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-slate-800 mb-2">{article.title}</h3>
-                    <p className="text-slate-600 text-sm mb-3">{article.description}</p>
-                    <p className="text-slate-500 text-xs">{article.date}</p>
+                    <h3 className="text-base font-semibold text-[#1d1d1f] mb-2">{article.title}</h3>
+                    <p className="text-[#6e6e73] text-sm mb-3">{article.description}</p>
+                    <p className="text-[#6e6e73]/70 text-xs">{article.date}</p>
                   </div>
                 </div>
               ))}
@@ -671,40 +666,41 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* Normalizing Earthships Section */}
-        <section className="py-16 bg-gradient-to-br from-cyan-50 to-blue-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">Normalizing Earthships and Sustainable Constructions</h2>
-                <p className="text-slate-600 mb-6">
-                  We are committed to promoting sustainable living and eco-friendly construction practices in Vizag. 
+        <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              <div className="min-w-0">
+                <p className="text-sm font-medium text-emerald-600 mb-3">Sustainability</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] mb-4 tracking-tight">Normalizing Earthships and Sustainable Constructions</h2>
+                <p className="text-[#6e6e73] mb-8 leading-relaxed">
+                  We are committed to promoting sustainable living and eco-friendly construction practices in Vizag.
                   Our platform connects you with properties that prioritize environmental responsibility and modern comfort.
                 </p>
-                
+
                 <div className="grid grid-cols-3 gap-4">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <span className="text-2xl">🌱</span>
                     </div>
-                    <p className="text-sm text-slate-600">Sustainable Community</p>
+                    <p className="text-sm text-[#6e6e73]">Sustainable Community</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <span className="text-2xl">🏠</span>
                     </div>
-                    <p className="text-sm text-slate-600">Eco-Friendly Living</p>
+                    <p className="text-sm text-[#6e6e73]">Eco-Friendly Living</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <span className="text-2xl">⚡</span>
                     </div>
-                    <p className="text-sm text-slate-600">Green Technology</p>
+                    <p className="text-sm text-[#6e6e73]">Green Technology</p>
                   </div>
                 </div>
               </div>
 
-              <div className="text-center lg:text-right">
-                <div className="w-64 h-48 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg mx-auto lg:mx-0 flex items-center justify-center">
+              <div className="min-w-0">
+                <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-emerald-600 flex items-center justify-center">
                   <span className="text-white font-semibold">Earthship Construction</span>
                 </div>
               </div>
@@ -713,12 +709,12 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* Popular Localities Section */}
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-cyan-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent text-center mb-6 sm:mb-8">Popular Localities</h2>
-            <div className="flex flex-wrap justify-center gap-4">
+        <section className="py-12 sm:py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight text-center mb-8">Popular Localities</h2>
+            <div className="flex flex-wrap justify-center gap-3">
               {popularLocalities.map((locality, index) => (
-                <button key={index} className="bg-white hover:bg-blue-50 text-blue-600 hover:text-blue-700 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+                <button key={index} className="bg-[#f5f5f7] hover:bg-emerald-50 text-[#1d1d1f] hover:text-emerald-700 px-6 py-3 rounded-full text-sm font-medium transition-colors">
                   {locality}
                 </button>
               ))}
@@ -727,16 +723,16 @@ const PropertyMarketplace = () => {
         </section>
 
         {/* Browse Top Links */}
-        <section className="py-8 sm:py-12 bg-gradient-to-r from-blue-100 to-cyan-100">
-          <div className="container mx-auto px-4 sm:px-6">
-            <h2 className="text-2xl font-bold text-gray-800 text-center mb-6 sm:mb-8">Browse top links to search your home</h2>
-            
+        <section className="py-12 sm:py-16 bg-[#f5f5f7]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#1d1d1f] text-center mb-8">Browse top links to search your home</h2>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-4">City Collections</h3>
+                <h3 className="font-semibold text-[#1d1d1f] mb-4">City Collections</h3>
                 <div className="space-y-2">
                   {['Luxury Homes', 'Affordable Housing', 'Commercial Spaces', 'Plots', 'Rental Properties'].map((collection) => (
-                    <a key={collection} href="#" className="block text-blue-600 hover:text-blue-800 text-sm">
+                    <a key={collection} href="#" className="block text-[#6e6e73] hover:text-emerald-600 text-sm transition-colors">
                       {collection}
                     </a>
                   ))}
@@ -744,10 +740,10 @@ const PropertyMarketplace = () => {
               </div>
 
               <div>
-                <h3 className="font-semibold text-gray-800 mb-4">Builder Search</h3>
+                <h3 className="font-semibold text-[#1d1d1f] mb-4">Builder Search</h3>
                 <div className="space-y-2">
                   {['Top Builders', 'New Projects', 'Under Construction', 'Ready to Move', 'RERA Approved'].map((builder) => (
-                    <a key={builder} href="#" className="block text-blue-600 hover:text-blue-800 text-sm">
+                    <a key={builder} href="#" className="block text-[#6e6e73] hover:text-emerald-600 text-sm transition-colors">
                       {builder}
                     </a>
                   ))}
@@ -755,10 +751,10 @@ const PropertyMarketplace = () => {
               </div>
 
               <div>
-                <h3 className="font-semibold text-gray-800 mb-4">Property Types</h3>
+                <h3 className="font-semibold text-[#1d1d1f] mb-4">Property Types</h3>
                 <div className="space-y-2">
                   {['Apartments', 'Villas', 'Houses', 'Plots', 'Commercial'].map((type) => (
-                    <a key={type} href="#" className="block text-blue-600 hover:text-blue-800 text-sm">
+                    <a key={type} href="#" className="block text-[#6e6e73] hover:text-emerald-600 text-sm transition-colors">
                       {type}
                     </a>
                   ))}
@@ -770,124 +766,118 @@ const PropertyMarketplace = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-cyan-600 via-blue-600 to-blue-700 text-white">
-        <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
-          <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">AoP - AddonProp</h2>
-            <p className="text-cyan-100 mb-6">
+      <footer className="bg-[#1d1d1f] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">AoP - AddonProp</h2>
+            <p className="text-white/60 max-w-xl mx-auto">
               Your trusted partner in real estate. From property search to sustainable living, we've got you covered.
             </p>
           </div>
-        </div>
 
-        {/* Bottom Footer */}
-        <div className="bg-black/30">
-          <div className="container mx-auto px-4 sm:px-6 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="font-semibold mb-3 text-sm">Company</h3>
+              <div className="space-y-2 text-sm">
+                {['Careers', 'About Us', 'Our Team', 'Terms', 'Refund Policy', 'Privacy Policy', 'Contact Us'].map((link) => (
+                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
-              <div>
-                <h3 className="font-semibold mb-3">Company</h3>
-                <div className="space-y-2 text-sm">
-                  {['Careers', 'About Us', 'Our Team', 'Terms', 'Refund Policy', 'Privacy Policy', 'Contact Us'].map((link) => (
-                    <a key={link} href="#" className="block text-cyan-100 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  ))}
-                          </div>
-                        </div>
-              
-              <div>
-                <h3 className="font-semibold mb-3">Partner With Us</h3>
-                <div className="space-y-2 text-sm">
-                  {['Developers', 'Individual Space', 'Banks', 'Architects'].map((link) => (
-                    <a key={link} href="#" className="block text-cyan-100 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  ))}
-                          </div>
-                        </div>
-              
-              <div>
-                <h3 className="font-semibold mb-3">Explore</h3>
-                <div className="space-y-2 text-sm">
-                  {['News', 'Loans', 'Rental', 'Investment'].map((link) => (
-                    <a key={link} href="#" className="block text-cyan-100 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  ))}
-                        </div>
-                      </div>
-              
-              <div>
-                <h3 className="font-semibold mb-3">Mobile App</h3>
-                <div className="space-y-2 text-sm">
-                  <p className="text-green-100">Download our mobile app for better experience</p>
-                  <div className="flex space-x-2 mb-4">
-                    <div className="w-20 h-8 bg-white/20 rounded flex items-center justify-center">
-                      <span className="text-xs">App Store</span>
-                    </div>
-                    <div className="w-20 h-8 bg-white/20 rounded flex items-center justify-center">
-                      <span className="text-xs">Play Store</span>
-                    </div>
+            <div>
+              <h3 className="font-semibold mb-3 text-sm">Partner With Us</h3>
+              <div className="space-y-2 text-sm">
+                {['Developers', 'Individual Space', 'Banks', 'Architects'].map((link) => (
+                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-3 text-sm">Explore</h3>
+              <div className="space-y-2 text-sm">
+                {['News', 'Loans', 'Rental', 'Investment'].map((link) => (
+                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-3 text-sm">Mobile App</h3>
+              <div className="space-y-2 text-sm">
+                <p className="text-white/60">Download our mobile app for better experience</p>
+                <div className="flex space-x-2 mb-4">
+                  <div className="w-20 h-8 bg-white/10 rounded flex items-center justify-center">
+                    <span className="text-xs">App Store</span>
                   </div>
-                  <div className="flex space-x-4">
-                    <a href="#" className="hover:text-cyan-200 transition-colors">
-                      <Facebook className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-cyan-200 transition-colors">
-                      <Instagram className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-cyan-200 transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-cyan-200 transition-colors">
-                      <Youtube className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-cyan-200 transition-colors">
-                      <Twitter className="w-5 h-5" />
-                    </a>
+                  <div className="w-20 h-8 bg-white/10 rounded flex items-center justify-center">
+                    <span className="text-xs">Play Store</span>
                   </div>
+                </div>
+                <div className="flex space-x-4">
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Youtube className="w-5 h-5" />
+                  </a>
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Twitter className="w-5 h-5" />
+                  </a>
                 </div>
               </div>
             </div>
-            
-            <div className="mt-8 pt-6 border-t border-white/20 text-center">
-              <p className="text-cyan-100 text-sm">
-                © 2025 AddonProp. All rights reserved. Built with love by{' '}
-                <a href="https://studio.sted.space" className="text-cyan-200 hover:text-white transition-colors underline">
-                  studio.sted.space
-                </a>
-              </p>
-            </div>
+          </div>
+
+          <div className="mt-12 pt-6 border-t border-white/10 text-center">
+            <p className="text-white/50 text-sm">
+              © 2025 AddonProp. All rights reserved. Built with love by{' '}
+              <a href="https://studio.sted.space" className="text-white/70 hover:text-white transition-colors underline">
+                studio.sted.space
+              </a>
+            </p>
           </div>
         </div>
       </footer>
 
       {/* Property Details Modal */}
       {isModalOpen && selectedProperty && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-800 border border-white/20 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" ref={propertyModalRef}>
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" ref={propertyModalRef}>
             <div className="relative">
               {/* Header */}
-              <div className="bg-gradient-to-r from-slate-700 to-slate-800 p-8 rounded-t-3xl relative">
-                <button 
-                  onClick={() => {setSelectedProperty(null); setIsModalOpen(false);}}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all"
+              <div className="bg-[#f5f5f7] p-8 rounded-t-3xl relative">
+                <button
+                  onClick={() => { setSelectedProperty(null); setIsModalOpen(false); }}
+                  className="absolute top-4 right-4 w-10 h-10 bg-white shadow-sm rounded-full flex items-center justify-center text-[#1d1d1f] hover:bg-black/5 transition-colors"
                 >
                   ✕
                 </button>
-                
+
                 <div className="flex items-center space-x-4 mb-4">
-                  <img 
-                    src={selectedProperty?.image || ''} 
+                  <img
+                    src={selectedProperty?.image || ''}
                     alt={selectedProperty?.title || ''}
                     className="w-24 h-24 object-cover rounded-xl"
                   />
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white">{selectedProperty?.title || ''}</h3>
-                    <p className="text-gray-300 text-lg">{selectedProperty?.type || ''}</p>
-                    <p className="text-cyan-300 text-xl font-semibold">{selectedProperty?.price || ''}</p>
-                </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">{selectedProperty?.title || ''}</h3>
+                    <p className="text-[#6e6e73] text-lg">{selectedProperty?.type || ''}</p>
+                    <p className="text-emerald-600 text-xl font-semibold">{selectedProperty?.price || ''}</p>
+                  </div>
                 </div>
               </div>
 
@@ -895,53 +885,53 @@ const PropertyMarketplace = () => {
               <div className="p-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">Property Details</h4>
+                    <h4 className="text-lg font-semibold text-[#1d1d1f] mb-4">Property Details</h4>
                     <div className="space-y-3">
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <MapPin className="w-4 h-4 text-emerald-400" />
+                      <div className="flex items-center space-x-3 text-[#6e6e73]">
+                        <MapPin className="w-4 h-4 text-emerald-600" />
                         <span>{selectedProperty?.location || 'N/A'}</span>
-                          </div>
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <Bed className="w-4 h-4 text-emerald-400" />
+                      </div>
+                      <div className="flex items-center space-x-3 text-[#6e6e73]">
+                        <Bed className="w-4 h-4 text-emerald-600" />
                         <span>{selectedProperty?.bedrooms || 'N/A'} Bedrooms</span>
-                        </div>
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <Bath className="w-4 h-4 text-emerald-400" />
+                      </div>
+                      <div className="flex items-center space-x-3 text-[#6e6e73]">
+                        <Bath className="w-4 h-4 text-emerald-600" />
                         <span>{selectedProperty?.bathrooms || 'N/A'} Bathrooms</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <Square className="w-4 h-4 text-emerald-400" />
+                      <div className="flex items-center space-x-3 text-[#6e6e73]">
+                        <Square className="w-4 h-4 text-emerald-600" />
                         <span>{selectedProperty?.area || 'N/A'} sq ft</span>
                       </div>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">Sustainability Features</h4>
+                    <h4 className="text-lg font-semibold text-[#1d1d1f] mb-4">Sustainability Features</h4>
                     <div className="space-y-2">
                       {selectedProperty?.features?.map((feature: any, idx: number) => (
                         <div key={idx} className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                          <span className="text-gray-300 text-sm">{feature}</span>
+                          <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>
+                          <span className="text-[#6e6e73] text-sm">{feature}</span>
                         </div>
                       ))}
-                        </div>
-                      </div>
                     </div>
+                  </div>
+                </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                  <button 
+                <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                  <button
                     onClick={() => window.location.href = `/property/${selectedProperty?.id}`}
-                    className="flex-1 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25"
+                    className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-semibold text-white transition-colors"
                   >
                     View Property
                   </button>
-                  <button className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-cyan-500/25">
-                        Virtual Tour
-                      </button>
-                  <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                  <button className="flex-1 bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-semibold text-white transition-colors">
+                    Virtual Tour
+                  </button>
+                  <button className="flex-1 bg-[#f5f5f7] hover:bg-black/10 border border-black/5 px-6 py-3 rounded-full font-semibold text-[#1d1d1f] transition-colors">
                     Get Brochure
-                      </button>
+                  </button>
                 </div>
               </div>
             </div>

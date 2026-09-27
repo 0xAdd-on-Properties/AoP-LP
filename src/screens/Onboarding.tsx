@@ -71,11 +71,11 @@ export default function Onboarding() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 py-16 px-4">
+    <main className="min-h-screen bg-[#f5f5f7] py-16 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">What brings you to AddonProp?</h1>
-          <p className="text-slate-600">Pick the option that fits best — you can always update this later.</p>
+          <h1 className="text-3xl font-bold text-[#1d1d1f] mb-2">What brings you to AddonProp?</h1>
+          <p className="text-[#6e6e73]">Pick the option that fits best — you can always update this later.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -84,21 +84,21 @@ export default function Onboarding() {
               key={id}
               type="button"
               onClick={() => setSelected(id)}
-              className={`text-left p-5 rounded-2xl border-2 transition-all duration-200 ${
+              className={`min-w-0 text-left p-5 rounded-2xl border transition-colors ${
                 selected === id
-                  ? 'border-emerald-500 bg-emerald-50 shadow-md'
-                  : 'border-slate-200 bg-white hover:border-emerald-300 hover:shadow-sm'
+                  ? 'border-emerald-600 bg-emerald-50'
+                  : 'border-black/10 bg-white hover:border-emerald-600/30'
               }`}
             >
               <div
                 className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${
-                  selected === id ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-600'
+                  selected === id ? 'bg-emerald-600 text-white' : 'bg-black/5 text-[#6e6e73]'
                 }`}
               >
                 <Icon className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-slate-900 mb-1">{title}</h3>
-              <p className="text-sm text-slate-600">{description}</p>
+              <h3 className="font-semibold text-[#1d1d1f] mb-1">{title}</h3>
+              <p className="text-sm text-[#6e6e73]">{description}</p>
             </button>
           ))}
         </div>
@@ -110,7 +110,7 @@ export default function Onboarding() {
             type="button"
             onClick={handleContinue}
             disabled={!selected || submitting}
-            className="bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-800 transition-colors"
+            className="bg-[#1d1d1f] text-white px-8 py-3 rounded-full font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-black transition-colors"
           >
             {submitting ? 'Saving...' : 'Continue'}
           </button>

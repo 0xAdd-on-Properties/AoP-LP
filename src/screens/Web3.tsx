@@ -46,6 +46,14 @@ const Web3 = () => {
     }
   ];
 
+  const statusStyle = {
+    'Live': 'text-emerald-600 bg-emerald-50',
+    'Beta': 'text-[#1d1d1f] bg-black/5',
+    'Coming Soon': 'text-[#1d1d1f] bg-black/5',
+    'Development': 'text-[#1d1d1f] bg-black/5',
+    'Research': 'text-[#86868b] bg-black/5'
+  };
+
   const supportedNetworks = [
     {
       id: 'ethereum',
@@ -104,51 +112,50 @@ const Web3 = () => {
   ];
 
   const connectWallet = () => {
-    // Simulate wallet connection
     setWalletConnected(true);
   };
 
   return (
-    <div className="min-h-screen bg-base-100 pt-20">
-      {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-base-200 to-base-300">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              <span className="gradient-text">Web3 Property</span>
-              <br />
-              <span className="text-white">Ecosystem</span>
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="relative bg-[#f5f5f7] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20">
+          <div className="max-w-3xl min-w-0 space-y-6">
+            <p className="text-sm font-medium text-emerald-600">Blockchain-powered real estate</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05]">
+              The <span className="text-emerald-600">Web3</span> property ecosystem
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Experience the future of real estate with blockchain technology, smart contracts, 
+            <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed max-w-xl">
+              Experience the future of real estate with blockchain technology, smart contracts,
               and decentralized finance integrated into sustainable property investment.
             </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={connectWallet}
-              className={`btn btn-lg ${walletConnected ? 'btn-success' : 'btn-primary'}`}
-            >
-              <Wallet className="w-5 h-5 mr-2" />
-              {walletConnected ? 'Wallet Connected' : 'Connect Wallet'}
-            </button>
-            <button className="btn btn-outline btn-lg">
-              <Code className="w-5 h-5 mr-2" />
-              Explore DApps
-            </button>
+            <div className="flex flex-wrap gap-3">
+              <button
+                onClick={connectWallet}
+                className={`px-6 py-3 rounded-full font-medium transition-colors text-sm inline-flex items-center gap-2 ${
+                  walletConnected ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-[#1d1d1f] hover:bg-black text-white'
+                }`}
+              >
+                <Wallet className="w-4 h-4" />
+                {walletConnected ? 'Wallet connected' : 'Connect wallet'}
+              </button>
+              <button className="px-6 py-3 rounded-full font-medium text-[#1d1d1f] border border-black/10 hover:bg-black/5 transition-colors text-sm inline-flex items-center gap-2">
+                <Code className="w-4 h-4" />
+                Explore DApps
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Wallet Connection Status */}
       {walletConnected && (
-        <section className="py-8 bg-success/10 border-b border-success/20">
-          <div className="container mx-auto px-6">
-            <div className="flex items-center justify-center space-x-4">
-              <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-              <span className="text-success font-medium">
-                Wallet Connected: 0x742d...Ae12 | Balance: 1.25 ETH, 2,450 MATIC
+        <section className="py-3 bg-emerald-50 border-b border-emerald-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="w-2 h-2 bg-emerald-600 rounded-full animate-pulse"></div>
+              <span className="text-emerald-700 font-medium text-sm text-center">
+                Wallet connected: 0x742d…Ae12 · Balance: 1.25 ETH, 2,450 MATIC
               </span>
             </div>
           </div>
@@ -156,47 +163,38 @@ const Web3 = () => {
       )}
 
       {/* Web3 Features */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Web3 Features</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Cutting-edge blockchain technology powering the next generation of property investment
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Built-in</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Web3 features
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Cutting-edge blockchain technology powering the next generation of property investment.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {web3Features.map((feature, idx) => {
               const IconComponent = feature.icon;
-              const statusColors = {
-                'Live': 'badge-success',
-                'Beta': 'badge-warning',
-                'Coming Soon': 'badge-info',
-                'Development': 'badge-secondary',
-                'Research': 'badge-ghost'
-              };
-              
               return (
-                <div key={idx} className="card bg-base-200 shadow-xl card-hover">
-                  <div className="card-body">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                        <IconComponent className="w-6 h-6 text-white" />
-                      </div>
-                      <div className={`badge ${statusColors[feature.status]}`}>
-                        {feature.status}
-                      </div>
+                <div key={idx} className="bg-white border border-black/5 rounded-2xl p-6 min-w-0">
+                  <div className="flex items-start justify-between mb-4 gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                      <IconComponent className="w-5 h-5" />
                     </div>
-                    <h3 className="card-title text-white">{feature.title}</h3>
-                    <p className="text-gray-300 text-sm">{feature.description}</p>
-                    
-                    <div className="card-actions justify-end mt-4">
-                      <button className="btn btn-primary btn-sm">
-                        Learn More
-                        <ArrowUpRight className="w-4 h-4 ml-1" />
-                      </button>
-                    </div>
+                    <span className={`text-xs font-medium px-2.5 py-1 rounded-full whitespace-nowrap ${statusStyle[feature.status]}`}>
+                      {feature.status}
+                    </span>
                   </div>
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">{feature.title}</h3>
+                  <p className="text-sm text-[#6e6e73] leading-relaxed mb-4">{feature.description}</p>
+
+                  <button className="text-emerald-600 hover:text-emerald-700 text-sm font-medium inline-flex items-center gap-1 transition-colors">
+                    Learn more
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               );
             })}
@@ -205,61 +203,58 @@ const Web3 = () => {
       </section>
 
       {/* Supported Networks */}
-      <section className="py-16 bg-base-200">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Supported Blockchain Networks</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Multi-chain support for optimal user experience and cost efficiency
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Multi-chain</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Supported blockchain networks
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Multi-chain support for optimal user experience and cost efficiency.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {supportedNetworks.map((network) => (
-              <div 
-                key={network.id} 
-                className={`card shadow-xl cursor-pointer card-hover ${
-                  selectedNetwork === network.id ? 'bg-primary/20 border border-primary' : 'bg-base-100'
-                }`}
+              <div
+                key={network.id}
                 onClick={() => setSelectedNetwork(network.id)}
+                className={`rounded-2xl p-6 cursor-pointer transition-colors min-w-0 ${
+                  selectedNetwork === network.id ? 'bg-white border-2 border-emerald-600' : 'bg-white border border-black/5 hover:border-black/10'
+                }`}
               >
-                <div className="card-body text-center">
-                  <div className="text-4xl mb-4">{network.icon}</div>
-                  <h3 className="card-title text-white justify-center">{network.name}</h3>
-                  
-                  <div className="space-y-3 mt-4">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Gas Token:</span>
-                      <span className="text-white">{network.gasToken}</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Avg Gas:</span>
-                      <span className="text-white">{network.avgGas}</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Speed:</span>
-                      <span className="text-white">{network.speed}</span>
-                    </div>
-                  </div>
+                <div className="text-3xl mb-3 text-[#1d1d1f]">{network.icon}</div>
+                <h3 className="text-[#1d1d1f] font-semibold text-base mb-4">{network.name}</h3>
 
-                  <div className="mt-4">
-                    <div className="flex flex-wrap gap-1 justify-center">
-                      {network.features.map((feature, idx) => (
-                        <span key={idx} className="badge badge-outline badge-sm">
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
+                <div className="space-y-2.5 mb-4">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-[#86868b]">Gas token</span>
+                    <span className="text-[#1d1d1f]">{network.gasToken}</span>
                   </div>
-
-                  {selectedNetwork === network.id && (
-                    <div className="mt-4">
-                      <button className="btn btn-primary btn-sm">
-                        Switch to {network.name}
-                      </button>
-                    </div>
-                  )}
+                  <div className="flex justify-between text-sm">
+                    <span className="text-[#86868b]">Avg gas</span>
+                    <span className="text-[#1d1d1f]">{network.avgGas}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-[#86868b]">Speed</span>
+                    <span className="text-[#1d1d1f]">{network.speed}</span>
+                  </div>
                 </div>
+
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {network.features.map((feature, idx) => (
+                    <span key={idx} className="text-xs text-[#6e6e73] border border-black/10 rounded-full px-2.5 py-1">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+
+                {selectedNetwork === network.id && (
+                  <button className="w-full bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full font-medium text-white transition-colors text-sm">
+                    Switch to {network.name}
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -267,48 +262,49 @@ const Web3 = () => {
       </section>
 
       {/* DApps Ecosystem */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Decentralized Applications</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Explore our ecosystem of DApps built for sustainable property investment
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Ecosystem</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Decentralized applications
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Explore our ecosystem of DApps built for sustainable property investment.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {dapps.map((dapp, idx) => (
-              <div key={idx} className="card bg-base-200 shadow-xl">
-                <div className="card-body">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="card-title text-white text-lg">{dapp.name}</h3>
-                    <div className="badge badge-primary">{dapp.category}</div>
+              <div key={idx} className="bg-white border border-black/5 rounded-2xl p-6 min-w-0">
+                <div className="flex items-start justify-between mb-3 gap-3">
+                  <h3 className="text-[#1d1d1f] font-semibold text-base">{dapp.name}</h3>
+                  <span className="text-xs font-medium text-emerald-600 bg-emerald-50 rounded-full px-2.5 py-1 flex-shrink-0">
+                    {dapp.category}
+                  </span>
+                </div>
+
+                <p className="text-[#6e6e73] text-sm mb-5 leading-relaxed">{dapp.description}</p>
+
+                <div className="grid grid-cols-3 gap-2 mb-5">
+                  <div className="min-w-0">
+                    <p className="text-[#86868b] text-xs">TVL</p>
+                    <p className="text-[#1d1d1f] font-semibold text-sm">{dapp.tvl}</p>
                   </div>
-                  
-                  <p className="text-gray-300 text-sm mb-4">{dapp.description}</p>
-                  
-                  <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div className="text-center">
-                      <p className="text-gray-400 text-xs">TVL</p>
-                      <p className="text-white font-bold">{dapp.tvl}</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-gray-400 text-xs">Users</p>
-                      <p className="text-white font-bold">{dapp.users}</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-gray-400 text-xs">APY</p>
-                      <p className="text-success font-bold">{dapp.apy}</p>
-                    </div>
+                  <div className="min-w-0">
+                    <p className="text-[#86868b] text-xs">Users</p>
+                    <p className="text-[#1d1d1f] font-semibold text-sm">{dapp.users}</p>
                   </div>
-                  
-                  <div className="card-actions justify-center">
-                    <button className="btn btn-primary btn-block">
-                      Launch DApp
-                      <ArrowUpRight className="w-4 h-4 ml-1" />
-                    </button>
+                  <div className="min-w-0">
+                    <p className="text-[#86868b] text-xs">APY</p>
+                    <p className="text-emerald-600 font-semibold text-sm">{dapp.apy}</p>
                   </div>
                 </div>
+
+                <button className="w-full bg-emerald-600 hover:bg-emerald-700 px-4 py-2.5 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center justify-center gap-1.5">
+                  Launch DApp
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
               </div>
             ))}
           </div>
@@ -316,98 +312,95 @@ const Web3 = () => {
       </section>
 
       {/* Smart Contract Info */}
-      <section className="py-16 bg-base-200">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-6">Smart Contract Security</h2>
-              <p className="text-gray-300 mb-6">
-                Our smart contracts are audited by leading security firms and implement best practices 
-                for secure property tokenization and trading.
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-emerald-600 mb-3">Security</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] mb-4 tracking-tight">Smart contract security</h2>
+              <p className="text-[#6e6e73] mb-6 leading-relaxed">
+                Our smart contracts are audited by leading security firms and implement best
+                practices for secure property tokenization and trading.
               </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Shield className="w-5 h-5 text-success" />
-                  <span className="text-white">Multi-signature wallet security</span>
+
+              <div className="space-y-3.5 mb-8">
+                <div className="flex items-center gap-3">
+                  <Shield className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span className="text-[#1d1d1f] text-sm">Multi-signature wallet security</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Lock className="w-5 h-5 text-success" />
-                  <span className="text-white">Timelock mechanisms for upgrades</span>
+                <div className="flex items-center gap-3">
+                  <Lock className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span className="text-[#1d1d1f] text-sm">Timelock mechanisms for upgrades</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Zap className="w-5 h-5 text-success" />
-                  <span className="text-white">Gas-optimized contract architecture</span>
+                <div className="flex items-center gap-3">
+                  <Zap className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span className="text-[#1d1d1f] text-sm">Gas-optimized contract architecture</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Code className="w-5 h-5 text-success" />
-                  <span className="text-white">Open-source and verified contracts</span>
+                <div className="flex items-center gap-3">
+                  <Code className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span className="text-[#1d1d1f] text-sm">Open-source and verified contracts</span>
                 </div>
               </div>
-              
-              <div className="mt-8">
-                <button className="btn btn-primary mr-4">
-                  View Contracts
+
+              <div className="flex flex-wrap gap-3">
+                <button className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
+                  View contracts
                 </button>
-                <button className="btn btn-outline">
-                  Security Audit
+                <button className="px-6 py-3 rounded-full font-medium text-[#1d1d1f] border border-black/10 hover:bg-black/5 transition-colors text-sm">
+                  Security audit
                 </button>
               </div>
             </div>
-            
-            <div className="card bg-base-100 shadow-xl">
-              <div className="card-body">
-                <h3 className="card-title text-white mb-4">Contract Addresses</h3>
-                
-                <div className="space-y-3">
-                  <div>
-                    <p className="text-gray-400 text-sm">Property Token Contract</p>
-                    <div className="flex items-center space-x-2">
-                      <code className="text-primary text-sm bg-base-200 px-2 py-1 rounded">
-                        0x742d35C...2Ae12
-                      </code>
-                      <button className="btn btn-xs btn-ghost">
-                        <Link2 className="w-3 h-3" />
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <p className="text-gray-400 text-sm">Marketplace Contract</p>
-                    <div className="flex items-center space-x-2">
-                      <code className="text-primary text-sm bg-base-200 px-2 py-1 rounded">
-                        0x8f2a14B...7Cf89
-                      </code>
-                      <button className="btn btn-xs btn-ghost">
-                        <Link2 className="w-3 h-3" />
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <p className="text-gray-400 text-sm">Staking Contract</p>
-                    <div className="flex items-center space-x-2">
-                      <code className="text-primary text-sm bg-base-200 px-2 py-1 rounded">
-                        0xa3c92E1...9Bd43
-                      </code>
-                      <button className="btn btn-xs btn-ghost">
-                        <Link2 className="w-3 h-3" />
-                      </button>
-                    </div>
+
+            <div className="min-w-0 bg-white rounded-3xl border border-black/5 p-6 sm:p-8">
+              <h3 className="text-lg font-semibold text-[#1d1d1f] mb-5">Contract addresses</h3>
+
+              <div className="space-y-4 mb-6">
+                <div className="min-w-0">
+                  <p className="text-[#86868b] text-xs mb-1">Property token contract</p>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <code className="text-emerald-600 text-xs bg-emerald-50 px-2 py-1 rounded-md truncate">
+                      0x742d35C...2Ae12
+                    </code>
+                    <button className="w-7 h-7 rounded-lg hover:bg-black/5 flex items-center justify-center text-[#6e6e73] flex-shrink-0 transition-colors">
+                      <Link2 className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </div>
-                
-                <div className="mt-6">
-                  <div className="stats stats-vertical w-full">
-                    <div className="stat">
-                      <div className="stat-title text-gray-400">Total Value Locked</div>
-                      <div className="stat-value text-primary text-lg">$5.2M</div>
-                    </div>
-                    <div className="stat">
-                      <div className="stat-title text-gray-400">Active Users</div>
-                      <div className="stat-value text-secondary text-lg">2,447</div>
-                    </div>
+
+                <div className="min-w-0">
+                  <p className="text-[#86868b] text-xs mb-1">Marketplace contract</p>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <code className="text-emerald-600 text-xs bg-emerald-50 px-2 py-1 rounded-md truncate">
+                      0x8f2a14B...7Cf89
+                    </code>
+                    <button className="w-7 h-7 rounded-lg hover:bg-black/5 flex items-center justify-center text-[#6e6e73] flex-shrink-0 transition-colors">
+                      <Link2 className="w-3.5 h-3.5" />
+                    </button>
                   </div>
+                </div>
+
+                <div className="min-w-0">
+                  <p className="text-[#86868b] text-xs mb-1">Staking contract</p>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <code className="text-emerald-600 text-xs bg-emerald-50 px-2 py-1 rounded-md truncate">
+                      0xa3c92E1...9Bd43
+                    </code>
+                    <button className="w-7 h-7 rounded-lg hover:bg-black/5 flex items-center justify-center text-[#6e6e73] flex-shrink-0 transition-colors">
+                      <Link2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 pt-5 border-t border-black/5">
+                <div className="min-w-0">
+                  <p className="text-[#86868b] text-xs">Total value locked</p>
+                  <p className="text-[#1d1d1f] font-semibold text-lg">$5.2M</p>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[#86868b] text-xs">Active users</p>
+                  <p className="text-[#1d1d1f] font-semibold text-lg">2,447</p>
                 </div>
               </div>
             </div>
@@ -415,21 +408,26 @@ const Web3 = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-secondary">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Join the Web3 Property Revolution</h2>
-          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Be part of the future where property investment is transparent, accessible, and powered by blockchain technology
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn btn-white btn-lg">
-              <Wallet className="w-5 h-5 mr-2" />
-              Connect Wallet
+      {/* Closing CTA — the one deliberate dark section */}
+      <section className="bg-[#1d1d1f] py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-8 sm:mb-10">
+            <p className="text-sm font-medium text-emerald-400 mb-3">Join us</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+              Join the Web3 property revolution
+            </h2>
+            <p className="text-white/60 leading-relaxed">
+              Be part of the future where property investment is transparent, accessible, and powered by blockchain technology.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-[#1d1d1f] bg-white hover:bg-white/90 transition-colors text-sm">
+              <Wallet className="w-4 h-4" />
+              Connect wallet
             </button>
-            <button className="btn btn-outline border-white text-white hover:bg-white hover:text-primary btn-lg">
-              <Code className="w-5 h-5 mr-2" />
-              Developer Docs
+            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
+              <Code className="w-4 h-4" />
+              Developer docs
             </button>
           </div>
         </div>

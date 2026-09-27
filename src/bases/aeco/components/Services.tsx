@@ -114,140 +114,115 @@ const Services = () => {
     }
   ];
 
-  const specializations = [
-    "Asset Restoration & Renovation", "Property Tokenization & RWAs", "NPA Management & Recovery",
-    "Carbon Credit Generation", "Sustainable Tourism Development", "Smart City Consulting",
-    "Green Building Certification", "Environmental Impact Assessment", "Community Development",
-    "Renewable Energy Integration", "Water Management Systems", "Waste-to-Energy Solutions"
-  ];
-
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-gradient-to-r from-violet-400/20 to-purple-400/20 rounded-full filter blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-emerald-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-emerald-500/30 mb-6">
-            <Users className="w-5 h-5 text-emerald-400" />
-            <span className="text-emerald-300 font-medium">Our Services</span>
-          </div>
-          
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent font-black tracking-tight">
-              Everything You Need
-            </span>
-            <br />
-            <span className="text-white font-bold">For Sustainable Living</span>
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <p className="text-sm font-medium text-emerald-600 mb-3">Our Services</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] tracking-tight">
+            Everything you need for sustainable living
           </h2>
         </div>
 
         {/* For Residents */}
-        <div className="mb-20">
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-white mb-4">For Residents of Bharat</h3>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                We can help you find sustainable homes or make your homes sustainable. Come together and we can design 
-                the perfect communes for your group, or design that homestay or help you build your getaway suburban 
-                sustainable woodhouse or farmhouses.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {residentServices.map((service, index) => (
-                <div 
-                  key={index}
-                  className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition-all duration-300 group cursor-pointer"
-                  onClick={() => handleServiceClick(service)}
-                >
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4 text-emerald-400 group-hover:scale-110 transition-transform">
-                    {service.icon}
-                  </div>
-                  <h4 className="text-lg font-semibold text-white mb-3 group-hover:text-emerald-300 transition-colors">
-                    {service.title}
-                  </h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {service.description}
-                  </p>
+        <div className="mb-16">
+          <div className="flex items-baseline justify-between gap-4 mb-6 flex-wrap">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1d1d1f]">For residents of Bharat</h3>
+          </div>
+          <p className="text-[#6e6e73] leading-relaxed max-w-3xl mb-8">
+            We can help you find sustainable homes or make your homes sustainable. Come together
+            and we can design the perfect commune for your group, or help you build that
+            suburban sustainable woodhouse or farmhouse.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+            {residentServices.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white hover:bg-[#f5f5f7] transition-colors p-6 cursor-pointer min-w-0"
+                onClick={() => handleServiceClick(service)}
+              >
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600 [&>svg]:w-5 [&>svg]:h-5">
+                  {service.icon}
                 </div>
-              ))}
-            </div>
+                <h4 className="text-base font-semibold text-[#1d1d1f] mb-1.5">
+                  {service.title}
+                </h4>
+                <p className="text-sm text-[#6e6e73] leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* For Businesses */}
-        <div className="mb-20">
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-white mb-4">For Businesses</h3>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                We can help you turn your apartments, societies and communities go sustainable. Transform your business 
-                properties into profitable, eco-friendly assets that benefit both your bottom line and the environment.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {businessServices.map((service, index) => (
-                <div 
-                  key={index}
-                  className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition-all duration-300 group cursor-pointer"
-                  onClick={() => handleServiceClick(service)}
-                >
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4 text-emerald-400 group-hover:scale-110 transition-transform">
-                    {service.icon}
-                  </div>
-                  <h4 className="text-lg font-semibold text-white mb-3 group-hover:text-violet-300 transition-colors">
-                    {service.title}
-                  </h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {service.description}
-                  </p>
+        <div className="mb-4">
+          <div className="flex items-baseline justify-between gap-4 mb-6 flex-wrap">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1d1d1f]">For businesses</h3>
+          </div>
+          <p className="text-[#6e6e73] leading-relaxed max-w-3xl mb-8">
+            We can help you turn your apartments, societies and communities sustainable —
+            transforming business properties into profitable, eco-friendly assets that benefit
+            both your bottom line and the environment.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+            {businessServices.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white hover:bg-[#f5f5f7] transition-colors p-6 cursor-pointer min-w-0"
+                onClick={() => handleServiceClick(service)}
+              >
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600 [&>svg]:w-5 [&>svg]:h-5">
+                  {service.icon}
                 </div>
-              ))}
-            </div>
+                <h4 className="text-base font-semibold text-[#1d1d1f] mb-1.5">
+                  {service.title}
+                </h4>
+                <p className="text-sm text-[#6e6e73] leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Service Details Modal */}
         {selectedService && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-slate-800 border border-white/20 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" ref={serviceModalRef}>
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center text-emerald-400">
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="bg-white border border-black/10 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" ref={serviceModalRef}>
+              <div className="p-6 sm:p-8">
+                <div className="flex items-start justify-between mb-6 gap-4">
+                  <div className="flex items-center gap-4 min-w-0">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 flex-shrink-0">
                       {selectedService.icon}
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">{selectedService.title}</h3>
-                      <p className="text-gray-300">{selectedService.description}</p>
+                    <div className="min-w-0">
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#1d1d1f]">{selectedService.title}</h3>
+                      <p className="text-[#6e6e73] text-sm sm:text-base">{selectedService.description}</p>
                     </div>
                   </div>
-                  <button 
+                  <button
                     onClick={closeServiceModal}
-                    className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all"
+                    className="w-9 h-9 bg-black/5 hover:bg-black/10 rounded-full flex items-center justify-center text-[#1d1d1f] transition-colors flex-shrink-0"
                   >
                     ✕
                   </button>
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="text-xl font-semibold text-white mb-4">Overview</h4>
-                  <p className="text-gray-300 text-lg leading-relaxed">{selectedService.details.overview}</p>
+                  <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Overview</h4>
+                  <p className="text-[#1d1d1f] text-base leading-relaxed">{selectedService.details.overview}</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">Our Services</h4>
-                    <ul className="space-y-3">
+                    <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Our Services</h4>
+                    <ul className="space-y-2.5">
                       {selectedService.details.services.map((service, idx) => (
-                        <li key={idx} className="text-gray-300 flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <li key={idx} className="text-[#1d1d1f] text-sm flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></div>
                           <span>{service}</span>
                         </li>
                       ))}
@@ -255,23 +230,20 @@ const Services = () => {
                   </div>
 
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">Process Flow</h4>
-                    <p className="text-gray-300 leading-relaxed mb-6">{selectedService.details.process}</p>
-                    
-                    <h4 className="text-xl font-semibold text-white mb-4">Key Benefits</h4>
-                    <p className="text-gray-300 leading-relaxed">{selectedService.details.benefits}</p>
+                    <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Process Flow</h4>
+                    <p className="text-[#6e6e73] text-sm leading-relaxed mb-6">{selectedService.details.process}</p>
+
+                    <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Key Benefits</h4>
+                    <p className="text-[#6e6e73] text-sm leading-relaxed">{selectedService.details.benefits}</p>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                     Get Quote
                   </button>
-                  <button className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-green-500/25">
+                  <button className="flex-1 border border-black/10 hover:bg-black/5 px-6 py-3 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm">
                     Schedule Consultation
-                  </button>
-                  <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
-                    Learn More
                   </button>
                 </div>
               </div>
@@ -280,15 +252,13 @@ const Services = () => {
         )}
 
         {/* CTA */}
-        <div className="text-center mt-16">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-600 hover:via-teal-600 hover:to-cyan-600 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25">
-              Get Started Today
-            </button>
-            <button className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 hover:from-green-600 hover:via-emerald-600 hover:to-teal-600 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-green-500/25">
-              Schedule Consultation
-            </button>
-          </div>
+        <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <a href="/get-a-quote" className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm text-center">
+            Get started today
+          </a>
+          <a href="/get-a-quote" className="border border-black/10 hover:bg-black/5 px-6 py-3 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm text-center">
+            Schedule consultation
+          </a>
         </div>
       </div>
     </section>

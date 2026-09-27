@@ -90,46 +90,44 @@ const MaterialsMarketplace = () => {
     }
   ];
 
-  const filteredMaterials = selectedCategory === 'all' 
-    ? materials 
+  const filteredMaterials = selectedCategory === 'all'
+    ? materials
     : materials.filter(material => material.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-slate-900 pt-20">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-slate-800 to-slate-900">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                Sustainable Materials
-              </span>
-              <br />
-              <span className="text-white">Marketplace</span>
+      <section className="bg-[#f5f5f7] pt-28 sm:pt-32 pb-10 sm:pb-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-8">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Building Materials</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05] mb-4">
+              Sustainable <span className="text-emerald-600">materials</span> marketplace
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Discover eco-friendly building materials from bamboo to recycled steel, 
-              all certified for sustainability and quality.
+            <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed">
+              Eco-friendly building materials from bamboo to recycled steel, all certified
+              for sustainability and quality.
             </p>
           </div>
 
-          {/* Search and Filters */}
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 max-w-4xl mx-auto">
-            <div className="flex flex-col lg:flex-row gap-4">
-              <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <div className="bg-white border border-black/10 rounded-2xl p-3 shadow-sm max-w-3xl">
+            <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex-1 min-w-0 relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#86868b] w-4 h-4" />
                 <input
                   type="text"
                   placeholder="Search sustainable materials..."
-                  className="w-full bg-white/10 border border-white/20 rounded-xl pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400"
+                  className="w-full pl-10 pr-3 py-3 bg-[#f5f5f7] rounded-xl text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-emerald-600/40 text-sm"
                 />
               </div>
-              <select className="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-400">
-                <option value="" className="text-gray-800">Sort by Price</option>
-                <option value="low" className="text-gray-800">Low to High</option>
-                <option value="high" className="text-gray-800">High to Low</option>
-              </select>
-              <button className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-8 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+              <div className="relative">
+                <select className="appearance-none bg-[#f5f5f7] rounded-xl pl-4 pr-9 py-3 text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-emerald-600/40 text-sm w-full sm:w-44">
+                  <option value="">Sort by Price</option>
+                  <option value="low">Low to High</option>
+                  <option value="high">High to Low</option>
+                </select>
+              </div>
+              <button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-xl font-semibold text-white transition-colors text-sm whitespace-nowrap">
                 Search
               </button>
             </div>
@@ -138,20 +136,20 @@ const MaterialsMarketplace = () => {
       </section>
 
       {/* Categories */}
-      <section className="py-12 border-b border-white/10">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-wrap justify-center gap-4">
+      <section className="border-b border-black/5 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-wrap gap-2">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white'
-                    : 'bg-white/10 text-gray-300 hover:bg-white/20'
+                    ? 'bg-[#1d1d1f] text-white'
+                    : 'border border-black/10 text-[#1d1d1f] hover:bg-black/5'
                 }`}
               >
-                {category.name} ({category.count})
+                {category.name} <span className="opacity-60">({category.count})</span>
               </button>
             ))}
           </div>
@@ -159,79 +157,66 @@ const MaterialsMarketplace = () => {
       </section>
 
       {/* Materials Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-white">
+      <section className="py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between mb-8 gap-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#1d1d1f]">
               {filteredMaterials.length} Materials Found
             </h2>
-            <div className="flex items-center space-x-4">
-              <button className="flex items-center space-x-2 bg-white/10 border border-white/20 px-4 py-2 rounded-lg text-white hover:bg-white/20 transition-all">
-                <Filter className="w-4 h-4" />
-                <span>More Filters</span>
-              </button>
-            </div>
+            <button className="border border-black/10 hover:bg-black/5 px-4 py-2 rounded-full text-sm font-medium text-[#1d1d1f] transition-colors flex items-center gap-2 flex-shrink-0">
+              <Filter className="w-4 h-4" />
+              <span className="hidden sm:inline">More Filters</span>
+            </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredMaterials.map((material) => (
-              <div 
+              <div
                 key={material.id}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+                className="group bg-white rounded-2xl overflow-hidden border border-black/5 hover:shadow-lg transition-shadow min-w-0"
               >
-                <div className="relative h-48">
-                  <img 
-                    src={material.image} 
+                <div className="relative h-40 overflow-hidden">
+                  <img
+                    src={material.image}
                     alt={material.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  
-                  {/* Carbon Footprint Badge */}
-                  <div className="absolute top-4 left-4">
-                    <div className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      material.carbonFootprint === 'Carbon Negative' ? 'bg-green-500' :
-                      material.carbonFootprint === 'Carbon Neutral' ? 'bg-blue-500' : 'bg-orange-500'
-                    }`}>
-                      <span className="text-white">{material.carbonFootprint}</span>
-                    </div>
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-white/95 backdrop-blur-sm text-emerald-700 px-2.5 py-1 rounded-full text-xs font-medium border border-black/5">
+                      {material.carbonFootprint}
+                    </span>
                   </div>
-
-                  {/* Price */}
-                  <div className="absolute bottom-4 right-4 bg-gradient-to-r from-emerald-500 to-teal-500 px-3 py-1 rounded-xl">
-                    <span className="text-white font-bold">{material.price}</span>
+                  <div className="absolute bottom-3 right-3">
+                    <span className="bg-[#1d1d1f] text-white px-2.5 py-1 rounded-full text-xs font-semibold">
+                      {material.price}
+                    </span>
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-white mb-2">{material.name}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{material.description}</p>
+                <div className="p-5">
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-1">{material.name}</h3>
+                  <p className="text-[#6e6e73] text-sm leading-relaxed mb-3">{material.description}</p>
 
-                  {/* Rating */}
-                  <div className="flex items-center space-x-2 mb-4">
-                    <div className="flex items-center space-x-1">
-                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                      <span className="text-white font-medium">{material.rating}</span>
-                    </div>
-                    <span className="text-gray-400 text-sm">({material.reviews} reviews)</span>
+                  <div className="flex items-center gap-1.5 mb-3">
+                    <Star className="w-3.5 h-3.5 text-emerald-600 fill-current" />
+                    <span className="text-[#1d1d1f] text-sm font-medium">{material.rating}</span>
+                    <span className="text-[#86868b] text-xs">({material.reviews} reviews)</span>
                   </div>
 
-                  {/* Certifications */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {material.certifications.map((cert, idx) => (
-                      <span key={idx} className="bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded-full text-xs">
+                      <span key={idx} className="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-xs font-medium">
                         {cert}
                       </span>
                     ))}
                   </div>
 
-                  {/* Actions */}
-                  <div className="flex space-x-3">
-                    <button className="flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-4 py-2 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center space-x-2">
-                      <ShoppingCart className="w-4 h-4" />
+                  <div className="flex gap-2">
+                    <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-full text-sm font-medium text-white transition-colors flex items-center justify-center gap-2">
+                      <ShoppingCart className="w-3.5 h-3.5" />
                       <span>Add to Cart</span>
                     </button>
-                    <button className="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-lg font-semibold text-white transition-all duration-300">
+                    <button className="border border-black/10 hover:bg-black/5 px-4 py-2 rounded-full text-sm font-medium text-[#1d1d1f] transition-colors">
                       Quote
                     </button>
                   </div>
@@ -243,38 +228,47 @@ const MaterialsMarketplace = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-slate-800">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Why Choose Sustainable Materials?</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Our materials are carefully selected for their environmental benefits and superior performance
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight mb-3">
+              Why choose sustainable materials?
+            </h2>
+            <p className="text-[#6e6e73] text-base sm:text-lg leading-relaxed">
+              Our materials are carefully selected for their environmental benefits and superior
+              performance.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Leaf className="w-8 h-8 text-white" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+            <div className="bg-white p-6 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                <Leaf className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Eco-Friendly</h3>
-              <p className="text-gray-300">Reduce environmental impact with materials that are renewable and biodegradable</p>
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Eco-Friendly</h3>
+              <p className="text-sm text-[#6e6e73] leading-relaxed">
+                Reduce environmental impact with materials that are renewable and biodegradable.
+              </p>
             </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Recycle className="w-8 h-8 text-white" />
+
+            <div className="bg-white p-6 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                <Recycle className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Recycled Content</h3>
-              <p className="text-gray-300">Many materials contain recycled content, reducing waste and conserving resources</p>
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Recycled Content</h3>
+              <p className="text-sm text-[#6e6e73] leading-relaxed">
+                Many materials contain recycled content, reducing waste and conserving resources.
+              </p>
             </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TreePine className="w-8 h-8 text-white" />
+
+            <div className="bg-white p-6 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                <TreePine className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Carbon Negative</h3>
-              <p className="text-gray-300">Some materials actually absorb more carbon than they produce during manufacturing</p>
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Carbon Negative</h3>
+              <p className="text-sm text-[#6e6e73] leading-relaxed">
+                Some materials actually absorb more carbon than they produce during manufacturing.
+              </p>
             </div>
           </div>
         </div>

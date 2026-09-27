@@ -57,25 +57,25 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-slate-900 border-t border-white/10">
+    <footer className="bg-[#0a0a0a] border-t border-white/10">
       {/* Newsletter Section */}
       <div className="border-b border-white/10">
-        <div className="container mx-auto px-6 py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Stay Updated with Sustainable Living
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              Stay updated with sustainable living
             </h3>
-            <p className="text-gray-300 text-lg mb-8">
+            <p className="text-white/60 text-base sm:text-lg mb-8">
               Get the latest updates on sustainable properties, new technologies, and eco-friendly solutions delivered to your inbox.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 bg-white/10 border border-white/20 rounded-xl px-6 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 focus:bg-white/20 transition-all"
+                className="flex-1 min-w-0 bg-white/10 border border-white/10 rounded-full px-5 py-3 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 transition-all text-sm"
               />
-              <button className="bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-8 py-3 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg shadow-emerald-500/25">
+              <button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors flex items-center justify-center gap-2 text-sm flex-shrink-0">
                 <span>Subscribe</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -85,55 +85,52 @@ const Footer = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center">
-                  <Leaf className="w-6 h-6 text-white" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-teal-400 rounded-full border-2 border-slate-900"></div>
+          <div className="sm:col-span-2 lg:col-span-2 min-w-0">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                <Leaf className="w-5 h-5 text-emerald-400" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent">
-                  Add On Prop
+                <h2 className="text-xl font-bold text-white">
+                  AddonProp
                 </h2>
-                <p className="text-xs text-gray-400">Sustainable Living Solutions</p>
+                <p className="text-xs text-white/50">Sustainable Living Solutions</p>
               </div>
             </div>
-            
-            <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              Transforming India's real estate landscape by blending ancient architectural wisdom 
+
+            <p className="text-white/60 text-sm leading-relaxed mb-6">
+              Transforming India's real estate landscape by blending ancient architectural wisdom
               with cutting-edge sustainable technologies. Making eco-friendly living accessible for all.
             </p>
-            
+
             <div className="space-y-3 mb-6">
-              <div className="flex items-center space-x-3 text-gray-300">
-                <MapPin className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-3 text-white/60">
+                <MapPin className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <span className="text-sm">Visakhapatnam, Andhra Pradesh, India</span>
               </div>
-              <div className="flex items-center space-x-3 text-gray-300">
-                <Mail className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-3 text-white/60">
+                <Mail className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <span className="text-sm">hello@addonprop.com</span>
               </div>
-              <div className="flex items-center space-x-3 text-gray-300">
-                <Phone className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-3 text-white/60">
+                <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <span className="text-sm">Naresh Kumar: +91 77023 03223</span>
               </div>
-              <div className="flex items-center space-x-3 text-gray-300">
-                <Phone className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-3 text-white/60">
+                <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <span className="text-sm">Shiva Karan: +91 73820 47877</span>
               </div>
             </div>
-            
-            <div className="flex space-x-3">
+
+            <div className="flex gap-2">
               {socialLinks.map((social, index) => (
-                <a 
+                <a
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 bg-white/10 hover:bg-gradient-to-r hover:from-emerald-500 hover:to-green-500 border border-white/20 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300"
+                  className="w-9 h-9 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center text-white/50 hover:text-white transition-colors"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -144,14 +141,14 @@ const Footer = () => {
 
           {/* Links Sections */}
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className="text-white font-semibold mb-4">{category}</h4>
-              <ul className="space-y-3">
+            <div key={category} className="min-w-0">
+              <h4 className="text-white font-semibold mb-4 text-sm">{category}</h4>
+              <ul className="space-y-2.5">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <a 
-                      href="#" 
-                      className="text-gray-400 hover:text-emerald-400 text-sm transition-colors duration-300"
+                    <a
+                      href="#"
+                      className="text-white/50 hover:text-white text-sm transition-colors"
                     >
                       {link}
                     </a>
@@ -165,20 +162,20 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="border-t border-white/10">
-        <div className="container mx-auto px-6 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
-              © 2025 Add On Prop. All rights reserved. Built with Love by <a href="https://studio.sted.space" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors">Studio.sted.space</a>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-white/50 text-sm text-center md:text-left">
+              © 2025 AddonProp. All rights reserved. Built with love by <a href="https://studio.sted.space" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors">Studio.sted.space</a>
             </div>
-            
-            <div className="flex flex-wrap gap-6">
-              <a href="#" className="text-gray-400 hover:text-emerald-400 text-sm transition-colors">
+
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+              <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-gray-400 hover:text-emerald-400 text-sm transition-colors">
+              <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-gray-400 hover:text-emerald-400 text-sm transition-colors">
+              <a href="#" className="text-white/50 hover:text-white text-sm transition-colors">
                 Sustainability Commitment
               </a>
             </div>

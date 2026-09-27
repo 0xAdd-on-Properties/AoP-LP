@@ -1,18 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Leaf, Home, Building, TreePine, Zap, Recycle, Facebook, Instagram, Linkedin, Youtube, Twitter } from 'lucide-react';
+import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Leaf, Home, Building, TreePine, Zap, Recycle, Facebook, Instagram, Linkedin, Youtube, Twitter, ArrowRight } from 'lucide-react';
 import StandardNavbar from '../../../components/StandardNavbar';
 import LocationFilter from '../../../components/LocationFilter';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const EcoProps = () => {
-  const [activeTab, setActiveTab] = useState('BUY');
   const [selectedCity, setSelectedCity] = useState('Visakhapatnam');
   const [selectedCategory, setSelectedCategory] = useState('All EcoProps');
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const propertyModalRef = useClickOutside(() => {
     setSelectedProperty(null);
     setIsModalOpen(false);
@@ -27,10 +26,6 @@ const EcoProps = () => {
     'Auroville', 'Pondicherry', 'Goa', 'Kerala', 'Himachal Pradesh'
   ];
 
-  const ecoPropertyCategories = [
-    'All EcoProps', 'Earthships', 'Mandala Homes', 'Eco Communes', 'Smart Apartments', 'Tiny Homes', 'Off-Grid Homes', 'PG/Co-Living'
-  ];
-
   const ecoProperties = [
     {
       id: 1,
@@ -38,7 +33,7 @@ const EcoProps = () => {
       type: "Earthship",
       location: "Lambasingi, Visakhapatnam",
       price: "₹45 Lakhs",
-      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/earthship-eco-home.png",
       bedrooms: 3,
       bathrooms: 2,
       area: "1200 sq ft",
@@ -53,7 +48,7 @@ const EcoProps = () => {
       type: "Mandala Home",
       location: "Madhurawada, Visakhapatnam",
       price: "₹65 Lakhs",
-      image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/mandala-villa.png",
       bedrooms: 4,
       bathrooms: 3,
       area: "1800 sq ft",
@@ -68,7 +63,7 @@ const EcoProps = () => {
       type: "Eco Commune",
       location: "Araku Valley, Visakhapatnam",
       price: "₹85 Lakhs",
-      image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/biodome-residence.png",
       bedrooms: 5,
       bathrooms: 4,
       area: "2200 sq ft",
@@ -83,13 +78,14 @@ const EcoProps = () => {
       type: "Smart Apartment",
       location: "MVP Colony, Visakhapatnam",
       price: "₹55 Lakhs",
-      image: "https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/smart-eco-apartments.png",
       bedrooms: 3,
       bathrooms: 2,
       area: "1400 sq ft",
       features: ["Smart Automation", "Energy Monitoring", "Water Recycling", "Green Roof"],
       sustainability: "Net Zero",
-      rating: 4.7
+      rating: 4.7,
+      link: "/smart-apartments"
     },
     {
       id: 5,
@@ -97,13 +93,14 @@ const EcoProps = () => {
       type: "Tiny Home",
       location: "Bheemili, Visakhapatnam",
       price: "₹25 Lakhs",
-      image: "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/hero-courtyard-house.png",
       bedrooms: 1,
       bathrooms: 1,
       area: "600 sq ft",
       features: ["Minimalist Design", "Solar Power", "Composting Toilet", "Vertical Garden"],
       sustainability: "Minimal Footprint",
-      rating: 4.6
+      rating: 4.6,
+      link: "/ecoprops"
     },
     {
       id: 6,
@@ -111,663 +108,589 @@ const EcoProps = () => {
       type: "Off-Grid Home",
       location: "Anakapalle, Visakhapatnam",
       price: "₹75 Lakhs",
-      image: "https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/earthship-eco-home.png",
       bedrooms: 4,
       bathrooms: 3,
       area: "2000 sq ft",
       features: ["Complete Independence", "Wind Power", "Water Wells", "Desert Garden"],
       sustainability: "Fully Sustainable",
-      rating: 4.8
+      rating: 4.8,
+      link: "/ecoprops"
     }
   ];
 
   const ecoPropertyTypes = [
-    {
-      icon: <Home className="w-8 h-8" />,
-      title: "Earthships",
-      description: "Self-sufficient homes built with natural and recycled materials",
-      count: "25+ Properties",
-      link: "/earthships"
-    },
-    {
-      icon: <Building className="w-8 h-8" />,
-      title: "Mandala Homes",
-      description: "Sacred geometry-inspired sustainable living spaces",
-      count: "18+ Properties",
-      link: "/mandala-homes"
-    },
-    {
-      icon: <TreePine className="w-8 h-8" />,
-      title: "Eco Communes",
-      description: "Community-based sustainable living communities",
-      count: "12+ Properties",
-      link: "/eco-communes"
-    },
-    {
-      icon: <Leaf className="w-8 h-8" />,
-      title: "Smart Apartments",
-      description: "Technology-integrated sustainable apartment living",
-      count: "35+ Properties",
-      link: "/smart-apartments"
-    }
+    { icon: <Home className="w-5 h-5" />, title: "Earthships", description: "Self-sufficient homes built with natural and recycled materials", count: "25+ Properties", link: "/earthships" },
+    { icon: <Building className="w-5 h-5" />, title: "Mandala Homes", description: "Sacred geometry-inspired sustainable living spaces", count: "18+ Properties", link: "/mandala-homes" },
+    { icon: <TreePine className="w-5 h-5" />, title: "Eco Communes", description: "Community-based sustainable living communities", count: "12+ Properties", link: "/eco-communes" },
+    { icon: <Leaf className="w-5 h-5" />, title: "Smart Apartments", description: "Technology-integrated sustainable apartment living", count: "35+ Properties", link: "/smart-apartments" }
+  ];
+
+  const realEstateServices = [
+    { icon: <Home className="w-5 h-5" />, title: "Property Valuation", description: "Accurate sustainable property assessments" },
+    { icon: <Building className="w-5 h-5" />, title: "Legal Assistance", description: "Complete legal support for transactions" },
+    { icon: <MapPin className="w-5 h-5" />, title: "Location Analysis", description: "Comprehensive area and market analysis" },
+    { icon: <Zap className="w-5 h-5" />, title: "Energy Audits", description: "Sustainability and efficiency assessments" },
+    { icon: <TreePine className="w-5 h-5" />, title: "Eco Certifications", description: "Green building certifications and compliance" },
+    { icon: <Recycle className="w-5 h-5" />, title: "Waste Management", description: "Sustainable waste management solutions" }
+  ];
+
+  const projectsInFocus = [
+    { title: "Green Valley Apartments", price: "₹25L - 45L", image: "/images/homes/smart-eco-apartments.png" },
+    { title: "Eco Heights Residency", price: "₹30L - 50L", image: "/images/homes/hero-courtyard-house.png" },
+    { title: "Sustainable Living Complex", price: "₹35L - 55L", image: "/images/homes/mandala-villa.png" }
+  ];
+
+  const recentlyAdded = [
+    { title: "Greenway Eco Apartments", price: "₹28L", image: "/images/homes/smart-eco-apartments.png" },
+    { title: "Sunrise Earthships", price: "₹40L", image: "/images/homes/earthship-eco-home.png" },
+    { title: "Ocean View Gardens", price: "₹35L", image: "/images/homes/biodome-residence.png" },
+    { title: "Newlands Eco Residency", price: "₹65L", image: "/images/homes/hero-courtyard-house.png" }
+  ];
+
+  const newsArticles = [
+    { title: "Vizag's sustainable real estate market trends", date: "February 14, 2024", image: "/images/homes/hero-courtyard-house.png" },
+    { title: "Luxury eco-apartments gaining popularity", date: "February 14, 2024", image: "/images/homes/earthship-eco-home.png" },
+    { title: "Sustainable living communities on the rise", date: "February 14, 2024", image: "/images/homes/smart-eco-apartments.png" }
+  ];
+
+  const recommendedSellers = [
+    { name: "Ravi Kumar", company: "EcoVillage Developers" },
+    { name: "Suresh", company: "Green Homes India" },
+    { name: "Anil", company: "Sustainable Living Co." },
+    { name: "John", company: "Eco Properties" },
+    { name: "Raju", company: "Green Builders" }
   ];
 
   return (
-    <div className="min-h-screen bg-white" style={{ minHeight: '100vh' }}>
-      {/* Sticky Navbar */}
+    <div className="bg-white">
       <StandardNavbar />
-      
-      {/* Header with Search */}
-      <header className="bg-gradient-to-br from-slate-900 via-emerald-900 to-blue-900 text-white py-16 relative overflow-hidden pt-32">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-full filter blur-3xl"></div>
-        </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30 mb-6">
-              <Leaf className="w-5 h-5 text-emerald-300" />
-              <span className="text-emerald-200 font-medium">EcoProps - Sustainable Properties</span>
-            </div>
-            
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-emerald-300 via-green-300 to-teal-300 bg-clip-text text-transparent">
-                Discover Your Perfect
-              </span>
-              <br />
-              <span className="text-white">Eco-Friendly Home</span>
-            </h1>
-            
-            <p className="text-xl text-emerald-100 max-w-3xl mx-auto mb-8">
-              Find sustainable properties in {selectedCity} that align with your environmental values and lifestyle
-            </p>
-          </div>
+      {/* Hero */}
+      <header className="relative bg-[#f5f5f7] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-16 sm:pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="min-w-0 space-y-6 sm:space-y-8">
+              <p className="text-sm font-medium text-emerald-600">EcoProps · Sustainable Properties</p>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05]">
+                Discover your perfect <span className="text-emerald-600">eco-friendly</span> home
+              </h1>
+              <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed max-w-xl">
+                Find sustainable properties in {selectedCity} that align with your environmental
+                values and lifestyle.
+              </p>
 
-          {/* Search Bar */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <div className="glass-card rounded-2xl p-6">
-              <div className="flex flex-col lg:flex-row gap-4">
-                <div className="lg:w-56">
-                  <LocationFilter selectedCity={selectedCity} onCityChange={setSelectedCity} className="h-full" />
-                </div>
-                <div className="flex-1">
-                  <div className="relative">
-                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <div className="bg-white border border-black/10 rounded-2xl p-3 shadow-sm">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <div className="rounded-xl overflow-hidden bg-[#1d1d1f] sm:w-40">
+                    <LocationFilter selectedCity={selectedCity} onCityChange={setSelectedCity} />
+                  </div>
+                  <div className="flex-1 min-w-0 relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#86868b] w-4 h-4" />
                     <input
                       type="text"
-                      placeholder="Search by location, property type, or features..."
-                      className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20"
+                      placeholder="Search by location, type, or features..."
+                      className="w-full pl-10 pr-3 py-3 bg-[#f5f5f7] rounded-xl text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-emerald-600/40 text-sm"
                     />
                   </div>
+                  <button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-xl font-semibold text-white transition-colors text-sm whitespace-nowrap">
+                    Search
+                  </button>
                 </div>
-                <div className="lg:w-48">
-                  <select className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20">
-                    <option value="" className="bg-slate-800">Property Type</option>
-                    <option value="earthships" className="bg-slate-800">Earthships</option>
-                    <option value="mandala" className="bg-slate-800">Mandala Homes</option>
-                    <option value="communes" className="bg-slate-800">Eco Communes</option>
-                    <option value="smart" className="bg-slate-800">Smart Apartments</option>
-                  </select>
-                </div>
-                <button className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25">
-                  Search Properties
-                </button>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {popularLocalities.map((locality) => (
+                  <button
+                    key={locality}
+                    className="px-4 py-2 rounded-full text-sm font-medium text-[#1d1d1f] border border-black/10 hover:bg-black/5 transition-colors"
+                  >
+                    {locality}
+                  </button>
+                ))}
               </div>
             </div>
-          </div>
 
-          {/* Popular Localities */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {popularLocalities.map((locality) => (
-              <button
-                key={locality}
-                className="glass-card px-6 py-3 rounded-full text-white hover:bg-white/20 transition-all duration-300"
-              >
-                {locality}
-              </button>
-            ))}
+            <div className="min-w-0">
+              <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+                <img
+                  src="/images/homes/hero-courtyard-house.png"
+                  alt="A traditional Indian courtyard home with a tiled roof and wooden verandah"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-5 sm:p-6">
+                  <p className="text-white font-semibold text-sm sm:text-base">Every Kind of Sustainable Home</p>
+                  <p className="text-white/80 text-xs sm:text-sm">Earthships · Mandala Homes · Communes · Smart Apartments</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Normalizing Earthships Section - Right Below Hero */}
-      <section className="py-20 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-700 text-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-white to-emerald-300 rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-300 to-green-300 rounded-full filter blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30 mb-6">
-                <Leaf className="w-5 h-5 text-emerald-200" />
-                <span className="text-emerald-100 font-medium">Sustainable Living Revolution</span>
-              </div>
-              
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Normalizing <span className="bg-gradient-to-r from-emerald-200 to-green-200 bg-clip-text text-transparent">Earthships</span> and <span className="bg-gradient-to-r from-teal-200 to-cyan-200 bg-clip-text text-transparent">Sustainable Constructions</span>
-              </h2>
-              
-              <p className="text-lg text-emerald-100 mb-8 leading-relaxed">
-                We are revolutionizing sustainable living across India by promoting eco-friendly construction practices. 
-                Our platform connects you with properties that prioritize environmental responsibility, modern comfort, 
-                and a greener future for generations to come.
-              </p>
-              
-              <div className="grid grid-cols-3 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-3xl">🌱</span>
-                  </div>
-                  <h3 className="font-semibold text-white mb-1">Sustainable Community</h3>
-                  <p className="text-sm text-emerald-200">Eco-friendly living spaces</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-3xl">🏠</span>
-                  </div>
-                  <h3 className="font-semibold text-white mb-1">Green Architecture</h3>
-                  <p className="text-sm text-emerald-200">Innovative construction methods</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-3xl">⚡</span>
-                  </div>
-                  <h3 className="font-semibold text-white mb-1">Clean Energy</h3>
-                  <p className="text-sm text-emerald-200">Renewable power solutions</p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105">
-                  Explore EcoProps
-                </button>
-                <button className="bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg shadow-emerald-500/25">
-                  Learn More
-                </button>
+      {/* Normalizing Earthships */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="min-w-0 order-2 lg:order-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
+                <img
+                  src="/images/homes/earthship-eco-home.png"
+                  alt="A rammed-earth earthship home with solar panels"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
             </div>
+            <div className="min-w-0 order-1 lg:order-2 space-y-6">
+              <p className="text-sm font-medium text-emerald-600">Sustainable Living Revolution</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] tracking-tight leading-tight">
+                Normalizing <span className="text-emerald-600">earthships</span> and sustainable construction
+              </h2>
+              <p className="text-[#6e6e73] leading-relaxed">
+                We're revolutionizing sustainable living across India by promoting eco-friendly
+                construction practices — connecting you with properties that prioritize
+                environmental responsibility, modern comfort, and a greener future.
+              </p>
 
-            <div className="text-center lg:text-right">
-              <div className="relative">
-                <div className="w-80 h-80 bg-gradient-to-br from-emerald-400 to-green-500 rounded-3xl mx-auto lg:mx-0 flex items-center justify-center shadow-2xl">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-white/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <span className="text-4xl">🏗️</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Earthship Construction</h3>
-                    <p className="text-emerald-100">Sustainable Building Solutions</p>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-3 text-emerald-600">
+                    <Leaf className="w-5 h-5" />
                   </div>
+                  <p className="text-sm font-semibold text-[#1d1d1f] mb-0.5">Sustainable</p>
+                  <p className="text-xs text-[#6e6e73]">Eco-friendly spaces</p>
                 </div>
-                {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">♻️</span>
+                <div className="min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-3 text-emerald-600">
+                    <Building className="w-5 h-5" />
+                  </div>
+                  <p className="text-sm font-semibold text-[#1d1d1f] mb-0.5">Green Architecture</p>
+                  <p className="text-xs text-[#6e6e73]">Innovative methods</p>
                 </div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                  <span className="text-xl">🌿</span>
+                <div className="min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-3 text-emerald-600">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <p className="text-sm font-semibold text-[#1d1d1f] mb-0.5">Clean Energy</p>
+                  <p className="text-xs text-[#6e6e73]">Renewable power</p>
                 </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <a href="/earthships" className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
+                  Explore EcoProps
+                </a>
+                <a href="/get-a-quote" className="px-6 py-3 rounded-full font-medium text-[#1d1d1f] border border-black/10 hover:bg-black/5 transition-colors text-sm">
+                  Learn More
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Earthships Focus Section */}
-      <section className="py-16 bg-gradient-to-br from-slate-50 to-emerald-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-4">Sustainable Property Types</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">Explore different types of eco-friendly properties designed for sustainable living</p>
+      {/* Sustainable Property Types */}
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Property Collections</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Sustainable property types
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Explore different types of eco-friendly properties designed for sustainable living.
+            </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { 
-                icon: <Home className="w-8 h-8" />, 
-                title: "Earthships", 
-                description: "Self-sufficient homes built with natural and recycled materials", 
-                count: "25+ Properties",
-                link: "/earthships"
-              },
-              { 
-                icon: <Building className="w-8 h-8" />, 
-                title: "Mandala Homes", 
-                description: "Sacred geometry-inspired sustainable living spaces", 
-                count: "18+ Properties",
-                link: "/mandala-homes"
-              },
-              { 
-                icon: <TreePine className="w-8 h-8" />, 
-                title: "Eco Communes", 
-                description: "Community-based sustainable living communities", 
-                count: "12+ Properties",
-                link: "/eco-communes"
-              },
-              { 
-                icon: <Leaf className="w-8 h-8" />, 
-                title: "Smart Apartments", 
-                description: "Technology-integrated sustainable apartment living", 
-                count: "35+ Properties",
-                link: "/smart-apartments"
-              }
-            ].map((propertyType, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                onClick={() => window.location.href = propertyType.link}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+            {ecoPropertyTypes.map((propertyType, index) => (
+              <a
+                key={index}
+                href={propertyType.link}
+                className="group bg-white hover:bg-white/80 transition-colors p-6 min-w-0"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-500 rounded-xl flex items-center justify-center mb-4 text-white">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
                   {propertyType.icon}
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 mb-2">{propertyType.title}</h3>
-                <p className="text-slate-600 text-sm mb-4">{propertyType.description}</p>
-                <div className="text-emerald-600 font-semibold">{propertyType.count}</div>
+                <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">{propertyType.title}</h3>
+                <p className="text-sm text-[#6e6e73] leading-relaxed mb-3">{propertyType.description}</p>
+                <div className="text-emerald-600 font-medium text-sm">{propertyType.count}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured EcoProps */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-12">
+            <div className="max-w-xl min-w-0">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1d1d1f] tracking-tight mb-2">
+                Featured EcoProps
+              </h2>
+              <p className="text-[#6e6e73]">Handpicked sustainable properties for conscious living</p>
+            </div>
+            <button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm w-fit">
+              View All Properties
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {ecoProperties.map((property) => (
+              <div
+                key={property.id}
+                className="group bg-white rounded-2xl overflow-hidden border border-black/5 hover:shadow-xl transition-shadow cursor-pointer min-w-0"
+                onClick={() => handlePropertyClick(property)}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img src={property.image} alt={property.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <button
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute top-4 right-4 w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1d1d1f] hover:bg-white transition-all"
+                  >
+                    <Heart className="w-4 h-4" />
+                  </button>
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <span className="text-[#1d1d1f] text-xs font-medium">{property.sustainability}</span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full flex items-center gap-1">
+                    <span className="text-amber-500 text-xs">★</span>
+                    <span className="text-[#1d1d1f] text-xs font-medium">{property.rating}</span>
+                  </div>
+                </div>
+
+                <div className="p-5 sm:p-6 min-w-0">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <h3 className="text-lg font-semibold text-[#1d1d1f] truncate">{property.title}</h3>
+                    <span className="text-emerald-600 font-medium text-xs flex-shrink-0">{property.type}</span>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 text-[#6e6e73] mb-4">
+                    <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+                    <span className="text-sm truncate">{property.location}</span>
+                  </div>
+
+                  <div className="flex items-center gap-4 text-[#6e6e73] text-sm mb-4">
+                    <div className="flex items-center gap-1">
+                      <Bed className="w-4 h-4" />
+                      <span>{property.bedrooms}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Bath className="w-4 h-4" />
+                      <span>{property.bathrooms}</span>
+                    </div>
+                    <div className="flex items-center gap-1 min-w-0">
+                      <Square className="w-4 h-4 flex-shrink-0" />
+                      <span className="truncate">{property.area}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="text-xl font-bold text-[#1d1d1f]">{property.price}</div>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); window.location.href = `/property/${property.id}`; }}
+                      className="bg-[#1d1d1f] hover:bg-black px-4 py-2 rounded-full font-medium text-white transition-colors text-xs flex-shrink-0"
+                    >
+                      View Property
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <main className="bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50">
-
-        {/* Featured EcoProps */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="flex justify-between items-center mb-12">
-              <div>
-                <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
-                  Featured EcoProps
-                </h2>
-                <p className="text-lg text-slate-600">
-                  Handpicked sustainable properties for conscious living
-                </p>
-              </div>
-              <button className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25">
-                View All Properties
+      {/* In Spotlight */}
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">In Spotlight</h2>
+              <p className="text-[#6e6e73] text-sm mt-1">Featured sustainable property developments</p>
+            </div>
+            <div className="hidden sm:flex gap-2">
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronLeft className="w-4 h-4 text-[#1d1d1f]" />
+              </button>
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronRight className="w-4 h-4 text-[#1d1d1f]" />
               </button>
             </div>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {ecoProperties.map((property) => (
-                <div key={property.id} className="glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer" onClick={() => window.location.href = property.link || '#'}>
-                  <div className="relative h-48">
-                    <img src={property.image} alt={property.title} className="w-full h-full object-cover" />
-                    <button className="absolute top-4 right-4 p-2 glass-card rounded-full hover:bg-white/30 transition-all duration-300">
-                      <Heart className="w-5 h-5 text-white" />
-                    </button>
-                    <div className="absolute top-4 left-4 bg-emerald-500/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                      <span className="text-white text-sm font-medium">{property.sustainability}</span>
-                    </div>
-                    <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
-                      <div className="flex items-center space-x-1">
-                        <span className="text-yellow-400">★</span>
-                        <span className="text-white text-sm font-medium">{property.rating}</span>
-                      </div>
-                    </div>
+          <div className="bg-white rounded-3xl overflow-hidden border border-black/5 shadow-sm">
+            <div className="md:flex">
+              <div className="md:w-1/2 min-w-0">
+                <img src="/images/homes/biodome-residence.png" alt="Auroville Eco Community" className="w-full h-64 md:h-full object-cover" />
+              </div>
+              <div className="md:w-1/2 p-6 sm:p-8 min-w-0">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-11 h-11 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                    <TreePine className="w-5 h-5" />
                   </div>
-                  
-                  <div className="p-6 bg-white/90 backdrop-blur-sm">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-xl font-semibold text-slate-800">{property.title}</h3>
-                      <span className="text-emerald-600 font-medium">{property.type}</span>
-                    </div>
-                    
-                    <div className="flex items-center text-slate-600 mb-4">
-                      <MapPin className="w-4 h-4 mr-1" />
-                      <span className="text-sm">{property.location}</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-between text-slate-600 text-sm mb-4">
-                      <div className="flex items-center space-x-4">
-                        <div className="flex items-center">
-                          <Bed className="w-4 h-4 mr-1" />
-                          <span>{property.bedrooms}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Bath className="w-4 h-4 mr-1" />
-                          <span>{property.bathrooms}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Square className="w-4 h-4 mr-1" />
-                          <span>{property.area}</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="text-2xl font-bold text-slate-800">{property.price}</div>
-                      <button 
-                        onClick={() => window.location.href = `/property/${property.id}`}
-                        className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-4 py-2 rounded-lg font-semibold text-white transition-all duration-300 text-sm"
-                      >
-                        View Property
-                      </button>
-                    </div>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-bold text-[#1d1d1f] truncate">EcoVillage Developers</h3>
+                    <p className="text-[#6e6e73] text-sm truncate">Sustainable Community Living</p>
                   </div>
                 </div>
-              ))}
+
+                <div className="mb-6">
+                  <h4 className="text-xl sm:text-2xl font-bold text-[#1d1d1f] mb-1">Auroville Eco Community</h4>
+                  <p className="text-[#6e6e73] mb-3">Auroville, Tamil Nadu</p>
+                  <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-3">₹2.5 Cr - 4.8 Cr</div>
+                  <div className="w-full bg-black/10 rounded-full h-1.5">
+                    <div className="bg-emerald-600 h-1.5 rounded-full" style={{ width: '75%' }}></div>
+                  </div>
+                  <p className="text-sm text-[#6e6e73] mt-2">75% Sold</p>
+                </div>
+
+                <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-full font-medium transition-colors text-sm">
+                  View Project Details
+                </button>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* In Spotlight */}
-        <section className="py-16 bg-gradient-to-br from-emerald-50 to-teal-50">
-          <div className="container mx-auto px-6">
-            <div className="flex justify-between items-center mb-8">
-              <div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">In Spotlight</h2>
-                <p className="text-slate-600">Featured sustainable property developments</p>
-              </div>
-              <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+      {/* Projects in Focus */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Projects in Focus</h2>
+              <p className="text-[#6e6e73] text-sm mt-1">Latest sustainable development projects</p>
             </div>
-            
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="md:flex">
-                <div className="md:w-1/2">
-                  <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Spotlight Property" className="w-full h-64 md:h-full object-cover" />
-                </div>
-                <div className="md:w-1/2 p-8">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-500 rounded-lg flex items-center justify-center mr-4">
-                      <TreePine className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-slate-800">EcoVillage Developers</h3>
-                      <p className="text-slate-600">Sustainable Community Living</p>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <h4 className="text-2xl font-bold text-slate-800 mb-2">Auroville Eco Community</h4>
-                    <p className="text-slate-600 mb-4">Auroville, Tamil Nadu</p>
-                    <div className="text-3xl font-bold text-emerald-600 mb-2">₹2.5 Cr - 4.8 Cr</div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-gradient-to-r from-emerald-500 to-green-500 h-2 rounded-full" style={{width: '75%'}}></div>
-                    </div>
-                    <p className="text-sm text-slate-600 mt-2">75% Sold</p>
-                  </div>
-                  
-                  <button className="w-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg shadow-emerald-500/25">
-                    View Project Details
+            <div className="hidden sm:flex gap-2">
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronLeft className="w-4 h-4 text-[#1d1d1f]" />
+              </button>
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronRight className="w-4 h-4 text-[#1d1d1f]" />
+              </button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projectsInFocus.map((project, index) => (
+              <div key={index} className="bg-white rounded-2xl overflow-hidden border border-black/5 hover:shadow-xl transition-shadow min-w-0">
+                <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-2 truncate">{project.title}</h3>
+                  <div className="text-lg font-bold text-emerald-600 mb-4">{project.price}</div>
+                  <button className="w-full border border-black/10 hover:bg-black/5 text-[#1d1d1f] py-2.5 rounded-full font-medium transition-colors text-sm">
+                    View Project
                   </button>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Projects in Focus */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="flex justify-between items-center mb-8">
-              <div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Projects in Focus</h2>
-                <p className="text-slate-600">Latest sustainable development projects</p>
-              </div>
-              <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+      {/* Recently Added */}
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Recently Added</h2>
+              <p className="text-[#6e6e73] text-sm mt-1">Latest eco-properties added to our platform</p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { title: "Green Valley Apartments", price: "₹25L - 45L", image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400" },
-                { title: "Eco Heights Residency", price: "₹30L - 50L", image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=400" },
-                { title: "Sustainable Living Complex", price: "₹35L - 55L", image: "https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=400" }
-              ].map((project, index) => (
-                <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                  <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-slate-800 mb-2">{project.title}</h3>
-                    <div className="text-xl font-bold text-emerald-600 mb-4">{project.price}</div>
-                    <button className="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white py-2 rounded-lg font-semibold transition-all duration-300">
-                      View Project
-                    </button>
-                  </div>
-                </div>
-              ))}
+            <div className="hidden sm:flex gap-2">
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronLeft className="w-4 h-4 text-[#1d1d1f]" />
+              </button>
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronRight className="w-4 h-4 text-[#1d1d1f]" />
+              </button>
             </div>
           </div>
-        </section>
 
-        {/* Recently Added */}
-        <section className="py-16 bg-gradient-to-br from-teal-50 to-cyan-50">
-          <div className="container mx-auto px-6">
-            <div className="flex justify-between items-center mb-8">
-              <div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">Recently Added</h2>
-                <p className="text-slate-600">Latest eco-properties added to our platform</p>
-              </div>
-              <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {[
-                { title: "Greenway Eco Apartments", price: "₹28L", image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=400" },
-                { title: "Sunrise Earthships", price: "₹40L", image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400" },
-                { title: "Ocean View Gardens", price: "₹35L", image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=400" },
-                { title: "Newlands Eco Residency", price: "₹65L", image: "https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=400" }
-              ].map((property, index) => (
-                <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                  <img src={property.image} alt={property.title} className="w-full h-32 object-cover" />
-                  <div className="p-4">
-                    <h3 className="font-semibold text-slate-800 mb-1 text-sm">{property.title}</h3>
-                    <div className="text-lg font-bold text-emerald-600 mb-3">{property.price}</div>
-                    <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg shadow-cyan-500/25">
-                      Contact
-                    </button>
-                  </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {recentlyAdded.map((property, index) => (
+              <div key={index} className="bg-white rounded-2xl overflow-hidden border border-black/5 hover:shadow-xl transition-shadow min-w-0">
+                <img src={property.image} alt={property.title} className="w-full h-28 sm:h-32 object-cover" />
+                <div className="p-3 sm:p-4">
+                  <h3 className="font-medium text-[#1d1d1f] mb-1 text-sm truncate">{property.title}</h3>
+                  <div className="text-base font-bold text-emerald-600 mb-3">{property.price}</div>
+                  <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-full text-xs font-medium transition-colors">
+                    Contact
+                  </button>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Everything You Need in Real Estate */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-600 to-slate-800 bg-clip-text text-transparent mb-4">Everything You Need in Real Estate</h2>
-              <p className="text-slate-600 max-w-2xl mx-auto">Comprehensive services for all your sustainable property needs</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { icon: <Home className="w-8 h-8" />, title: "Property Valuation", description: "Accurate sustainable property assessments" },
-                { icon: <Building className="w-8 h-8" />, title: "Legal Assistance", description: "Complete legal support for transactions" },
-                { icon: <MapPin className="w-8 h-8" />, title: "Location Analysis", description: "Comprehensive area and market analysis" },
-                { icon: <Zap className="w-8 h-8" />, title: "Energy Audits", description: "Sustainability and efficiency assessments" },
-                { icon: <TreePine className="w-8 h-8" />, title: "Eco Certifications", description: "Green building certifications and compliance" },
-                { icon: <Recycle className="w-8 h-8" />, title: "Waste Management", description: "Sustainable waste management solutions" }
-              ].map((service, index) => (
-                <div key={index} className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-500 rounded-xl flex items-center justify-center mx-auto mb-4 text-white">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-800 mb-2">{service.title}</h3>
-                  <p className="text-slate-600 text-sm">{service.description}</p>
-                </div>
-              ))}
-            </div>
+      {/* Everything You Need in Real Estate */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Full Service</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Everything you need in real estate
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Comprehensive services for all your sustainable property needs.
+            </p>
           </div>
-        </section>
 
-        {/* Recommended Sellers */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-emerald-50">
-          <div className="container mx-auto px-6">
-            <div className="flex justify-between items-center mb-8">
-              <div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Recommended Sellers</h2>
-                <p className="text-slate-600">Trusted sustainable property developers and agents</p>
-              </div>
-              <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-            
-            <div className="flex space-x-6 overflow-x-auto pb-4">
-              {[
-                { name: "Ravi Kumar", company: "EcoVillage Developers" },
-                { name: "Suresh", company: "Green Homes India" },
-                { name: "Anil", company: "Sustainable Living Co." },
-                { name: "John", company: "Eco Properties" },
-                { name: "Raju", company: "Green Builders" }
-              ].map((seller, index) => (
-                <div key={index} className="flex-shrink-0 text-center">
-                  <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold text-xl">
-                    {seller.name.charAt(0)}
-                  </div>
-                  <h3 className="font-semibold text-slate-800">{seller.name}</h3>
-                  <p className="text-sm text-slate-600">{seller.company}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+            {realEstateServices.map((service, index) => (
+              <div key={index} className="group bg-white hover:bg-[#f5f5f7] transition-colors p-6 min-w-0">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                  {service.icon}
                 </div>
-              ))}
-            </div>
+                <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">{service.title}</h3>
+                <p className="text-sm text-[#6e6e73] leading-relaxed">{service.description}</p>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* News & Articles */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="flex justify-between items-center mb-8">
-              <div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">News & Articles</h2>
-                <p className="text-slate-600">Latest insights on sustainable real estate</p>
-              </div>
-              <div className="flex space-x-2">
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+      {/* Recommended Sellers */}
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Recommended Sellers</h2>
+              <p className="text-[#6e6e73] text-sm mt-1">Trusted sustainable property developers and agents</p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { title: "Vizag's sustainable real estate market trends", date: "February 14, 2024", image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=400" },
-                { title: "Luxury eco-apartments gaining popularity", date: "February 14, 2024", image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400" },
-                { title: "Sustainable living communities on the rise", date: "February 14, 2024", image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=400" }
-              ].map((article, index) => (
-                <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                  <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-slate-800 mb-2">{article.title}</h3>
-                    <p className="text-sm text-slate-600 mb-4">{article.date}</p>
-                    <button className="text-emerald-600 hover:text-emerald-700 font-semibold">
-                      Read More →
-                    </button>
-                  </div>
-                </div>
-              ))}
+            <div className="hidden sm:flex gap-2">
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronLeft className="w-4 h-4 text-[#1d1d1f]" />
+              </button>
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronRight className="w-4 h-4 text-[#1d1d1f]" />
+              </button>
             </div>
           </div>
-        </section>
-      </main>
+
+          <div className="flex gap-6 overflow-x-auto pb-2">
+            {recommendedSellers.map((seller, index) => (
+              <div key={index} className="flex-shrink-0 text-center w-24">
+                <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold text-lg">
+                  {seller.name.charAt(0)}
+                </div>
+                <h3 className="font-medium text-[#1d1d1f] text-sm truncate">{seller.name}</h3>
+                <p className="text-xs text-[#6e6e73] truncate">{seller.company}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News & Articles */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">News & Articles</h2>
+              <p className="text-[#6e6e73] text-sm mt-1">Latest insights on sustainable real estate</p>
+            </div>
+            <div className="hidden sm:flex gap-2">
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronLeft className="w-4 h-4 text-[#1d1d1f]" />
+              </button>
+              <button className="p-2 border border-black/10 rounded-lg hover:bg-black/5 transition-colors">
+                <ChevronRight className="w-4 h-4 text-[#1d1d1f]" />
+              </button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {newsArticles.map((article, index) => (
+              <div key={index} className="bg-white rounded-2xl overflow-hidden border border-black/5 hover:shadow-xl transition-shadow min-w-0">
+                <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-2">{article.title}</h3>
+                  <p className="text-sm text-[#6e6e73] mb-4">{article.date}</p>
+                  <button className="inline-flex items-center gap-1.5 text-emerald-600 hover:text-emerald-700 font-medium text-sm">
+                    Read More <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Property Details Modal */}
       {isModalOpen && selectedProperty && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-800 border border-white/20 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" ref={propertyModalRef}>
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white border border-black/10 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" ref={propertyModalRef}>
             <div className="relative">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-slate-700 to-slate-800 p-8 rounded-t-3xl relative">
-                <button 
-                  onClick={() => {setSelectedProperty(null); setIsModalOpen(false);}}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all"
+              <div className="p-6 sm:p-8 border-b border-black/5 relative">
+                <button
+                  onClick={() => { setSelectedProperty(null); setIsModalOpen(false); }}
+                  className="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 bg-black/5 hover:bg-black/10 rounded-full flex items-center justify-center text-[#1d1d1f] transition-colors"
                 >
                   ✕
                 </button>
-                
-                <div className="flex items-center space-x-4 mb-4">
-                  <img 
-                    src={selectedProperty?.image || ''} 
+
+                <div className="flex items-center gap-4">
+                  <img
+                    src={selectedProperty?.image || ''}
                     alt={selectedProperty?.title || ''}
-                    className="w-24 h-24 object-cover rounded-xl"
+                    className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl flex-shrink-0"
                   />
-                  <div>
-                    <h3 className="text-3xl font-bold text-white">{selectedProperty?.title || ''}</h3>
-                    <p className="text-gray-300 text-lg">{selectedProperty?.type || ''}</p>
-                    <p className="text-emerald-300 text-xl font-semibold">{selectedProperty?.price || ''}</p>
+                  <div className="min-w-0">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#1d1d1f] truncate">{selectedProperty?.title || ''}</h3>
+                    <p className="text-[#6e6e73] text-sm sm:text-base truncate">{selectedProperty?.type || ''}</p>
+                    <p className="text-emerald-600 text-lg sm:text-xl font-semibold">{selectedProperty?.price || ''}</p>
                   </div>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">Property Details</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <MapPin className="w-4 h-4 text-emerald-400" />
-                        <span>{selectedProperty?.location || 'N/A'}</span>
+                  <div className="min-w-0">
+                    <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Property Details</h4>
+                    <div className="space-y-2.5">
+                      <div className="flex items-center gap-3 text-[#6e6e73]">
+                        <MapPin className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                        <span className="text-sm truncate">{selectedProperty?.location || 'N/A'}</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <Bed className="w-4 h-4 text-emerald-400" />
-                        <span>{selectedProperty?.bedrooms || 'N/A'} Bedrooms</span>
+                      <div className="flex items-center gap-3 text-[#6e6e73]">
+                        <Bed className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                        <span className="text-sm">{selectedProperty?.bedrooms || 'N/A'} Bedrooms</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <Bath className="w-4 h-4 text-emerald-400" />
-                        <span>{selectedProperty?.bathrooms || 'N/A'} Bathrooms</span>
+                      <div className="flex items-center gap-3 text-[#6e6e73]">
+                        <Bath className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                        <span className="text-sm">{selectedProperty?.bathrooms || 'N/A'} Bathrooms</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-gray-300">
-                        <Square className="w-4 h-4 text-emerald-400" />
-                        <span>{selectedProperty?.area || 'N/A'} sq ft</span>
+                      <div className="flex items-center gap-3 text-[#6e6e73]">
+                        <Square className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                        <span className="text-sm">{selectedProperty?.area || 'N/A'} sq ft</span>
                       </div>
                     </div>
                   </div>
 
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">Sustainability Features</h4>
+                  <div className="min-w-0">
+                    <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Sustainability Features</h4>
                     <div className="space-y-2">
-                      {selectedProperty?.features?.map((feature: any, idx: number) => (
-                        <div key={idx} className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                          <span className="text-gray-300 text-sm">{feature}</span>
+                      {selectedProperty?.features?.map((feature: string, idx: number) => (
+                        <div key={idx} className="flex items-center gap-2 min-w-0">
+                          <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full flex-shrink-0"></div>
+                          <span className="text-[#6e6e73] text-sm truncate">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                  <button className="flex-1 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25">
+                <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                  <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                     Schedule Site Visit
                   </button>
-                  <button className="flex-1 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-teal-500/25">
+                  <button className="flex-1 bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                     Virtual Tour
                   </button>
-                  <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                  <button className="flex-1 border border-black/10 hover:bg-black/5 px-6 py-3 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm">
                     Get Brochure
                   </button>
                 </div>
@@ -777,95 +700,79 @@ const EcoProps = () => {
         </div>
       )}
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-br from-emerald-600 via-green-600 to-teal-700 text-white">
-        <div className="container mx-auto px-6 py-12">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">AoPEco - EcoProps</h2>
-            <p className="text-emerald-100 mb-6">
-              Your trusted partner in sustainable real estate. From eco-friendly homes to green living, we've got you covered.
+      {/* Footer — the one deliberate dark section */}
+      <footer className="bg-[#1d1d1f] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
+          <div className="max-w-xl mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3">AoPEco — EcoProps</h2>
+            <p className="text-white/60 leading-relaxed">
+              Your trusted partner in sustainable real estate. From eco-friendly homes to green
+              living, we've got you covered.
             </p>
           </div>
-        </div>
 
-        {/* Bottom Footer */}
-        <div className="bg-black/30">
-          <div className="container mx-auto px-6 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div>
-                <h3 className="font-semibold mb-3">Company</h3>
-                <div className="space-y-2 text-sm">
-                  {['Careers', 'About Us', 'Our Team', 'Terms', 'Refund Policy', 'Privacy Policy', 'Contact Us'].map((link) => (
-                    <a key={link} href="#" className="block text-emerald-100 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold mb-3">Partner With Us</h3>
-                <div className="space-y-2 text-sm">
-                  {['Developers', 'Individual Space', 'Banks', 'Architects'].map((link) => (
-                    <a key={link} href="#" className="block text-emerald-100 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold mb-3">Explore</h3>
-                <div className="space-y-2 text-sm">
-                  {['News', 'Loans', 'Rental', 'Investment'].map((link) => (
-                    <a key={link} href="#" className="block text-emerald-100 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold mb-3">Mobile App</h3>
-                <div className="space-y-2 text-sm">
-                  <p className="text-green-100">Download our mobile app for better experience</p>
-                  <div className="flex space-x-2 mb-4">
-                    <div className="w-20 h-8 bg-white/20 rounded flex items-center justify-center">
-                      <span className="text-xs">App Store</span>
-                    </div>
-                    <div className="w-20 h-8 bg-white/20 rounded flex items-center justify-center">
-                      <span className="text-xs">Play Store</span>
-                    </div>
-                  </div>
-                  <div className="flex space-x-4">
-                    <a href="#" className="hover:text-emerald-200 transition-colors">
-                      <Facebook className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-emerald-200 transition-colors">
-                      <Instagram className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-emerald-200 transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-emerald-200 transition-colors">
-                      <Youtube className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-emerald-200 transition-colors">
-                      <Twitter className="w-5 h-5" />
-                    </a>
-                  </div>
-                </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10 border-t border-white/10">
+            <div className="min-w-0">
+              <h3 className="font-semibold mb-3 text-sm">Company</h3>
+              <div className="space-y-2 text-sm">
+                {['Careers', 'About Us', 'Our Team', 'Terms', 'Refund Policy', 'Privacy Policy', 'Contact Us'].map((link) => (
+                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors truncate">
+                    {link}
+                  </a>
+                ))}
               </div>
             </div>
-            
-            <div className="mt-8 pt-6 border-t border-white/20 text-center">
-              <p className="text-emerald-100 text-sm">
-                © 2025 AddonProp. All rights reserved. Built with love by{' '}
-                <a href="https://studio.sted.space" className="text-emerald-200 hover:text-white transition-colors underline">
-                  studio.sted.space
-                </a>
-              </p>
+
+            <div className="min-w-0">
+              <h3 className="font-semibold mb-3 text-sm">Partner With Us</h3>
+              <div className="space-y-2 text-sm">
+                {['Developers', 'Individual Space', 'Banks', 'Architects'].map((link) => (
+                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors truncate">
+                    {link}
+                  </a>
+                ))}
+              </div>
             </div>
+
+            <div className="min-w-0">
+              <h3 className="font-semibold mb-3 text-sm">Explore</h3>
+              <div className="space-y-2 text-sm">
+                {['News', 'Loans', 'Rental', 'Investment'].map((link) => (
+                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors truncate">
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="min-w-0">
+              <h3 className="font-semibold mb-3 text-sm">Mobile App</h3>
+              <p className="text-white/60 text-sm mb-4">Download our app for a better experience</p>
+              <div className="flex gap-2 mb-4">
+                <div className="px-3 py-1.5 bg-white/10 rounded-lg flex items-center justify-center">
+                  <span className="text-xs">App Store</span>
+                </div>
+                <div className="px-3 py-1.5 bg-white/10 rounded-lg flex items-center justify-center">
+                  <span className="text-xs">Play Store</span>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <a href="#" className="text-white/60 hover:text-white transition-colors"><Facebook className="w-4 h-4" /></a>
+                <a href="#" className="text-white/60 hover:text-white transition-colors"><Instagram className="w-4 h-4" /></a>
+                <a href="#" className="text-white/60 hover:text-white transition-colors"><Linkedin className="w-4 h-4" /></a>
+                <a href="#" className="text-white/60 hover:text-white transition-colors"><Youtube className="w-4 h-4" /></a>
+                <a href="#" className="text-white/60 hover:text-white transition-colors"><Twitter className="w-4 h-4" /></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 pt-6 border-t border-white/10 text-center">
+            <p className="text-white/50 text-sm">
+              © 2025 AddonProp. All rights reserved. Built with love by{' '}
+              <a href="https://studio.sted.space" className="text-white/70 hover:text-white transition-colors underline">
+                studio.sted.space
+              </a>
+            </p>
           </div>
         </div>
       </footer>

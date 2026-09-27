@@ -174,172 +174,145 @@ const Vision = () => {
   };
 
   const stats = [
-    { number: "50,000+", label: "Sustainable Homes Built", icon: <Home className="w-6 h-6" /> },
-    { number: "2M+", label: "Tons CO2 Offset", icon: <TreePine className="w-6 h-6" /> },
-    { number: "500+", label: "Smart Cities Connected", icon: <Globe className="w-6 h-6" /> },
-    { number: "95%", label: "Energy Independence", icon: <Zap className="w-6 h-6" /> }
+    { number: "50,000+", label: "Sustainable Homes Built", icon: <Home className="w-5 h-5" /> },
+    { number: "2M+", label: "Tons CO2 Offset", icon: <TreePine className="w-5 h-5" /> },
+    { number: "500+", label: "Smart Cities Connected", icon: <Globe className="w-5 h-5" /> },
+    { number: "95%", label: "Energy Independence", icon: <Zap className="w-5 h-5" /> }
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-1/4 w-64 h-64 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full filter blur-3xl animate-pulse delay-2000"></div>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="py-16 sm:py-24 bg-[#0a0a0a]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Vision Statement */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-500/30 mb-8">
-            <Target className="w-5 h-5 text-orange-400" />
-            <span className="text-orange-300 font-medium">Our Vision</span>
-          </div>
-          
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8 leading-tight">
-            <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent font-black tracking-tight">
-              Making India's Smart Cities
-            </span>
-            <br />
-            <span className="text-white font-bold">& Villages Dream a Reality</span>
+        <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+          <p className="text-sm font-medium text-emerald-400 mb-4">Our Vision</p>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
+            Making India's smart cities and villages a reality
           </h2>
-          
-          <div className="max-w-4xl mx-auto">
-            <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed mb-8">
-              We blend the timeless wisdom of ancient Indian architecture with cutting-edge sustainable 
-              technologies to create homes that honor our heritage while protecting our future.
-            </p>
-            
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 text-left">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
-                  <p className="text-gray-300 leading-relaxed mb-6">
-                    To democratize sustainable living by making eco-friendly, technologically advanced 
-                    properties accessible to every family in Bharat. We handle the R&D and heavy lifting 
-                    with advanced technologies, ensuring sustainable housing remains affordable and seamless.
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 px-4 py-2 rounded-full border border-green-500/30">
-                      <span className="text-green-300 text-sm font-medium">Ancient Wisdom</span>
-                    </div>
-                    <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 px-4 py-2 rounded-full border border-blue-500/30">
-                      <span className="text-blue-300 text-sm font-medium">Modern Technology</span>
-                    </div>
-                    <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 px-4 py-2 rounded-full border border-orange-500/30">
-                      <span className="text-orange-300 text-sm font-medium">Affordable Access</span>
-                    </div>
-                  </div>
+
+          <p className="text-lg text-white/60 leading-relaxed">
+            We blend the timeless wisdom of ancient Indian architecture with cutting-edge
+            sustainable technologies to create homes that honor our heritage while
+            protecting our future.
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 mb-16 sm:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="min-w-0">
+              <h3 className="text-xl font-bold text-white mb-3">Our Mission</h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-5">
+                To democratize sustainable living by making eco-friendly, technologically
+                advanced properties accessible to every family in Bharat. We handle the R&D
+                and heavy lifting with advanced technologies, ensuring sustainable housing
+                remains affordable and seamless.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="bg-white/10 px-3 py-1.5 rounded-full text-white/80 text-xs font-medium">Ancient Wisdom</span>
+                <span className="bg-white/10 px-3 py-1.5 rounded-full text-white/80 text-xs font-medium">Modern Technology</span>
+                <span className="bg-white/10 px-3 py-1.5 rounded-full text-white/80 text-xs font-medium">Affordable Access</span>
+              </div>
+            </div>
+
+            <div className="bg-white/5 rounded-2xl h-48 flex items-center justify-center min-w-0">
+              <div className="text-center px-4">
+                <div className="w-14 h-14 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-7 h-7 text-emerald-400" />
                 </div>
-                
-                <div className="relative">
-                  <div className="bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-2xl h-64 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Users className="w-10 h-10 text-emerald-400" />
-                      </div>
-                      <h4 className="text-white text-lg font-semibold mb-2">Community First</h4>
-                      <p className="text-gray-300 text-sm">Building sustainable communities<br/>for all generations</p>
-                    </div>
-                  </div>
-                </div>
+                <h4 className="text-white text-base font-semibold mb-1">Community First</h4>
+                <p className="text-white/50 text-sm">Building sustainable communities for all generations</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden mb-16 sm:mb-20">
           {stats.map((stat, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300"
+              className="bg-[#0a0a0a] p-6 text-center"
             >
-              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-emerald-400">
+              <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center mx-auto mb-3 text-emerald-400">
                 {stat.icon}
               </div>
-              <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
-              <div className="text-gray-400 text-sm">{stat.label}</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">{stat.number}</div>
+              <div className="text-white/50 text-xs sm:text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Specializations */}
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 mb-16">
-          <h3 className="text-2xl font-bold text-white text-center mb-8">Core Specializations</h3>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
+        <div className="mb-12">
+          <h3 className="text-xl font-bold text-white mb-6">Core specializations</h3>
+          <div className="flex flex-wrap gap-2">
             {[
-              "Waste Management Systems", "Urban Gardens", "Eco-Cooling Corridors", 
+              "Waste Management Systems", "Urban Gardens", "Eco-Cooling Corridors",
               "Hydro & Aquaponic Systems", "Green Corridors", "Renewable Energy Systems",
-              "Bio Pools", "Dome Constructions", "3D Printed Construction", "Sustainable Bricks", 
+              "Bio Pools", "Dome Constructions", "3D Printed Construction", "Sustainable Bricks",
               "Carbon Sinks", "Ecological Fixturing", "Agroforestry", "Sustainable Village Consulting",
               "Smart Construction R&D", "Sustainable Materials R&D"
             ].map((specialization, index) => (
-              <div 
+              <button
                 key={index}
-                className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 transition-all duration-300 group cursor-pointer hover:scale-105"
+                className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-4 py-2 text-white/80 text-sm transition-colors"
                 onClick={() => handleSpecializationClick(specialization)}
               >
-                <div className="text-white text-sm font-medium group-hover:text-orange-300 transition-colors">
-                  {specialization}
-                </div>
-              </div>
+                {specialization}
+              </button>
             ))}
           </div>
         </div>
 
         {/* Extended Specializations */}
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8">
-          <h3 className="text-2xl font-bold text-white text-center mb-8">Extended Specializations</h3>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
+        <div className="mb-16 sm:mb-20">
+          <h3 className="text-xl font-bold text-white mb-6">Extended specializations</h3>
+          <div className="flex flex-wrap gap-2">
             {[
               "Asset Restoration & Renovation", "Property Tokenization & RWAs", "NPA Management & Recovery",
               "Carbon Credit Generation", "Sustainable Tourism Development", "Smart City Consulting",
-              "Green Building Certification", "Environmental Impact Assessment", 
+              "Green Building Certification", "Environmental Impact Assessment",
               "ESG Compliance & Reporting", "Public Smart Contract Development", "Policy Development & Consulting",
               "Water Management Systems", "Waste-to-Energy Solutions", "Community Development Programs"
             ].map((specialization, index) => (
-              <div 
+              <button
                 key={index}
-                className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 transition-all duration-300 group cursor-pointer hover:scale-105"
+                className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-4 py-2 text-white/80 text-sm transition-colors"
                 onClick={() => handleSpecializationClick(specialization)}
               >
-                <div className="text-white text-sm font-medium group-hover:text-orange-300 transition-colors">
-                  {specialization}
-                </div>
-              </div>
+                {specialization}
+              </button>
             ))}
           </div>
         </div>
 
         {/* Specialization Details Modal */}
         {selectedSpecialization && specializationDetails[selectedSpecialization] && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-slate-800 border border-white/20 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" ref={specializationModalRef}>
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-2xl font-bold text-white">{selectedSpecialization}</h3>
-                  <button 
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="bg-[#1c1c1e] border border-white/10 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" ref={specializationModalRef}>
+              <div className="p-6 sm:p-8">
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <h3 className="text-xl font-bold text-white">{selectedSpecialization}</h3>
+                  <button
                     onClick={closeSpecializationModal}
-                    className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all"
+                    className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors flex-shrink-0"
                   >
                     ✕
                   </button>
                 </div>
 
-                <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+                <p className="text-white/70 text-base mb-8 leading-relaxed">
                   {specializationDetails[selectedSpecialization].description}
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div>
-                    <h4 className="text-white font-semibold mb-4">Our Services</h4>
-                    <ul className="space-y-3">
+                    <h4 className="text-sm font-semibold text-white mb-3 uppercase tracking-wide">Our Services</h4>
+                    <ul className="space-y-2.5">
                       {specializationDetails[selectedSpecialization].services.map((service, idx) => (
-                        <li key={idx} className="text-gray-300 text-sm flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <li key={idx} className="text-white/70 text-sm flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                           <span>{service}</span>
                         </li>
                       ))}
@@ -347,18 +320,18 @@ const Vision = () => {
                   </div>
 
                   <div>
-                    <h4 className="text-white font-semibold mb-4">Key Benefits</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <h4 className="text-sm font-semibold text-white mb-3 uppercase tracking-wide">Key Benefits</h4>
+                    <p className="text-white/70 text-sm leading-relaxed">
                       {specializationDetails[selectedSpecialization].benefits}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex space-x-4">
-                  <button className="flex-1 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25">
+                <div className="flex gap-3">
+                  <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                     Get Quote
                   </button>
-                  <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                  <button className="flex-1 bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                     Schedule Consultation
                   </button>
                 </div>
@@ -368,9 +341,9 @@ const Vision = () => {
         )}
 
         {/* CTA */}
-        <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25">
-            Join Our Mission
+        <div className="text-center">
+          <button className="bg-emerald-600 hover:bg-emerald-700 px-8 py-3.5 rounded-full font-medium text-white transition-colors text-sm">
+            Join our mission
           </button>
         </div>
       </div>

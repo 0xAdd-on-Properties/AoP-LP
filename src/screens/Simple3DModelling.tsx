@@ -49,157 +49,151 @@ const Simple3DModelling = () => {
     }
   ];
 
-  return (
-    <div className="min-h-screen bg-base-100 pt-20">
-      {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-base-200 to-base-300">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              <span className="gradient-text">Simple 3D Modelling</span>
-              <br />
-              <span className="text-white">for Property Design</span>
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Create stunning 3D models of sustainable properties with our intuitive drag-and-drop interface. 
-              No technical expertise required.
-            </p>
-          </div>
+  const complexityStyle = {
+    Beginner: 'text-emerald-600 bg-emerald-50',
+    Intermediate: 'text-[#1d1d1f] bg-black/5',
+    Advanced: 'text-[#1d1d1f] bg-black/5',
+    Expert: 'text-[#1d1d1f] bg-black/5'
+  };
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn btn-primary btn-lg">
-              <Upload className="w-5 h-5 mr-2" />
-              Start New Project
-            </button>
-            <button className="btn btn-outline btn-lg">
-              <Box className="w-5 h-5 mr-2" />
-              Browse Templates
-            </button>
+  return (
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="relative bg-[#f5f5f7] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20">
+          <div className="max-w-3xl min-w-0 space-y-6">
+            <p className="text-sm font-medium text-emerald-600">Property design</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05]">
+              Simple <span className="text-emerald-600">3D modelling</span>
+            </h1>
+            <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed max-w-xl">
+              Create stunning 3D models of sustainable properties with our intuitive drag-and-drop
+              interface. No technical expertise required.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <button className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center gap-2">
+                <Upload className="w-4 h-4" />
+                Start new project
+              </button>
+              <button className="px-6 py-3 rounded-full font-medium text-[#1d1d1f] border border-black/10 hover:bg-black/5 transition-colors text-sm inline-flex items-center gap-2">
+                <Box className="w-4 h-4" />
+                Browse templates
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Main Editor Interface */}
-      <section className="py-8">
-        <div className="container mx-auto px-6">
+      <section className="py-10 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             {/* Tool Panel */}
-            <div className="lg:col-span-1">
-              <div className="card bg-base-200 shadow-xl">
-                <div className="card-body">
-                  <h3 className="card-title text-white mb-4">Tools</h3>
-                  <div className="space-y-2">
-                    {tools.map((tool) => {
-                      const IconComponent = tool.icon;
-                      return (
-                        <button
-                          key={tool.id}
-                          onClick={() => setSelectedTool(tool.id)}
-                          className={`btn btn-block justify-start ${
-                            selectedTool === tool.id ? 'btn-primary' : 'btn-ghost'
-                          }`}
-                        >
-                          <IconComponent className="w-4 h-4 mr-2" />
-                          {tool.name}
-                        </button>
-                      );
-                    })}
-                  </div>
+            <div className="lg:col-span-1 min-w-0">
+              <div className="bg-[#f5f5f7] rounded-2xl border border-black/5 p-5 sm:p-6">
+                <h3 className="text-sm font-semibold text-[#1d1d1f] mb-4 uppercase tracking-wide">Tools</h3>
+                <div className="space-y-1.5">
+                  {tools.map((tool) => {
+                    const IconComponent = tool.icon;
+                    return (
+                      <button
+                        key={tool.id}
+                        onClick={() => setSelectedTool(tool.id)}
+                        className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                          selectedTool === tool.id ? 'bg-emerald-600 text-white' : 'text-[#1d1d1f] hover:bg-black/5'
+                        }`}
+                      >
+                        <IconComponent className="w-4 h-4" />
+                        {tool.name}
+                      </button>
+                    );
+                  })}
+                </div>
 
-                  <div className="divider"></div>
+                <div className="h-px bg-black/10 my-5"></div>
 
-                  <h4 className="font-semibold text-white mb-2">View Mode</h4>
-                  <div className="flex flex-col gap-2">
-                    <button 
-                      onClick={() => setViewMode('3d')}
-                      className={`btn btn-sm ${viewMode === '3d' ? 'btn-primary' : 'btn-ghost'}`}
+                <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">View mode</h4>
+                <div className="flex flex-col gap-1.5">
+                  {['3d', 'top', 'front'].map((mode) => (
+                    <button
+                      key={mode}
+                      onClick={() => setViewMode(mode)}
+                      className={`px-3.5 py-2 rounded-xl text-sm font-medium text-left transition-colors ${
+                        viewMode === mode ? 'bg-emerald-600 text-white' : 'text-[#1d1d1f] hover:bg-black/5'
+                      }`}
                     >
-                      3D View
+                      {mode === '3d' ? '3D view' : mode === 'top' ? 'Top view' : 'Front view'}
                     </button>
-                    <button 
-                      onClick={() => setViewMode('top')}
-                      className={`btn btn-sm ${viewMode === 'top' ? 'btn-primary' : 'btn-ghost'}`}
-                    >
-                      Top View
-                    </button>
-                    <button 
-                      onClick={() => setViewMode('front')}
-                      className={`btn btn-sm ${viewMode === 'front' ? 'btn-primary' : 'btn-ghost'}`}
-                    >
-                      Front View
-                    </button>
-                  </div>
+                  ))}
+                </div>
 
-                  <div className="divider"></div>
+                <div className="h-px bg-black/10 my-5"></div>
 
-                  <div className="space-y-2">
-                    <button className="btn btn-success btn-sm btn-block">
-                      <Save className="w-4 h-4 mr-2" />
-                      Save Project
-                    </button>
-                    <button className="btn btn-info btn-sm btn-block">
-                      <Download className="w-4 h-4 mr-2" />
-                      Export Model
-                    </button>
-                    <button className="btn btn-secondary btn-sm btn-block">
-                      <Share2 className="w-4 h-4 mr-2" />
-                      Share Design
-                    </button>
-                  </div>
+                <div className="space-y-2">
+                  <button className="w-full bg-emerald-600 hover:bg-emerald-700 px-3.5 py-2.5 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center justify-center gap-2">
+                    <Save className="w-4 h-4" />
+                    Save project
+                  </button>
+                  <button className="w-full border border-black/10 hover:bg-black/5 px-3.5 py-2.5 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm inline-flex items-center justify-center gap-2">
+                    <Download className="w-4 h-4" />
+                    Export model
+                  </button>
+                  <button className="w-full border border-black/10 hover:bg-black/5 px-3.5 py-2.5 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm inline-flex items-center justify-center gap-2">
+                    <Share2 className="w-4 h-4" />
+                    Share design
+                  </button>
                 </div>
               </div>
             </div>
 
             {/* 3D Viewport */}
-            <div className="lg:col-span-3">
-              <div className="card bg-base-200 shadow-xl">
-                <div className="card-body p-0">
-                  {/* Viewport Header */}
-                  <div className="flex items-center justify-between p-4 border-b border-base-300">
-                    <div className="flex items-center space-x-4">
-                      <h3 className="text-lg font-semibold text-white">3D Viewport</h3>
-                      <div className="badge badge-primary">{viewMode.toUpperCase()}</div>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <button className="btn btn-sm btn-ghost">
-                        <Eye className="w-4 h-4" />
-                      </button>
-                      <button className="btn btn-sm btn-ghost">
-                        <Grid className="w-4 h-4" />
-                      </button>
+            <div className="lg:col-span-3 min-w-0">
+              <div className="bg-[#f5f5f7] rounded-2xl border border-black/5 overflow-hidden">
+                <div className="flex items-center justify-between p-4 border-b border-black/10">
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-sm font-semibold text-[#1d1d1f]">3D viewport</h3>
+                    <span className="text-xs font-medium text-emerald-600 bg-emerald-50 rounded-full px-2.5 py-1">
+                      {viewMode.toUpperCase()}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <button className="w-8 h-8 rounded-lg hover:bg-black/5 flex items-center justify-center text-[#1d1d1f] transition-colors">
+                      <Eye className="w-4 h-4" />
+                    </button>
+                    <button className="w-8 h-8 rounded-lg hover:bg-black/5 flex items-center justify-center text-[#1d1d1f] transition-colors">
+                      <Grid className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="h-72 sm:h-96 lg:h-[520px] relative overflow-hidden bg-white">
+                  <div className="absolute inset-0 opacity-[0.07]">
+                    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <defs>
+                        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
+                        </pattern>
+                      </defs>
+                      <rect width="100" height="100" fill="url(#grid)" />
+                    </svg>
+                  </div>
+
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center px-4">
+                      <div className="w-14 h-14 rounded-xl bg-emerald-50 flex items-center justify-center mx-auto mb-4 text-emerald-600">
+                        <Box className="w-7 h-7" />
+                      </div>
+                      <h4 className="text-lg font-semibold text-[#1d1d1f] mb-1.5">3D modelling canvas</h4>
+                      <p className="text-[#6e6e73] text-sm max-w-sm mx-auto">
+                        Drag and drop elements to start building your property model
+                      </p>
                     </div>
                   </div>
 
-                  {/* 3D Canvas Area */}
-                  <div className="h-96 lg:h-[600px] bg-gradient-to-br from-slate-700 to-slate-800 relative overflow-hidden">
-                    {/* Placeholder 3D Scene */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <Box className="w-16 h-16 text-primary mx-auto mb-4 animate-spin" />
-                        <h4 className="text-xl font-semibold text-white mb-2">3D Modelling Canvas</h4>
-                        <p className="text-gray-400">Drag and drop elements to start building your property model</p>
-                      </div>
-                    </div>
-
-                    {/* Grid Background */}
-                    <div className="absolute inset-0 opacity-20">
-                      <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <defs>
-                          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-                          </pattern>
-                        </defs>
-                        <rect width="100" height="100" fill="url(#grid)" />
-                      </svg>
-                    </div>
-
-                    {/* Controls Overlay */}
-                    <div className="absolute top-4 right-4 flex flex-col space-y-2">
-                      <div className="bg-base-100/80 backdrop-blur-sm rounded-lg p-2">
-                        <button className="btn btn-xs btn-ghost mb-1">+</button>
-                        <button className="btn btn-xs btn-ghost">-</button>
-                      </div>
-                    </div>
+                  <div className="absolute top-4 right-4 bg-white border border-black/10 rounded-lg overflow-hidden">
+                    <button className="block w-8 h-8 text-[#1d1d1f] hover:bg-black/5 transition-colors">+</button>
+                    <div className="h-px bg-black/10"></div>
+                    <button className="block w-8 h-8 text-[#1d1d1f] hover:bg-black/5 transition-colors">–</button>
                   </div>
                 </div>
               </div>
@@ -209,52 +203,51 @@ const Simple3DModelling = () => {
       </section>
 
       {/* Templates Section */}
-      <section className="py-16 bg-base-200">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Property Templates</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Start with pre-designed templates and customize them to create your perfect sustainable property
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Start faster</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Property templates
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Start with pre-designed templates and customize them to create your perfect sustainable property.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {templates.map((template) => (
-              <div key={template.id} className="card bg-base-100 shadow-xl card-hover">
-                <figure className="h-48">
-                  <img 
-                    src={template.thumbnail} 
+              <div key={template.id} className="bg-white rounded-2xl overflow-hidden border border-black/5 min-w-0">
+                <div className="h-40">
+                  <img
+                    src={template.thumbnail}
                     alt={template.name}
                     className="w-full h-full object-cover"
                   />
-                </figure>
-                <div className="card-body">
-                  <h3 className="card-title text-white text-sm">{template.name}</h3>
-                  
-                  <div className="space-y-2 text-sm text-gray-400">
-                    <div className="flex justify-between">
-                      <span>Complexity:</span>
-                      <span className={`badge badge-sm ${
-                        template.complexity === 'Beginner' ? 'badge-success' :
-                        template.complexity === 'Intermediate' ? 'badge-warning' :
-                        template.complexity === 'Advanced' ? 'badge-error' : 'badge-secondary'
-                      }`}>
+                </div>
+                <div className="p-5 min-w-0">
+                  <h3 className="text-[#1d1d1f] font-semibold text-sm mb-3 truncate">{template.name}</h3>
+
+                  <div className="space-y-2 text-sm mb-4">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[#86868b]">Complexity</span>
+                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${complexityStyle[template.complexity]}`}>
                         {template.complexity}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Rooms:</span>
-                      <span className="text-white">{template.rooms}</span>
+                      <span className="text-[#86868b]">Rooms</span>
+                      <span className="text-[#1d1d1f]">{template.rooms}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Area:</span>
-                      <span className="text-white">{template.area}</span>
+                      <span className="text-[#86868b]">Area</span>
+                      <span className="text-[#1d1d1f]">{template.area}</span>
                     </div>
                   </div>
 
-                  <div className="card-actions justify-end mt-4">
-                    <button className="btn btn-primary btn-sm">Use Template</button>
-                  </div>
+                  <button className="w-full border border-black/10 hover:bg-black/5 text-[#1d1d1f] text-sm font-medium rounded-full py-2 transition-colors">
+                    Use template
+                  </button>
                 </div>
               </div>
             ))}
@@ -263,38 +256,41 @@ const Simple3DModelling = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Powerful Features</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Everything you need to create stunning 3D property models
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Everything included</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Powerful features
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Everything you need to create stunning 3D property models.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Box className="w-8 h-8 text-white" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+            <div className="bg-white p-6 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                <Box className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Drag & Drop Interface</h3>
-              <p className="text-gray-300">Intuitive drag-and-drop tools make 3D modeling accessible to everyone</p>
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Drag & drop interface</h3>
+              <p className="text-sm text-[#6e6e73] leading-relaxed">Intuitive drag-and-drop tools make 3D modeling accessible to everyone</p>
             </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Eye className="w-8 h-8 text-white" />
+
+            <div className="bg-white p-6 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                <Eye className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Real-time Preview</h3>
-              <p className="text-gray-300">See your changes instantly with our real-time 3D rendering engine</p>
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Real-time preview</h3>
+              <p className="text-sm text-[#6e6e73] leading-relaxed">See your changes instantly with our real-time 3D rendering engine</p>
             </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Download className="w-8 h-8 text-white" />
+
+            <div className="bg-white p-6 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                <Download className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Multiple Export Formats</h3>
-              <p className="text-gray-300">Export your models in various formats for VR, AR, and web viewing</p>
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Multiple export formats</h3>
+              <p className="text-sm text-[#6e6e73] leading-relaxed">Export your models in various formats for VR, AR, and web viewing</p>
             </div>
           </div>
         </div>

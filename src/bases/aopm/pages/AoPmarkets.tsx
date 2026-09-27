@@ -22,7 +22,7 @@ const AoPmarkets = () => {
 
   const marketplaceCategories = [
     {
-      icon: <Home className="w-8 h-8" />,
+      icon: <Home className="w-5 h-5" />,
       title: "Property Marketplace",
       description: "Discover and buy sustainable properties across India",
       items: "15,000+ properties",
@@ -34,7 +34,7 @@ const AoPmarkets = () => {
       benefits: "AI-powered matching, verified sustainable properties, end-to-end support"
     },
     {
-      icon: <Leaf className="w-8 h-8" />,
+      icon: <Leaf className="w-5 h-5" />,
       title: "Sustainable Properties",
       description: "Earthships, Mandala Homes, Eco Communes, and Smart Apartments",
       items: "8,500+ eco-properties",
@@ -46,7 +46,7 @@ const AoPmarkets = () => {
       benefits: "Sustainable living, reduced carbon footprint, community support"
     },
     {
-      icon: <Leaf className="w-8 h-8" />,
+      icon: <Leaf className="w-5 h-5" />,
       title: "Sustainify Market",
       description: "Main marketplace hub with all sustainable categories",
       items: "50,000+ products",
@@ -58,7 +58,7 @@ const AoPmarkets = () => {
       benefits: "One-stop shop for all sustainable living needs"
     },
     {
-      icon: <Package className="w-8 h-8" />,
+      icon: <Package className="w-5 h-5" />,
       title: "Materials Marketplace",
       description: "Eco-friendly building materials from bamboo to recycled steel",
       items: "2,400+ products",
@@ -70,7 +70,7 @@ const AoPmarkets = () => {
       benefits: "Reduced environmental impact, cost savings, quality assurance"
     },
     {
-      icon: <Building className="w-8 h-8" />,
+      icon: <Building className="w-5 h-5" />,
       title: "Furnishings Marketplace",
       description: "Sustainable furniture and home decor items",
       items: "1,800+ products",
@@ -82,7 +82,7 @@ const AoPmarkets = () => {
       benefits: "Unique designs, sustainable materials, supporting artisans"
     },
     {
-      icon: <Droplets className="w-8 h-8" />,
+      icon: <Droplets className="w-5 h-5" />,
       title: "Sustainable Technologies",
       description: "Water systems, waste management, and green tech",
       items: "1,200+ technologies",
@@ -94,7 +94,7 @@ const AoPmarkets = () => {
       benefits: "Water security, cost savings, sustainable technology adoption"
     },
     {
-      icon: <Zap className="w-8 h-8" />,
+      icon: <Zap className="w-5 h-5" />,
       title: "Sustainable Systems",
       description: "Renewable energy and smart home systems",
       items: "850+ systems",
@@ -109,106 +109,88 @@ const AoPmarkets = () => {
 
   const marketplaceStats = [
     {
-      icon: <Users className="w-6 h-6" />,
+      icon: <Users className="w-5 h-5" />,
       title: "50,000+",
       description: "Active Users"
     },
     {
-      icon: <Package className="w-6 h-6" />,
+      icon: <Package className="w-5 h-5" />,
       title: "75,000+",
       description: "Products Listed"
     },
     {
-      icon: <Globe className="w-6 h-6" />,
+      icon: <Globe className="w-5 h-5" />,
       title: "500+",
       description: "Cities Covered"
     },
     {
-      icon: <Star className="w-6 h-6" />,
+      icon: <Star className="w-5 h-5" />,
       title: "4.8/5",
       description: "Average Rating"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white" style={{ minHeight: '100vh' }}>
+    <div className="min-h-screen bg-white">
       {/* Sticky Navbar */}
       <StandardNavbar />
-      
-      {/* Header */}
-      <header className="bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900 text-white py-16 relative overflow-hidden pt-32">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-gray-400 to-slate-400 rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-slate-400 to-gray-400 rounded-full filter blur-3xl"></div>
-        </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 mb-6">
-              <Package className="w-5 h-5 text-gray-300" />
-              <span className="text-gray-200 font-medium">AoP Markets - All Marketplaces</span>
-            </div>
-            
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-gray-300 via-slate-200 to-gray-300 bg-clip-text text-transparent">
-                Discover All
-              </span>
-              <br />
-              <span className="text-white">Marketplaces</span>
+      {/* Header */}
+      <header className="bg-[#f5f5f7] pt-28 sm:pt-32 pb-12 sm:pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-8">
+            <p className="text-sm font-medium text-emerald-600 mb-3">AoP Markets</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05] mb-4">
+              Discover all <span className="text-emerald-600">marketplaces</span>
             </h1>
-            
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              Access all our marketplaces from one place - properties, materials, furnishings, systems, and technologies
+            <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed">
+              Access every AddonProp marketplace from one place — properties, materials,
+              furnishings, systems, and technologies.
             </p>
           </div>
 
           {/* Search Bar */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
-              <div className="flex flex-col lg:flex-row gap-4">
-                <div className="flex-1">
-                  <div className="relative">
-                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input
-                      type="text"
-                      placeholder="Search across all marketplaces..."
-                      className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-400/20"
-                    />
-                  </div>
-                </div>
-                <div className="lg:w-48">
-                  <select className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-400/20">
-                    <option value="" className="bg-slate-800">All Categories</option>
-                    <option value="properties" className="bg-slate-800">Properties</option>
-                    <option value="materials" className="bg-slate-800">Materials</option>
-                    <option value="furnishings" className="bg-slate-800">Furnishings</option>
-                    <option value="systems" className="bg-slate-800">Systems</option>
-                    <option value="technologies" className="bg-slate-800">Technologies</option>
-                  </select>
-                </div>
-                <button className="bg-gradient-to-r from-gray-700 to-slate-800 hover:from-gray-600 hover:to-slate-700 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-gray-500/25">
-                  Search All
-                </button>
+          <div className="bg-white border border-black/10 rounded-2xl p-3 shadow-sm max-w-3xl">
+            <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex-1 min-w-0 relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#86868b] w-4 h-4" />
+                <input
+                  type="text"
+                  placeholder="Search across all marketplaces..."
+                  className="w-full pl-10 pr-3 py-3 bg-[#f5f5f7] rounded-xl text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-emerald-600/40 text-sm"
+                />
               </div>
+              <div className="relative">
+                <select className="appearance-none bg-[#f5f5f7] rounded-xl pl-4 pr-9 py-3 text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-emerald-600/40 text-sm w-full sm:w-44">
+                  <option value="">All Categories</option>
+                  <option value="properties">Properties</option>
+                  <option value="materials">Materials</option>
+                  <option value="furnishings">Furnishings</option>
+                  <option value="systems">Systems</option>
+                  <option value="technologies">Technologies</option>
+                </select>
+              </div>
+              <button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-xl font-semibold text-white transition-colors text-sm whitespace-nowrap">
+                Search All
+              </button>
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="bg-gradient-to-br from-slate-50 via-gray-50 to-slate-50">
+      <main className="bg-white">
         {/* Stats Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <section className="py-12 sm:py-16 border-b border-black/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
               {marketplaceStats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gray-100 to-slate-200 rounded-xl flex items-center justify-center mx-auto mb-4 text-slate-700 shadow-lg">
+                <div key={index} className="min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-3 text-emerald-600">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl font-bold text-slate-800 mb-2">{stat.title}</div>
-                  <div className="text-slate-600">{stat.description}</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] mb-1">{stat.title}</div>
+                  <div className="text-[#6e6e73] text-sm">{stat.description}</div>
                 </div>
               ))}
             </div>
@@ -216,64 +198,55 @@ const AoPmarkets = () => {
         </section>
 
         {/* Marketplace Categories */}
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-gray-50">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-slate-700 to-gray-600 bg-clip-text text-transparent mb-4">
-                All Marketplaces
+        <section className="py-16 sm:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="max-w-2xl mb-12 sm:mb-16">
+              <p className="text-sm font-medium text-emerald-600 mb-3">Every Category, One Login</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+                All marketplaces
               </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Explore our comprehensive range of sustainable marketplaces
+              <p className="text-lg text-[#6e6e73] leading-relaxed">
+                Explore our comprehensive range of sustainable marketplaces, from property
+                discovery to materials, furnishings, systems, and technologies.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {marketplaceCategories.map((category, index) => (
-                <div 
+                <div
                   key={index}
-                  className={`group relative glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer mx-auto h-80 ${
-                    index === 6 ? 'md:col-start-2' : ''
-                  }`}
+                  className="group bg-white rounded-2xl overflow-hidden border border-black/5 hover:shadow-lg transition-shadow cursor-pointer min-w-0"
                   onClick={() => handleCategoryClick(category)}
                 >
-                  {/* Background Image */}
-                  <div className="absolute inset-0 opacity-20">
-                    <img 
-                      src={category.image} 
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={category.image}
                       alt={category.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                   </div>
-
-                  <div className="relative p-6 bg-white/95 backdrop-blur-sm border border-white/20 h-full flex flex-col">
-                    {/* Icon */}
-                    <div className={`w-16 h-16 bg-gradient-to-r ${category.gradient} rounded-xl flex items-center justify-center mb-4 text-white shadow-lg`}>
+                  <div className="p-6">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
                       {category.icon}
                     </div>
-                    
-                    {/* Content */}
-                    <div className="flex-grow">
-                      <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-slate-900 transition-colors">
-                        {category.title}
-                      </h3>
-                      <p className="text-slate-600 text-sm font-medium mb-3">{category.items}</p>
-                      <p className="text-slate-700 text-sm leading-relaxed mb-4">
-                        {category.description}
-                      </p>
-                    </div>
-                    
-                    {/* CTA Button */}
-                    <button 
-                      onClick={() => window.location.href = category.link}
-                      className={`w-full bg-gradient-to-r ${category.gradient} hover:opacity-90 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg mt-auto`}
+                    <h3 className="text-base font-semibold text-[#1d1d1f] mb-1">
+                      {category.title}
+                    </h3>
+                    <p className="text-emerald-600 text-xs font-medium mb-3">{category.items}</p>
+                    <p className="text-[#6e6e73] text-sm leading-relaxed mb-5">
+                      {category.description}
+                    </p>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.location.href = category.link;
+                      }}
+                      className="w-full bg-[#1d1d1f] hover:bg-black px-4 py-2.5 rounded-full font-medium text-white transition-colors text-sm flex items-center justify-center gap-2"
                     >
                       Visit Marketplace
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
-
-                  {/* Hover Glow */}
-                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${category.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10 blur-xl`}></div>
                 </div>
               ))}
             </div>
@@ -281,56 +254,48 @@ const AoPmarkets = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 bg-gradient-to-br from-gray-100 to-slate-100">
-          <div className="container mx-auto px-6">
-            <div className="bg-white/95 backdrop-blur-md border border-gray-200 rounded-3xl p-8 shadow-xl">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-slate-200 to-gray-300 rounded-xl flex items-center justify-center text-slate-700 flex-shrink-0 shadow-md">
-                    <Truck className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-slate-800 mb-2">Carbon-Neutral Delivery</h4>
-                    <p className="text-slate-600 text-sm">All shipments offset with renewable energy</p>
-                  </div>
+        <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+              <div className="bg-white p-6 min-w-0">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                  <Truck className="w-5 h-5" />
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-slate-200 to-gray-300 rounded-xl flex items-center justify-center text-slate-700 flex-shrink-0 shadow-md">
-                    <Shield className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-slate-800 mb-2">Sustainability Verified</h4>
-                    <p className="text-slate-600 text-sm">Every product meets our eco-standards</p>
-                  </div>
+                <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Carbon-Neutral Delivery</h3>
+                <p className="text-sm text-[#6e6e73] leading-relaxed">All shipments offset with renewable energy</p>
+              </div>
+              <div className="bg-white p-6 min-w-0">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                  <Shield className="w-5 h-5" />
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-slate-200 to-gray-300 rounded-xl flex items-center justify-center text-slate-700 flex-shrink-0 shadow-md">
-                    <Package className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-slate-800 mb-2">Bulk Discounts</h4>
-                    <p className="text-slate-600 text-sm">Save more on larger sustainable projects</p>
-                  </div>
+                <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Sustainability Verified</h3>
+                <p className="text-sm text-[#6e6e73] leading-relaxed">Every product meets our eco-standards</p>
+              </div>
+              <div className="bg-white p-6 min-w-0">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                  <Package className="w-5 h-5" />
                 </div>
+                <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Bulk Discounts</h3>
+                <p className="text-sm text-[#6e6e73] leading-relaxed">Save more on larger sustainable projects</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-6">
-              Ready to Start Your Sustainable Journey?
+        <section className="py-16 sm:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Ready to start your sustainable journey?
             </h2>
-            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-[#6e6e73] mb-8 max-w-2xl mx-auto">
               Join thousands of customers building sustainable futures across India
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-slate-800 to-gray-900 hover:from-slate-700 hover:to-gray-800 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-slate-500/25">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                 Browse All Marketplaces
               </button>
-              <button className="bg-white hover:bg-gray-50 border border-gray-300 px-8 py-4 rounded-xl font-semibold text-slate-800 transition-all duration-300 shadow-md">
+              <button className="border border-black/10 hover:bg-black/5 px-6 py-3 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm">
                 Become a Vendor
               </button>
             </div>
@@ -339,162 +304,158 @@ const AoPmarkets = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900 text-white">
-        <div className="container mx-auto px-6 py-12">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">AoPM - AddonProp Markets</h2>
-            <p className="text-gray-300 mb-6">
-              Your one-stop destination for all sustainable marketplaces. From properties to materials, we've got you covered.
+      <footer className="bg-[#1d1d1f] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">AoPM — AddonProp Markets</h2>
+            <p className="text-white/60 mb-6">
+              Your one-stop destination for all sustainable marketplaces. From properties to
+              materials, we've got you covered.
             </p>
           </div>
-        </div>
 
-        {/* Bottom Footer */}
-        <div className="bg-black/40">
-          <div className="container mx-auto px-6 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
-              <div>
-                <h3 className="font-semibold mb-3">Company</h3>
-                <div className="space-y-2 text-sm">
-                  {['Careers', 'About Us', 'Our Team', 'Terms', 'Refund Policy', 'Privacy Policy', 'Contact Us'].map((link) => (
-                    <a key={link} href="#" className="block text-gray-300 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-semibold mb-3">Marketplaces</h3>
-                <div className="space-y-2 text-sm">
-                  {['Properties', 'Materials', 'Furnishings', 'Systems', 'Technologies'].map((link) => (
-                    <a key={link} href="#" className="block text-gray-300 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-semibold mb-3">Explore</h3>
-                <div className="space-y-2 text-sm">
-                  {['News', 'Loans', 'Rental', 'Investment'].map((link) => (
-                    <a key={link} href="#" className="block text-gray-300 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-semibold mb-3">Mobile App</h3>
-                <div className="space-y-2 text-sm">
-                  <p className="text-gray-300">Download our mobile app for better experience</p>
-                  <div className="flex space-x-2 mb-4">
-                    <div className="w-20 h-8 bg-white/20 rounded flex items-center justify-center">
-                      <span className="text-xs">App Store</span>
-                    </div>
-                    <div className="w-20 h-8 bg-white/20 rounded flex items-center justify-center">
-                      <span className="text-xs">Play Store</span>
-                    </div>
-                  </div>
-                  <div className="flex space-x-4">
-                    <a href="#" className="hover:text-gray-200 transition-colors">
-                      <Facebook className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-gray-200 transition-colors">
-                      <Instagram className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-gray-200 transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-gray-200 transition-colors">
-                      <Youtube className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="hover:text-gray-200 transition-colors">
-                      <Twitter className="w-5 h-5" />
-                    </a>
-                  </div>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 pt-10 border-t border-white/10">
+            <div className="min-w-0">
+              <h3 className="font-semibold mb-3 text-sm">Company</h3>
+              <div className="space-y-2 text-sm">
+                {['Careers', 'About Us', 'Our Team', 'Terms', 'Refund Policy', 'Privacy Policy', 'Contact Us'].map((link) => (
+                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
+                    {link}
+                  </a>
+                ))}
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-gray-600 text-center">
-              <p className="text-gray-300 text-sm">
-                © 2025 AddonProp Markets. All rights reserved. Built with love by{' '}
-                <a href="https://studio.sted.space" className="text-gray-200 hover:text-white transition-colors underline">
-                  studio.sted.space
-                </a>
-              </p>
+            <div className="min-w-0">
+              <h3 className="font-semibold mb-3 text-sm">Marketplaces</h3>
+              <div className="space-y-2 text-sm">
+                {['Properties', 'Materials', 'Furnishings', 'Systems', 'Technologies'].map((link) => (
+                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
+                    {link}
+                  </a>
+                ))}
+              </div>
             </div>
+
+            <div className="min-w-0">
+              <h3 className="font-semibold mb-3 text-sm">Explore</h3>
+              <div className="space-y-2 text-sm">
+                {['News', 'Loans', 'Rental', 'Investment'].map((link) => (
+                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="min-w-0">
+              <h3 className="font-semibold mb-3 text-sm">Mobile App</h3>
+              <div className="space-y-2 text-sm">
+                <p className="text-white/60">Download our mobile app for better experience</p>
+                <div className="flex gap-2 mb-4">
+                  <div className="w-20 h-8 bg-white/10 rounded flex items-center justify-center">
+                    <span className="text-xs">App Store</span>
+                  </div>
+                  <div className="w-20 h-8 bg-white/10 rounded flex items-center justify-center">
+                    <span className="text-xs">Play Store</span>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Facebook className="w-4 h-4" />
+                  </a>
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Youtube className="w-4 h-4" />
+                  </a>
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    <Twitter className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-white/10 text-center">
+            <p className="text-white/50 text-sm">
+              © 2025 AddonProp Markets. All rights reserved. Built with love by{' '}
+              <a href="https://studio.sted.space" className="text-white/70 hover:text-white transition-colors underline">
+                studio.sted.space
+              </a>
+            </p>
           </div>
         </div>
       </footer>
 
       {/* Category Details Modal */}
       {selectedCategory && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-800 border border-white/20 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" ref={categoryModalRef}>
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white border border-black/10 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" ref={categoryModalRef}>
             <div className="relative">
-              {/* Header Image */}
-              <div className="h-48 overflow-hidden rounded-t-3xl relative">
-                <img 
-                  src={selectedCategory.image} 
+              <div className="h-44 overflow-hidden rounded-t-3xl relative">
+                <img
+                  src={selectedCategory.image}
                   alt={selectedCategory.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-800 to-transparent"></div>
-                <button 
+                <button
                   onClick={closeModal}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all"
+                  className="absolute top-4 right-4 w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1d1d1f] hover:bg-white transition-all"
                 >
                   ✕
                 </button>
               </div>
 
-              {/* Content */}
-              <div className="p-8">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-200 to-gray-300 rounded-xl flex items-center justify-center text-slate-700 shadow-md">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
                     {selectedCategory.icon}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white">{selectedCategory.title}</h3>
-                    <p className="text-gray-300 font-medium">{selectedCategory.items}</p>
+                    <h3 className="text-xl font-bold text-[#1d1d1f]">{selectedCategory.title}</h3>
+                    <p className="text-emerald-600 font-medium text-sm">{selectedCategory.items}</p>
                   </div>
                 </div>
 
-                <p className="text-gray-300 text-lg mb-8">{selectedCategory.description}</p>
+                <p className="text-[#1d1d1f] text-base mb-8">{selectedCategory.description}</p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                  <div>
-                    <h4 className="text-white font-semibold mb-3">Key Features</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                  <div className="min-w-0">
+                    <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Key Features</h4>
                     <ul className="space-y-2">
                       {selectedCategory.features.map((feature, idx) => (
-                        <li key={idx} className="text-gray-300 text-sm flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                        <li key={idx} className="text-[#6e6e73] text-sm flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full flex-shrink-0"></div>
                           <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div>
-                    <h4 className="text-white font-semibold mb-3">Process</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">{selectedCategory.process}</p>
+                  <div className="min-w-0">
+                    <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Process</h4>
+                    <p className="text-[#6e6e73] text-sm leading-relaxed">{selectedCategory.process}</p>
                   </div>
 
-                  <div>
-                    <h4 className="text-white font-semibold mb-3">Benefits</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">{selectedCategory.benefits}</p>
+                  <div className="min-w-0">
+                    <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Benefits</h4>
+                    <p className="text-[#6e6e73] text-sm leading-relaxed">{selectedCategory.benefits}</p>
                   </div>
                 </div>
 
-                <div className="flex space-x-4">
-                  <button className="flex-1 bg-gradient-to-r from-slate-700 to-gray-800 hover:from-slate-600 hover:to-gray-700 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => window.location.href = selectedCategory.link}
+                    className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm"
+                  >
                     Visit Marketplace
                   </button>
-                  <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                  <button className="flex-1 border border-black/10 hover:bg-black/5 px-6 py-3 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm">
                     Learn More
                   </button>
                 </div>

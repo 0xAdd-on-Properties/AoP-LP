@@ -54,10 +54,10 @@ const PropertyDetail = () => {
 
   if (!property) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#f5f5f7] flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-emerald-500 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading property details...</p>
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-emerald-600 mx-auto mb-4"></div>
+          <p className="text-[#6e6e73]">Loading property details...</p>
         </div>
       </div>
     );
@@ -79,7 +79,7 @@ const PropertyDetail = () => {
       <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28">
         <button
           onClick={() => router.back()}
-          className="flex items-center space-x-2 text-gray-600 hover:text-emerald-600 transition-colors mb-6"
+          className="flex items-center space-x-2 text-[#6e6e73] hover:text-emerald-600 transition-colors mb-6"
         >
           <ArrowLeft className="w-5 h-5" />
           <span>Back to Properties</span>
@@ -131,8 +131,8 @@ const PropertyDetail = () => {
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                        index === currentImageIndex ? 'border-emerald-500' : 'border-gray-200'
+                      className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
+                        index === currentImageIndex ? 'border-emerald-600' : 'border-black/10'
                       }`}
                     >
                       <img src={image} alt={`${property.title} ${index + 1}`} className="w-full h-full object-cover" />
@@ -147,9 +147,9 @@ const PropertyDetail = () => {
               {/* Basic Info */}
               <div>
                 <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h1 className="text-3xl font-bold text-gray-900 mb-2">{property.title}</h1>
-                    <div className="flex items-center space-x-4 text-gray-600">
+                  <div className="min-w-0">
+                    <h1 className="text-3xl font-bold text-[#1d1d1f] mb-2">{property.title}</h1>
+                    <div className="flex items-center space-x-4 text-[#6e6e73]">
                       <div className="flex items-center">
                         <MapPin className="w-4 h-4 mr-1" />
                         <span>{property.location}</span>
@@ -160,16 +160,16 @@ const PropertyDetail = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 shrink-0">
                     <button
                       onClick={() => setIsFavorited(!isFavorited)}
                       className={`p-2 rounded-full transition-colors ${
-                        isFavorited ? 'text-red-500 bg-red-50' : 'text-gray-400 hover:text-red-500 hover:bg-red-50'
+                        isFavorited ? 'text-red-500 bg-red-50' : 'text-[#86868b] hover:text-red-500 hover:bg-red-50'
                       }`}
                     >
                       <Heart className={`w-6 h-6 ${isFavorited ? 'fill-current' : ''}`} />
                     </button>
-                    <button className="p-2 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors">
+                    <button className="p-2 rounded-full text-[#86868b] hover:text-[#1d1d1f] hover:bg-black/5 transition-colors">
                       <Share2 className="w-6 h-6" />
                     </button>
                   </div>
@@ -178,43 +178,43 @@ const PropertyDetail = () => {
               </div>
 
               {/* Property Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-6 border-t border-b border-gray-200">
-                <div className="text-center">
-                  <Bed className="w-8 h-8 text-emerald-500 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-gray-900">{property.bedrooms}</div>
-                  <div className="text-sm text-gray-600">Bedrooms</div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-6 border-t border-b border-black/10">
+                <div className="min-w-0 text-center">
+                  <Bed className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#1d1d1f]">{property.bedrooms}</div>
+                  <div className="text-sm text-[#6e6e73]">Bedrooms</div>
                 </div>
-                <div className="text-center">
-                  <Bath className="w-8 h-8 text-emerald-500 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-gray-900">{property.bathrooms}</div>
-                  <div className="text-sm text-gray-600">Bathrooms</div>
+                <div className="min-w-0 text-center">
+                  <Bath className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#1d1d1f]">{property.bathrooms}</div>
+                  <div className="text-sm text-[#6e6e73]">Bathrooms</div>
                 </div>
-                <div className="text-center">
-                  <Square className="w-8 h-8 text-emerald-500 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-gray-900">{property.area}</div>
-                  <div className="text-sm text-gray-600">Area</div>
+                <div className="min-w-0 text-center">
+                  <Square className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#1d1d1f]">{property.area}</div>
+                  <div className="text-sm text-[#6e6e73]">Area</div>
                 </div>
-                <div className="text-center">
-                  <Calendar className="w-8 h-8 text-emerald-500 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-gray-900">2024</div>
-                  <div className="text-sm text-gray-600">Built</div>
+                <div className="min-w-0 text-center">
+                  <Calendar className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#1d1d1f]">2024</div>
+                  <div className="text-sm text-[#6e6e73]">Built</div>
                 </div>
               </div>
 
               {/* Description */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Description</h3>
-                <p className="text-gray-600 leading-relaxed">{property.description}</p>
+                <h3 className="text-xl font-semibold text-[#1d1d1f] mb-4">Description</h3>
+                <p className="text-[#6e6e73] leading-relaxed">{property.description}</p>
               </div>
 
               {/* Features */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Features</h3>
+                <h3 className="text-xl font-semibold text-[#1d1d1f] mb-4">Features</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {property.features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                      <span className="text-gray-700">{feature}</span>
+                    <div key={index} className="min-w-0 flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-emerald-600 rounded-full shrink-0"></div>
+                      <span className="text-[#1d1d1f]">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -222,12 +222,12 @@ const PropertyDetail = () => {
 
               {/* Amenities */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Amenities</h3>
+                <h3 className="text-xl font-semibold text-[#1d1d1f] mb-4">Amenities</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {property.amenities.map((amenity, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-gray-700">{amenity}</span>
+                    <div key={index} className="min-w-0 flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-[#1d1d1f]/20 rounded-full shrink-0"></div>
+                      <span className="text-[#1d1d1f]">{amenity}</span>
                     </div>
                   ))}
                 </div>
@@ -235,12 +235,12 @@ const PropertyDetail = () => {
 
               {/* Nearby Places */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Nearby Places</h3>
+                <h3 className="text-xl font-semibold text-[#1d1d1f] mb-4">Nearby Places</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {property.nearby.map((place, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <MapPin className="w-4 h-4 text-gray-400" />
-                      <span className="text-gray-700">{place}</span>
+                    <div key={index} className="min-w-0 flex items-center space-x-3">
+                      <MapPin className="w-4 h-4 text-[#86868b] shrink-0" />
+                      <span className="text-[#1d1d1f]">{place}</span>
                     </div>
                   ))}
                 </div>
@@ -252,25 +252,25 @@ const PropertyDetail = () => {
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-6">
               {/* Contact Agent */}
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Contact Agent</h3>
+              <div className="bg-white border border-black/5 rounded-2xl p-6">
+                <h3 className="text-xl font-semibold text-[#1d1d1f] mb-4">Contact Agent</h3>
                 <div className="flex items-center space-x-4 mb-6">
                   <img
                     src={property.agent.image}
                     alt={property.agent.name}
                     className="w-16 h-16 rounded-full object-cover"
                   />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{property.agent.name}</h4>
-                    <p className="text-sm text-gray-600">Property Agent</p>
+                  <div className="min-w-0">
+                    <h4 className="font-semibold text-[#1d1d1f]">{property.agent.name}</h4>
+                    <p className="text-sm text-[#6e6e73]">Property Agent</p>
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <button className="w-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center">
+                  <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-full font-semibold transition-colors flex items-center justify-center">
                     <Phone className="w-5 h-5 mr-2" />
                     Call Now
                   </button>
-                  <button className="w-full bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center">
+                  <button className="w-full bg-white border border-black/10 hover:bg-black/5 text-[#1d1d1f] py-3 rounded-full font-semibold transition-colors flex items-center justify-center">
                     <Mail className="w-5 h-5 mr-2" />
                     Send Message
                   </button>
@@ -279,22 +279,22 @@ const PropertyDetail = () => {
 
               {/* Action Buttons */}
               <div className="space-y-3">
-                <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center">
+                <button className="w-full border border-black/10 hover:bg-black/5 text-[#1d1d1f] py-3 rounded-full font-semibold transition-colors flex items-center justify-center">
                   <Camera className="w-5 h-5 mr-2" />
                   Virtual Tour
                 </button>
-                <button className="w-full bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center">
+                <button className="w-full border border-black/10 hover:bg-black/5 text-[#1d1d1f] py-3 rounded-full font-semibold transition-colors flex items-center justify-center">
                   <Play className="w-5 h-5 mr-2" />
                   Video Walkthrough
                 </button>
-                <button className="w-full bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 py-3 rounded-lg font-semibold transition-all duration-300">
+                <button className="w-full bg-white border border-black/10 hover:bg-black/5 text-[#1d1d1f] py-3 rounded-full font-semibold transition-colors">
                   Schedule Site Visit
                 </button>
               </div>
 
               {/* Sustainability Badge */}
-              <div className="bg-gradient-to-r from-emerald-50 to-green-50 border border-emerald-200 rounded-2xl p-6">
-                <h4 className="font-semibold text-emerald-800 mb-2">Sustainability Rating</h4>
+              <div className="bg-emerald-50 border border-emerald-600/20 rounded-2xl p-6">
+                <h4 className="font-semibold text-emerald-700 mb-2">Sustainability Rating</h4>
                 <div className="text-2xl font-bold text-emerald-600 mb-2">{property.sustainability}</div>
                 <p className="text-sm text-emerald-700">This property meets our highest environmental standards</p>
               </div>

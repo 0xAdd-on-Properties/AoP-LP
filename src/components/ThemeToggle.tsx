@@ -52,100 +52,77 @@ const ThemeToggle = () => {
 
   const menuItems = [
     {
-      icon: <Home className="w-5 h-5" />,
+      icon: <Home className="w-4 h-4" />,
       label: "AOP",
       description: "Property Marketplace",
-      link: "/aop",
-      color: "from-blue-500 to-cyan-600"
+      link: "/aop"
     },
     {
-      icon: <Leaf className="w-5 h-5" />,
+      icon: <Leaf className="w-4 h-4" />,
       label: "AoPEco",
       description: "EcoProps Only",
-      link: "/ecoprops",
-      color: "from-emerald-500 to-green-600"
+      link: "/ecoprops"
     },
     {
-      icon: <Building className="w-5 h-5" />,
+      icon: <Building className="w-4 h-4" />,
       label: "AEco",
       description: "Ecosystem Universe",
-      link: "/eco",
-      color: "from-teal-500 to-cyan-600"
+      link: "/eco"
     },
     {
-      icon: <Package className="w-5 h-5" />,
+      icon: <Package className="w-4 h-4" />,
       label: "AoPmarkets",
       description: "All Marketplaces",
-      link: "/aopmarkets",
-      color: "from-blue-500 to-indigo-600"
-    },
-    {
-      icon: isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />,
-      label: isDark ? "Light Mode" : "Dark Mode",
-      description: "Toggle theme",
-      link: "#",
-      color: "from-purple-500 to-pink-600",
-      onClick: toggleTheme
+      link: "/aopmarkets"
     }
   ];
 
   return (
-    <div 
-      className="fixed bottom-6 left-6 z-50" 
+    <div
+      className="fixed bottom-6 left-6 z-50"
       ref={menuRef}
     >
       {/* Menu Items */}
       {showMenu && (
-        <div className="absolute bottom-16 left-0 space-y-3 animate-in slide-in-from-bottom-2 duration-300">
+        <div className="absolute bottom-16 left-0 w-56 bg-white/90 [backdrop-filter:blur(20px)_saturate(180%)] border border-black/5 rounded-2xl shadow-xl py-2 overflow-hidden">
+          <div className="px-4 pt-2 pb-1 text-xs font-medium text-[#86868b] uppercase tracking-wide">Switch base</div>
           {menuItems.map((item, index) => (
-            item.onClick ? (
-              <button
-                key={index}
-                onClick={() => {
-                  item.onClick();
-                  setShowMenu(false);
-                }}
-                className="group flex items-center space-x-3 bg-white/90 backdrop-blur-md border border-white/20 rounded-2xl p-4 hover:bg-white/95 hover:scale-105 transition-all duration-300 min-w-[200px] shadow-lg w-full text-left"
-              >
-                <div className={`w-10 h-10 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-md`}>
-                  {item.icon}
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-800 group-hover:text-slate-900">{item.label}</div>
-                  <div className="text-sm text-slate-600">{item.description}</div>
-                </div>
-              </button>
-            ) : (
-              <Link
-                key={index}
-                href={item.link}
-                className="group flex items-center space-x-3 bg-white/90 backdrop-blur-md border border-white/20 rounded-2xl p-4 hover:bg-white/95 hover:scale-105 transition-all duration-300 min-w-[200px] shadow-lg"
-                onClick={() => setShowMenu(false)}
-              >
-                <div className={`w-10 h-10 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-md`}>
-                  {item.icon}
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-800 group-hover:text-slate-900">{item.label}</div>
-                  <div className="text-sm text-slate-600">{item.description}</div>
-                </div>
-              </Link>
-            )
+            <Link
+              key={index}
+              href={item.link}
+              className="group flex items-center gap-3 px-4 py-2.5 hover:bg-black/5 transition-colors duration-150"
+              onClick={() => setShowMenu(false)}
+            >
+              <div className="w-8 h-8 rounded-lg bg-black/5 flex items-center justify-center text-[#1d1d1f]/70 group-hover:text-[#1d1d1f] flex-shrink-0">
+                {item.icon}
+              </div>
+              <div className="min-w-0">
+                <div className="font-medium text-sm text-[#1d1d1f]">{item.label}</div>
+                <div className="text-xs text-[#86868b] truncate">{item.description}</div>
+              </div>
+            </Link>
           ))}
+          <div className="mt-1 pt-1 border-t border-black/5">
+            <button
+              onClick={() => { toggleTheme(); setShowMenu(false); }}
+              className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-black/5 transition-colors duration-150 text-left"
+            >
+              <div className="w-8 h-8 rounded-lg bg-black/5 flex items-center justify-center text-[#1d1d1f]/70 flex-shrink-0">
+                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </div>
+              <div className="font-medium text-sm text-[#1d1d1f]">{isDark ? "Light Mode" : "Dark Mode"}</div>
+            </button>
+          </div>
         </div>
       )}
 
       {/* Main Toggle Button */}
       <button
         onClick={handleClick}
-        className="w-14 h-14 bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 rounded-full shadow-lg shadow-blue-500/25 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-        aria-label="Toggle menu"
+        className="w-12 h-12 bg-[#1d1d1f] hover:bg-black rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-105"
+        aria-label="Switch base"
       >
-        {isDark ? (
-          <Sun className="w-6 h-6 text-white group-hover:rotate-180 transition-transform duration-500" />
-        ) : (
-          <Moon className="w-6 h-6 text-white group-hover:rotate-12 transition-transform duration-500" />
-        )}
+        <Package className="w-5 h-5 text-white" />
       </button>
     </div>
   );

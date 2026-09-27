@@ -88,183 +88,162 @@ const AssetTokenization = () => {
     }
   ];
 
+  const steps = [
+    { number: "1", title: "Property Selection", description: "We select high-quality sustainable properties for tokenization" },
+    { number: "2", title: "Legal Structure", description: "Create legal framework and compliance with Indian regulations" },
+    { number: "3", title: "Smart Contract", description: "Deploy smart contracts on blockchain for transparent ownership" },
+    { number: "4", title: "Token Trading", description: "Investors can buy, sell, and trade property tokens" }
+  ];
+
   const calculateTokens = (amount) => {
     if (!selectedProperty) return 0;
     return Math.floor(amount / selectedProperty.tokenPrice);
   };
 
   return (
-    <div className="min-h-screen bg-base-100 pt-20">
-      {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-base-200 to-base-300">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              <span className="gradient-text">Real Estate</span>
-              <br />
-              <span className="text-white">Asset Tokenization</span>
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="relative bg-[#f5f5f7] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20">
+          <div className="max-w-3xl min-w-0 space-y-6">
+            <p className="text-sm font-medium text-emerald-600">Real Estate Tokenization</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05]">
+              <span className="text-emerald-600">Fractional</span> ownership, on-chain
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Democratize sustainable property investment through blockchain technology. 
+            <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed max-w-xl">
+              Democratize sustainable property investment through blockchain technology.
               Own fractions of premium eco-properties with complete transparency and security.
             </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn btn-primary btn-lg">
-              <Coins className="w-5 h-5 mr-2" />
-              Start Investing
-            </button>
-            <button className="btn btn-outline btn-lg">
-              <Shield className="w-5 h-5 mr-2" />
-              Learn More
-            </button>
+            <div className="flex flex-wrap gap-3">
+              <button className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
+                Start Investing
+              </button>
+              <button className="px-6 py-3 rounded-full font-medium text-[#1d1d1f] border border-black/10 hover:bg-black/5 transition-colors text-sm">
+                Learn more
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">How Property Tokenization Works</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Understanding the process of tokenizing real estate assets on the blockchain
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">The process</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              How property tokenization works
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Understanding the process of tokenizing real estate assets on the blockchain.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">1</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+            {steps.map((step) => (
+              <div key={step.number} className="bg-white p-6 min-w-0">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600 font-semibold text-sm">
+                  {step.number}
+                </div>
+                <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">{step.title}</h3>
+                <p className="text-sm text-[#6e6e73] leading-relaxed">{step.description}</p>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Property Selection</h3>
-              <p className="text-gray-300 text-sm">We select high-quality sustainable properties for tokenization</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">2</span>
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">Legal Structure</h3>
-              <p className="text-gray-300 text-sm">Create legal framework and compliance with Indian regulations</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">3</span>
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">Smart Contract</h3>
-              <p className="text-gray-300 text-sm">Deploy smart contracts on blockchain for transparent ownership</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-info rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">4</span>
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">Token Trading</h3>
-              <p className="text-gray-300 text-sm">Investors can buy, sell, and trade property tokens</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Available Properties */}
-      <section className="py-16 bg-base-200">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-white">Tokenized Properties</h2>
-            <button className="btn btn-outline">View All Properties</button>
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">Tokenized properties</h2>
+            <button className="px-5 py-2.5 rounded-full font-medium text-[#1d1d1f] border border-black/10 hover:bg-black/5 transition-colors text-sm w-fit">
+              View all properties
+            </button>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {tokenizedProperties.map((property) => (
-              <div key={property.id} className="card bg-base-100 shadow-xl card-hover">
-                <figure className="relative h-48">
-                  <img 
-                    src={property.image} 
+              <div key={property.id} className="bg-white rounded-2xl overflow-hidden border border-black/5 min-w-0">
+                <div className="relative h-48">
+                  <img
+                    src={property.image}
                     alt={property.name}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  
-                  {/* Verification Badge */}
-                  {property.verified && (
-                    <div className="absolute top-4 left-4 badge badge-success gap-2">
-                      <Shield className="w-3 h-3" />
-                      Verified
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    {property.verified && (
+                      <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+                        <Shield className="w-3.5 h-3.5 text-emerald-600" />
+                        <span className="text-[#1d1d1f] text-xs font-medium">Verified</span>
+                      </div>
+                    )}
+                    <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                      <span className="text-[#1d1d1f] text-xs font-medium">{property.blockchain}</span>
                     </div>
-                  )}
-
-                  {/* Blockchain Badge */}
-                  <div className="absolute top-4 right-4 badge badge-primary">
-                    {property.blockchain}
                   </div>
-
-                  {/* Total Value */}
-                  <div className="absolute bottom-4 right-4 bg-primary px-3 py-1 rounded-xl">
-                    <span className="text-white font-bold text-sm">{property.totalValue}</span>
+                  <div className="absolute bottom-4 right-4 bg-white px-3 py-1.5 rounded-full shadow-sm">
+                    <span className="text-[#1d1d1f] font-semibold text-sm">{property.totalValue}</span>
                   </div>
-                </figure>
+                </div>
 
-                <div className="card-body">
-                  <h3 className="card-title text-white">{property.name}</h3>
-                  <p className="text-gray-400 text-sm mb-2">{property.location}</p>
+                <div className="p-5 sm:p-6 min-w-0">
+                  <h3 className="text-lg font-semibold text-[#1d1d1f] mb-1 truncate">{property.name}</h3>
+                  <p className="text-[#6e6e73] text-sm mb-4 truncate">{property.location}</p>
 
-                  {/* Investment Details */}
                   <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <p className="text-gray-400 text-xs">Token Price</p>
-                      <p className="text-white font-semibold">{property.tokenPrice}</p>
+                    <div className="min-w-0">
+                      <p className="text-[#86868b] text-xs">Token price</p>
+                      <p className="text-[#1d1d1f] font-semibold">{property.tokenPrice}</p>
                     </div>
-                    <div>
-                      <p className="text-gray-400 text-xs">Expected Return</p>
-                      <p className="text-success font-semibold">{property.expectedReturn}</p>
+                    <div className="min-w-0">
+                      <p className="text-[#86868b] text-xs">Expected return</p>
+                      <p className="text-emerald-600 font-semibold">{property.expectedReturn}</p>
                     </div>
-                    <div>
-                      <p className="text-gray-400 text-xs">Available Tokens</p>
-                      <p className="text-white font-semibold">{property.tokensAvailable.toLocaleString()}</p>
+                    <div className="min-w-0">
+                      <p className="text-[#86868b] text-xs">Available tokens</p>
+                      <p className="text-[#1d1d1f] font-semibold">{property.tokensAvailable.toLocaleString()}</p>
                     </div>
-                    <div>
-                      <p className="text-gray-400 text-xs">Investors</p>
-                      <div className="flex items-center space-x-1">
-                        <Users className="w-3 h-3 text-gray-400" />
-                        <span className="text-white font-semibold">{property.investors}</span>
+                    <div className="min-w-0">
+                      <p className="text-[#86868b] text-xs">Investors</p>
+                      <div className="flex items-center gap-1">
+                        <Users className="w-3.5 h-3.5 text-[#86868b]" />
+                        <span className="text-[#1d1d1f] font-semibold">{property.investors}</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Sustainability Score */}
                   <div className="mb-4">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-gray-400 text-xs">Sustainability Score</span>
-                      <span className="text-success font-bold">{property.sustainabilityScore}/100</span>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-xs text-[#6e6e73]">Sustainability score</span>
+                      <span className="text-emerald-600 font-semibold text-sm">{property.sustainabilityScore}/100</span>
                     </div>
-                    <progress 
-                      className="progress progress-success w-full" 
-                      value={property.sustainabilityScore} 
-                      max="100"
-                    ></progress>
+                    <div className="w-full bg-black/5 rounded-full h-1.5">
+                      <div
+                        className="bg-emerald-600 h-1.5 rounded-full"
+                        style={{ width: `${property.sustainabilityScore}%` }}
+                      ></div>
+                    </div>
                   </div>
 
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-1 mb-4">
+                  <div className="flex flex-wrap gap-1.5 mb-5">
                     {property.features.map((feature, idx) => (
-                      <span key={idx} className="badge badge-outline badge-sm">
+                      <span key={idx} className="text-xs text-[#6e6e73] border border-black/10 rounded-full px-2.5 py-1">
                         {feature}
                       </span>
                     ))}
                   </div>
 
-                  <div className="card-actions justify-between">
-                    <button 
+                  <div className="flex items-center justify-between gap-3">
+                    <button
                       onClick={() => setSelectedProperty(property)}
-                      className="btn btn-primary"
+                      className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-4 py-2.5 rounded-full font-medium text-white transition-colors text-sm"
                     >
-                      Invest Now
+                      Invest now
                     </button>
-                    <button className="btn btn-ghost btn-sm">
-                      View Details
+                    <button className="text-[#1d1d1f] hover:text-emerald-600 text-sm font-medium transition-colors whitespace-nowrap">
+                      Details
                     </button>
                   </div>
                 </div>
@@ -276,116 +255,106 @@ const AssetTokenization = () => {
 
       {/* Investment Modal */}
       {selectedProperty && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-base-200 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h3 className="text-xl font-bold text-white">{selectedProperty.name}</h3>
-                  <p className="text-gray-400">{selectedProperty.location}</p>
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white border border-black/10 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="p-6 sm:p-8">
+              <div className="flex items-start justify-between mb-6 gap-4">
+                <div className="min-w-0">
+                  <h3 className="text-xl font-bold text-[#1d1d1f] truncate">{selectedProperty.name}</h3>
+                  <p className="text-[#6e6e73] text-sm truncate">{selectedProperty.location}</p>
                 </div>
-                <button 
+                <button
                   onClick={() => setSelectedProperty(null)}
-                  className="btn btn-circle btn-ghost"
+                  className="w-9 h-9 bg-black/5 hover:bg-black/10 rounded-full flex items-center justify-center text-[#1d1d1f] transition-colors flex-shrink-0"
                 >
                   ✕
                 </button>
               </div>
 
-              {/* Investment Calculator */}
-              <div className="card bg-base-100 mb-6">
-                <div className="card-body">
-                  <h4 className="card-title text-white">Investment Calculator</h4>
-                  
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text text-gray-300">Investment Amount (₹)</span>
-                    </label>
-                    <input 
-                      type="range"
-                      min="1000"
-                      max="100000"
-                      value={investmentAmount}
-                      onChange={(e) => setInvestmentAmount(Number(e.target.value))}
-                      className="range range-primary"
-                    />
-                    <div className="w-full flex justify-between text-xs text-gray-400 px-2">
-                      <span>₹1K</span>
-                      <span>₹50K</span>
-                      <span>₹100K</span>
-                    </div>
-                  </div>
+              <div className="bg-[#f5f5f7] rounded-2xl p-5 sm:p-6 mb-6">
+                <h4 className="text-sm font-semibold text-[#1d1d1f] mb-4 uppercase tracking-wide">Investment calculator</h4>
 
-                  <div className="grid grid-cols-2 gap-4 mt-4">
-                    <div className="stat">
-                      <div className="stat-title text-gray-400">Investment Amount</div>
-                      <div className="stat-value text-primary text-lg">₹{investmentAmount.toLocaleString()}</div>
-                    </div>
-                    <div className="stat">
-                      <div className="stat-title text-gray-400">Tokens Received</div>
-                      <div className="stat-value text-secondary text-lg">{calculateTokens(investmentAmount)}</div>
-                    </div>
-                    <div className="stat">
-                      <div className="stat-title text-gray-400">Ownership %</div>
-                      <div className="stat-value text-accent text-lg">
-                        {((calculateTokens(investmentAmount) / selectedProperty.tokensAvailable) * 100).toFixed(2)}%
-                      </div>
-                    </div>
-                    <div className="stat">
-                      <div className="stat-title text-gray-400">Expected Return</div>
-                      <div className="stat-value text-success text-lg">{selectedProperty.expectedReturn}</div>
-                    </div>
+                <label className="block text-sm text-[#6e6e73] mb-2">Investment amount (₹)</label>
+                <input
+                  type="range"
+                  min="1000"
+                  max="100000"
+                  value={investmentAmount}
+                  onChange={(e) => setInvestmentAmount(Number(e.target.value))}
+                  className="w-full accent-emerald-600"
+                />
+                <div className="w-full flex justify-between text-xs text-[#86868b] mt-1 mb-5">
+                  <span>₹1K</span>
+                  <span>₹50K</span>
+                  <span>₹100K</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="min-w-0">
+                    <p className="text-xs text-[#86868b]">Investment amount</p>
+                    <p className="text-lg font-semibold text-[#1d1d1f]">₹{investmentAmount.toLocaleString()}</p>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs text-[#86868b]">Tokens received</p>
+                    <p className="text-lg font-semibold text-[#1d1d1f]">{calculateTokens(investmentAmount)}</p>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs text-[#86868b]">Ownership %</p>
+                    <p className="text-lg font-semibold text-[#1d1d1f]">
+                      {((calculateTokens(investmentAmount) / selectedProperty.tokensAvailable) * 100).toFixed(2)}%
+                    </p>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs text-[#86868b]">Expected return</p>
+                    <p className="text-lg font-semibold text-emerald-600">{selectedProperty.expectedReturn}</p>
                   </div>
                 </div>
               </div>
 
-              {/* Property Details */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Property Features</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div className="min-w-0">
+                  <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Property features</h4>
                   <div className="space-y-2">
                     {selectedProperty.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-success rounded-full"></div>
-                        <span className="text-gray-300 text-sm">{feature}</span>
+                      <div key={idx} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full flex-shrink-0"></div>
+                        <span className="text-[#1d1d1f] text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-                
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Investment Details</h4>
-                  <div className="space-y-3">
+
+                <div className="min-w-0">
+                  <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Investment details</h4>
+                  <div className="space-y-2.5 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-400">Token Price</span>
-                      <span className="text-white">{selectedProperty.tokenPrice}</span>
+                      <span className="text-[#6e6e73]">Token price</span>
+                      <span className="text-[#1d1d1f]">{selectedProperty.tokenPrice}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">Blockchain</span>
-                      <span className="text-white">{selectedProperty.blockchain}</span>
+                      <span className="text-[#6e6e73]">Blockchain</span>
+                      <span className="text-[#1d1d1f]">{selectedProperty.blockchain}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">Current Investors</span>
-                      <span className="text-white">{selectedProperty.investors}</span>
+                      <span className="text-[#6e6e73]">Current investors</span>
+                      <span className="text-[#1d1d1f]">{selectedProperty.investors}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">Sustainability Score</span>
-                      <span className="text-success">{selectedProperty.sustainabilityScore}/100</span>
+                      <span className="text-[#6e6e73]">Sustainability score</span>
+                      <span className="text-emerald-600">{selectedProperty.sustainabilityScore}/100</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Actions */}
-              <div className="flex space-x-4">
-                <button className="btn btn-primary flex-1">
-                  <Wallet className="w-4 h-4 mr-2" />
-                  Connect Wallet & Invest
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center justify-center gap-2">
+                  <Wallet className="w-4 h-4" />
+                  Connect wallet & invest
                 </button>
-                <button className="btn btn-outline">
-                  <BarChart3 className="w-4 h-4 mr-2" />
-                  View Analytics
+                <button className="flex-1 border border-black/10 hover:bg-black/5 px-6 py-3 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm inline-flex items-center justify-center gap-2">
+                  <BarChart3 className="w-4 h-4" />
+                  View analytics
                 </button>
               </div>
             </div>
@@ -393,28 +362,29 @@ const AssetTokenization = () => {
         </div>
       )}
 
-      {/* Benefits Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Why Choose Tokenized Real Estate?</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Blockchain technology brings transparency, accessibility, and liquidity to real estate investment
+      {/* Benefits */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Why tokenize</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Why choose tokenized real estate?
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Blockchain technology brings transparency, accessibility, and liquidity to real estate investment.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
             {benefits.map((benefit, idx) => {
               const IconComponent = benefit.icon;
               return (
-                <div key={idx} className="card bg-base-200 shadow-lg">
-                  <div className="card-body text-center">
-                    <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="card-title text-white text-lg justify-center">{benefit.title}</h3>
-                    <p className="text-gray-300 text-sm">{benefit.description}</p>
+                <div key={idx} className="bg-white hover:bg-[#f5f5f7] transition-colors p-6 min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                    <IconComponent className="w-5 h-5" />
                   </div>
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">{benefit.title}</h3>
+                  <p className="text-sm text-[#6e6e73] leading-relaxed">{benefit.description}</p>
                 </div>
               );
             })}
@@ -422,21 +392,26 @@ const AssetTokenization = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-secondary">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Start Investing?</h2>
-          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Join thousands of investors who are building wealth through tokenized sustainable real estate
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn btn-white btn-lg">
-              <Coins className="w-5 h-5 mr-2" />
-              Browse Properties
+      {/* Closing CTA — the one deliberate dark section */}
+      <section className="bg-[#1d1d1f] py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-8 sm:mb-10">
+            <p className="text-sm font-medium text-emerald-400 mb-3">Get started</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+              Ready to start investing?
+            </h2>
+            <p className="text-white/60 leading-relaxed">
+              Join thousands of investors building wealth through tokenized sustainable real estate.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-[#1d1d1f] bg-white hover:bg-white/90 transition-colors text-sm">
+              <Coins className="w-4 h-4" />
+              Browse properties
             </button>
-            <button className="btn btn-outline border-white text-white hover:bg-white hover:text-primary btn-lg">
-              <Shield className="w-5 h-5 mr-2" />
-              Learn About Security
+            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
+              <Shield className="w-4 h-4" />
+              Learn about security
             </button>
           </div>
         </div>

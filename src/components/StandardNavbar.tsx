@@ -2,16 +2,16 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Search, User, ChevronDown, Home, Leaf, Package, Box, Building, Wrench, Paintbrush, Calculator, FileText, Shield } from 'lucide-react';
+import { Search, User, ChevronDown, Home, Leaf, Package, Box, Building, Wrench, Paintbrush, Calculator, FileText, Shield, Menu, X } from 'lucide-react';
 import { useUser } from '@hexclave/next';
 
 const StandardNavbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<any>(null);
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [showSearch, setShowSearch] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
   const user = useUser({ or: 'return-null' });
 
   const handleDropdownToggle = (dropdown) => {
@@ -21,13 +21,17 @@ const StandardNavbar = () => {
   const closeDropdowns = () => {
     setActiveDropdown(null);
     setShowUserMenu(false);
+    setShowSearch(false);
+    setShowMobileMenu(false);
   };
 
   // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (navRef.current && !navRef.current.contains(event.target)) {
         setActiveDropdown(null);
+        setShowSearch(false);
+        setShowMobileMenu(false);
       }
       if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
         setShowUserMenu(false);
@@ -63,224 +67,185 @@ const StandardNavbar = () => {
     { name: 'Metaverse', link: '/metaverse', icon: <Box className="w-4 h-4" /> }
   ];
 
-  return (
-    <div className="fixed top-0 w-full z-50 flex justify-center pt-2 sm:pt-4" ref={dropdownRef}>
-      {/* Search Icon - Left of Navbar */}
-      <div className="absolute left-2 sm:left-4 lg:left-8 top-4 sm:top-6">
-        <button className="p-2 sm:p-3 glass-card rounded-full text-white hover:text-emerald-400 transition-colors duration-300">
-          <Search className="w-4 sm:w-5 h-4 sm:h-5" />
-        </button>
-      </div>
-
-      {/* User Icon - Right of Navbar */}
-      <div className="absolute right-2 sm:right-4 lg:right-8 top-4 sm:top-6" ref={userMenuRef}>
-        <button
-          onClick={() => setShowUserMenu(!showUserMenu)}
-          className="p-2 sm:p-3 glass-card rounded-full text-white hover:text-emerald-400 transition-colors duration-300"
-        >
-          <User className="w-4 sm:w-5 h-4 sm:h-5" />
-        </button>
-        {showUserMenu && (
-          <div className="absolute top-full right-0 mt-2 w-40 sm:w-48 glass-card rounded-xl shadow-xl py-2">
-            {user ? (
-              <>
-                <div className="px-3 sm:px-4 py-2 text-white text-sm font-medium border-b border-white/10 truncate">
-                  {user.displayName || user.primaryEmail}
-                </div>
-                <Link href="/dashboard/properties" className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base" onClick={closeDropdowns}>
-                  My Listings
-                </Link>
-                <button
-                  onClick={() => { user.signOut(); closeDropdowns(); }}
-                  className="block w-full text-left px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base"
-                >
-                  Sign Out
-                </button>
-              </>
-            ) : (
-              <>
-                <Link href="/login" className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base" onClick={closeDropdowns}>
-                  Login
-                </Link>
-                <Link href="/signup" className="block px-3 sm:px-4 py-2 sm:py-3 text-gray-300 hover:bg-white/10 hover:text-white transition-colors duration-200 text-sm sm:text-base" onClick={closeDropdowns}>
-                  Sign Up
-                </Link>
-              </>
-            )}
-          </div>
-        )}
-      </div>
-
-      {/* Half-Width Glassmorphic Navbar */}
-      <nav className="w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 max-w-4xl bg-white/90 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl px-3 sm:px-6 lg:px-8 py-2 sm:py-4 shadow-lg">
-        <div className="flex items-center justify-between h-8 sm:h-12">
-          {/* Left Side - EcoProps, Markets, 3DProps */}
-          <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
-            <div className="relative">
-              <button
-                onClick={() => handleDropdownToggle('ecoprops')}
-                className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
-              >
-                <Leaf className="w-3 sm:w-4 h-3 sm:h-4" />
-                <span className="text-xs sm:text-sm font-medium hidden sm:block">EcoProps</span>
-                <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
-              </button>
-                      {activeDropdown === 'ecoprops' && (
-                        <div className="absolute top-full left-0 mt-2 w-48 sm:w-56 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
-                  {ecoPropsItems.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={item.link}
-                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
-                      onClick={closeDropdowns}
-                    >
-                      {item.icon}
-                      <span className="text-xs sm:text-sm">{item.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="relative">
-              <button
-                onClick={() => handleDropdownToggle('markets')}
-                className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
-              >
-                <Package className="w-3 sm:w-4 h-3 sm:h-4" />
-                <span className="text-xs sm:text-sm font-medium hidden sm:block">Markets</span>
-                <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
-              </button>
-                      {activeDropdown === 'markets' && (
-                        <div className="absolute top-full left-0 mt-2 w-48 sm:w-56 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
-                  {marketplacesItems.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={item.link}
-                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
-                      onClick={closeDropdowns}
-                    >
-                      {item.icon}
-                      <span className="text-xs sm:text-sm">{item.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="relative">
-              <button
-                onClick={() => handleDropdownToggle('3dprops')}
-                className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
-              >
-                <Box className="w-3 sm:w-4 h-3 sm:h-4" />
-                <span className="text-xs sm:text-sm font-medium hidden sm:block">3DProps</span>
-                <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
-              </button>
-                      {activeDropdown === '3dprops' && (
-                        <div className="absolute top-full left-0 mt-2 w-48 sm:w-56 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
-                  {threeDPropsItems.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={item.link}
-                      className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200"
-                      onClick={closeDropdowns}
-                    >
-                      {item.icon}
-                      <span className="text-xs sm:text-sm">{item.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Center - Dynamic Logo */}
-          <Link href="/" className="flex items-center space-x-1 sm:space-x-2">
-            {pathname === '/ecoprops' ? (
-              <>
-                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-emerald-400 to-green-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
-                </div>
-                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-emerald-500 to-green-600 bg-clip-text text-transparent">
-                  AoPEco
-                </span>
-              </>
-            ) : pathname === '/eco' ? (
-              <>
-                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-700 to-emerald-800 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
-                </div>
-                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-green-800 to-emerald-700 bg-clip-text text-transparent">
-                  AEco
-                </span>
-              </>
-            ) : pathname === '/addonprop.xyz' ? (
-              <>
-                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
-                </div>
-                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                  AoP
-                </span>
-              </>
-            ) : pathname === '/aopmarkets' ? (
-              <>
-                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-slate-700 to-gray-800 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
-                </div>
-                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-slate-800 to-gray-700 bg-clip-text text-transparent">
-                  AoPM
-                </span>
-              </>
-            ) : (
-              <>
-                <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xs sm:text-sm">A</span>
-                </div>
-                <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                  AoP
-                </span>
-              </>
-            )}
-          </Link>
-
-          {/* Right Side - Buy Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => handleDropdownToggle('buy')}
-              className="flex items-center space-x-1 sm:space-x-2 text-slate-700 hover:text-emerald-600 transition-colors duration-300"
+  const navDropdown = (key: string, label: string, Icon: any, items: typeof ecoPropsItems) => (
+    <div className="relative">
+      <button
+        onClick={() => handleDropdownToggle(key)}
+        className="flex items-center gap-1 sm:gap-1.5 text-[#1d1d1f]/70 hover:text-[#1d1d1f] transition-colors duration-200"
+      >
+        <Icon className="w-3.5 h-3.5 sm:hidden" />
+        <span className="text-sm font-medium hidden sm:block">{label}</span>
+        <ChevronDown className="w-3 h-3" />
+      </button>
+      {activeDropdown === key && (
+        <div className="absolute top-full left-0 mt-3 w-52 bg-white/95 [backdrop-filter:blur(20px)_saturate(180%)] border border-black/5 rounded-2xl shadow-xl py-2 z-10">
+          {items.map((item, index) => (
+            <Link
+              key={index}
+              href={item.link}
+              className="flex items-center gap-3 px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm"
+              onClick={closeDropdowns}
             >
-              <span className="text-xs sm:text-sm font-medium">Buy</span>
-              <ChevronDown className="w-2 sm:w-3 h-2 sm:h-3" />
-            </button>
-            {activeDropdown === 'buy' && (
-              <div className="absolute top-full right-0 mt-2 w-32 sm:w-40 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-xl py-2">
-                <Link
-                  href="/buy"
-                  className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200 text-xs sm:text-sm"
-                  onClick={closeDropdowns}
-                >
-                  <span>Buy Properties</span>
-                </Link>
-                <Link
-                  href="/sell"
-                  className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200 text-xs sm:text-sm"
-                  onClick={closeDropdowns}
-                >
-                  <span>Sell Properties</span>
-                </Link>
-                <Link
-                  href="/rent"
-                  className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200 text-xs sm:text-sm"
-                  onClick={closeDropdowns}
-                >
-                  <span>Rent Properties</span>
-                </Link>
+              {item.icon}
+              <span>{item.name}</span>
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <div className="fixed top-0 w-full z-50 flex justify-center pt-3 sm:pt-4 px-3 sm:px-4">
+      <nav
+        ref={navRef}
+        className="w-full max-w-5xl bg-white/70 [backdrop-filter:blur(20px)_saturate(180%)] border border-black/5 rounded-2xl px-3 sm:px-5 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+      >
+        <div className="flex items-center justify-between h-14">
+          {/* Left — logo + nav links */}
+          <div className="flex items-center gap-5 sm:gap-7 min-w-0">
+            <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
+              <div className="w-8 h-8 bg-[#1d1d1f] rounded-lg flex items-center justify-center ring-1 ring-inset ring-[#c9a54b]/70 shadow-[0_0_0_1px_rgba(201,165,75,0.15)]">
+                <span className="text-[#e8c874] font-bold text-sm">A</span>
               </div>
-            )}
+              <span className="text-lg font-bold text-[#1d1d1f] hidden sm:block">AddonProp</span>
+            </Link>
+
+            <div className="hidden md:flex items-center gap-5">
+              {navDropdown('ecoprops', 'EcoProps', Leaf, ecoPropsItems)}
+              {navDropdown('markets', 'Markets', Package, marketplacesItems)}
+              {navDropdown('3dprops', '3DProps', Box, threeDPropsItems)}
+            </div>
+          </div>
+
+          {/* Right — search, buy, user, mobile menu */}
+          <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+            <div className="relative">
+              <button
+                onClick={() => setShowSearch(!showSearch)}
+                aria-label="Search"
+                className="w-9 h-9 flex items-center justify-center rounded-full text-[#1d1d1f]/70 hover:text-[#1d1d1f] hover:bg-black/5 transition-colors duration-200"
+              >
+                <Search className="w-4 h-4" />
+              </button>
+              {showSearch && (
+                <div className="absolute top-full right-0 mt-3 w-64 sm:w-72 bg-white/95 [backdrop-filter:blur(20px)_saturate(180%)] border border-black/5 rounded-2xl shadow-xl p-3 z-10">
+                  <input
+                    type="text"
+                    autoFocus
+                    placeholder="Search properties, materials..."
+                    className="w-full px-3 py-2 bg-black/5 rounded-xl text-sm text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-emerald-600/30"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="relative hidden md:block">
+              <button
+                onClick={() => handleDropdownToggle('buy')}
+                className="flex items-center gap-1 px-3 py-2 rounded-full text-sm font-medium text-[#1d1d1f]/70 hover:text-[#1d1d1f] hover:bg-black/5 transition-colors duration-200"
+              >
+                <span>Buy</span>
+                <ChevronDown className="w-3 h-3" />
+              </button>
+              {activeDropdown === 'buy' && (
+                <div className="absolute top-full right-0 mt-3 w-40 bg-white/95 [backdrop-filter:blur(20px)_saturate(180%)] border border-black/5 rounded-2xl shadow-xl py-2 z-10">
+                  <Link href="/buy" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                    Buy Properties
+                  </Link>
+                  <Link href="/sell" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                    Sell Properties
+                  </Link>
+                  <Link href="/rent" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                    Rent Properties
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <div className="relative" ref={userMenuRef}>
+              <button
+                onClick={() => setShowUserMenu(!showUserMenu)}
+                aria-label="Account"
+                className="w-9 h-9 flex items-center justify-center rounded-full text-[#1d1d1f]/70 hover:text-[#1d1d1f] hover:bg-black/5 transition-colors duration-200"
+              >
+                <User className="w-4 h-4" />
+              </button>
+              {showUserMenu && (
+                <div className="absolute top-full right-0 mt-3 w-52 bg-white/95 [backdrop-filter:blur(20px)_saturate(180%)] border border-black/5 rounded-2xl shadow-xl py-2 z-10">
+                  {user ? (
+                    <>
+                      <div className="px-4 py-2.5 text-[#1d1d1f] text-sm font-medium border-b border-black/5 truncate">
+                        {user.displayName || user.primaryEmail}
+                      </div>
+                      <Link href="/dashboard/properties" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                        My Listings
+                      </Link>
+                      <Link href="/dashboard/quotes" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                        My Quote Requests
+                      </Link>
+                      <button
+                        onClick={() => { user.signOut(); closeDropdowns(); }}
+                        className="block w-full text-left px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm"
+                      >
+                        Sign Out
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <Link href="/login" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                        Login
+                      </Link>
+                      <Link href="/signup" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                        Sign Up
+                      </Link>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <button
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              aria-label="Menu"
+              className="w-9 h-9 flex items-center justify-center rounded-full text-[#1d1d1f]/70 hover:text-[#1d1d1f] hover:bg-black/5 transition-colors duration-200 md:hidden"
+            >
+              {showMobileMenu ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile menu panel */}
+        {showMobileMenu && (
+          <div className="md:hidden border-t border-black/5 py-3 px-1">
+            <div className="mb-1 px-3 text-xs font-medium text-[#86868b] uppercase tracking-wide">EcoProps</div>
+            {ecoPropsItems.map((item, index) => (
+              <Link key={index} href={item.link} className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                {item.icon}
+                <span>{item.name}</span>
+              </Link>
+            ))}
+            <div className="mt-3 mb-1 px-3 text-xs font-medium text-[#86868b] uppercase tracking-wide">Markets</div>
+            {marketplacesItems.map((item, index) => (
+              <Link key={index} href={item.link} className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                {item.icon}
+                <span>{item.name}</span>
+              </Link>
+            ))}
+            <div className="mt-3 mb-1 px-3 text-xs font-medium text-[#86868b] uppercase tracking-wide">3DProps</div>
+            {threeDPropsItems.map((item, index) => (
+              <Link key={index} href={item.link} className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                {item.icon}
+                <span>{item.name}</span>
+              </Link>
+            ))}
+            <div className="mt-3 pt-3 border-t border-black/5 flex gap-2 px-3">
+              <Link href="/buy" className="flex-1 text-center py-2.5 rounded-full bg-black/5 hover:bg-black/10 text-[#1d1d1f] text-sm font-medium transition-colors" onClick={closeDropdowns}>Buy</Link>
+              <Link href="/sell" className="flex-1 text-center py-2.5 rounded-full bg-black/5 hover:bg-black/10 text-[#1d1d1f] text-sm font-medium transition-colors" onClick={closeDropdowns}>Sell</Link>
+              <Link href="/rent" className="flex-1 text-center py-2.5 rounded-full bg-black/5 hover:bg-black/10 text-[#1d1d1f] text-sm font-medium transition-colors" onClick={closeDropdowns}>Rent</Link>
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   );

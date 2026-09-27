@@ -25,7 +25,7 @@ const PropertyTypes = () => {
       title: "Earthship Eco-Homes",
       subtitle: "Self-Sufficient Living",
       description: "Off-grid homes built with recycled materials, featuring natural temperature regulation and food production systems.",
-      image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/earthship-eco-home.png",
       price: "₹45,00,000",
       features: ["Solar Power", "Rainwater Harvesting", "Natural Cooling", "Food Production"],
       rating: 4.9,
@@ -36,7 +36,7 @@ const PropertyTypes = () => {
       title: "Mandala Villas",
       subtitle: "Vastu-Optimized Design",
       description: "Luxurious villas designed using sacred geometry principles for optimal energy flow and well-being.",
-      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/mandala-villa.png",
       price: "₹1,20,00,000",
       features: ["Sacred Geometry", "Vastu Compliant", "Smart Systems", "Meditation Spaces"],
       rating: 4.8,
@@ -47,7 +47,7 @@ const PropertyTypes = () => {
       title: "Smart Eco-Apartments",
       subtitle: "Urban Sustainability",
       description: "High-tech apartments with integrated renewable energy, urban farming, and waste-to-resource systems.",
-      image: "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/smart-eco-apartments.png",
       price: "₹85,00,000",
       features: ["IoT Integration", "Vertical Gardens", "Energy Positive", "Community Spaces"],
       rating: 4.7,
@@ -58,7 +58,7 @@ const PropertyTypes = () => {
       title: "Bio-Dome Residences",
       subtitle: "Futuristic Living",
       description: "Dome-shaped homes with bio-integrated systems creating self-sustaining micro-ecosystems.",
-      image: "https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/homes/biodome-residence.png",
       price: "₹75,00,000",
       features: ["Climate Control", "Air Purification", "Aquaponics", "360° Views"],
       rating: 4.9,
@@ -67,164 +67,143 @@ const PropertyTypes = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-800">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-blue-500/20 backdrop-blur-sm px-6 py-3 rounded-full border border-blue-500/30 mb-6">
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <span className="text-blue-300 font-medium">Property Collections</span>
-          </div>
-          
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            <span className="text-white">Discover Your Perfect</span>
-            <br />
-            <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent font-black tracking-tight">
-              Sustainable Home
-            </span>
+    <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <p className="text-sm font-medium text-emerald-600 mb-3">Property Collections</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+            Discover your perfect sustainable home
           </h2>
-          
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            From traditional earthships to futuristic bio-domes, find properties that align 
-            with your values and vision for sustainable living.
+          <p className="text-lg text-[#6e6e73] leading-relaxed">
+            From traditional earthships to futuristic bio-domes, find properties that
+            align with your values and vision for sustainable living.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {propertyTypes.map((property, index) => (
-            <div 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          {propertyTypes.map((property) => (
+            <div
               key={property.id}
-              className="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-500 transform hover:scale-[1.02]"
+              className="group bg-white rounded-3xl overflow-hidden border border-black/5 hover:shadow-xl transition-shadow min-w-0"
             >
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={property.image} 
+              {/* Image */}
+              <div className="relative h-56 sm:h-64 overflow-hidden">
+                <img
+                  src={property.image}
                   alt={property.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                
-                {/* Stats Overlay */}
-                <div className="absolute top-4 left-4 flex space-x-2">
-                  <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full flex items-center space-x-1">
-                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                    <span className="text-white text-sm font-medium">{property.rating}</span>
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+                    <Star className="w-3.5 h-3.5 text-amber-500 fill-current" />
+                    <span className="text-[#1d1d1f] text-xs font-medium">{property.rating}</span>
                   </div>
-                  <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full flex items-center space-x-1">
-                    <Eye className="w-4 h-4 text-white" />
-                    <span className="text-white text-sm font-medium">{property.views}</span>
+                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+                    <Eye className="w-3.5 h-3.5 text-[#6e6e73]" />
+                    <span className="text-[#1d1d1f] text-xs font-medium">{property.views}</span>
                   </div>
                 </div>
-
-                {/* Price Badge */}
-                <div className="absolute bottom-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 px-4 py-2 rounded-xl">
-                  <span className="text-white font-bold">{property.price}</span>
+                <div className="absolute bottom-4 right-4 bg-white px-3 py-1.5 rounded-full shadow-sm">
+                  <span className="text-[#1d1d1f] font-semibold text-sm">{property.price}</span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-8">
-                <div className="mb-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
-                      {property.title}
-                    </h3>
-                    <ArrowRight className="w-6 h-6 text-gray-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
-                  </div>
-                  <p className="text-blue-400 font-medium text-sm mb-3">{property.subtitle}</p>
-                  <p className="text-gray-300 leading-relaxed mb-6">{property.description}</p>
+              <div className="p-6 sm:p-8">
+                <div className="flex items-start justify-between mb-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1d1d1f]">
+                    {property.title}
+                  </h3>
+                  <ArrowRight className="w-5 h-5 text-[#86868b] group-hover:text-emerald-600 group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
                 </div>
+                <p className="text-emerald-600 font-medium text-sm mb-3">{property.subtitle}</p>
+                <p className="text-[#6e6e73] text-sm leading-relaxed mb-6">{property.description}</p>
 
-                {/* Features */}
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   {property.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
-                      <span className="text-gray-400 text-sm">{feature}</span>
+                    <div key={idx} className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full flex-shrink-0"></div>
+                      <span className="text-[#6e6e73] text-sm truncate">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex space-x-3">
-                  <button className="flex-1 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25">
+                <div className="flex gap-3">
+                  <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 rounded-full font-medium text-white transition-colors text-sm">
                     Virtual Tour
                   </button>
-                  <button 
-                    className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300"
+                  <button
+                    className="flex-1 border border-black/10 hover:bg-black/5 px-5 py-2.5 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm"
                     onClick={() => openPropertyPage(property)}
                   >
                     Learn More
                   </button>
                 </div>
               </div>
-
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
             </div>
           ))}
         </div>
 
         {/* Property Page Modal */}
         {selectedPropertyType && (
-          <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-slate-800 border border-white/20 rounded-3xl max-w-6xl w-full max-h-[95vh] overflow-y-auto" ref={propertyModalRef}>
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="bg-white border border-black/10 rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" ref={propertyModalRef}>
               <div className="relative">
                 {/* Header */}
-                <div className="relative h-64 overflow-hidden rounded-t-3xl">
-                  <img 
-                    src={selectedPropertyType.image} 
+                <div className="relative h-56 sm:h-64 overflow-hidden rounded-t-3xl">
+                  <img
+                    src={selectedPropertyType.image}
                     alt={selectedPropertyType.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent"></div>
-                  <button 
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <button
                     onClick={closePropertyPage}
-                    className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all"
+                    className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1d1d1f] hover:bg-white transition-all"
                   >
                     ✕
                   </button>
-                  <div className="absolute bottom-4 left-4">
-                    <h2 className="text-3xl font-bold text-white mb-2">{selectedPropertyType.title} in Visakhapatnam</h2>
-                    <p className="text-blue-300 text-lg">{selectedPropertyType.subtitle}</p>
+                  <div className="absolute bottom-4 left-4 sm:left-6">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">{selectedPropertyType.title} in Visakhapatnam</h2>
+                    <p className="text-white/80 text-base sm:text-lg">{selectedPropertyType.subtitle}</p>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
+                <div className="p-6 sm:p-8">
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Property List */}
-                    <div className="lg:col-span-2">
-                      <h3 className="text-2xl font-bold text-white mb-6">Available Properties</h3>
-                      <div className="space-y-6">
+                    <div className="lg:col-span-2 min-w-0">
+                      <h3 className="text-lg font-semibold text-[#1d1d1f] mb-4">Available Properties</h3>
+                      <div className="space-y-4">
                         {[1, 2, 3, 4, 5].map((property, idx) => (
-                          <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all cursor-pointer">
-                            <div className="flex items-start space-x-4">
-                              <img 
-                                src={selectedPropertyType.image} 
+                          <div key={idx} className="bg-[#f5f5f7] rounded-2xl p-4 sm:p-5 hover:bg-black/5 transition-colors cursor-pointer">
+                            <div className="flex items-start gap-4">
+                              <img
+                                src={selectedPropertyType.image}
                                 alt={`Property ${idx + 1}`}
-                                className="w-24 h-24 object-cover rounded-xl"
+                                className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl flex-shrink-0"
                               />
-                              <div className="flex-1">
-                                <div className="flex items-start justify-between mb-2">
-                                  <h4 className="text-lg font-semibold text-white">{selectedPropertyType.title} Villa {idx + 1}</h4>
-                                  <span className="text-green-400 font-bold text-lg">{selectedPropertyType.price}</span>
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-start justify-between gap-2 mb-1">
+                                  <h4 className="text-sm sm:text-base font-semibold text-[#1d1d1f] truncate">{selectedPropertyType.title} Villa {idx + 1}</h4>
+                                  <span className="text-emerald-600 font-semibold text-sm sm:text-base flex-shrink-0">{selectedPropertyType.price}</span>
                                 </div>
-                                <div className="flex items-center space-x-4 text-sm text-gray-400 mb-3">
-                                  <span className="flex items-center space-x-1">
-                                    <MapPin className="w-4 h-4" />
+                                <div className="flex items-center gap-4 text-xs text-[#6e6e73] mb-2">
+                                  <span className="flex items-center gap-1">
+                                    <MapPin className="w-3.5 h-3.5" />
                                     <span>Vizag, Sector {idx + 1}</span>
                                   </span>
-                                  <span className="flex items-center space-x-1">
-                                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                                  <span className="flex items-center gap-1">
+                                    <Star className="w-3.5 h-3.5 text-amber-500 fill-current" />
                                     <span>{selectedPropertyType.rating}</span>
                                   </span>
                                 </div>
-                                <div className="grid grid-cols-2 gap-2">
+                                <div className="grid grid-cols-2 gap-1.5">
                                   {selectedPropertyType.features.slice(0, 4).map((feature, featureIdx) => (
-                                    <div key={featureIdx} className="flex items-center space-x-2">
-                                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                                      <span className="text-gray-300 text-sm">{feature}</span>
+                                    <div key={featureIdx} className="flex items-center gap-1.5">
+                                      <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full flex-shrink-0"></div>
+                                      <span className="text-[#6e6e73] text-xs truncate">{feature}</span>
                                     </div>
                                   ))}
                                 </div>
@@ -236,48 +215,48 @@ const PropertyTypes = () => {
                     </div>
 
                     {/* Filters & Info */}
-                    <div>
-                      <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-6">
-                        <h4 className="text-lg font-semibold text-white mb-4">Filter Properties</h4>
-                        <div className="space-y-4">
+                    <div className="min-w-0">
+                      <div className="bg-[#f5f5f7] rounded-2xl p-5 mb-4">
+                        <h4 className="text-sm font-semibold text-[#1d1d1f] mb-4">Filter Properties</h4>
+                        <div className="space-y-3">
                           <div>
-                            <label className="text-gray-300 text-sm mb-2 block">Price Range</label>
-                            <select className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white">
-                              <option value="" className="text-gray-800">Any Price</option>
-                              <option value="low" className="text-gray-800">Under ₹50L</option>
-                              <option value="mid" className="text-gray-800">₹50L - ₹1Cr</option>
-                              <option value="high" className="text-gray-800">Above ₹1Cr</option>
+                            <label className="text-[#6e6e73] text-xs mb-1.5 block">Price Range</label>
+                            <select className="w-full bg-white border border-black/10 rounded-lg px-3 py-2 text-[#1d1d1f] text-sm">
+                              <option value="">Any Price</option>
+                              <option value="low">Under ₹50L</option>
+                              <option value="mid">₹50L - ₹1Cr</option>
+                              <option value="high">Above ₹1Cr</option>
                             </select>
                           </div>
                           <div>
-                            <label className="text-gray-300 text-sm mb-2 block">Sustainability Rating</label>
-                            <select className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white">
-                              <option value="" className="text-gray-800">Any Rating</option>
-                              <option value="4+" className="text-gray-800">4+ Stars</option>
-                              <option value="4.5+" className="text-gray-800">4.5+ Stars</option>
-                              <option value="5" className="text-gray-800">5 Stars</option>
+                            <label className="text-[#6e6e73] text-xs mb-1.5 block">Sustainability Rating</label>
+                            <select className="w-full bg-white border border-black/10 rounded-lg px-3 py-2 text-[#1d1d1f] text-sm">
+                              <option value="">Any Rating</option>
+                              <option value="4+">4+ Stars</option>
+                              <option value="4.5+">4.5+ Stars</option>
+                              <option value="5">5 Stars</option>
                             </select>
                           </div>
                           <div>
-                            <label className="text-gray-300 text-sm mb-2 block">Area</label>
-                            <select className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white">
-                              <option value="" className="text-gray-800">All Areas</option>
-                              <option value="mvp" className="text-gray-800">MVP Colony</option>
-                              <option value="gajuwaka" className="text-gray-800">Gajuwaka</option>
-                              <option value="madhurawada" className="text-gray-800">Madhurawada</option>
+                            <label className="text-[#6e6e73] text-xs mb-1.5 block">Area</label>
+                            <select className="w-full bg-white border border-black/10 rounded-lg px-3 py-2 text-[#1d1d1f] text-sm">
+                              <option value="">All Areas</option>
+                              <option value="mvp">MVP Colony</option>
+                              <option value="gajuwaka">Gajuwaka</option>
+                              <option value="madhurawada">Madhurawada</option>
                             </select>
                           </div>
                         </div>
                       </div>
 
-                      <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-                        <h4 className="text-lg font-semibold text-white mb-4">Why Choose {selectedPropertyType.title}?</h4>
-                        <p className="text-gray-300 text-sm leading-relaxed mb-4">{selectedPropertyType.description}</p>
+                      <div className="bg-[#f5f5f7] rounded-2xl p-5">
+                        <h4 className="text-sm font-semibold text-[#1d1d1f] mb-3">Why Choose {selectedPropertyType.title}?</h4>
+                        <p className="text-[#6e6e73] text-sm leading-relaxed mb-4">{selectedPropertyType.description}</p>
                         <div className="space-y-2">
                           {selectedPropertyType.features.map((feature, idx) => (
-                            <div key={idx} className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                              <span className="text-gray-300 text-sm">{feature}</span>
+                            <div key={idx} className="flex items-center gap-2">
+                              <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full flex-shrink-0"></div>
+                              <span className="text-[#6e6e73] text-sm">{feature}</span>
                             </div>
                           ))}
                         </div>
@@ -285,14 +264,14 @@ const PropertyTypes = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                    <button className="flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                  <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                    <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                       Schedule Site Visit
                     </button>
-                    <button className="flex-1 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25">
+                    <button className="flex-1 bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                       Virtual Tour
                     </button>
-                    <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
+                    <button className="flex-1 border border-black/10 hover:bg-black/5 px-6 py-3 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm">
                       Get Brochure
                     </button>
                   </div>
@@ -302,11 +281,11 @@ const PropertyTypes = () => {
           </div>
         )}
 
-        {/* View All Button */}
-        <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/25 flex items-center space-x-2 mx-auto">
-            <span>View All Properties</span>
-            <ArrowRight className="w-5 h-5" />
+        {/* View All */}
+        <div className="mt-12 sm:mt-16">
+          <button className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm inline-flex items-center gap-2">
+            <span>View all properties</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </div>

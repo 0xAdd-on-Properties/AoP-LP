@@ -47,14 +47,14 @@ export default function MyListings() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-[#f5f5f7]">
       <StandardNavbar />
-      <main className="max-w-5xl mx-auto px-4 pt-32 pb-16">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-16">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-slate-900">My Listings</h1>
+          <h1 className="text-3xl font-bold text-[#1d1d1f]">My Listings</h1>
           <Link
             href="/dashboard/properties/new"
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-lg font-semibold transition-colors"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-full font-semibold transition-colors"
           >
             <Plus className="w-4 h-4" />
             Add Property
@@ -63,11 +63,11 @@ export default function MyListings() {
 
         {error && <p className="text-red-600">{error}</p>}
 
-        {properties === null && !error && <p className="text-slate-500">Loading...</p>}
+        {properties === null && !error && <p className="text-[#86868b]">Loading...</p>}
 
         {properties?.length === 0 && (
-          <div className="text-center py-16 bg-white rounded-2xl border border-slate-200">
-            <p className="text-slate-500 mb-4">You haven't listed any properties yet.</p>
+          <div className="text-center py-16 bg-white rounded-2xl border border-black/5">
+            <p className="text-[#86868b] mb-4">You haven't listed any properties yet.</p>
             <Link href="/dashboard/properties/new" className="text-emerald-600 font-semibold hover:underline">
               List your first property
             </Link>
@@ -75,29 +75,29 @@ export default function MyListings() {
         )}
 
         {properties && properties.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {properties.map((p) => (
-              <div key={p.id} className="bg-white rounded-2xl border border-slate-200 p-5">
+              <div key={p.id} className="min-w-0 bg-white rounded-2xl border border-black/5 p-5">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-semibold text-slate-900">{p.title}</h3>
+                  <h3 className="min-w-0 font-semibold text-[#1d1d1f]">{p.title}</h3>
                   <span
-                    className={`text-xs font-medium px-2 py-1 rounded-full ${
+                    className={`shrink-0 text-xs font-medium px-2 py-1 rounded-full ${
                       p.status === 'active'
-                        ? 'bg-emerald-100 text-emerald-700'
-                        : 'bg-slate-100 text-slate-600'
+                        ? 'bg-emerald-50 text-emerald-700'
+                        : 'bg-black/5 text-[#6e6e73]'
                     }`}
                   >
                     {p.status}
                   </span>
                 </div>
-                <div className="flex items-center text-slate-500 text-sm mb-2">
-                  <MapPin className="w-3.5 h-3.5 mr-1" />
+                <div className="flex items-center text-[#86868b] text-sm mb-2">
+                  <MapPin className="w-3.5 h-3.5 mr-1 shrink-0" />
                   {p.locality ? `${p.locality}, ` : ''}
                   {p.city}
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-slate-900">₹{p.price}</span>
-                  <span className="text-xs text-slate-500 uppercase">{p.property_type} · {p.listing_type}</span>
+                  <span className="text-lg font-bold text-[#1d1d1f]">₹{p.price}</span>
+                  <span className="text-xs text-[#86868b] uppercase">{p.property_type} · {p.listing_type}</span>
                 </div>
                 <button
                   onClick={() => handleDelete(p.id)}

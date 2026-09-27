@@ -47,67 +47,64 @@ const Careers = () => {
 
   const benefits = [
     {
-      icon: <Heart className="w-6 h-6" />,
+      icon: <Heart className="w-5 h-5" />,
       title: "Health & Wellness",
       description: "Comprehensive health insurance, mental health support, and wellness programs"
     },
     {
-      icon: <Globe className="w-6 h-6" />,
+      icon: <Globe className="w-5 h-5" />,
       title: "Remote Work",
       description: "Flexible remote work options with co-working space allowances"
     },
     {
-      icon: <Users className="w-6 h-6" />,
+      icon: <Users className="w-5 h-5" />,
       title: "Learning & Growth",
       description: "Professional development budget, conferences, and skill-building programs"
     },
     {
-      icon: <Briefcase className="w-6 h-6" />,
+      icon: <Briefcase className="w-5 h-5" />,
       title: "Equity & Impact",
       description: "Stock options and the opportunity to create meaningful environmental impact"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 pt-20">
+    <div className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-slate-800 to-slate-900">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                Join Our Mission
-              </span>
-              <br />
-              <span className="text-white">Build a Sustainable Future</span>
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Be part of a team that's transforming how humanity lives on Earth. 
-              Work on cutting-edge sustainable technologies while making a real impact.
-            </p>
-          </div>
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] mb-6 leading-[1.05]">
+            Join our mission. <span className="text-emerald-600">Build a sustainable future.</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-[#6e6e73] leading-relaxed max-w-3xl mx-auto">
+            Be part of a team that's transforming how humanity lives on Earth. Work on cutting-edge
+            sustainable technologies while making a real impact.
+          </p>
         </div>
       </section>
 
       {/* Why Join Us */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Why Work With Us?</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Join a company where your work directly contributes to solving climate change 
-              and creating sustainable communities worldwide.
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Why Join Us</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Why work with us?
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
+              Join a company where your work directly contributes to solving climate change and
+              creating sustainable communities worldwide.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4 text-white">
+              <div key={index} className="bg-white p-6 sm:p-8 min-w-0">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
                   {benefit.icon}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">{benefit.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">{benefit.description}</p>
+                <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">{benefit.title}</h3>
+                <p className="text-sm text-[#6e6e73] leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -115,60 +112,61 @@ const Careers = () => {
       </section>
 
       {/* Open Positions */}
-      <section className="py-16 bg-slate-800">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Open Positions</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-12 sm:mb-16">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Careers</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
+              Open positions
+            </h2>
+            <p className="text-lg text-[#6e6e73] leading-relaxed">
               Explore exciting opportunities to work on sustainable technologies and make a global impact.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {jobOpenings.map((job) => (
-              <div key={job.id} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{job.title}</h3>
-                    <p className="text-emerald-400 font-medium">{job.department}</p>
+              <div key={job.id} className="min-w-0 bg-white border border-black/5 rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-shadow">
+                <div className="flex justify-between items-start gap-4 mb-4">
+                  <div className="min-w-0">
+                    <h3 className="text-xl font-semibold text-[#1d1d1f] mb-1">{job.title}</h3>
+                    <p className="text-emerald-600 font-medium text-sm">{job.department}</p>
                   </div>
-                  <div className="text-right">
-                    <div className="bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full text-sm mb-2">
-                      {job.type}
-                    </div>
+                  <div className="shrink-0 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-medium">
+                    {job.type}
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-6 leading-relaxed">{job.description}</p>
+                <p className="text-[#6e6e73] mb-6 leading-relaxed">{job.description}</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                  <div className="flex items-center space-x-2 text-gray-400">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                  <div className="flex items-center space-x-2 text-[#6e6e73]">
                     <MapPin className="w-4 h-4" />
                     <span className="text-sm">{job.location}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-gray-400">
+                  <div className="flex items-center space-x-2 text-[#6e6e73]">
                     <Clock className="w-4 h-4" />
                     <span className="text-sm">{job.type}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-gray-400">
+                  <div className="flex items-center space-x-2 text-[#6e6e73]">
                     <DollarSign className="w-4 h-4" />
                     <span className="text-sm">{job.salary}</span>
                   </div>
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="text-white font-semibold mb-3">Requirements:</h4>
+                  <h4 className="text-[#1d1d1f] font-semibold text-sm mb-3">Requirements</h4>
                   <ul className="space-y-2">
                     {job.requirements.map((req, idx) => (
-                      <li key={idx} className="text-gray-300 text-sm flex items-start space-x-2">
-                        <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <li key={idx} className="text-[#6e6e73] text-sm flex items-start space-x-2">
+                        <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-1.5 flex-shrink-0"></div>
                         <span>{req}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <button className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center space-x-2">
+                <button className="w-full bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm flex items-center justify-center space-x-2">
                   <span>Apply Now</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
@@ -179,59 +177,61 @@ const Careers = () => {
       </section>
 
       {/* Culture & Values */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-6">Our Culture & Values</h2>
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-emerald-600 mb-3">Culture</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] mb-6 tracking-tight">
+                Our culture &amp; values
+              </h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-emerald-400 mb-2">Environmental First</h3>
-                  <p className="text-gray-300">Every decision we make considers environmental impact first. We're not just building a business, we're healing the planet.</p>
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Environmental First</h3>
+                  <p className="text-[#6e6e73] leading-relaxed">Every decision we make considers environmental impact first. We're not just building a business, we're healing the planet.</p>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-emerald-400 mb-2">Innovation & Learning</h3>
-                  <p className="text-gray-300">We encourage experimentation, learning from failures, and pushing the boundaries of what's possible in sustainable technology.</p>
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Innovation &amp; Learning</h3>
+                  <p className="text-[#6e6e73] leading-relaxed">We encourage experimentation, learning from failures, and pushing the boundaries of what's possible in sustainable technology.</p>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-emerald-400 mb-2">Community Impact</h3>
-                  <p className="text-gray-300">We believe in creating solutions that benefit entire communities, not just individuals. Collective impact drives our mission.</p>
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Community Impact</h3>
+                  <p className="text-[#6e6e73] leading-relaxed">We believe in creating solutions that benefit entire communities, not just individuals. Collective impact drives our mission.</p>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-emerald-400 mb-2">Work-Life Harmony</h3>
-                  <p className="text-gray-300">We practice what we preach about sustainable living, including maintaining healthy work-life balance for our team.</p>
+                  <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Work-Life Harmony</h3>
+                  <p className="text-[#6e6e73] leading-relaxed">We practice what we preach about sustainable living, including maintaining healthy work-life balance for our team.</p>
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <img 
-                src="https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                alt="Team collaboration"
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/20 to-transparent rounded-2xl"></div>
+            <div className="min-w-0">
+              <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
+                <img
+                  src="https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt="Team collaboration"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-slate-800">
-        <div className="container mx-auto px-6">
-          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 backdrop-blur-md border border-emerald-500/30 rounded-3xl p-12 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Don't See Your Role?</h2>
-            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              We're always looking for passionate individuals who want to make a difference. 
-              Send us your resume and tell us how you'd like to contribute to our mission.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-8 py-3 rounded-xl font-semibold text-white transition-all duration-300">
-                Send Your Resume
-              </button>
-              <button className="bg-white/10 hover:bg-white/20 border border-white/20 px-8 py-3 rounded-xl font-semibold text-white transition-all duration-300">
-                Learn About Our Culture
-              </button>
-            </div>
+      {/* Call to Action — deliberate dark section */}
+      <section className="py-16 sm:py-24 bg-[#1d1d1f]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Don't see your role?</h2>
+          <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+            We're always looking for passionate individuals who want to make a difference. Send us
+            your resume and tell us how you'd like to contribute to our mission.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
+              Send Your Resume
+            </button>
+            <button className="border border-white/20 hover:bg-white/10 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
+              Learn About Our Culture
+            </button>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Search, Filter, Heart, Share2, Star, Leaf, Zap, Droplets, Wind, Sun, Cpu, Wifi, Battery, Shield } from 'lucide-react';
+import { Search, Heart, Share2, Star, Leaf, Zap, Droplets, Wind, Cpu, Wifi, Battery, Shield } from 'lucide-react';
 
 const SustainableTechnologiesMarketplace = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -145,236 +145,246 @@ const SustainableTechnologiesMarketplace = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-900 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">
-              Sustainable <span className="text-blue-400">Technologies</span> Marketplace
+      <section className="bg-[#f5f5f7] pt-28 sm:pt-32 pb-10 sm:pb-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-8">
+            <p className="text-sm font-medium text-emerald-600 mb-3">Green Tech</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05] mb-4">
+              Sustainable <span className="text-emerald-600">technologies</span> marketplace
             </h1>
-            <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
-              Discover cutting-edge sustainable technologies that power the future of eco-friendly living
+            <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed">
+              Cutting-edge sustainable technologies that power the future of eco-friendly living.
             </p>
-            
-            {/* Search Bar */}
-            <div className="max-w-2xl mx-auto relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+          </div>
+
+          <div className="bg-white border border-black/10 rounded-2xl p-3 shadow-sm max-w-2xl">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#86868b] w-4 h-4" />
               <input
                 type="text"
                 placeholder="Search sustainable technologies..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-3 py-3 bg-[#f5f5f7] rounded-xl text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-emerald-600/40 text-sm"
               />
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Categories */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-wrap gap-4 justify-center mb-12">
-          {categories.map((category) => {
-            const IconComponent = category.icon;
-            return (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all ${
-                  selectedCategory === category.id
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                }`}
-              >
-                <IconComponent className="w-5 h-5" />
-                {category.name}
-              </button>
-            );
-          })}
+      <section className="border-b border-black/5 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category) => {
+              const IconComponent = category.icon;
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    selectedCategory === category.id
+                      ? 'bg-[#1d1d1f] text-white'
+                      : 'border border-black/10 text-[#1d1d1f] hover:bg-black/5'
+                  }`}
+                >
+                  <IconComponent className="w-4 h-4" />
+                  {category.name}
+                </button>
+              );
+            })}
+          </div>
         </div>
+      </section>
 
-        {/* Technologies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredTechnologies.map((tech) => (
-            <div
-              key={tech.id}
-              onClick={() => openTechModal(tech)}
-              className="bg-slate-800 rounded-xl overflow-hidden hover:bg-slate-750 transition-all cursor-pointer group"
-            >
-              <div className="relative">
-                <img
-                  src={tech.image}
-                  alt={tech.name}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute top-4 right-4 flex gap-2">
-                  <button className="p-2 bg-slate-900/80 rounded-full hover:bg-slate-900 transition-colors">
-                    <Heart className="w-4 h-4" />
-                  </button>
-                  <button className="p-2 bg-slate-900/80 rounded-full hover:bg-slate-900 transition-colors">
-                    <Share2 className="w-4 h-4" />
-                  </button>
-                </div>
-                <div className="absolute bottom-4 left-4">
-                  <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {tech.certification}
-                  </span>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold">{tech.name}</h3>
-                  <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                    <span className="text-sm text-slate-300">{tech.rating}</span>
+      {/* Technologies Grid */}
+      <section className="py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredTechnologies.map((tech) => (
+              <div
+                key={tech.id}
+                onClick={() => openTechModal(tech)}
+                className="group bg-white rounded-2xl overflow-hidden border border-black/5 hover:shadow-lg transition-shadow cursor-pointer min-w-0"
+              >
+                <div className="relative h-40 overflow-hidden">
+                  <img
+                    src={tech.image}
+                    alt={tech.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 right-3 flex gap-1.5" onClick={(e) => e.stopPropagation()}>
+                    <button className="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1d1d1f] hover:bg-white transition-colors">
+                      <Heart className="w-3.5 h-3.5" />
+                    </button>
+                    <button className="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1d1d1f] hover:bg-white transition-colors">
+                      <Share2 className="w-3.5 h-3.5" />
+                    </button>
                   </div>
-                </div>
-                
-                <p className="text-slate-400 mb-4">{tech.description}</p>
-                
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-bold text-blue-400">{tech.price}</span>
-                  <div className="flex items-center gap-1 text-green-400">
-                    <Leaf className="w-4 h-4" />
-                    <span className="text-sm">{tech.carbonFootprint}</span>
-                  </div>
-                </div>
-                
-                <div className="flex flex-wrap gap-2">
-                  {tech.features.slice(0, 2).map((feature, index) => (
-                    <span
-                      key={index}
-                      className="bg-slate-700 text-slate-300 px-3 py-1 rounded-full text-sm"
-                    >
-                      {feature}
+                  <div className="absolute bottom-3 left-3">
+                    <span className="bg-white/95 backdrop-blur-sm text-emerald-700 px-2.5 py-1 rounded-full text-xs font-medium border border-black/5">
+                      {tech.certification}
                     </span>
-                  ))}
+                  </div>
+                </div>
+
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-1 gap-2">
+                    <h3 className="text-base font-semibold text-[#1d1d1f]">{tech.name}</h3>
+                    <div className="flex items-center gap-1 flex-shrink-0">
+                      <Star className="w-3.5 h-3.5 text-emerald-600 fill-current" />
+                      <span className="text-xs text-[#6e6e73]">{tech.rating}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-[#6e6e73] text-sm leading-relaxed mb-4">{tech.description}</p>
+
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-lg font-bold text-[#1d1d1f]">{tech.price}</span>
+                    <div className="flex items-center gap-1 text-emerald-600">
+                      <Leaf className="w-3.5 h-3.5" />
+                      <span className="text-xs font-medium">{tech.carbonFootprint}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {tech.features.slice(0, 2).map((feature, index) => (
+                      <span
+                        key={index}
+                        className="bg-black/5 text-[#1d1d1f] px-2.5 py-1 rounded-full text-xs"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Benefits Section */}
-      <div className="bg-slate-800 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Our Sustainable Technologies?</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              Leading the future with innovative, eco-friendly technology solutions
+      <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight mb-3">
+              Why choose our sustainable technologies?
+            </h2>
+            <p className="text-[#6e6e73] text-base sm:text-lg leading-relaxed">
+              Leading the future with innovative, eco-friendly technology solutions.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-8 h-8" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+            <div className="bg-white p-6 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                <Zap className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Energy Efficient</h3>
-              <p className="text-slate-400">
-                Reduce energy consumption by up to 60% with smart optimization
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Energy Efficient</h3>
+              <p className="text-sm text-[#6e6e73] leading-relaxed">
+                Reduce energy consumption by up to 60% with smart optimization.
               </p>
             </div>
-            
-            <div className="text-center">
-              <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Leaf className="w-8 h-8" />
+
+            <div className="bg-white p-6 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                <Leaf className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Carbon Neutral</h3>
-              <p className="text-slate-400">
-                Achieve net-zero emissions with our sustainable technology stack
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Carbon Neutral</h3>
+              <p className="text-sm text-[#6e6e73] leading-relaxed">
+                Achieve net-zero emissions with our sustainable technology stack.
               </p>
             </div>
-            
-            <div className="text-center">
-              <div className="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8" />
+
+            <div className="bg-white p-6 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
+                <Shield className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Future-Proof</h3>
-              <p className="text-slate-400">
-                Scalable solutions that grow with your sustainability goals
+              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">Future-Proof</h3>
+              <p className="text-sm text-[#6e6e73] leading-relaxed">
+                Scalable solutions that grow with your sustainability goals.
               </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Technology Detail Modal */}
       {selectedTech && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
-          <div className="bg-slate-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white border border-black/10 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="relative">
               <img
                 src={selectedTech.image}
                 alt={selectedTech.name}
-                className="w-full h-64 object-cover"
+                className="w-full h-56 sm:h-64 object-cover rounded-t-3xl"
               />
               <button
                 onClick={closeTechModal}
-                className="absolute top-4 right-4 bg-slate-900/80 text-white p-2 rounded-full hover:bg-slate-900 transition-colors"
+                className="absolute top-4 right-4 w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1d1d1f] hover:bg-white transition-all"
               >
                 ✕
               </button>
             </div>
-            
-            <div className="p-8">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-bold">{selectedTech.name}</h2>
+
+            <div className="p-6 sm:p-8">
+              <div className="flex items-center justify-between mb-6 gap-4 flex-wrap">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#1d1d1f]">{selectedTech.name}</h2>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-1">
-                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                    <span>{selectedTech.rating}</span>
+                    <Star className="w-4 h-4 text-emerald-600 fill-current" />
+                    <span className="text-[#1d1d1f] text-sm font-medium">{selectedTech.rating}</span>
                   </div>
-                  <span className="text-3xl font-bold text-blue-400">{selectedTech.price}</span>
+                  <span className="text-2xl font-bold text-[#1d1d1f]">{selectedTech.price}</span>
                 </div>
               </div>
-              
-              <p className="text-slate-300 mb-6 text-lg">{selectedTech.description}</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+
+              <p className="text-[#1d1d1f] mb-8 text-base">{selectedTech.description}</p>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">Key Features</h3>
-                  <ul className="space-y-2">
+                  <h3 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Key Features</h3>
+                  <ul className="space-y-2.5">
                     {selectedTech.features.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                        <span className="text-slate-300">{feature}</span>
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-[#1d1d1f] text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                
+
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">Specifications</h3>
+                  <h3 className="text-sm font-semibold text-[#1d1d1f] mb-3 uppercase tracking-wide">Specifications</h3>
                   <div className="space-y-3">
                     {Object.entries(selectedTech.specifications as Record<string, string>).map(([key, value]) => (
-                      <div key={key} className="flex justify-between">
-                        <span className="text-slate-400 capitalize">{key}:</span>
-                        <span className="text-slate-300">{value}</span>
+                      <div key={key} className="flex justify-between gap-4">
+                        <span className="text-[#6e6e73] capitalize text-sm">{key}:</span>
+                        <span className="text-[#1d1d1f] text-sm text-right">{value}</span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-              
-              <div className="flex items-center gap-4 mb-8">
-                <div className="flex items-center gap-2 bg-green-600/20 text-green-400 px-4 py-2 rounded-lg">
-                  <Leaf className="w-5 h-5" />
+
+              <div className="flex items-center gap-3 mb-8 flex-wrap">
+                <div className="flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium">
+                  <Leaf className="w-4 h-4" />
                   <span>Carbon Impact: {selectedTech.carbonFootprint}</span>
                 </div>
-                <div className="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-lg">
+                <div className="bg-black/5 text-[#1d1d1f] px-4 py-2 rounded-full text-sm font-medium">
                   {selectedTech.certification}
                 </div>
               </div>
-              
-              <div className="flex gap-4">
-                <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-full font-medium text-white transition-colors text-sm">
                   Request Quote
                 </button>
-                <button className="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
+                <button className="flex-1 border border-black/10 hover:bg-black/5 px-6 py-3 rounded-full font-medium text-[#1d1d1f] transition-colors text-sm">
                   Schedule Demo
                 </button>
               </div>

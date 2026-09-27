@@ -1,279 +1,85 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Search, Play, ChevronDown, Home, Leaf, Zap, Shield, Globe, Building, TreePine, Droplets, Sun, Wind, Recycle, Sprout, Mountain } from 'lucide-react';
-import useClickOutside from '../../../hooks/useClickOutside';
+import React from 'react';
+import { Search, ChevronDown } from 'lucide-react';
 
 const Hero = () => {
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [selectedCard, setSelectedCard] = useState<any>(null);
-  
-  const cardModalRef = useClickOutside(() => {
-    setSelectedCard(null);
-  });
-
-  const ecosystemCards = [
-    {
-      icon: Home,
-      title: "Smart Properties",
-      subtitle: "AI-Powered Management",
-      features: ["Carbon Negative", "Energy Independent", "Water Harvesting"],
-      color: "from-emerald-500/30 to-green-500/30"
-    },
-    {
-      icon: Sprout,
-      title: "Eco Villages",
-      subtitle: "Sustainable Communities",
-      features: ["Zero Waste", "Renewable Energy", "Organic Farming"],
-      color: "from-green-500/30 to-teal-500/30"
-    },
-    {
-      icon: Sun,
-      title: "Solar Energy",
-      subtitle: "Clean Power Systems",
-      features: ["Solar Panels", "Battery Storage", "Smart Distribution"],
-      color: "from-teal-500/30 to-cyan-500/30"
-    },
-    {
-      icon: Droplets,
-      title: "Water Systems",
-      subtitle: "Sustainable Water Management",
-      features: ["Rain Harvesting", "Water Recycling", "Smart Irrigation"],
-      color: "from-cyan-500/30 to-emerald-500/30"
-    },
-    {
-      icon: Wind,
-      title: "Wind Energy",
-      subtitle: "Renewable Power",
-      features: ["Wind Turbines", "Clean Energy", "Grid Integration"],
-      color: "from-emerald-500/30 to-green-500/30"
-    },
-    {
-      icon: Mountain,
-      title: "Green Infrastructure",
-      subtitle: "Nature-Based Solutions",
-      features: ["Green Roofs", "Living Walls", "Urban Forests"],
-      color: "from-teal-500/30 to-cyan-500/30"
-    }
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCardIndex((prevIndex) => (prevIndex + 1) % ecosystemCards.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <>
-      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-800 overflow-hidden">
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-72 h-72 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
-          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-4000"></div>
-        </div>
+    <section className="relative bg-[#f5f5f7] overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-28 sm:pt-32 pb-16 sm:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Left content */}
+          <div className="min-w-0 space-y-6 sm:space-y-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05]">
+              Sustainable living,{' '}
+              <span className="text-emerald-600">built for India.</span>
+            </h1>
+            <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed max-w-xl">
+              Smart homes, eco-villages, and solar-powered communities — one
+              platform to discover, list, and build sustainably.
+            </p>
 
-        {/* Sacred Geometry Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-emerald-400 rotate-45 animate-spin"></div>
-          <div className="absolute top-3/4 right-1/4 w-24 h-24 border border-teal-400 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-1/4 left-1/2 w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-400 transform rotate-12 animate-bounce"></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 pt-16 sm:pt-20 lg:pt-28">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center min-h-screen">
-            {/* Left Content */}
-            <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-              <div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-3 sm:mb-4 lg:mb-6">
-                  <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent">
-                    Sustainable
-                  </span>
-                  <br />
-                  <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                    Living
-                  </span>
-                  <br />
-                  <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                    Revolution
-                  </span>
-                </h1>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mb-4 sm:mb-6 lg:mb-8">
-                  Transform your living space into a sustainable ecosystem. From smart homes to eco-villages, 
-                  discover the future of sustainable living in India.
-                </p>
-              </div>
-
-              {/* Search Bar */}
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6">
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4">
-                  <div className="flex-1 relative">
-                    <Search className="absolute left-2 sm:left-3 lg:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5" />
-                    <input
-                      type="text"
-                      placeholder="Search for sustainable properties..."
-                      className="w-full pl-8 sm:pl-10 lg:pl-12 pr-3 sm:pr-4 py-2 sm:py-3 lg:py-4 bg-white/10 border border-white/20 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 transition-all duration-300 text-xs sm:text-sm lg:text-base"
-                    />
-                  </div>
-                  <div className="relative group">
-                    <select className="appearance-none bg-white/10 border border-white/20 rounded-lg sm:rounded-xl px-3 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-white focus:outline-none focus:border-emerald-400 transition-all duration-300 pr-6 sm:pr-8 lg:pr-10 w-full sm:w-40 lg:w-48 text-xs sm:text-sm lg:text-base">
-                      <option value="" className="bg-slate-800 text-white">All Types</option>
-                      <option value="earthships" className="bg-slate-800 text-white">Earthships</option>
-                      <option value="mandala" className="bg-slate-800 text-white">Mandala Homes</option>
-                      <option value="eco-communes" className="bg-slate-800 text-white">Eco Communes</option>
-                      <option value="smart-apartments" className="bg-slate-800 text-white">Smart Apartments</option>
-                    </select>
-                    <ChevronDown className="absolute right-1 sm:right-2 lg:right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 pointer-events-none group-hover:text-emerald-400 transition-colors" />
-                  </div>
-                  <button className="bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25 text-xs sm:text-sm lg:text-base">
-                    Search
-                  </button>
-                </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4">
-                <button className="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-teal-500/25 flex items-center justify-center text-xs sm:text-sm lg:text-base">
-                  <Play className="w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 mr-1 sm:mr-2" />
-                  Watch Demo
-                </button>
-                <button className="bg-white/10 hover:bg-white/20 border border-white/20 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl font-semibold text-white transition-all duration-300 text-xs sm:text-sm lg:text-base">
-                  Learn More
-                </button>
-              </div>
-            </div>
-
-            {/* Right Content - Rotating Cards */}
-            <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-              <div className="text-center">
-                <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text text-transparent mb-1 sm:mb-2">
-                  Complete Property Ecosystem
-                </h2>
-                <p className="text-gray-300 text-sm sm:text-base lg:text-lg">
-                  Everything you need for sustainable living
-                </p>
-              </div>
-              
-              <div className="relative h-48 sm:h-56 lg:h-64 xl:h-72 overflow-hidden">
-                <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${currentCardIndex * 33.333}%)` }}>
-                  {ecosystemCards.map((card, index) => {
-                    const IconComponent = card.icon;
-                    return (
-                      <div key={index} className="w-1/3 flex-shrink-0 px-1 sm:px-2 lg:px-3">
-                        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl lg:rounded-3xl p-2 sm:p-3 lg:p-4 xl:p-6 h-full cursor-pointer hover:scale-105 transition-all duration-300" onClick={() => setSelectedCard(card)}>
-                          <div className={`bg-gradient-to-br ${card.color} rounded-lg sm:rounded-xl lg:rounded-2xl h-16 sm:h-20 lg:h-24 xl:h-32 mb-1 sm:mb-2 lg:mb-3 xl:mb-4 flex items-center justify-center overflow-hidden relative`}>
-                            <div className={`w-full h-full bg-gradient-to-br ${card.color} rounded-lg sm:rounded-xl lg:rounded-2xl flex items-center justify-center`}>
-                              <IconComponent className="w-4 sm:w-6 lg:w-8 xl:w-10 h-4 sm:h-6 lg:h-8 xl:h-10 text-white/80" />
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-lg sm:rounded-xl lg:rounded-2xl"></div>
-                            <div className="absolute bottom-1 left-1 text-left">
-                              <h3 className="text-white text-xs sm:text-sm lg:text-base font-semibold">{card.title}</h3>
-                              <p className="text-gray-200 text-xs">{card.subtitle}</p>
-                            </div>
-                          </div>
-                          <div className="space-y-1">
-                            {card.features.slice(0, 2).map((feature, featureIndex) => (
-                              <div key={featureIndex} className="flex justify-between text-white text-xs">
-                                <span className="truncate">{feature}</span>
-                                <span className="text-green-400 ml-1">✓</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              
-              {/* Card Indicators */}
-              <div className="flex justify-center space-x-2">
-                {ecosystemCards.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentCardIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentCardIndex 
-                        ? 'bg-emerald-400 scale-125' 
-                        : 'bg-white/30 hover:bg-white/50'
-                    }`}
+            {/* Search bar */}
+            <div className="bg-white border border-black/10 rounded-2xl p-3 shadow-sm">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <div className="flex-1 min-w-0 relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#86868b] w-4 h-4" />
+                  <input
+                    type="text"
+                    placeholder="Search for sustainable properties..."
+                    className="w-full pl-10 pr-3 py-3 bg-[#f5f5f7] rounded-xl text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-emerald-600/40 text-sm"
                   />
-                ))}
-              </div>
-              
-              {/* Floating Elements */}
-              <div className="absolute -top-2 -left-2 bg-gradient-to-r from-emerald-400 to-green-500 w-16 h-16 rounded-full flex items-center justify-center shadow-lg animate-bounce">
-                <Sprout className="w-6 h-6 text-white" />
-              </div>
-              
-              <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-teal-500 to-cyan-500 w-20 h-20 rounded-full flex items-center justify-center shadow-lg animate-pulse">
-                <span className="text-white text-xs font-bold text-center">Eco<br/>System</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ChevronDown className="w-8 h-8 text-white/60" />
-          </div>
-        </div>
-      </section>
-
-      {/* Card Details Modal */}
-      {selectedCard && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-800 border border-white/20 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" ref={cardModalRef}>
-            <div className="relative">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-slate-700 to-slate-800 p-8 rounded-t-3xl relative">
-                <button 
-                  onClick={() => setSelectedCard(null)}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all"
-                >
-                  ✕
+                </div>
+                <div className="relative">
+                  <select className="appearance-none bg-[#f5f5f7] rounded-xl pl-4 pr-9 py-3 text-[#1d1d1f] focus:outline-none focus:ring-2 focus:ring-emerald-600/40 text-sm w-full sm:w-44">
+                    <option value="">All Types</option>
+                    <option value="earthships">Earthships</option>
+                    <option value="mandala">Mandala Homes</option>
+                    <option value="eco-communes">Eco Communes</option>
+                    <option value="smart-apartments">Smart Apartments</option>
+                  </select>
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#86868b] w-4 h-4 pointer-events-none" />
+                </div>
+                <button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-xl font-semibold text-white transition-colors text-sm whitespace-nowrap">
+                  Search
                 </button>
-                
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${selectedCard.color} rounded-xl flex items-center justify-center`}>
-                    <selectedCard.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-bold text-white">{selectedCard.title}</h3>
-                    <p className="text-gray-300 text-lg">{selectedCard.subtitle}</p>
-                  </div>
-                </div>
               </div>
+            </div>
 
-              {/* Content */}
-              <div className="p-8">
-                <div className="mb-8">
-                  <h4 className="text-xl font-semibold text-white mb-4">Key Features</h4>
-                  <div className="space-y-3">
-                    {selectedCard.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                        <span className="text-gray-300">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#featured"
+                className="bg-[#1d1d1f] hover:bg-black px-6 py-3 rounded-full font-medium text-white transition-colors text-sm"
+              >
+                Explore properties
+              </a>
+              <a
+                href="/get-a-quote"
+                className="px-6 py-3 rounded-full font-medium text-[#1d1d1f] border border-black/10 hover:bg-black/5 transition-colors text-sm"
+              >
+                Get a quote
+              </a>
+            </div>
+          </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="flex-1 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg shadow-emerald-500/25">
-                    Learn More
-                  </button>
-                  <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300">
-                    Get Started
-                  </button>
-                </div>
+          {/* Right content — real photo, not a decoration */}
+          <div className="min-w-0">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+              <img
+                src="/images/homes/hero-courtyard-house.png"
+                alt="A traditional Indian courtyard home with a tiled roof and wooden verandah"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-5 sm:p-6">
+                <p className="text-white font-semibold text-sm sm:text-base">Courtyard Eco Home</p>
+                <p className="text-white/80 text-xs sm:text-sm">Andhra Pradesh · Solar Powered</p>
               </div>
             </div>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </section>
   );
 };
 
