@@ -35,6 +35,7 @@ const Hero = () => {
                     <option value="">All Types</option>
                     <option value="earthships">Earthships</option>
                     <option value="mandala">Mandala Homes</option>
+                    <option value="manduva">Manduva Homes</option>
                     <option value="eco-communes">Eco Communes</option>
                     <option value="smart-apartments">Smart Apartments</option>
                   </select>
@@ -72,8 +73,8 @@ const Hero = () => {
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-5 sm:p-6">
-                <p className="text-white font-semibold text-sm sm:text-base">Courtyard Eco Home</p>
-                <p className="text-white/80 text-xs sm:text-sm">Andhra Pradesh · Solar Powered</p>
+                <p className="text-white font-semibold text-sm sm:text-base">Manduva Courtyard Home</p>
+                <p className="text-white/80 text-xs sm:text-sm">Andhra Pradesh · Terracotta Roof</p>
               </div>
             </div>
           </div>

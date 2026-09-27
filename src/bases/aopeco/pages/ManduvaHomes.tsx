@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Search, Filter, MapPin, Star, Eye, Bed, Bath, Square, Zap, Droplets, TreePine, Recycle, ArrowRight } from 'lucide-react';
+import { Search, Filter, MapPin, Star, Eye, Bed, Bath, Square, Wind, Sun, TreePine, Home, ArrowRight } from 'lucide-react';
 import LocationFilter from '../../../components/LocationFilter';
 import useClickOutside from '../../../hooks/useClickOutside';
 
-const Earthships = () => {
+const ManduvaHomes = () => {
   const [selectedCity, setSelectedCity] = useState('Visakhapatnam');
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
   const [filters, setFilters] = useState({
@@ -18,96 +18,96 @@ const Earthships = () => {
     setSelectedProperty(null);
   });
 
-  const earthshipProperties = [
+  const manduvaProperties = [
     {
       id: 1,
-      title: "Traditional Earthship Villa",
-      location: "Lambasingi, Visakhapatnam",
+      title: "Heritage Manduva Courtyard House",
+      location: "Bheemili, Visakhapatnam",
       price: "₹75,00,000",
-      image: "/images/homes/earthship-eco-home.png",
-      rating: 4.9,
-      views: "1.8k",
+      image: "/images/homes/hero-courtyard-house.png",
+      rating: 4.8,
+      views: "4.9k",
       beds: 3,
       baths: 2,
-      area: "1,750 sq ft",
-      features: ["Recycled Materials", "Thermal Mass", "Food Production", "Off-Grid Living"],
-      sustainabilityScore: 97,
-      description: "Experience complete self-sufficiency in this traditional earthship built with recycled materials and natural systems."
+      area: "2,200 sq ft",
+      features: ["Central Courtyard", "Terracotta Roof Tiles", "Wooden Thinnai", "Natural Cooling"],
+      sustainabilityScore: 91,
+      description: "A restored manduva-style home built around a central open courtyard, with a red clay tiled roof and hand-carved wooden verandah pillars — traditional Andhra courtyard architecture designed for passive cooling."
     },
     {
       id: 2,
-      title: "Modern Earthship Eco-Home",
-      location: "Araku Valley, Visakhapatnam",
-      price: "₹85,00,000",
-      image: "/images/homes/earthship-eco-home.png",
-      rating: 4.8,
-      views: "2.3k",
+      title: "Anakapalle Manduva Villa",
+      location: "Anakapalle, Visakhapatnam",
+      price: "₹68,00,000",
+      image: "/images/homes/hero-courtyard-house.png",
+      rating: 4.7,
+      views: "3.6k",
       beds: 3,
-      baths: 2,
-      area: "1,850 sq ft",
-      features: ["Solar Power", "Rainwater Harvesting", "Natural Cooling", "Organic Garden"],
-      sustainabilityScore: 95,
-      description: "A stunning modern earthship that combines ancient wisdom with contemporary sustainable technology."
+      baths: 3,
+      area: "2,000 sq ft",
+      features: ["Nadumuttam Courtyard", "Verandah Seating", "Rainwater Collection", "Cross Ventilation"],
+      sustainabilityScore: 89,
+      description: "Classic manduva layout with rooms wrapped around an open-to-sky courtyard, letting light and air move through the home naturally without mechanical cooling."
     },
     {
       id: 3,
-      title: "Earthship Community Home",
-      location: "Paderu, Visakhapatnam",
-      price: "₹65,00,000",
-      image: "/images/homes/earthship-eco-home.png",
-      rating: 4.7,
-      views: "1.5k",
-      beds: 2,
-      baths: 2,
-      area: "1,400 sq ft",
-      features: ["Community Living", "Shared Resources", "Zero Waste", "Natural Building"],
-      sustainabilityScore: 94,
-      description: "Join a sustainable earthship community focused on shared resources and environmental harmony."
+      title: "Madhurawada Tiled Roof Manduva",
+      location: "Madhurawada, Visakhapatnam",
+      price: "₹92,00,000",
+      image: "/images/homes/hero-courtyard-house.png",
+      rating: 4.9,
+      views: "5.4k",
+      beds: 4,
+      baths: 3,
+      area: "2,600 sq ft",
+      features: ["Mangalore Tile Roof", "Wooden Pillar Verandah", "Tulsi Courtyard", "Lime Plaster Walls"],
+      sustainabilityScore: 93,
+      description: "A larger family manduva home with a stepped courtyard, breathable lime-plastered walls, and a deep verandah shading the rooms from direct sun through the day."
     },
     {
       id: 4,
-      title: "Luxury Earthship Retreat",
-      location: "Borra Caves, Visakhapatnam",
-      price: "₹1,20,00,000",
-      image: "/images/homes/earthship-eco-home.png",
-      rating: 4.9,
-      views: "3.2k",
-      beds: 4,
-      baths: 3,
-      area: "2,200 sq ft",
-      features: ["Luxury Finishes", "Advanced Systems", "Spa Features", "Guest Quarters"],
-      sustainabilityScore: 96,
-      description: "Luxury earthship retreat with premium amenities while maintaining complete sustainability."
+      title: "Rushikonda Coastal Manduva",
+      location: "Rushikonda, Visakhapatnam",
+      price: "₹58,00,000",
+      image: "/images/homes/hero-courtyard-house.png",
+      rating: 4.6,
+      views: "2.8k",
+      beds: 2,
+      baths: 2,
+      area: "1,500 sq ft",
+      features: ["Compact Courtyard", "Terracotta Flooring", "Wooden Doorframes", "Salt-Air Resistant Roof"],
+      sustainabilityScore: 87,
+      description: "A smaller coastal manduva home adapted for the sea breeze, with a compact central courtyard and terracotta detailing that keeps interiors naturally cool through the humid months."
     },
     {
       id: 5,
-      title: "Compact Earthship Studio",
-      location: "Chintapalli, Visakhapatnam",
-      price: "₹45,00,000",
-      image: "/images/homes/earthship-eco-home.png",
-      rating: 4.6,
-      views: "1.2k",
-      beds: 1,
-      baths: 1,
-      area: "800 sq ft",
-      features: ["Compact Design", "Efficient Systems", "Low Maintenance", "Starter Home"],
-      sustainabilityScore: 92,
-      description: "Perfect starter earthship for those beginning their sustainable living journey."
+      title: "Pendurthi Ancestral Manduva",
+      location: "Pendurthi, Visakhapatnam",
+      price: "₹1,05,00,000",
+      image: "/images/homes/hero-courtyard-house.png",
+      rating: 4.9,
+      views: "6.3k",
+      beds: 5,
+      baths: 4,
+      area: "3,400 sq ft",
+      features: ["Grand Courtyard", "Carved Wooden Pillars", "Well Water System", "Joint-Family Wings"],
+      sustainabilityScore: 94,
+      description: "A grand ancestral-style manduva home restored for a joint family, with a large central courtyard, a working well, and wings of rooms opening onto shared verandahs."
     },
     {
       id: 6,
-      title: "Family Earthship Compound",
-      location: "Koyyuru, Visakhapatnam",
-      price: "₹1,50,00,000",
-      image: "/images/homes/earthship-eco-home.png",
-      rating: 4.8,
-      views: "2.8k",
-      beds: 5,
-      baths: 4,
-      area: "3,000 sq ft",
-      features: ["Multi-Generational", "Workshop Space", "Large Gardens", "Storage Areas"],
-      sustainabilityScore: 98,
-      description: "Spacious earthship compound designed for large families with extensive sustainable systems."
+      title: "Sabbavaram Farmstead Manduva",
+      location: "Sabbavaram, Visakhapatnam",
+      price: "₹48,00,000",
+      image: "/images/homes/hero-courtyard-house.png",
+      rating: 4.5,
+      views: "2.1k",
+      beds: 2,
+      baths: 1,
+      area: "1,300 sq ft",
+      features: ["Farmstead Courtyard", "Clay Tile Roof", "Cattle-Shed Adjoining", "Kitchen Garden"],
+      sustainabilityScore: 85,
+      description: "A modest working farmstead manduva home just outside the city, with a small courtyard, attached kitchen garden, and the same tiled-roof cooling principles as its city cousins."
     }
   ];
 
@@ -126,11 +126,11 @@ const Earthships = () => {
     }));
   };
 
-  const earthshipFeatures = [
-    { icon: <Recycle className="w-5 h-5" />, title: "Recycled Materials", description: "Built using recycled tires, bottles, and cans for sustainable construction" },
-    { icon: <Zap className="w-5 h-5" />, title: "Solar Power", description: "Complete energy independence through solar panels and battery systems" },
-    { icon: <Droplets className="w-5 h-5" />, title: "Water Systems", description: "Rainwater harvesting and greywater recycling for water independence" },
-    { icon: <TreePine className="w-5 h-5" />, title: "Food Production", description: "Integrated greenhouse and garden systems for fresh food year-round" }
+  const manduvaFeatures = [
+    { icon: <Home className="w-5 h-5" />, title: "Central Courtyard", description: "Rooms open onto a shared open-to-sky courtyard (nadumuttam) that lights and ventilates the whole home" },
+    { icon: <Sun className="w-5 h-5" />, title: "Terracotta Roofing", description: "Traditional clay tile roofs that shed heat far better than concrete slabs in the Vizag climate" },
+    { icon: <Wind className="w-5 h-5" />, title: "Passive Cooling", description: "Deep wooden verandahs (thinnai) and cross-ventilation keep interiors cool without air conditioning" },
+    { icon: <TreePine className="w-5 h-5" />, title: "Natural Materials", description: "Lime-plastered walls, wood pillars, and terracotta flooring — breathable, low-impact, and built to last" }
   ];
 
   return (
@@ -140,25 +140,26 @@ const Earthships = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="min-w-0 space-y-6">
-              <p className="text-sm font-medium text-emerald-600">Off-Grid Living</p>
+              <p className="text-sm font-medium text-emerald-600">Traditional Courtyard Architecture</p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05]">
-                <span className="text-emerald-600">Earthship</span> homes in Visakhapatnam
+                <span className="text-emerald-600">Manduva</span> homes in Visakhapatnam
               </h1>
               <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed max-w-xl">
-                Self-sufficient homes built with recycled materials, featuring natural temperature
-                regulation, renewable energy systems, and food production for complete off-grid living.
+                Traditional Andhra courtyard homes built around an open central manduva, with
+                terracotta tile roofs and wooden verandahs designed for passive cooling —
+                heritage architecture, restored for modern living.
               </p>
             </div>
             <div className="min-w-0">
               <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
                 <img
-                  src="/images/homes/earthship-eco-home.png"
-                  alt="A rammed-earth earthship home with solar panels in a Rajasthan-style rural setting"
+                  src="/images/homes/hero-courtyard-house.png"
+                  alt="A traditional Indian manduva courtyard home with a tiled roof and wooden verandah"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-5 sm:p-6">
-                  <p className="text-white font-semibold text-sm sm:text-base">Off-Grid, On-Purpose</p>
-                  <p className="text-white/80 text-xs sm:text-sm">Solar Powered · Rainwater Harvested</p>
+                  <p className="text-white font-semibold text-sm sm:text-base">Manduva Courtyard Living</p>
+                  <p className="text-white/80 text-xs sm:text-sm">Terracotta Roof · Central Courtyard</p>
                 </div>
               </div>
             </div>
@@ -179,7 +180,7 @@ const Earthships = () => {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#86868b] w-4 h-4" />
                 <input
                   type="text"
-                  placeholder="Search earthship properties..."
+                  placeholder="Search manduva properties..."
                   className="w-full pl-10 pr-3 py-3 bg-[#f5f5f7] rounded-xl text-[#1d1d1f] placeholder-[#86868b] focus:outline-none focus:ring-2 focus:ring-emerald-600/40 text-sm"
                 />
               </div>
@@ -190,9 +191,9 @@ const Earthships = () => {
                 onChange={(e) => handleFilterChange('priceRange', e.target.value)}
               >
                 <option value="">All Prices</option>
-                <option value="low">Under ₹50L</option>
-                <option value="mid">₹50L - ₹1Cr</option>
-                <option value="high">Above ₹1Cr</option>
+                <option value="low">Under ₹60L</option>
+                <option value="mid">₹60L - ₹90L</option>
+                <option value="high">Above ₹90L</option>
               </select>
 
               <select
@@ -201,32 +202,34 @@ const Earthships = () => {
                 onChange={(e) => handleFilterChange('location', e.target.value)}
               >
                 <option value="">All Locations</option>
-                <option value="Lambasingi">Lambasingi</option>
-                <option value="Araku Valley">Araku Valley</option>
-                <option value="Paderu">Paderu</option>
-                <option value="Borra Caves">Borra Caves</option>
+                <option value="Bheemili">Bheemili</option>
+                <option value="Anakapalle">Anakapalle</option>
+                <option value="Madhurawada">Madhurawada</option>
+                <option value="Rushikonda">Rushikonda</option>
+                <option value="Pendurthi">Pendurthi</option>
+                <option value="Sabbavaram">Sabbavaram</option>
               </select>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What makes earthships special */}
+      {/* What makes manduva homes special */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-2xl mb-12 sm:mb-16">
-            <p className="text-sm font-medium text-emerald-600 mb-3">Why Earthships</p>
+            <p className="text-sm font-medium text-emerald-600 mb-3">Why Manduva Homes</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] mb-4 tracking-tight">
-              What makes earthships special?
+              What makes manduva homes special?
             </h2>
             <p className="text-lg text-[#6e6e73] leading-relaxed">
-              Completely self-sufficient homes that provide their own power, water, sewage
-              treatment, and food production while maintaining comfortable living temperatures.
+              Generations of Andhra courtyard architecture, built around a simple idea: an open
+              central manduva that lights, cools, and ventilates the whole home without machines.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
-            {earthshipFeatures.map((feature, index) => (
+            {manduvaFeatures.map((feature, index) => (
               <div key={index} className="group bg-white hover:bg-[#f5f5f7] transition-colors p-6 min-w-0">
                 <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600">
                   {feature.icon}
@@ -244,7 +247,7 @@ const Earthships = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">
-              {earthshipProperties.length} earthship properties available
+              {manduvaProperties.length} manduva properties available
             </h2>
             <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-[#1d1d1f] border border-black/10 hover:bg-black/5 transition-colors text-sm w-fit">
               <Filter className="w-4 h-4" />
@@ -253,7 +256,7 @@ const Earthships = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {earthshipProperties.map((property) => (
+            {manduvaProperties.map((property) => (
               <div
                 key={property.id}
                 className="group bg-white rounded-2xl overflow-hidden border border-black/5 hover:shadow-xl transition-shadow cursor-pointer min-w-0"
@@ -333,18 +336,18 @@ const Earthships = () => {
           <div className="max-w-2xl mb-8 sm:mb-10">
             <p className="text-sm font-medium text-emerald-400 mb-3">Explore more</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
-              Looking for a different kind of sustainable home?
+              Looking for a different feel?
             </h2>
             <p className="text-white/60 leading-relaxed">
-              Earthships are just one way to live off-grid. Browse the rest of the collection.
+              Manduva homes are one path to sustainable living. Browse the rest of the collection.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
+            <a href="/earthships" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
+              Earthships <ArrowRight className="w-4 h-4" />
+            </a>
             <a href="/mandala-homes" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
               Mandala Homes <ArrowRight className="w-4 h-4" />
-            </a>
-            <a href="/manduva-homes" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
-              Manduva Homes <ArrowRight className="w-4 h-4" />
             </a>
             <a href="/eco-communes" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
               Eco Communes <ArrowRight className="w-4 h-4" />
@@ -376,7 +379,7 @@ const Earthships = () => {
                 </button>
                 <div className="absolute bottom-4 left-4 sm:left-6">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">{selectedProperty.title}</h2>
-                  <p className="text-white/80 text-base sm:text-lg">Earthship Home</p>
+                  <p className="text-white/80 text-base sm:text-lg">Manduva Home</p>
                 </div>
                 <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-xl shadow-sm">
                   <span className="text-[#1d1d1f] font-bold text-lg sm:text-xl">{selectedProperty.price}</span>
@@ -416,7 +419,7 @@ const Earthships = () => {
                     </div>
 
                     <div>
-                      <h4 className="text-base font-semibold text-[#1d1d1f] mb-3">Earthship Features</h4>
+                      <h4 className="text-base font-semibold text-[#1d1d1f] mb-3">Manduva Features</h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {selectedProperty.features.map((feature: string, idx: number) => (
                           <div key={idx} className="flex items-center gap-3 bg-[#f5f5f7] p-3 rounded-lg min-w-0">
@@ -453,24 +456,24 @@ const Earthships = () => {
                       <div className="space-y-3">
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2 min-w-0">
-                            <Zap className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                            <span className="text-[#6e6e73] text-sm truncate">Energy Independence</span>
+                            <Wind className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                            <span className="text-[#6e6e73] text-sm truncate">Passive Cooling</span>
                           </div>
-                          <span className="text-[#1d1d1f] font-medium text-sm flex-shrink-0">100%</span>
+                          <span className="text-[#1d1d1f] font-medium text-sm flex-shrink-0">93%</span>
                         </div>
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2 min-w-0">
-                            <Droplets className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                            <span className="text-[#6e6e73] text-sm truncate">Water Self-Sufficiency</span>
+                            <Sun className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                            <span className="text-[#6e6e73] text-sm truncate">Natural Light</span>
                           </div>
-                          <span className="text-[#1d1d1f] font-medium text-sm flex-shrink-0">95%</span>
+                          <span className="text-[#1d1d1f] font-medium text-sm flex-shrink-0">96%</span>
                         </div>
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2 min-w-0">
                             <TreePine className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                            <span className="text-[#6e6e73] text-sm truncate">Food Production</span>
+                            <span className="text-[#6e6e73] text-sm truncate">Natural Materials</span>
                           </div>
-                          <span className="text-[#1d1d1f] font-medium text-sm flex-shrink-0">80%</span>
+                          <span className="text-[#1d1d1f] font-medium text-sm flex-shrink-0">90%</span>
                         </div>
                       </div>
                     </div>
@@ -497,4 +500,4 @@ const Earthships = () => {
   );
 };
 
-export default Earthships;
+export default ManduvaHomes;

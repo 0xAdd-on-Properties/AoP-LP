@@ -351,6 +351,9 @@ const EcoCommunes = () => {
             <a href="/mandala-homes" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
               Mandala Homes <ArrowRight className="w-4 h-4" />
             </a>
+            <a href="/manduva-homes" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
+              Manduva Homes <ArrowRight className="w-4 h-4" />
+            </a>
             <a href="/smart-apartments" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
               Smart Apartments <ArrowRight className="w-4 h-4" />
             </a>

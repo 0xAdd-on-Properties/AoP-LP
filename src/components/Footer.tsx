@@ -18,6 +18,7 @@ const Footer = () => {
       "Rent Properties", 
       "Earthships",
       "Mandala Homes",
+      "Manduva Homes",
       "Eco Communes",
       "Virtual Tours"
     ],

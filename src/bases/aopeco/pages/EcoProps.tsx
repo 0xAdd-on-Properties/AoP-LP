@@ -89,18 +89,18 @@ const EcoProps = () => {
     },
     {
       id: 5,
-      title: "Bheemili Tiny Home",
-      type: "Tiny Home",
+      title: "Bheemili Manduva Courtyard House",
+      type: "Manduva Home",
       location: "Bheemili, Visakhapatnam",
-      price: "₹25 Lakhs",
+      price: "₹75 Lakhs",
       image: "/images/homes/hero-courtyard-house.png",
-      bedrooms: 1,
-      bathrooms: 1,
-      area: "600 sq ft",
-      features: ["Minimalist Design", "Solar Power", "Composting Toilet", "Vertical Garden"],
-      sustainability: "Minimal Footprint",
-      rating: 4.6,
-      link: "/ecoprops"
+      bedrooms: 3,
+      bathrooms: 2,
+      area: "2200 sq ft",
+      features: ["Central Courtyard", "Terracotta Roof Tiles", "Wooden Thinnai", "Natural Cooling"],
+      sustainability: "Passive Cooling",
+      rating: 4.8,
+      link: "/manduva-homes"
     },
     {
       id: 6,
@@ -115,13 +115,14 @@ const EcoProps = () => {
       features: ["Complete Independence", "Wind Power", "Water Wells", "Desert Garden"],
       sustainability: "Fully Sustainable",
       rating: 4.8,
-      link: "/ecoprops"
+      link: "/earthships"
     }
   ];
 
   const ecoPropertyTypes = [
     { icon: <Home className="w-5 h-5" />, title: "Earthships", description: "Self-sufficient homes built with natural and recycled materials", count: "25+ Properties", link: "/earthships" },
     { icon: <Building className="w-5 h-5" />, title: "Mandala Homes", description: "Sacred geometry-inspired sustainable living spaces", count: "18+ Properties", link: "/mandala-homes" },
+    { icon: <Home className="w-5 h-5" />, title: "Manduva Homes", description: "Traditional Andhra courtyard homes with terracotta roofs", count: "14+ Properties", link: "/manduva-homes" },
     { icon: <TreePine className="w-5 h-5" />, title: "Eco Communes", description: "Community-based sustainable living communities", count: "12+ Properties", link: "/eco-communes" },
     { icon: <Leaf className="w-5 h-5" />, title: "Smart Apartments", description: "Technology-integrated sustainable apartment living", count: "35+ Properties", link: "/smart-apartments" }
   ];
@@ -220,7 +221,7 @@ const EcoProps = () => {
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-5 sm:p-6">
                   <p className="text-white font-semibold text-sm sm:text-base">Every Kind of Sustainable Home</p>
-                  <p className="text-white/80 text-xs sm:text-sm">Earthships · Mandala Homes · Communes · Smart Apartments</p>
+                  <p className="text-white/80 text-xs sm:text-sm">Earthships · Mandala · Manduva · Communes · Smart Apartments</p>
                 </div>
               </div>
             </div>

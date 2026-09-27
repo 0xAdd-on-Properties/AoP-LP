@@ -36,7 +36,7 @@ const AoPmarkets = () => {
     {
       icon: <Leaf className="w-5 h-5" />,
       title: "Sustainable Properties",
-      description: "Earthships, Mandala Homes, Eco Communes, and Smart Apartments",
+      description: "Earthships, Mandala Homes, Manduva Homes, Eco Communes, and Smart Apartments",
       items: "8,500+ eco-properties",
       gradient: "from-emerald-600 to-green-700",
       image: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=400",

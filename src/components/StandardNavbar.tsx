@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { Search, User, ChevronDown, Home, Leaf, Package, Box, Building, Wrench, Paintbrush, Calculator, FileText, Shield, Menu, X } from 'lucide-react';
+import { Search, User, ChevronDown, Home, Leaf, Package, Box, Building, Wrench, Paintbrush, Calculator, FileText, Shield, Menu, X, ShoppingCart } from 'lucide-react';
 import { useUser } from '@hexclave/next';
 
 const StandardNavbar = () => {
@@ -47,6 +47,7 @@ const StandardNavbar = () => {
   const ecoPropsItems = [
     { name: 'Earthships', link: '/earthships', icon: <Home className="w-4 h-4" /> },
     { name: 'Mandala Homes', link: '/mandala-homes', icon: <Building className="w-4 h-4" /> },
+    { name: 'Manduva Homes', link: '/manduva-homes', icon: <Home className="w-4 h-4" /> },
     { name: 'Eco Communes', link: '/eco-communes', icon: <Leaf className="w-4 h-4" /> },
     { name: 'Smart Apartments', link: '/smart-apartments', icon: <Box className="w-4 h-4" /> }
   ];
@@ -163,6 +164,14 @@ const StandardNavbar = () => {
               )}
             </div>
 
+            <Link
+              href="/cart"
+              aria-label="Cart"
+              className="w-9 h-9 flex items-center justify-center rounded-full text-[#1d1d1f]/70 hover:text-[#1d1d1f] hover:bg-black/5 transition-colors duration-200"
+            >
+              <ShoppingCart className="w-4 h-4" />
+            </Link>
+
             <div className="relative" ref={userMenuRef}>
               <button
                 onClick={() => setShowUserMenu(!showUserMenu)}
@@ -172,7 +181,7 @@ const StandardNavbar = () => {
                 <User className="w-4 h-4" />
               </button>
               {showUserMenu && (
-                <div className="absolute top-full right-0 mt-3 w-52 bg-white/95 [backdrop-filter:blur(20px)_saturate(180%)] border border-black/5 rounded-2xl shadow-xl py-2 z-10">
+                <div className="absolute top-full right-0 mt-3 w-56 bg-white/95 [backdrop-filter:blur(20px)_saturate(180%)] border border-black/5 rounded-2xl shadow-xl py-2 z-10 max-h-[70vh] overflow-y-auto">
                   {user ? (
                     <>
                       <div className="px-4 py-2.5 text-[#1d1d1f] text-sm font-medium border-b border-black/5 truncate">
@@ -180,6 +189,15 @@ const StandardNavbar = () => {
                       </div>
                       <Link href="/dashboard/properties" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
                         My Listings
+                      </Link>
+                      <Link href="/dashboard/projects" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                        My Projects
+                      </Link>
+                      <Link href="/dashboard/materials" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                        My SKUs
+                      </Link>
+                      <Link href="/dashboard/orders" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                        My Orders
                       </Link>
                       <Link href="/dashboard/quotes" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
                         My Quote Requests

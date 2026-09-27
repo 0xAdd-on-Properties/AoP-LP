@@ -343,6 +343,9 @@ const MandalaHomes = () => {
             <a href="/earthships" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
               Earthships <ArrowRight className="w-4 h-4" />
             </a>
+            <a href="/manduva-homes" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
+              Manduva Homes <ArrowRight className="w-4 h-4" />
+            </a>
             <a href="/eco-communes" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-white/10 hover:bg-white/15 transition-colors text-sm">
               Eco Communes <ArrowRight className="w-4 h-4" />
             </a>
