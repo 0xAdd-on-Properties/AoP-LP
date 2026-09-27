@@ -11,5 +11,11 @@ export const config: HexclaveConfig = {
     allowSignUp: true,
     password: { allowSignIn: true },
     otp: { allowSignIn: true },
+    oauth: {
+      accountMergeStrategy: "link_method",
+      providers: {
+        google: { type: "google", allowSignIn: true, allowConnectedAccounts: true },
+      },
+    },
   },
 };
