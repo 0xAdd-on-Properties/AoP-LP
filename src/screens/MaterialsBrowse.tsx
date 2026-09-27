@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useStackApp, useUser } from '@hexclave/next';
 import { Search, ShoppingCart, MapPin } from 'lucide-react';
 import StandardNavbar from '../components/StandardNavbar';
+import LocationMapWidget, { WORLD_POINTS, type MapPoint } from '../components/LocationMapWidget';
 
 type Sku = {
   id: number;
@@ -60,6 +61,26 @@ export default function MaterialsBrowse() {
     );
   }, [skus, query]);
 
+  const originPoints = useMemo<MapPoint[]>(() => {
+    if (!filtered || filtered.length === 0) return [];
+    const seen = new Set<string>();
+    const points: MapPoint[] = [];
+    if (filtered.some((s) => s.made_in_india)) {
+      seen.add('india');
+      points.push({ ...WORLD_POINTS.india, highlight: true });
+    }
+    for (const s of filtered) {
+      if (s.made_in_india || !s.origin_country) continue;
+      const key = s.origin_country.trim().toLowerCase();
+      const match = Object.entries(WORLD_POINTS).find(([k, v]) => k === key || v.label.toLowerCase() === key);
+      const pointKey = match?.[0] ?? key;
+      if (seen.has(pointKey) || !match) continue;
+      seen.add(pointKey);
+      points.push({ ...match[1] });
+    }
+    return points;
+  }, [filtered]);
+
   const handleAddToCart = async (skuId: number) => {
     if (!user) {
       router.push('/login');
@@ -85,6 +106,7 @@ export default function MaterialsBrowse() {
   return (
     <div className="min-h-screen bg-[#f5f5f7]">
       <StandardNavbar />
+      <LocationMapWidget title="Where these are from" points={originPoints} mode="world" />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-16">
         <p className="text-sm font-medium text-emerald-600 mb-3">Building Materials</p>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] tracking-tight mb-4">
