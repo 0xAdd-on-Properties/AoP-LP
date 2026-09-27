@@ -7,14 +7,15 @@ export async function POST(req: NextRequest) {
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   const sql = neon(process.env.DATABASE_URL!);
-  await sql`
+  const rows = await sql`
     INSERT INTO users (stack_user_id, email, display_name)
     VALUES (${user.id}, ${user.primaryEmail ?? null}, ${user.displayName ?? null})
     ON CONFLICT (stack_user_id) DO UPDATE
       SET email        = EXCLUDED.email,
           display_name = EXCLUDED.display_name,
           updated_at   = NOW()
+    RETURNING role
   `;
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, role: rows[0]?.role ?? null });
 }
