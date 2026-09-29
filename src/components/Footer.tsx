@@ -1,12 +1,12 @@
 import React from 'react';
-import { 
-  Leaf, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
-  Mail, 
-  Phone, 
+import Link from 'next/link';
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
   MapPin,
   ArrowRight
 } from 'lucide-react';
@@ -15,12 +15,15 @@ const Footer = () => {
   const footerLinks = {
     "Properties": [
       "Buy Properties",
-      "Rent Properties", 
+      "Rent Properties",
       "Earthships",
       "Mandala Homes",
       "Manduva Homes",
       "Eco Communes",
-      "Virtual Tours"
+      "Virtual Tours",
+      "Top Builders",
+      "Top Architects",
+      "Mortgage Financing"
     ],
     "Marketplace": [
       "Sustainable Materials",
@@ -48,6 +51,22 @@ const Footer = () => {
       "Research & Development",
       "Sustainability Report"
     ]
+  };
+
+  const linkHrefs: Record<string, string> = {
+    "Top Builders": "/aop",
+    "Top Architects": "/architects",
+    "Mortgage Financing": "/mortgage-financing",
+    "Buy Properties": "/buy",
+    "Rent Properties": "/rent",
+    "Earthships": "/earthships",
+    "Mandala Homes": "/mandala-homes",
+    "Manduva Homes": "/manduva-homes",
+    "Eco Communes": "/eco-communes",
+    "Virtual Tours": "/virtual-tours",
+    "About Us": "/about-us",
+    "Our Vision": "/vision",
+    "Careers": "/careers",
   };
 
   const socialLinks = [
@@ -91,12 +110,10 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="sm:col-span-2 lg:col-span-2 min-w-0">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-emerald-400" />
-              </div>
+              <img src="/brand/logo.webp" alt="Add On Properties" className="w-10 h-10 rounded-xl object-cover" />
               <div>
                 <h2 className="text-xl font-bold text-white">
-                  AddonProp
+                  Add On Properties
                 </h2>
                 <p className="text-xs text-white/50">Sustainable Living Solutions</p>
               </div>
@@ -147,12 +164,12 @@ const Footer = () => {
               <ul className="space-y-2.5">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <a
-                      href="#"
+                    <Link
+                      href={linkHrefs[link] ?? "#"}
                       className="text-white/50 hover:text-white text-sm transition-colors"
                     >
                       {link}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -166,7 +183,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-white/50 text-sm text-center md:text-left">
-              © 2025 AddonProp. All rights reserved. Built with love by <a href="https://studio.sted.space" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors">Studio.sted.space</a>
+              © 2025 Add On Properties. All rights reserved. Built with love by <a href="https://studio.sted.space" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors">Studio.sted.space</a>
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">

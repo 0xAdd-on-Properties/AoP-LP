@@ -55,7 +55,7 @@ export default function MyProjects() {
       }
     };
     void load();
-  }, [app, user]);
+  }, [user?.id, app]);
 
   const handleDelete = async (id: number) => {
     if (!confirm('Delete this project?')) return;

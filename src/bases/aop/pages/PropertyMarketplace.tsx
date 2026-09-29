@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Facebook, Instagram, Linkedin, Youtube, Twitter, Building } from 'lucide-react';
+import { Search, Heart, MapPin, Bed, Bath, Square, ChevronLeft, ChevronRight, Building } from 'lucide-react';
 import StandardNavbar from '../../../components/StandardNavbar';
+import Footer from '../../../components/Footer';
 import LocationFilter from '../../../components/LocationFilter';
 import useClickOutside from '../../../hooks/useClickOutside';
 
@@ -90,6 +91,38 @@ const PropertyMarketplace = () => {
       price: "₹30L - 50L",
       type: "2, 3 BHK",
       image: "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 3,
+      title: "Kondapalli Garden Residency",
+      location: "Vijayawada",
+      price: "₹32L - 55L",
+      type: "2, 3 BHK",
+      image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 4,
+      title: "Jubilee Hills Sustainable Homes",
+      location: "Hyderabad",
+      price: "₹60L - 95L",
+      type: "3, 4 BHK",
+      image: "https://images.pexels.com/photos/32037836/pexels-photo-32037836.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 5,
+      title: "Seaside Green Enclave",
+      location: "Visakhapatnam",
+      price: "₹40L - 68L",
+      type: "2, 3 BHK",
+      image: "https://images.pexels.com/photos/36392046/pexels-photo-36392046.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: 6,
+      title: "Araku Hillside Farmstead",
+      location: "Araku Valley",
+      price: "₹28L - 42L",
+      type: "Farmhouse Plots",
+      image: "https://images.pexels.com/photos/34953685/pexels-photo-34953685.jpeg?auto=compress&cs=tinysrgb&w=400"
     }
   ];
 
@@ -117,7 +150,7 @@ const PropertyMarketplace = () => {
     { name: "Raghu Varma", properties: 18, experience: "3 years", image: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=100" },
     { name: "Priya Sharma", properties: 31, experience: "7 years", image: "https://images.pexels.com/photos/1040882/pexels-photo-1040882.jpeg?auto=compress&cs=tinysrgb&w=100" },
     { name: "Rajesh Kumar", properties: 15, experience: "4 years", image: "https://images.pexels.com/photos/1040883/pexels-photo-1040883.jpeg?auto=compress&cs=tinysrgb&w=100" },
-    { name: "Sneha Patel", properties: 22, experience: "6 years", image: "https://images.pexels.com/photos/1040884/pexels-photo-1040884.jpeg?auto=compress&cs=tinysrgb&w=100" },
+    { name: "Sneha Patel", properties: 22, experience: "6 years", image: "https://images.pexels.com/photos/31302931/pexels-photo-31302931.jpeg?auto=compress&cs=tinysrgb&w=100" },
     { name: "Vikram Singh", properties: 19, experience: "5 years", image: "https://images.pexels.com/photos/1040885/pexels-photo-1040885.jpeg?auto=compress&cs=tinysrgb&w=100" }
   ];
 
@@ -231,7 +264,7 @@ const PropertyMarketplace = () => {
       {/* Main Content */}
       <main className="bg-white">
         {/* Property Categories */}
-        <div className="border-b border-black/5 sticky top-0 z-10 bg-white/90 backdrop-blur-sm">
+        <div className="border-b border-black/5 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="flex overflow-x-auto py-3 sm:py-4 gap-2 sm:gap-3">
               {propertyCategories.map((category) => (
@@ -593,6 +626,16 @@ const PropertyMarketplace = () => {
                 <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2">Property Tokenization</h3>
                 <p className="text-[#6e6e73] text-sm leading-relaxed">Invest in fractional real estate ownership through our RWA tokenization platform.</p>
               </div>
+
+              <Link href="/materials-marketplace?category=fencing" className="bg-white p-6 sm:p-8 min-w-0 block group hover:bg-emerald-50/50 transition-colors">
+                <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2 group-hover:text-emerald-600 transition-colors">Fencing</h3>
+                <p className="text-[#6e6e73] text-sm leading-relaxed">Compound walls, boundary fencing, and gates sourced from vetted local suppliers. <span className="text-emerald-600 font-medium">Browse suppliers →</span></p>
+              </Link>
+
+              <Link href="/get-a-quote" className="bg-white p-6 sm:p-8 min-w-0 block group hover:bg-emerald-50/50 transition-colors">
+                <h3 className="text-lg font-semibold text-[#1d1d1f] mb-2 group-hover:text-emerald-600 transition-colors">Safeguard Your Home</h3>
+                <p className="text-[#6e6e73] text-sm leading-relaxed">CCTV, smart locks, and alarm systems to keep your property secure. <span className="text-emerald-600 font-medium">Get a quote →</span></p>
+              </Link>
             </div>
           </div>
         </section>
@@ -700,8 +743,15 @@ const PropertyMarketplace = () => {
               </div>
 
               <div className="min-w-0">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-emerald-600 flex items-center justify-center">
-                  <span className="text-white font-semibold">Earthship Construction</span>
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                  <img
+                    src="/images/homes/earthship-eco-home.png"
+                    alt="A self-sufficient earthship home built from recycled and natural materials"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-5">
+                    <span className="text-white font-semibold">Earthship Construction</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -742,7 +792,9 @@ const PropertyMarketplace = () => {
               <div>
                 <h3 className="font-semibold text-[#1d1d1f] mb-4">Builder Search</h3>
                 <div className="space-y-2">
-                  {['Top Builders', 'New Projects', 'Under Construction', 'Ready to Move', 'RERA Approved'].map((builder) => (
+                  <a href="#" className="block text-[#6e6e73] hover:text-emerald-600 text-sm transition-colors">Top Builders</a>
+                  <Link href="/architects" className="block text-[#6e6e73] hover:text-emerald-600 text-sm transition-colors">Top Architects</Link>
+                  {['New Projects', 'Under Construction', 'Ready to Move', 'RERA Approved'].map((builder) => (
                     <a key={builder} href="#" className="block text-[#6e6e73] hover:text-emerald-600 text-sm transition-colors">
                       {builder}
                     </a>
@@ -765,93 +817,7 @@ const PropertyMarketplace = () => {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-[#1d1d1f] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">AoP - AddonProp</h2>
-            <p className="text-white/60 max-w-xl mx-auto">
-              Your trusted partner in real estate. From property search to sustainable living, we've got you covered.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="font-semibold mb-3 text-sm">Company</h3>
-              <div className="space-y-2 text-sm">
-                {['Careers', 'About Us', 'Our Team', 'Terms', 'Refund Policy', 'Privacy Policy', 'Contact Us'].map((link) => (
-                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-semibold mb-3 text-sm">Partner With Us</h3>
-              <div className="space-y-2 text-sm">
-                {['Developers', 'Individual Space', 'Banks', 'Architects'].map((link) => (
-                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-semibold mb-3 text-sm">Explore</h3>
-              <div className="space-y-2 text-sm">
-                {['News', 'Loans', 'Rental', 'Investment'].map((link) => (
-                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-semibold mb-3 text-sm">Mobile App</h3>
-              <div className="space-y-2 text-sm">
-                <p className="text-white/60">Download our mobile app for better experience</p>
-                <div className="flex space-x-2 mb-4">
-                  <div className="w-20 h-8 bg-white/10 rounded flex items-center justify-center">
-                    <span className="text-xs">App Store</span>
-                  </div>
-                  <div className="w-20 h-8 bg-white/10 rounded flex items-center justify-center">
-                    <span className="text-xs">Play Store</span>
-                  </div>
-                </div>
-                <div className="flex space-x-4">
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Facebook className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Instagram className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Youtube className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Twitter className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 pt-6 border-t border-white/10 text-center">
-            <p className="text-white/50 text-sm">
-              © 2025 AddonProp. All rights reserved. Built with love by{' '}
-              <a href="https://studio.sted.space" className="text-white/70 hover:text-white transition-colors underline">
-                studio.sted.space
-              </a>
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Property Details Modal */}
       {isModalOpen && selectedProperty && (

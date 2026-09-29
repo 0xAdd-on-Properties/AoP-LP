@@ -63,11 +63,22 @@ const PropertyTypes = () => {
       features: ["Climate Control", "Air Purification", "Aquaponics", "360° Views"],
       rating: 4.9,
       views: "3.2k"
+    },
+    {
+      id: 5,
+      title: "Manduva Homes",
+      subtitle: "Traditional Andhra Courtyard Living",
+      description: "Restored manduva-style homes built around a central open courtyard, with terracotta tiled roofs and hand-carved wooden verandahs designed for passive cooling.",
+      image: "/images/homes/hero-courtyard-house.png",
+      price: "₹55,00,000",
+      features: ["Central Courtyard", "Terracotta Roofing", "Passive Cooling", "Heritage Design"],
+      rating: 4.8,
+      views: "4.1k"
     }
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#f5f5f7]">
+    <section id="rail-properties" className="py-16 sm:py-24 bg-[#f5f5f7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-2xl mb-12 sm:mb-16">
           <p className="text-sm font-medium text-emerald-600 mb-3">Property Collections</p>

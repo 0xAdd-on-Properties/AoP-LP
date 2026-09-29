@@ -37,7 +37,7 @@ export default function MyQuoteRequests() {
       }
     };
     void load();
-  }, [app, user]);
+  }, [user?.id, app]);
 
   return (
     <div className="min-h-screen bg-[#f5f5f7]">

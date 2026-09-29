@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { Search, User, ChevronDown, Home, Leaf, Package, Box, Building, Wrench, Paintbrush, Calculator, FileText, Shield, Menu, X, ShoppingCart } from 'lucide-react';
-import { useUser } from '@hexclave/next';
+import { useUser, useStackApp } from '@hexclave/next';
 
 const StandardNavbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<any>(null);
@@ -13,6 +13,29 @@ const StandardNavbar = () => {
   const navRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
   const user = useUser({ or: 'return-null' });
+  const app = useStackApp();
+  const [selfInfo, setSelfInfo] = useState<{ role: string | null; is_admin: boolean } | null>(null);
+
+  useEffect(() => {
+    const uid = user?.id ?? null;
+    if (!uid) {
+      setSelfInfo(null);
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      try {
+        const authHeaders = await app.getAuthHeaders();
+        const res = await fetch('/api/user/me', { headers: authHeaders });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!cancelled) setSelfInfo(data);
+      } catch {
+        // Non-critical: nav just falls back to the default link set.
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [user?.id, app]);
 
   const handleDropdownToggle = (dropdown) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
@@ -106,10 +129,8 @@ const StandardNavbar = () => {
           {/* Left — logo + nav links */}
           <div className="flex items-center gap-5 sm:gap-7 min-w-0">
             <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-              <div className="w-8 h-8 bg-[#1d1d1f] rounded-lg flex items-center justify-center ring-1 ring-inset ring-[#c9a54b]/70 shadow-[0_0_0_1px_rgba(201,165,75,0.15)]">
-                <span className="text-[#e8c874] font-bold text-sm">A</span>
-              </div>
-              <span className="text-lg font-bold text-[#1d1d1f] hidden sm:block">AddonProp</span>
+              <img src="/brand/logo.webp" alt="Add On Properties" className="w-8 h-8 rounded-lg object-cover" />
+              <span className="text-lg font-bold text-[#1d1d1f] hidden sm:block">Add On Properties</span>
             </Link>
 
             <div className="hidden md:flex items-center gap-5">
@@ -202,6 +223,16 @@ const StandardNavbar = () => {
                       <Link href="/dashboard/quotes" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
                         My Quote Requests
                       </Link>
+                      {(selfInfo?.role === 'service_provider' || selfInfo?.role === 'builder') && (
+                        <Link href="/dashboard/provider-quotes" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                          Find Jobs to Quote
+                        </Link>
+                      )}
+                      {selfInfo?.is_admin && (
+                        <Link href="/admin" className="block px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm" onClick={closeDropdowns}>
+                          Admin Dashboard
+                        </Link>
+                      )}
                       <button
                         onClick={() => { user.signOut(); closeDropdowns(); }}
                         className="block w-full text-left px-4 py-2.5 text-[#1d1d1f]/80 hover:bg-black/5 hover:text-[#1d1d1f] transition-colors duration-150 text-sm"

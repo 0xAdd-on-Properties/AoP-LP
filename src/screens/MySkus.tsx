@@ -45,7 +45,7 @@ export default function MySkus() {
       }
     };
     void load();
-  }, [app, user]);
+  }, [user?.id, app]);
 
   const handleDelete = async (id: number) => {
     if (!confirm('Delete this SKU?')) return;

@@ -252,7 +252,7 @@ const SustainableArchitecture = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section id="rail-architecture" className="py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mb-12 sm:mb-16">
           <p className="text-sm font-medium text-emerald-600 mb-3">Sustainable Architecture</p>

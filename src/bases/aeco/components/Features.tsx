@@ -46,6 +46,7 @@ const Features = () => {
       icon: <Search className="w-8 h-8" />,
       title: "Property Search",
       description: "AI-powered property discovery with advanced filters and recommendations",
+      image: "https://images.pexels.com/photos/8730024/pexels-photo-8730024.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-emerald-500 to-green-500",
       details: {
         overview: "Advanced AI-powered property search engine that understands your preferences and lifestyle needs.",
@@ -58,6 +59,7 @@ const Features = () => {
       icon: <Waves className="w-8 h-8" />,
       title: "Drone Tech",
       description: "Advanced drone surveying for accurate property assessment and monitoring",
+      image: "https://images.pexels.com/photos/5413118/pexels-photo-5413118.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-teal-500 to-cyan-500",
       details: {
         overview: "Cutting-edge drone technology for comprehensive property analysis and monitoring.",
@@ -70,6 +72,7 @@ const Features = () => {
       icon: <Leaf className="w-8 h-8" />,
       title: "Sustainable Materials",
       description: "Eco-friendly construction materials marketplace with carbon footprint tracking",
+      image: "https://images.pexels.com/photos/33894664/pexels-photo-33894664.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-green-500 to-emerald-500",
       details: {
         overview: "Curated marketplace of sustainable construction materials with full lifecycle tracking.",
@@ -82,6 +85,7 @@ const Features = () => {
       icon: <Flower2 className="w-8 h-8" />,
       title: "Sustainable Furnishings",
       description: "Interior design solutions with sustainable and locally sourced materials",
+      image: "https://images.pexels.com/photos/37415406/pexels-photo-37415406.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-green-500 to-emerald-500",
       details: {
         overview: "Complete interior design solutions using eco-friendly and locally crafted furnishings.",
@@ -94,6 +98,7 @@ const Features = () => {
       icon: <Mountain className="w-8 h-8" />,
       title: "Vastu-Optimized Design",
       description: "Ancient architectural wisdom meets modern sustainability",
+      image: "https://images.pexels.com/photos/31969419/pexels-photo-31969419.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-emerald-500 to-teal-500",
       details: {
         overview: "Harmonious living spaces designed using ancient Vastu principles integrated with modern sustainability.",
@@ -106,6 +111,7 @@ const Features = () => {
       icon: <Sun className="w-8 h-8" />,
       title: "Renewable Energy Systems",
       description: "Solar, wind, and biogas integration for complete energy independence",
+      image: "https://images.pexels.com/photos/35425765/pexels-photo-35425765.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-yellow-400 to-emerald-500",
       details: {
         overview: "Complete renewable energy solutions for total energy independence and carbon neutrality.",
@@ -118,6 +124,7 @@ const Features = () => {
       icon: <Droplets className="w-8 h-8" />,
       title: "Hydro & Aquaponics",
       description: "Closed-loop water systems with food production capabilities",
+      image: "https://images.pexels.com/photos/7509424/pexels-photo-7509424.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-cyan-500 to-teal-500",
       details: {
         overview: "Integrated water management and food production systems for complete self-sufficiency.",
@@ -130,6 +137,7 @@ const Features = () => {
       icon: <TreePine className="w-8 h-8" />,
       title: "Carbon Sink Creation",
       description: "Properties designed to absorb more carbon than they produce",
+      image: "https://images.pexels.com/photos/11780322/pexels-photo-11780322.png?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-green-600 to-emerald-600",
       details: {
         overview: "Transform properties into carbon-negative environments that actively fight climate change.",
@@ -142,6 +150,7 @@ const Features = () => {
       icon: <Recycle className="w-8 h-8" />,
       title: "Waste to Resource",
       description: "Advanced waste management turning waste into valuable resources",
+      image: "https://images.pexels.com/photos/7512849/pexels-photo-7512849.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-teal-600 to-cyan-600",
       details: {
         overview: "Revolutionary waste management systems that convert all waste streams into valuable resources.",
@@ -154,6 +163,7 @@ const Features = () => {
       icon: <Sparkles className="w-8 h-8" />,
       title: "Asset Tokenization",
       description: "Convert real estate assets into blockchain tokens for better liquidity and fractional ownership",
+      image: "https://images.pexels.com/photos/30547584/pexels-photo-30547584.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-emerald-500 to-green-600",
       details: {
         overview: "Blockchain-powered asset tokenization enabling fractional ownership and enhanced liquidity.",
@@ -166,6 +176,7 @@ const Features = () => {
       icon: <Globe className="w-8 h-8" />,
       title: "3D Tours & Web3",
       description: "Immersive virtual property tours with metaverse integration and blockchain assets",
+      image: "https://images.pexels.com/photos/8730022/pexels-photo-8730022.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-cyan-500 to-teal-600",
       details: {
         overview: "Next-generation property visualization with immersive 3D tours and metaverse integration.",
@@ -178,6 +189,7 @@ const Features = () => {
       icon: <Building2 className="w-8 h-8" />,
       title: "3D Printed Construction",
       description: "Rapid, precise, and sustainable building technology",
+      image: "https://images.pexels.com/photos/20341728/pexels-photo-20341728.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-teal-600 to-cyan-600",
       details: {
         overview: "Revolutionary 3D printing technology for rapid, precise, and sustainable construction.",
@@ -190,6 +202,7 @@ const Features = () => {
       icon: <Home className="w-8 h-8" />,
       title: "Earthship Technology",
       description: "Self-sufficient homes using recycled materials and natural systems",
+      image: "/images/homes/earthship-eco-home.png",
       gradient: "from-emerald-600 to-green-600",
       details: {
         overview: "Completely self-sufficient homes built with recycled materials and natural energy systems.",
@@ -202,6 +215,7 @@ const Features = () => {
       icon: <Wind className="w-8 h-8" />,
       title: "Eco-Cooling Corridors",
       description: "Natural cooling systems reducing energy consumption by 70%",
+      image: "https://images.pexels.com/photos/32006325/pexels-photo-32006325.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-cyan-500 to-teal-500",
       details: {
         overview: "Natural cooling systems that reduce energy consumption while maintaining optimal comfort.",
@@ -214,6 +228,7 @@ const Features = () => {
       icon: <Thermometer className="w-8 h-8" />,
       title: "Smart Climate Control",
       description: "AI-powered systems optimizing comfort and efficiency",
+      image: "https://images.pexels.com/photos/27638181/pexels-photo-27638181.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-yellow-400 to-emerald-500",
       details: {
         overview: "Intelligent climate control systems that learn your preferences and optimize energy usage.",
@@ -226,6 +241,7 @@ const Features = () => {
       icon: <Sprout className="w-8 h-8" />,
       title: "Urban Food Forests",
       description: "Integrated agroforestry systems for urban environments",
+      image: "https://images.pexels.com/photos/37861012/pexels-photo-37861012.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-green-500 to-emerald-500",
       details: {
         overview: "Multi-layered food production systems that mimic natural forest ecosystems in urban settings.",
@@ -238,6 +254,7 @@ const Features = () => {
       icon: <Waves className="w-8 h-8" />,
       title: "Bio Pools & Gardens",
       description: "Natural swimming pools and therapeutic garden spaces",
+      image: "https://images.pexels.com/photos/16808430/pexels-photo-16808430.jpeg?auto=compress&cs=tinysrgb&w=600",
       gradient: "from-teal-500 to-cyan-500",
       details: {
         overview: "Chemical-free swimming pools and healing gardens that work with natural biological processes.",
@@ -249,7 +266,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white relative">
+    <section id="rail-innovations" className="py-16 sm:py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-2xl mb-12 sm:mb-16">
           <p className="text-sm font-medium text-emerald-600 mb-3">Sustainable Innovations</p>
@@ -262,25 +279,34 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+        <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group bg-white hover:bg-[#f5f5f7] transition-colors p-6 cursor-pointer min-w-0"
+              className="group relative shrink-0 w-64 sm:w-72 aspect-[3/4] rounded-3xl overflow-hidden cursor-pointer snap-start"
               onClick={() => handleFeatureClick(feature)}
             >
-              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center mb-4 text-emerald-600 [&>svg]:w-5 [&>svg]:h-5">
+              <img
+                src={feature.image}
+                alt={feature.title}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white [&>svg]:w-4 [&>svg]:h-4">
                 {feature.icon}
               </div>
-              <h3 className="text-base font-semibold text-[#1d1d1f] mb-1.5">
-                {feature.title}
-              </h3>
-              <p className="text-sm text-[#6e6e73] leading-relaxed">
-                {feature.description}
-              </p>
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <h3 className="text-white font-semibold text-lg mb-1 leading-snug">
+                  {feature.title}
+                </h3>
+                <p className="text-white/70 text-sm leading-snug line-clamp-2">
+                  {feature.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
+        <p className="text-[#86868b] text-sm mt-3 sm:hidden">Swipe to explore →</p>
 
         {/* Feature Details Modal */}
         {selectedFeature && (

@@ -7,7 +7,12 @@ const UPDATABLE_FIELDS = [
 ] as const;
 
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
-  const rows = await sql`SELECT * FROM properties WHERE id = ${params.id}`;
+  const rows = await sql`
+    SELECT p.*, u.display_name AS owner_name, u.email AS owner_email
+    FROM properties p
+    JOIN users u ON u.id = p.owner_id
+    WHERE p.id = ${params.id}
+  `;
   if (!rows[0]) return NextResponse.json({ error: 'Not found' }, { status: 404 });
   return NextResponse.json({ property: rows[0] });
 }

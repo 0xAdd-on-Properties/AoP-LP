@@ -45,7 +45,7 @@ export default function Checkout() {
       }
     };
     void load();
-  }, [app, user]);
+  }, [user?.id, app]);
 
   const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault();

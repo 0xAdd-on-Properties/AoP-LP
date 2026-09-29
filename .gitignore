@@ -72,3 +72,6 @@ next-env.d.ts
 .vercel
 .env*.local
 tsconfig.tsbuildinfo
+
+# Claude Code local state
+.claude/

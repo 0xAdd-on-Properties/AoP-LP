@@ -44,7 +44,7 @@ export default function Cart() {
       }
     };
     void load();
-  }, [app, user]);
+  }, [user?.id, app]);
 
   const updateQuantity = async (id: number, quantity: number) => {
     if (quantity <= 0) return;

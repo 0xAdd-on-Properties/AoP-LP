@@ -1,9 +1,42 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Search, ChevronDown } from 'lucide-react';
 
+const TYPED_WORDS = ['Bharat.', 'India.'];
+
+function useTypingLoop(words: string[], typeSpeed = 90, holdMs = 1400, deleteSpeed = 45) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [text, setText] = useState('');
+  const [phase, setPhase] = useState<'typing' | 'holding' | 'deleting'>('typing');
+
+  useEffect(() => {
+    const current = words[wordIndex];
+    if (phase === 'typing') {
+      if (text.length < current.length) {
+        const t = setTimeout(() => setText(current.slice(0, text.length + 1)), typeSpeed);
+        return () => clearTimeout(t);
+      }
+      const t = setTimeout(() => setPhase('holding'), holdMs);
+      return () => clearTimeout(t);
+    }
+    if (phase === 'holding') {
+      const t = setTimeout(() => setPhase('deleting'), holdMs);
+      return () => clearTimeout(t);
+    }
+    if (text.length > 0) {
+      const t = setTimeout(() => setText(current.slice(0, text.length - 1)), deleteSpeed);
+      return () => clearTimeout(t);
+    }
+    setWordIndex((i) => (i + 1) % words.length);
+    setPhase('typing');
+  }, [text, phase, wordIndex, words, typeSpeed, holdMs, deleteSpeed]);
+
+  return text;
+}
+
 const Hero = () => {
+  const typed = useTypingLoop(TYPED_WORDS);
   return (
     <section className="relative bg-[#f5f5f7] overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-28 sm:pt-32 pb-16 sm:pb-24">
@@ -12,11 +45,14 @@ const Hero = () => {
           <div className="min-w-0 space-y-6 sm:space-y-8">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] leading-[1.05]">
               Sustainable living,{' '}
-              <span className="text-emerald-600">built for India.</span>
+              <span className="text-emerald-600 inline-block min-w-[7ch] sm:min-w-[8ch]">
+                built for {typed}
+                <span className="inline-block w-[2px] h-[0.9em] bg-emerald-600 ml-0.5 align-middle animate-pulse" />
+              </span>
             </h1>
             <p className="text-base sm:text-lg text-[#6e6e73] leading-relaxed max-w-xl">
               Smart homes, eco-villages, and solar-powered communities — one
-              platform to discover, list, and build sustainably.
+              platform to discover, list, build, and invest sustainably.
             </p>
 
             {/* Search bar */}

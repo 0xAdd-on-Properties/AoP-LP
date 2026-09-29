@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Search, Package, Truck, Shield, Leaf, Zap, Droplets, TreePine, Recycle, ArrowRight, Star, Users, Globe, Building, Home, Facebook, Instagram, Linkedin, Youtube, Twitter } from 'lucide-react';
+import { Search, Package, Truck, Shield, Leaf, Zap, Droplets, TreePine, Recycle, ArrowRight, Star, Users, Globe, Building, Home } from 'lucide-react';
 import StandardNavbar from '../../../components/StandardNavbar';
+import Footer from '../../../components/Footer';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const AoPmarkets = () => {
@@ -303,94 +304,7 @@ const AoPmarkets = () => {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-[#1d1d1f] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">AoPM — AddonProp Markets</h2>
-            <p className="text-white/60 mb-6">
-              Your one-stop destination for all sustainable marketplaces. From properties to
-              materials, we've got you covered.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 pt-10 border-t border-white/10">
-            <div className="min-w-0">
-              <h3 className="font-semibold mb-3 text-sm">Company</h3>
-              <div className="space-y-2 text-sm">
-                {['Careers', 'About Us', 'Our Team', 'Terms', 'Refund Policy', 'Privacy Policy', 'Contact Us'].map((link) => (
-                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="min-w-0">
-              <h3 className="font-semibold mb-3 text-sm">Marketplaces</h3>
-              <div className="space-y-2 text-sm">
-                {['Properties', 'Materials', 'Furnishings', 'Systems', 'Technologies'].map((link) => (
-                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="min-w-0">
-              <h3 className="font-semibold mb-3 text-sm">Explore</h3>
-              <div className="space-y-2 text-sm">
-                {['News', 'Loans', 'Rental', 'Investment'].map((link) => (
-                  <a key={link} href="#" className="block text-white/60 hover:text-white transition-colors">
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="min-w-0">
-              <h3 className="font-semibold mb-3 text-sm">Mobile App</h3>
-              <div className="space-y-2 text-sm">
-                <p className="text-white/60">Download our mobile app for better experience</p>
-                <div className="flex gap-2 mb-4">
-                  <div className="w-20 h-8 bg-white/10 rounded flex items-center justify-center">
-                    <span className="text-xs">App Store</span>
-                  </div>
-                  <div className="w-20 h-8 bg-white/10 rounded flex items-center justify-center">
-                    <span className="text-xs">Play Store</span>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Facebook className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Instagram className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Youtube className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    <Twitter className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-white/10 text-center">
-            <p className="text-white/50 text-sm">
-              © 2025 AddonProp Markets. All rights reserved. Built with love by{' '}
-              <a href="https://studio.sted.space" className="text-white/70 hover:text-white transition-colors underline">
-                studio.sted.space
-              </a>
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Category Details Modal */}
       {selectedCategory && (

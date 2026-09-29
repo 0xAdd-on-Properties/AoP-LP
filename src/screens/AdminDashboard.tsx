@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useStackApp, useUser } from '@hexclave/next';
-import { Check, Trash2, Plus, ShieldCheck, ExternalLink } from 'lucide-react';
+import { Check, Trash2, Plus, ShieldCheck, ExternalLink, Database } from 'lucide-react';
 import StandardNavbar from '../components/StandardNavbar';
 
 type Stats = {
@@ -96,7 +96,7 @@ export default function AdminDashboard() {
       }
     };
     void load();
-  }, [app, user]);
+  }, [user?.id, app]);
 
   const toggleVerified = async (id: number, verified: boolean) => {
     const authHeaders = await app.getAuthHeaders();
@@ -159,7 +159,16 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-[#f5f5f7]">
       <StandardNavbar />
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-32 pb-16">
-        <h1 className="text-3xl font-bold text-[#1d1d1f] mb-2">Admin</h1>
+        <div className="flex items-start justify-between gap-4 flex-wrap mb-2">
+          <h1 className="text-3xl font-bold text-[#1d1d1f]">Admin</h1>
+          <Link
+            href="/admin/crm"
+            className="inline-flex items-center gap-2 bg-[#1d1d1f] hover:bg-black text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+          >
+            <Database className="w-3.5 h-3.5" />
+            Supplier CRM
+          </Link>
+        </div>
         <p className="text-[#6e6e73] mb-10">Platform overview, supplier directory review, and persona test links.</p>
 
         {error && <p className="text-red-600 mb-6">{error}</p>}

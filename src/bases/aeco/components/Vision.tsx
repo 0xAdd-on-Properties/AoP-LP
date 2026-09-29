@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useState } from 'react';
-import { Target, Users, Globe, Zap, TreePine, Home } from 'lucide-react';
+import { Globe, Zap, TreePine, Home } from 'lucide-react';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 const Vision = () => {
@@ -188,7 +188,7 @@ const Vision = () => {
           <p className="text-sm font-medium text-emerald-400 mb-4">Our Vision</p>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-            Making India's smart cities and villages a reality
+            Making India's smart cities and villages an affordable reality
           </h2>
 
           <p className="text-lg text-white/60 leading-relaxed">
@@ -202,11 +202,13 @@ const Vision = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="min-w-0">
               <h3 className="text-xl font-bold text-white mb-3">Our Mission</h3>
+              <p className="text-white font-bold text-base mb-3">We wanna do this with you.</p>
               <p className="text-white/60 text-sm leading-relaxed mb-5">
                 To democratize sustainable living by making eco-friendly, technologically
                 advanced properties accessible to every family in Bharat. We handle the R&D
                 and heavy lifting with advanced technologies, ensuring sustainable housing
-                remains affordable and seamless.
+                remains affordable and seamless — but it's only possible if we join hands
+                together, as builders, suppliers, architects, and residents.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="bg-white/10 px-3 py-1.5 rounded-full text-white/80 text-xs font-medium">Ancient Wisdom</span>
@@ -215,13 +217,16 @@ const Vision = () => {
               </div>
             </div>
 
-            <div className="bg-white/5 rounded-2xl h-48 flex items-center justify-center min-w-0">
-              <div className="text-center px-4">
-                <div className="w-14 h-14 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-7 h-7 text-emerald-400" />
-                </div>
+            <div className="relative rounded-2xl h-48 overflow-hidden min-w-0">
+              <img
+                src="https://images.pexels.com/photos/36848903/pexels-photo-36848903.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="A family gathered outside their home in an Indian village"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 p-5">
                 <h4 className="text-white text-base font-semibold mb-1">Community First</h4>
-                <p className="text-white/50 text-sm">Building sustainable communities for all generations</p>
+                <p className="text-white/70 text-sm">Building sustainable communities for all generations</p>
               </div>
             </div>
           </div>

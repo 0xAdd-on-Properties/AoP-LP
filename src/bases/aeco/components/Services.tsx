@@ -115,7 +115,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section id="rail-services" className="py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-2xl mb-12 sm:mb-16">
           <p className="text-sm font-medium text-emerald-600 mb-3">Our Services</p>
@@ -135,7 +135,7 @@ const Services = () => {
             suburban sustainable woodhouse or farmhouse.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-black/5 rounded-2xl overflow-hidden border border-black/5 mb-px">
             {residentServices.map((service, index) => (
               <div
                 key={index}
@@ -154,6 +154,24 @@ const Services = () => {
               </div>
             ))}
           </div>
+
+          <a
+            href="/get-a-quote"
+            className="group relative block rounded-2xl overflow-hidden h-40 sm:h-48"
+          >
+            <img
+              src="https://images.pexels.com/photos/13223714/pexels-photo-13223714.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Solar panels on an Indian rooftop, representing sustainable investment"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+            <div className="absolute inset-0 flex items-center px-6 sm:px-10">
+              <div>
+                <h4 className="text-white text-xl sm:text-2xl font-bold mb-1">Invest into sustainability</h4>
+                <p className="text-white/80 text-sm sm:text-base">Put your capital behind homes and materials built to last.</p>
+              </div>
+            </div>
+          </a>
         </div>
 
         {/* For Businesses */}

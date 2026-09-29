@@ -47,7 +47,7 @@ export default function MyOrders() {
       }
     };
     void load();
-  }, [app, user]);
+  }, [user?.id, app]);
 
   const statusClass = (status: string) => {
     if (status === 'fulfilled') return 'bg-emerald-50 text-emerald-700';
